@@ -12,6 +12,7 @@ import { WebAppService } from './web-app/Services/webapp-service';
   animations: [fadeAnimation]
 })
 export class AppComponent  implements OnInit{
+  //test git
   ngOnInit(): void {
     let profile=localStorage.getItem("Profile"); 
     this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
