@@ -1,0 +1,108 @@
+ 
+
+   <div class="section-main-web-app">
+    	
+		<section class="main-web-app">
+			
+			<div class="main-web-app-top">
+				
+				<div class="web-app-title">
+					<div class="title-web-app">اطلاعات ارسال</div>
+				</div>
+			
+			</div>
+			<a [routerLink]="['/map']"  class="back-web-app"><i class="fas fa-angle-left"></i></a>
+			<div class="main-web-app-form">
+			
+				<p> انتخاب نوع ارسال</p>
+				<div class="vecl-type">
+				 
+					<input type="radio" id="darb" name="type-web-app" class="radio-type" (click)="PostType(0)" [checked]="typeCity==0? true: false">
+				    <label for="darb" class="vecl-type-label1" data-toggle="modal" data-target="#myModal3"></label>
+					
+					<input type="radio" id="terminal" name="type-web-app" class="radio-type" (click)="PostType(1)"  [checked]="typeCity==1? true: false">
+				    <label for="terminal" class="vecl-type-label2" data-toggle="modal" data-target="#myModal3" ></label>
+				</div>
+			 
+				<form class="maghsad" *ngIf="typeCity!=3">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+						<select   (change)="SelectProvince($event.target.value)" >
+						<option >
+							<p *ngIf="destinationModel.province!=undefined"> {{destinationModel.province}}</p>
+							<p *ngIf="destinationModel.province==undefined"> استان</p>
+						</option>
+            <option *ngFor="let item of Provinces"   >  {{item}} </option>
+						</select>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+						<select (change)="SelectCity($event.target.value)">
+						<option>
+								<p *ngIf="destinationModel.city!=undefined"> {{destinationModel.city}}</p>
+								<p *ngIf="destinationModel.city==undefined"> شهر</p>
+						</option>
+            <option *ngFor="let city of Cities" value="{{city.name}}">{{city.name}}</option>
+						</select>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="typeCity!=3">
+					<input type="text" placeholder="نام و نام خانوادگی گیرنده"  [(ngModel)]="destinationModel.receiverName" name="receiverName"><br>
+					<input type="text" placeholder="آدرس گیرنده" [(ngModel)]="destinationModel.street" [disabled]="typeCity==1" name="street"><br>
+					<input type="text" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber" maxlength="13"><br>
+					</div>
+			
+				</form>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  *ngIf="typeCity==3" >لطفا نوع ارسال بسته را وارد کنید</div>
+			<div class="btn-web-app"><a (click)="AcceptDestination()">تایید و ادامه</a></div>
+		</section>
+		
+		</div>
+
+		
+		<div id="myModal3" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<div class="modal-content modal-content-packs">
+
+			  <div class="modal-body">
+
+					<p class="type-modal">در صورت انتخاب درب منزل مرسوله شما در آدرس وارد شده به گیرنده تحویل داده می شود</p>
+					 <div class="btn-circle-download" id="btn-ok-address">
+						  <svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
+							<path d="M24,15 L24,32"></path>
+							<polyline points="30 27 24 33 18 27"></polyline>
+						  </svg>
+						  <svg id="check" width="21px" height="15px" viewBox="13 17 21 15">
+							<polyline points="32.5 18.5 20 31 14.5 25.5"></polyline>
+						  </svg>
+						  <svg  id="border" width="48px" height="48px" viewBox="0 0 48 48">
+							<path d="M24,1 L24,1 L24,1 C36.7025492,1 47,11.2974508 47,24 L47,24 L47,24 C47,36.7025492 36.7025492,47 24,47 L24,47 L24,47 C11.2974508,47 1,36.7025492 1,24 L1,24 L1,24 C1,11.2974508 11.2974508,1 24,1 L24,1 Z"></path>
+						  </svg>
+				     </div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		<div id="myModal4" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<div class="modal-content modal-content-packs">
+
+			  <div class="modal-body">
+					<p class="type-modal">در صورت انتخاب درب منزل مرسوله شما در آدرس وارد شده به گیرنده تحویل داده می شود</p>
+					 <div class="btn-circle-download" id="btn-ok-address">
+						  <svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
+							<path d="M24,15 L24,32"></path>
+							<polyline points="30 27 24 33 18 27"></polyline>
+						  </svg>
+						  <svg id="check" width="21px" height="15px" viewBox="13 17 21 15">
+							<polyline points="32.5 18.5 20 31 14.5 25.5"></polyline>
+						  </svg>
+						  <svg  id="border" width="48px" height="48px" viewBox="0 0 48 48">
+							<path d="M24,1 L24,1 L24,1 C36.7025492,1 47,11.2974508 47,24 L47,24 L47,24 C47,36.7025492 36.7025492,47 24,47 L24,47 L24,47 C11.2974508,47 1,36.7025492 1,24 L1,24 L1,24 C1,11.2974508 11.2974508,1 24,1 L24,1 Z"></path>
+						  </svg>
+				     </div>
+			  </div>
+			</div>
+		  </div>
+		</div>

@@ -1,0 +1,129 @@
+
+
+    <div class="section-main-web-app">
+    	
+		<section class="main-web-app">
+			
+			<div class="main-web-app-top">
+				
+				<div class="web-app-title">
+					
+                    <div class="title-web-app">فعالیت های یارباکس</div>
+                   
+				</div>
+			
+			</div>
+			<a href="#" class="back-web-app"><i class="fas fa-angle-left"></i></a>
+			<div class="main-web-app">
+				
+				<ul class="nav nav-tabs nav-active">
+				  <li class="active"><a data-toggle="tab" href="#menu1">در حال اجرا</a></li>
+				  <li><a data-toggle="tab" href="#menu2">ناموفق</a></li>
+				 
+				</ul>
+
+				<div class="tab-content">
+				  
+				  <div id="menu1" class="tab-pane fade  in active"   >
+					
+					<div class="box-pack-web-app" *ngFor="let pack of PacksRuning" >
+                        <div  *ngIf="pack.isCanceled==false">
+                                <div class="head-pack">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                            {{pack.receiverName}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        کد مرسوله :  {{pack.id}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        97/12/10
+                                        </div>
+                                    </div> 
+                                    <div class="body-pack">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                             <div class="step-pack step-pack1 done">
+                                                <div class="step-i"><i class="fas fa-user-astronaut"></i></div>
+                                                <span class="step-span">تحویل به پیک</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                             <div class="step-pack step-pack2 done">
+                                                <div class="step-i"><i class="fas fa-user-astronaut"></i></div>
+                                                <span class="step-span">پورت مقصد</span></div> 
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                            <div class="step-pack step-pack3">
+                                                <div class="step-i"><i class="fas fa-user-astronaut"></i></div>
+                                                <span class="step-span">پورت مبدا</span></div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                            <div class="step-pack step-pack4">
+                                                <div class="step-i"><i class="fas fa-user-astronaut"></i></div>
+                                                <span class="step-span">گیرنده</span></div>
+                                        </div>
+                                    </div>
+                        </div>
+				
+					
+					</div>
+				 
+				  </div>
+					
+					
+				  <div id="menu2" class="tab-pane fade">
+					
+					<div class="box-pack-web-app" *ngFor="let pack of PacksRuning" >
+                        <div *ngIf="pack.isCanceled==true">
+                                <div class="head-pack head-pack1">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                            {{pack.receiverName}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        کد مرسوله :    {{pack.id}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        97/12/10
+                                        </div>
+                                    </div> 
+                                    <div class="hover-Unsuccess">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <i class="fas fa-check hover-Unsuccess1"></i><br>
+                                        <a href="#">سفارش مجدد</a>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <i class="fas fa-times hover-Unsuccess2"></i><br>
+                                        <a href="#">حذف سفارش</a>
+                                        </div>
+                                    </div>
+                                    <div class="body-pack body-pack-unsuc">
+                                        
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                             <div class="step-pack step-pack1 done">تحویل به پیک</div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                             <div class="step-pack step-pack2 done">پورت مقصد</div> 
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                            <div class="step-pack step-pack3">پورت مبدا</div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                            <div class="step-pack step-pack4">گیرنده</div>
+                                        </div>
+                                    </div>
+                                    
+                        </div>
+					</div> 
+				  </div>
+				</div>
+				
+
+					
+			</div>
+			
+			<div class="btn-web-app">
+				<a  [routerLink]="['/map']">ارسال بسته جدید</a>
+				</div>
+		</section>
+		
+		</div>
+  

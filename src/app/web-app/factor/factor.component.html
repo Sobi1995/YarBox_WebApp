@@ -1,0 +1,116 @@
+ 	<div class="section-main-web-app">
+    	
+		<section class="main-web-app">
+			
+			<div class="main-web-app-top main-web-app-top2">
+				
+				<div class="web-app-title">
+					
+					<div class="title-web-app">فاکتور</div>
+				</div>
+			
+			</div>
+			<a  [routerLink]="['/choose-vehicle']" class="back-web-app"><i class="fas fa-angle-left"></i></a>
+			<div class="main-web-app">
+				<ul class="nav nav-tabs nav-factor">
+				  <li><a data-toggle="tab" href="#menu1">گیرنده</a></li>
+				  <li class="active"><a data-toggle="tab" href="#menu2">فرستنده</a></li>
+				 
+				</ul>
+
+				<div class="tab-content tab-factor">
+				  
+				  <div id="menu1" class="tab-pane fade">
+				  <div> نام : {{Factor.sender.name}} </div>  <br>
+				  <div>ادرس :{{Factor.sender.address}}  </div>  <br>
+				  <div>شماره همراه :{{Factor.sender.phoneNumber}}  </div>  <br>
+				  </div>
+				  <div id="menu2" class="tab-pane fade in active">
+					<div> نام : {{Factor.receiver.name}} </div>  <br>
+					<div>ادرس :{{Factor.receiver.address}}  </div>  <br>
+					<div>شماره همراه :{{Factor.receiver.phoneNumber}}  </div>  <br>
+				  </div>
+				</div>
+				<div class="info-web-app">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+					<div class="vecle-type">
+						
+			    <img *ngIf="Factor.vehicleId==1" src="/assets/img/5-vasileye-naghlie3motor.svg" width="70" height="70">
+				<img *ngIf="Factor.vehicleId==2" src="/assets/img/5-vasileye-naghlie1pride.svg" width="70" height="70">
+				<img *ngIf="Factor.vehicleId==3"src="/assets/img/5-vasileye-naghlie2pride-vanet.svg" width="70" height="70">
+						
+					</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+					<a href="#" class="info-web-app-a" data-toggle="modal" data-target="#myModal1">مشاهده جزییات بسته</a>
+					</div>
+				</div>
+				
+				<div id="myModal1" class="modal fade" role="dialog">
+				  <div class="modal-dialog">
+
+					<div class="modal-content modal-content-packs">
+					  
+					  <div class="modal-body">
+						  
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">جزییات بسته</h4>
+						
+						</div>
+						<br>
+						<div *ngFor="let paks of Factor.packdetails">
+							{{paks.count}} عدد  مرسوله   {{paks.type}} کیلو
+					  </div>
+						  
+					  </div>
+					  
+					</div>
+
+				  </div>
+				</div>
+				
+				<div class="hazine">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+					<h3>هزینه ارسال</h3>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: left;"> 
+						<span>{{Factor.price}}</span>تومان
+					</div>
+				</div>
+				<div class="pay-factor">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<input type="radio" id="magsad" name="pay-web-app" class="radio-pay" (click)="paymentType(true,true)">
+				<label for="magsad">پرداخت نقدی در مقصد</label>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<input type="radio" id="mabda" name="pay-web-app" class="radio-pay" (click)="paymentType(false,false)">
+				<label for="mabda">پرداخت نقدی در مبدا</label>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<input type="radio" id="kif" name="pay-web-app" class="radio-pay" (click)="paymentType(true,false)">
+				<label for="kif" class="kif">پرداخت اعتباری در مبدا</label>
+				</div>
+				</div>
+			
+				<div class="hazine">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+					<h3>کیف پول شما</h3>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: left;"> 
+						<span>{{Profile.credit}}</span>تومان
+					</div>
+				</div>
+				
+				<div class="pay-btn-web-app">
+					<a href="#"><img src="/assets/img/3-mosbat.svg" width="22" height="22">شارژ کیف پول</a></div>
+				
+
+			</div>
+			
+			<div class="btn-web-app"><a (click)="SerchingDriver()">ثبت درخواست</a></div>
+		</section>
+		
+		</div>
+       
+

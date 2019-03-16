@@ -1,0 +1,59 @@
+ 
+
+
+
+  <div class="section-main-web-app">
+    	
+      <section class="main-web-app">
+        
+        <div class="main-web-app-top">
+          
+          <div class="web-app-title">
+            
+            <div class="title-web-app">انتخاب وسیله</div>
+          </div>
+        
+        </div>
+        <a [routerLink]="['/postPack-deities']" class="back-web-app"><i class="fas fa-angle-left"></i></a>
+        <div class="main-web-app">
+          
+          <div class="vecle-part" (click)="ChooseVehicle(1)">
+            
+          <input type="radio" id="vecl-type-1" name="vecl-type" [checked]="vehicle==1? true: false"> 
+          <label for="vecl-type-1">
+          <span>موتور سیکلت</span>
+          <br>حجم بار تا سقف 25 کیلوگرم
+          <div class="vecle-part-image"></div>	
+          </label>
+          
+            
+          </div>
+          
+          <div class="vecle-part">
+            
+          <input type="radio" id="vecl-type-2" name="vecl-type" (click)="ChooseVehicle(2)" [checked]="vehicle==2? true: false"> 
+          <label for="vecl-type-2">
+          <span>اتومبیل سواری</span>
+          <br>حجم بار تا سقف 100 کیلوگرم
+          <div class="vecle-part-image"></div>	
+          </label>
+          
+            
+          </div>
+          
+          <div class="vecle-part">
+            
+          <input type="radio" id="vecl-type-3" name="vecl-type" (click)="ChooseVehicle(3)" [checked]="vehicle==3? true: false"> 
+          <label for="vecl-type-3">
+          <span>وانت بار</span>
+          <br>حجم بار تا سقف 600 کیلوگرم
+          <div class="vecle-part-image"></div>	
+          </label>
+          </div> 
+        </div>
+        
+        <div class="btn-web-app">
+          <a  (click)="getFactor()" >ثبت درخاست</a>
+          </div>
+      </section>
+  

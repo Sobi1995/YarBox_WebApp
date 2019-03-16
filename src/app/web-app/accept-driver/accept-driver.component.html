@@ -1,0 +1,90 @@
+<div class="section-main-web-app">
+    	
+  <section class="main-web-app">
+    
+    <div class="main-web-app-top">
+      
+      <div class="web-app-title">
+        
+        <div class="title-web-app">اطلاعات راننده شما</div>
+      </div>
+    
+    </div>
+    <a href="#" class="back-web-app"><i class="fas fa-angle-left"></i></a>
+    <div class="main-web-app">
+      
+      <div class="map-web-app">
+          <agm-map 
+					[latitude]="lat"
+					[longitude]="lng"
+					[zoom]="zoom"
+					[disableDefaultUI]="false"
+					[zoomControl]="false"
+					(mapClick)="mapClicked($event)">
+				
+					<agm-marker 
+							*ngFor="let m of markers; let i = index"
+							(markerClick)="clickedMarker(m.label, i)"
+							[latitude]="m.lat"
+							[longitude]="m.lng"
+							[label]="m.label"
+							[markerDraggable]="m.draggable"
+              (dragEnd)="markerDragEnd(m, $event)"
+              [iconUrl]="marckerIco">
+							
+						<agm-info-window>
+							<strong>InfoWindow content</strong>
+						</agm-info-window>
+						
+					</agm-marker>
+					
+				 
+				
+        </agm-map>
+        
+      <div class="info-driver1">
+        <div class="info-driver1-line1">
+          <div class="col-lg-6 col-md-6 col-sm-5 col-xs-5">
+            <h3>راننده شما</h3>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-7 col-xs-7">
+            <span>پرداخت نقدی در مقصد</span>
+          </div>
+        </div>
+        <div class="info-driver1-line2">
+          <div class="col-lg-6 col-md-6 col-sm-8 col-xs-8">
+            <div class="img-driver">
+                 <img src="http://file.yarbox.co/images/driverInfoImage/{{Driver.drivingCertificatePhotoName}}"  > 
+            </div>
+            <div class="info-driver">
+            <span class="name-driver">{{Driver.firstName}}  {{Driver.lastName}}</span><br>
+          
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-4 col-xs-4">
+            <span class="info-driver1-line2-span"><img src="/assets/img/8-mob.svg" width="50" height="50"></span>
+          </div>
+        </div>
+        
+      </div>
+      <div class="info-driver2">
+        
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding: 0">
+          <span class="img-car">
+            <img *ngIf="Driver.vehicleTypeId==1" src="/assets/img/5-vasileye-naghlie3motor.svg" width="70" height="70">
+            <img *ngIf="Driver.vehicleTypeId==2" src="/assets/img/5-vasileye-naghlie1pride.svg" width="70" height="70">
+            <img *ngIf="Driver.vehicleTypeId==3"src="/assets/img/5-vasileye-naghlie2pride-vanet.svg" width="70" height="70">
+          </span>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+          <span class="pelak-car">{{Driver.plaque}}</span>
+        </div>
+      </div>
+      
+      </div>
+      
+
+        
+    </div>
+    
+  </section>

@@ -1,0 +1,65 @@
+
+
+		<div class="section-main-web-app">
+    	
+			<section class="main-web-app">
+
+
+		<a id="menu-toggle" href="#" class="btn btn-lg toggle"><img src="/assets/img/3-meno.svg" width="25" height="25"></a>
+			<div id="sidebar-wrapper">
+				
+				
+			  <ul class="sidebar-nav">
+				<a id="menu-close" href="#" class="btn btn-lg pull-right toggle"><i class="fas fa-times"></i></a>
+				<!--li class="sidebar-brand">
+				  <a href="#">Project name</a>
+				</li-->
+				 <li class="sidebar-top">
+					<div>
+						<!--div class="sidebar-top-img"><i class="fas fa-user"></i></div-->
+						<div class="sidebar-top-info">
+							<div class="profile-info"><p class="name-user">{{jsonProfile.firstName}}  {{jsonProfile.lastName}}</p></div>
+							<div class="profile-info emtiaz"><span>{{jsonProfile.point}}</span>امتیاز</div>
+						</div>
+					</div> 
+				</li>
+				<li>
+					<div class="etebar-side-bar">
+					اعتبار شما <span>{{jsonProfile.credit}}</span>تومان<a href="#"><img src="/assets/img/3-mosbat.svg" width="25" height="25"></a>
+					</div>
+				</li>
+				<li>
+				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-gozareshat.svg" width="35" height="35">گزارشات</a>
+				</li>
+				<li>
+				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">فعالیت ها</a>
+				</li>
+				<li>
+				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-adreshaye-montakhab.svg" width="35" height="35">آدرس های منتخب</a>
+				</li>
+				  <li>
+				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-sandoghe-payam.svg" width="35" height="35">صندوق پیام</a>
+				</li>
+				<li>
+				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-darbareye-ma.svg" width="35" height="35">درباره ما</a>
+				</li>
+				<li>
+				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-poshtibani.svg" width="35" height="35">پشتیبانی</a>
+				</li>
+				  <li>
+				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-khorooj.svg" width="35" height="35">خروج</a>
+				</li>
+			  </ul>
+			</div>
+
+		</section>
+		
+	</div>
+
+
+<main [@fadeAnimation]="getRouterOutletState(o)">
+    <router-outlet #o="outlet">
+      <img id="loding" [hidden]="!getLodingStatus()"  src="/assets/img/loding.gif" >
+ 
+    </router-outlet>
+  </main>

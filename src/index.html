@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Webapp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./assets/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/public.css">
+		<link rel="stylesheet" type="text/css" href="./assets/css/custom.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+  
+ 
+  
+
+<app-root></app-root>
+    
+</body>
+</html>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.carousel.js"></script>
+<script src="assets/js/public.js"></script>
+<script src="assets/js/slimscroll.js"></script>
+<script src="assets/js/profile.js"></script>
+
+   <script>
+    $(function() {
+      $('#toggle').on('change', function() {
+        if ($(this).is(':checked')) {
+          $(".time-form").css( "display", "inline-block" );	 
+        } else {
+          $(".time-form").hide();
+        }
+      });
+
+      
+    });
+
+    </script>

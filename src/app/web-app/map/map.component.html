@@ -1,0 +1,63 @@
+ 
+
+ <div class="section-main-web-app">
+    	
+	<section class="main-web-app">
+		
+		<div class="main-web-app-top main-web-app-top1">
+	 
+	 
+			
+			<div class="title-web-app1">
+				<p>ثبت مبدا</p>
+				<img src="/assets/img/3-mabda.svg" width="25" height="25" class="icon-serch1">
+				<input type="search"  value={{_packService.getAddress()}}>
+				<img src="/assets/img/3-search.svg" width="25" height="25" class="icon-serch2">
+			</div>
+		
+		</div>
+	 
+		<div class="main-web-app-map">
+				<div class="marker-orgin"><a href="#"><img src="/assets/img/locstion.svg" width="70" height="70"></a></div>
+				<div class="fav-address-orgin"><a href="#"><img src="/assets/img/3-setareh.svg" width="22" height="22"></a></div>
+				
+				<agm-map 
+					[latitude]="lat"
+					[longitude]="lng"
+					[zoom]="zoom"
+					[disableDefaultUI]="false"
+					[zoomControl]="false"
+					(mapClick)="mapClicked($event)"
+					
+					>
+				
+					<agm-marker 
+							*ngFor="let m of markers; let i = index"
+							(markerClick)="clickedMarker(m.label, i)"
+							[latitude]="m.lat"
+							[longitude]="m.lng"
+							[label]="m.label"
+							
+							[markerDraggable]="m.draggable"
+							(dragEnd)="markerDragEnd(m, $event)"
+							>
+							
+						<agm-info-window>
+							<strong>InfoWindow content</strong>
+						</agm-info-window>
+						
+					</agm-marker>
+					
+				 
+				
+				</agm-map>
+			
+			
+		</div>
+		
+		<div class="btn-web-app"><a [routerLink]="['/destination']">تایید و ادامه</a></div>
+	</section>
+	
+	</div>
+
+ 

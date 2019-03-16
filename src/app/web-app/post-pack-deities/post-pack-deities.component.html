@@ -1,0 +1,115 @@
+<div class="section-main-web-app">
+    	
+  <section class="main-web-app">
+    
+    <div class="main-web-app-top">
+      
+      <div class="web-app-title">
+        
+        <div class="title-web-app">جزییات مرسوله</div>
+      </div>
+    
+    </div>
+    <a [routerLink]="['/destination']" class="back-web-app"><i class="fas fa-angle-left"></i></a>
+    <div class="main-web-app">
+      <div class="pack-part">
+      <div class="btn-pack" data-toggle="modal" data-target="#myModal">
+        <img src="/assets/img/3-mosbat.svg" width="20" height="20"><span>اضافه کردن بار</span>
+     
+      </div>
+      
+      
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+        <div class="modal-content modal-content-packs">
+          
+          <div class="modal-body">
+            <img src="/assets/img/6-tedade-basteh.svg" width="30" height="30">
+      
+          <label>تعداد بسته</label>
+          <div class="quantity">
+            <input type="number"  value="1" class="number-pack"   (input)="onSearchChange($event.target.value)">
+            
+          </div>
+            <hr>
+            <select (change)="SelectType($event.target.value)">
+            <option *ngFor="let type of PostPackType" value="{{type.id}}" >{{type.title}} </option>
+         
+            </select>
+            
+           
+            
+            <div class="btn-circle-download" id="btn-ok-pack">
+              <svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
+              <path d="M24,15 L24,32"></path>
+              <polyline points="30 27 24 33 18 27"></polyline>
+              </svg>
+              <svg id="check" width="21px" height="15px" viewBox="13 17 21 15">
+              <polyline points="32.5 18.5 20 31 14.5 25.5"></polyline>
+              </svg>
+              <svg (click)="AcceptPacks()" id="border" width="48px" height="48px" viewBox="0 0 48 48">
+              <path d="M24,1 L24,1 L24,1 C36.7025492,1 47,11.2974508 47,24 L47,24 L47,24 C47,36.7025492 36.7025492,47 24,47 L24,47 L24,47 C11.2974508,47 1,36.7025492 1,24 L1,24 L1,24 C1,11.2974508 11.2974508,1 24,1 L24,1 Z"></path>
+              </svg>
+             </div>
+            
+            
+            
+          </div>
+          
+        </div>
+
+        </div>
+      </div>	
+    
+      <div class="packs" *ngFor="let pack of packs; let i = index">
+        <p > {{i+1}} )  {{pack.count}}  عدد بسته  {{getPostPackType(pack.typeId) }}  برای شما ثبت شد</p>
+        <button (click)="deletepack(pack)">  حدف</button>
+      </div>
+        
+        
+        
+        
+        
+      </div>
+      <br>
+      <div class="pack-part">
+      <img src="/assets/img/6-baste-bandi.svg" width="80" height="80" class="pack-part-i">
+      <label for="pack-web-app">بسته بندی شود</label>
+      <div class="radiobtn-pack">
+          <input id="radio-1" type="radio" name="Data1" value="agree" [checked]="mainPacks.isPacking==true? true: false" (click)="PackingStatus(true)" />
+          <label for="radio-1"><i class="fas fa-check"></i></label>
+          <input id="radio-2" type="radio" name="Data1" value="disagree" [checked]="mainPacks.isPacking==false? true: false"  (click)="PackingStatus(false)"/>
+          <label for="radio-2"><i class="fas fa-times"></i></label>
+      </div>
+      </div>
+      <br>
+  
+      <div class="pack-part">
+      <img src="/assets/img/6-bime.svg" width="80" height="80" class="pack-part-i">
+      <label for="bime-web-app">بیمه شود</label>
+        <div class="radiobtn-pack">
+          <input id="radio-3" type="radio" name="Data2" value="agree" [checked]="mainPacks.isInsurance==true? true: false" (click)="InsuranceStatus(true)"/>
+          <label for="radio-3"><i class="fas fa-check"></i></label>
+          <input id="radio-4" type="radio" name="Data2" value="disagree" [checked]="mainPacks.isInsurance==false? true: false"  (click)="InsuranceStatus(false)"/>
+          <label for="radio-4"><i class="fas fa-times"></i></label>
+        </div>
+        
+      </div>
+      <br>
+      
+      <div class="form-pack">
+      <input type="text" placeholder="ارزش مرسوله خود را وارد کنید" *ngIf="mainPacks.isInsurance==true" [(ngModel)]="mainPacks.insurancePrice" name="insurancePrice" maxlength="9">
+      <br>
+      
+      <br>
+      <input type="text" placeholder="توضیحات اقلام داخل بسته"  [(ngModel)]="mainPacks.content" name="content">
+      </div>
+    </div>
+    
+    <div class="btn-web-app">
+      <a (click)="AcceptPack()">ثبت درخواست</a></div>
+  
+  </section>
+  
+  </div>
