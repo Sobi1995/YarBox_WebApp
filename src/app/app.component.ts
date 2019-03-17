@@ -5,7 +5,6 @@ import swal from 'sweetalert';
 import { fadeAnimation } from './Shared/fade.animation';
 import { WebAppService } from './Services/webapp-service';
  
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,11 +14,12 @@ import { WebAppService } from './Services/webapp-service';
 export class AppComponent  implements OnInit{
   //test git
   ngOnInit(): void {
-    debugger
     let profile=localStorage.getItem("Profile"); 
     this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
-    if(profile==null)
+    if(profile==null){
     this.router.navigate(["/"]);
+    this._auth.setIsLogin(false);
+    }
     else{
       this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
       this._auth.setProfile(this.jsonProfile);
@@ -32,8 +32,7 @@ export class AppComponent  implements OnInit{
   constructor(
     private _auth :authenticationService,
     private router: Router,
-    private _webApp:WebAppService,
-   ){
+    private _webApp:WebAppService){
   
 
    
@@ -45,10 +44,14 @@ export class AppComponent  implements OnInit{
   
     return this._webApp.getLoding();
   }
- 
+public getIsLogin(){
+  
+  return this._auth.getIsLogin();
+}
   SingOut(){
     this._webApp.SingOut().subscribe(res=>{
       this.jsonProfile=null;
+      this._auth.setIsLogin(false);
       this.router.navigate(["/"])
     })
   }

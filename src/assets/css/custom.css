@@ -5741,7 +5741,7 @@ section.main-web-app {
     height: 80%;
     width: 100%;
 }
-.fav-address-orgin {
+.fav-address-orgin , .location-my {
     background: #fff;
     display: inline-block;
     color: #282f6c;
@@ -5754,15 +5754,19 @@ section.main-web-app {
     position: fixed;
     bottom: 16%;
     margin-right: 30px;
+    z-index: 2;
 }
 .marker-orgin {
-    bottom: 46%;
-    margin-right: 15%;
+    bottom: 35%;
+    margin-right: 14.5%;
     background: no-repeat;
     padding: 0;
     position: fixed;
+    z-index: 2;
 }
- 
+.location-my {
+    left: 36%;
+}
 .sidebar-top {
     background: #d01d57;
     padding-top: 70px;

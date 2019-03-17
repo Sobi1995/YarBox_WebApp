@@ -4,6 +4,7 @@ import { PackService } from '../Services/Pack-Service';
 import { AddressOrigin } from '../Model/Address-Origin';
 import $ from 'jquery'
 import { google } from '@agm/core/services/google-maps-types';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -16,31 +17,38 @@ export class MapComponent implements OnInit  {
 
  
  zoom: number = 15;
- markers: marker[]=[];
+//  markers: marker[]=[];
  // initial center position for the map
  lat: number = 51.673858;
  lng: number = 7.815982;
  Origin:any;
- map:any;
- clickedMarker(label: string, index: number) {
-   console.log(`clicked the marker: ${label || index}`)
- }
+ 
+//  clickedMarker(label: string, index: number) {
+//    console.log(`clicked the marker: ${label || index}`)
+//  }
+
+ constructor(
+  private _webappservice:WebAppService,
+  public _packService:PackService,
+  private router:Router){
+}
 
  ngOnInit(): void {
     
  this._packService.clearDestination();
     this.Origin=this._packService.getOrigin();
+     
     if(this.Origin.latitude!= undefined && this.Origin.llongitude!=undefined )
     {
-      this.markers=[];
-      this.lat=this.Origin.latitude;
-      this.lng=this.Origin.llongitude;
-      this.markers.push({
-        lat: this.Origin.latitude,
-        lng:   this.Origin.llongitude,
-        label: 'A',
-        draggable: true
-      });
+      // this.markers=[];
+      this.lat=Number(this.Origin.latitude);
+      this.lng=Number(this.Origin.llongitude);
+      // this.markers.push({
+      //   lat: this.Origin.latitude,
+      //   lng:   this.Origin.llongitude,
+      //   label: 'A',
+      //   draggable: true
+      // });
        
     
     }
@@ -53,13 +61,13 @@ export class MapComponent implements OnInit  {
          
           this.lng = +pos.coords.longitude;
           this.lat = +pos.coords.latitude;
-          self.markers=[];
-          self.markers.push({
-            lat: pos.coords.latitude,
-            lng:   pos.coords.longitude,
-            label: 'A',
-            draggable: true
-          });
+          // self.markers=[];
+          // self.markers.push({
+          //   lat: pos.coords.latitude,
+          //   lng:   pos.coords.longitude,
+          //   label: 'A',
+          //   draggable: true
+          // });
           
           self._webappservice.getCedarmapAddress(this.lat.toString(),this.lng.toString()).subscribe(res=>{
              
@@ -77,19 +85,21 @@ export class MapComponent implements OnInit  {
   // var b=this.map.getCenter();
 }
 
+centerChange($event){
+  console.log($event);
+// this.lat=Number($event.lat);
+// this.lng=Number($event.lng);
+  this._webappservice.getCedarmapAddress( $event.lat,$event.lng).subscribe(res=>{
+         
+    let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
+      this._packService.SetAddress(new AddressOrigin($event.lat,$event.lng,myAddress))
+     console.log( myAddress)
+    })
+}
 
- constructor(
-   private _webappservice:WebAppService,
-   public _packService:PackService){
-   
-
-//      
-
-
-  
+ destnation(){
+this.router.navigate(["/destination"])
  }
-
- 
  mapClicked($event: MouseEvent) {
  
  }
@@ -102,7 +112,7 @@ export class MapComponent implements OnInit  {
     this._packService.SetAddress(new AddressOrigin($event.coords.lat,$event.coords.lng,myAddress))
    console.log( myAddress)
   })
-   console.log('dragEnd', m, $event);
+ 
  }
  
  AcceptMap(){

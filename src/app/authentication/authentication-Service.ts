@@ -82,7 +82,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
             } )
             );
     }
-    get getProfile(){
+  public  get getProfile(){
 return this.profile;
     }
     setProfile(profile :ProfileDto){

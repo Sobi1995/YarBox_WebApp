@@ -1,22 +1,12 @@
 
-
-		<!--div class="section-main-web-app">
-    	
-			<section class="main-web-app"-->
 				
-
-		<a id="menu-toggle" href="#" class="btn btn-lg toggle"><img src="/assets/img/3-meno.svg" width="25" height="25" *ngIf="jsonProfile!=null"></a>
-			<div id="sidebar-wrapper" *ngIf="jsonProfile!=null">
-				
-				
+  <div [style.visibility]="getIsLogin() ? 'visible' : 'hidden'"  >	
+			<a id="menu-toggle"   class="btn btn-lg toggle"><img   src="/assets/img/3-meno.svg" width="25" height="25"></a>
+			<div id="sidebar-wrapper"  >
 			  <ul class="sidebar-nav">
 				<a id="menu-close" href="#" class="btn btn-lg pull-right toggle"><i class="fas fa-times"></i></a>
-				<!--li class="sidebar-brand">
-				  <a href="#">Project name</a>
-				</li-->
 				 <li class="sidebar-top">
 					<div>
-						<!--div class="sidebar-top-img"><i class="fas fa-user"></i></div-->
 						<div class="sidebar-top-info">
 							<div class="profile-info"><p class="name-user" *ngIf="jsonProfile!=null">{{jsonProfile.firstName}}  {{jsonProfile.lastName}}</p></div>
 							<div class="profile-info emtiaz"><span *ngIf="jsonProfile!=null">{{jsonProfile.point}}</span>امتیاز</div>
@@ -51,17 +41,13 @@
 				</li>
 			  </ul>
 			</div>
-
-		<!--/section>
-		
-	</div-->
-
+	</div>
 
 	<main [@fadeAnimation]="getRouterOutletState(o)">
 		
 		<router-outlet #o="outlet" >
 				<img id="loding"  [hidden]="!getLodingStatus()" src="/assets/img/loding2.gif" >
- 
+
 		</router-outlet>
 	</main>
 	<!-- [hidden]="!getLodingStatus()" -->

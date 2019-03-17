@@ -49,7 +49,6 @@ import { AuthInterceptor } from './Shared/AuthInterceptor ';
   ],
   imports: [
     BrowserModule,
-   
     AuthenticationModule,
     BrowserAnimationsModule,
     AppRoutingModule,
