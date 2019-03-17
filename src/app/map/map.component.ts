@@ -3,6 +3,7 @@ import { WebAppService } from '../Services/webapp-service';
 import { PackService } from '../Services/Pack-Service';
 import { AddressOrigin } from '../Model/Address-Origin';
 import $ from 'jquery'
+import { google } from '@agm/core/services/google-maps-types';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -20,6 +21,7 @@ export class MapComponent implements OnInit  {
  lat: number = 51.673858;
  lng: number = 7.815982;
  Origin:any;
+ map:any;
  clickedMarker(label: string, index: number) {
    console.log(`clicked the marker: ${label || index}`)
  }
@@ -68,7 +70,11 @@ export class MapComponent implements OnInit  {
         });
       }
     }
-    
+ 
+     
+  //   this.map=new google.maps.Map(document.getElementById("googleMap"));
+  
+  // var b=this.map.getCenter();
 }
 
 

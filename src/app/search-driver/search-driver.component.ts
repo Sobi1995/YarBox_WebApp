@@ -25,6 +25,7 @@ export class SearchDriverComponent implements OnInit {
   startTimer() {
   var  self=this;
     this.interval = setInterval(() => {
+      //self.postpackid)
       this._webapp.getSearchDriver(self.postpackid).subscribe(res=>{
 if(res!=null){
   alert("راننده پیدا شد")

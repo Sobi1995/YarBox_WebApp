@@ -22,6 +22,7 @@
 				<div class="fav-address-orgin"><a href="#"><img src="/assets/img/3-setareh.svg" width="22" height="22"></a></div>
 				
 				<agm-map 
+				[usePanning]='true' id="googleMap"
 					[latitude]="lat"
 					[longitude]="lng"
 					[zoom]="zoom"

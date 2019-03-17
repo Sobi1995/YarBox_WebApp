@@ -3,7 +3,8 @@ import { authenticationService } from './authentication/authentication-Service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
 import { fadeAnimation } from './Shared/fade.animation';
-import { WebAppService } from './web-app/Services/webapp-service';
+import { WebAppService } from './Services/webapp-service';
+ 
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { WebAppService } from './web-app/Services/webapp-service';
 export class AppComponent  implements OnInit{
   //test git
   ngOnInit(): void {
+    debugger
     let profile=localStorage.getItem("Profile"); 
     this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
     if(profile==null)
@@ -22,7 +24,6 @@ export class AppComponent  implements OnInit{
       this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
       this._auth.setProfile(this.jsonProfile);
          this.router.navigate(["/Home"]);
-      // this.router.navigate(["/postPack-deities"]);
 
     }
   }
@@ -31,7 +32,8 @@ export class AppComponent  implements OnInit{
   constructor(
     private _auth :authenticationService,
     private router: Router,
-    private _webApp:WebAppService){
+    private _webApp:WebAppService,
+   ){
   
 
    
@@ -42,5 +44,12 @@ export class AppComponent  implements OnInit{
   public getLodingStatus(){
   
     return this._webApp.getLoding();
+  }
+ 
+  SingOut(){
+    this._webApp.SingOut().subscribe(res=>{
+      this.jsonProfile=null;
+      this.router.navigate(["/"])
+    })
   }
 }

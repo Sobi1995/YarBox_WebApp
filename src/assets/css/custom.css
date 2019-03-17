@@ -5691,6 +5691,7 @@ section.main-web-app {
 .main-web-app-top1 {
     height: 180px;
 }
+
 .web-app-title {
     font-size: 18px;
     text-align: center;
@@ -5705,6 +5706,7 @@ section.main-web-app {
     margin-top: 5%;
 	color: #333;
     padding-right: 50px;
+    font-family: 'IRANSans';
 }
 .title-web-app1 {
     text-align: center;
@@ -5712,6 +5714,7 @@ section.main-web-app {
 }
 .title-web-app1 p {
     font-size: 18px;
+    font-family: 'IRANSans';
 }
 .icon-serch2 {
     color: #454F62;
@@ -5751,7 +5754,6 @@ section.main-web-app {
     position: fixed;
     bottom: 16%;
     margin-right: 30px;
-    z-index: 10;
 }
 .marker-orgin {
     bottom: 46%;
@@ -5759,7 +5761,6 @@ section.main-web-app {
     background: no-repeat;
     padding: 0;
     position: fixed;
-    z-index: 10;
 }
  
 .sidebar-top {
@@ -5777,6 +5778,13 @@ section.main-web-app {
 	text-align: center;
 	
 }
+.profile-info.emtiaz {
+    text-align: left;
+    padding-left: 21px;
+  }
+  .profile-info {
+    width: 50%;
+  }
 .btn-web-app {
     background: #d01d58;
     color: #fff;
@@ -5790,7 +5798,8 @@ section.main-web-app {
 	z-index: 10;
 }
 .btn-web-app a{
-	color: #fff;
+    color: #fff !important;
+    font-family: 'IRANSans';
 }
 a.back-web-app {
     float: left;
@@ -5802,7 +5811,7 @@ a.back-web-app {
     color: #fff;
     margin-top: -17%;
 }
-.main-web-app-form p {
+.main-web-app-form p, .type-part p {
     text-align: center;
     font-size: 17px;
     padding: 22px;
@@ -5891,6 +5900,37 @@ a.info-web-app-a {
 	-webkit-transition-duration: 0.5s;
 	-moz-transition-duration: 0.5s;
 	
+}
+
+.type-part {
+    margin: 22% 15%;
+    background: #fdfdfd;
+    height: 150px;
+    padding: 4% 0;
+    border-radius: 15px;
+    box-shadow: 0 0 5px 0px #ddd;
+    text-align: center;
+}
+.type-part i {
+    font-size: 30px;
+    color: #abafb5;
+}
+.type-part span {
+       color: #d01d57;
+}
+.vecl-type label{
+	
+	width:140px;
+	height:170px;
+	cursor: pointer;
+	
+}
+p.p-type {
+    color: #26306d;
+    font-size: 17px;
+}
+p.p-type i{
+    font-size: 14px;
 }
 .vecl-type label{
 	
@@ -6410,7 +6450,7 @@ ul.nav.nav-tabs.nav-factor li {
     background: #ffffff;
     text-align: center;
     margin-right: 36px;
-    top: 40vh;
+    top:-50vh;
     position: relative;
     padding: 10px 20px;
 	border-radius: 15px;
@@ -6896,6 +6936,11 @@ p.type-modal {
     position: relative;
     left: 10px;
 }
+img#loding {
+    position: fixed;
+    z-index: 10;
+    margin: 13% 40%;
+}
 /*menu burger*/
   #sidebar-wrapper {
    
@@ -6948,10 +6993,11 @@ p.type-modal {
   }
   ul.sidebar-nav li:last-child {
     position: relative;
-    bottom: -45vh;
+    bottom: -22vh;
   }
   ul.sidebar-nav li:last-child a {
     border-bottom: none !important;
+    color: red !important;
   }
   .etebar-side-bar a i {
     color: #28C76F;
@@ -6989,21 +7035,31 @@ p.type-modal {
   }
   .emtiaz span {
     background: #282f6c;
-    width: 30px;
-    height: 30px;
+    padding: 0 15px;
     border-radius: 7px;
     text-align: center;
     margin-left: 8px;
   }
+  .profile-info.emtiaz {
+    text-align: left;
+    padding-left: 21px;
+  }
+  .profile-info {
+    width: 50%;
+  }
   a#menu-close {
     color: #282f6c;
+    font-size: 22px;
+    padding: 9px 17px;
   }
-  span.name-user {
-		font-size: 18px;
+  .name-user {
+	font-size: 18px;
+	margin-right: 6px;
   }
   .sidebar-top-info {
-    display: inline-block;
+    display: flex;
     line-height: 32px;
+    color: #fff;
   }
   .sidebar-nav li a:hover {
     color: #fff;
@@ -7046,7 +7102,8 @@ p.type-modal {
     -moz-transition: all 0.5s ease-out 0s;
     -ms-transition: all 0.5s ease-out 0s;
     -o-transition: all 0.5s ease-out 0s;
-	  right: 33%;
+      right: 33%;
+      overflow: hidden;
   }
 
   .toggle {

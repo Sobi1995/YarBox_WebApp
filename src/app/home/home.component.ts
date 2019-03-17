@@ -17,7 +17,7 @@ PacksRuning:any;
 this._webappservice.getPackrunning().subscribe(res=>{
   this.PacksRuning=res;
   let count=res.filter(x=> x.isCanceled==false).length
-    
+     
 if(count==0){
   this.router.navigate(["/map"])
 }

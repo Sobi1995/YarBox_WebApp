@@ -13,7 +13,7 @@ import { AcceptSearchDto } from './accept-search-dto';
 export class WebAppService{
  private api:string;
  private httpLoding:boolean=false;     
- 
+
  
 constructor(private _http:HttpClient,private _packService:PackService){
 
@@ -190,6 +190,22 @@ return  this._http.get(this.api+"vv2/provinces/p/getPortLocation?city="+city,{he
         this.setLoding(false);
       return    response
       } )
+      );
+}
+
+SingOut(){
+    this.setLoding(true);
+  let headers = new HttpHeaders();
+  headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+  headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+let packs=this._packService.getMultiplePacks;
+return  this._http.get(this.api+"vv2/account/sign-out",{headers:headers},).pipe(
+      map((response:any) => {
+        this.setLoding(false);
+        localStorage.clear();
+      return    response
+      } ),
+      
       );
 }
 }

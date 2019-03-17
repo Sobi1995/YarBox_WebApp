@@ -40,7 +40,7 @@
             
            
             
-            <div class="btn-circle-download" id="btn-ok-pack">
+            <div class="btn-circle-download" id="btn-ok-pack" >
               <svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
               <path d="M24,15 L24,32"></path>
               <polyline points="30 27 24 33 18 27"></polyline>
@@ -62,13 +62,16 @@
         </div>
       </div>	
     
-      <div class="packs" *ngFor="let pack of packs; let i = index">
-        <p > {{i+1}} )  {{pack.count}}  عدد بسته  {{getPostPackType(pack.typeId) }}  برای شما ثبت شد</p>
+      <!-- <div class="packs" *ngFor="let pack of packs; let i = index">
+        <p > {{i+1}}    {{pack.count}}  عدد بسته  {{getPostPackType(pack.typeId) }}  برای شما ثبت شد</p>
         <button (click)="deletepack(pack)">  حدف</button>
+      </div> -->
+        
+      <div class="packs" *ngFor="let pack of packs; let i = index">
+        <div class="pack-item"><span class="pack-item-number"> {{i+1}}</span>{{pack.count}} عدد  {{getPostPackType(pack.typeId) }}  برای شما ثبت شد <a ><i class="far fa-times-circle" (click)="deletepack(pack)"></i></a></div>
       </div>
         
-        
-        
+        <p *ngIf="packs.length==0">لطفا مرسوله خود را وارد کنید</p>
         
         
       </div>
@@ -99,7 +102,8 @@
       <br>
       
       <div class="form-pack">
-      <input type="text" placeholder="ارزش مرسوله خود را وارد کنید" *ngIf="mainPacks.isInsurance==true" [(ngModel)]="mainPacks.insurancePrice" name="insurancePrice" maxlength="9">
+      <input type="text" placeholder="ارزش مرسوله خود را وارد کنید" *ngIf="mainPacks.isInsurance==true" [(ngModel)]="mainPacks.insurancePrice"  name="insurancePrice" maxlength="9">
+      {{mainPacks.insurancePrice | toman}}
       <br>
       
       <br>

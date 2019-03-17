@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class authenticationService{
   private  profile:ProfileDto;
+  private IsLogin=true;
     constructor(
         private _http:HttpClient,
         private router: Router,){
@@ -86,6 +87,12 @@ return this.profile;
     }
     setProfile(profile :ProfileDto){
         this.profile=profile;
+    }
+    getIsLogin(){
+        return this.IsLogin;
+    }
+    setIsLogin(status:boolean){
+this.IsLogin=status;
     }
 }
 

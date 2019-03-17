@@ -4,7 +4,7 @@ import { MainPacks } from '../Model/dto/Main-Packs-dto';
 import { PackService } from '../Services/Pack-Service';
 import { Router } from '@angular/router';
 import { packsDto } from '../Model/dto/packs-dto';
-
+import { $ } from "jquery"
 @Component({
   selector: 'app-post-pack-deities',
   templateUrl: './post-pack-deities.component.html',

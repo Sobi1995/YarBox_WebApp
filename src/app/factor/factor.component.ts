@@ -28,6 +28,7 @@ export class FactorComponent implements OnInit {
      console.log(factore)
      this.Profile=this.PacksService.getProfile();
     this._webapp.getFactorDatiles(factore).subscribe(res=>{
+       
       this.Factor=res;
     })
   }

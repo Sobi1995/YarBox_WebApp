@@ -1,11 +1,13 @@
-import { MultiplePacksDto } from '../Model/dto/multiple-packs-dto';
 import { Injectable } from '@angular/core';
+
+import { Profile } from 'selenium-webdriver/firefox';
+import { MultiplePacksDto } from '../Model/dto/multiple-packs-dto';
 import { originDto } from '../Model/dto/origin-dto';
-import { AddressOrigin } from '../Model/Address-Origin';
 import { DestinationDto } from '../Model/dto/destination-dto';
+import { AddressOrigin } from '../Model/Address-Origin';
 import { MainPacks } from '../Model/dto/Main-Packs-dto';
-import { Profile } from '../Model/dto/Profile';
 import { packsDto } from '../Model/dto/packs-dto';
+
  
 @Injectable()
 export class PackService{
@@ -92,8 +94,8 @@ clearOrigin(){
  clearPaks(){
   this.MultiplePacks.packs=[];
   this.MultiplePacks.content=null;
-  this.MultiplePacks.isInsurance=null;
-  this.MultiplePacks.isPacking=null;
+  this.MultiplePacks.isInsurance=true;
+  this.MultiplePacks.isPacking=true;
   this.MultiplePacks.receiveType=null;
   this.MultiplePacks.vehicleId=null;
   this.MultiplePacks.insurancePrice=null;
