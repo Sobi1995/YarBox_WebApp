@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
 import { MainPacks } from '../Model/dto/Main-Packs-dto';
 import { PackService } from '../Services/Pack-Service';
 import { Router } from '@angular/router';
 import { packsDto } from '../Model/dto/packs-dto';
-import { $ } from "jquery"
+ 
+
 @Component({
   selector: 'app-post-pack-deities',
   templateUrl: './post-pack-deities.component.html',
   styleUrls: ['./post-pack-deities.component.css']
 })
 export class PostPackDeitiesComponent implements OnInit {
+  @ViewChild('closeModal') private closeModal: ElementRef;
 PostPackType:any;
 packs:packsDto[]=[]
 count:number;
@@ -51,7 +53,13 @@ console.log(res);
     
   }
     AcceptPacks(){
-  
+      // setTimeout(function(){
+      //   this.closeModal.nativeElement.click(); 
+      //  }, 3000);
+        
+    //this.router.navigate(["/destination"])
+     
+    
       this.packs.push({count:this.count,weightId:this.type,typeId:this.type})
     }
     getPostPackType(id :number){

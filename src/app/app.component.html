@@ -22,7 +22,7 @@
 				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-gozareshat.svg" width="35" height="35">گزارشات</a>
 				</li>
 				<li>
-				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">فعالیت ها</a>
+				  <a [routerLink]="['/Home']" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">فعالیت ها</a>
 				</li>
 				<li>
 				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-adreshaye-montakhab.svg" width="35" height="35">آدرس های منتخب</a>
@@ -44,7 +44,7 @@
 	</div>
 
 
-	<main [@fadeAnimation]="getRouterOutletState(o)">
+	<main [@fadeAnimation]="getRouterOutletState(o)" (click)="hideMnu()">
 		
 		<router-outlet #o="outlet" class="bac-loding" >
 				<!--img id="loding"  [hidden]="!getLodingStatus()" src="/assets/img/loding2.gif" -->

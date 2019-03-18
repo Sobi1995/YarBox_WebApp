@@ -13,7 +13,7 @@ import { AcceptSearchDto } from './accept-search-dto';
 export class WebAppService{
  private api:string;
  private httpLoding:boolean=false;     
-
+private packsRuning:any;
  
 constructor(private _http:HttpClient,private _packService:PackService){
 
@@ -57,12 +57,17 @@ this.api="http://api.yarbox.co/api/";
     headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-  return  this._http.get(this.api+"v1/packs/running",{headers:headers}).pipe(
+   return  this._http.get(this.api+"v1/packs/running",{headers:headers}).pipe(
         map((response:any) => {
             this.setLoding(false);
+            this.packsRuning= response.items;
         return    response.items
         } )
         );
+ }
+
+ getPackrunningOnCache(){
+   return this.packsRuning
  }
  getPostPackType(){
       this.setLoding(true);

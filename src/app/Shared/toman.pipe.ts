@@ -7,7 +7,7 @@ import { DecimalPipe } from '@angular/common';
 export class TomanPipe extends DecimalPipe implements PipeTransform {
 
   transform(value: string, args?: any): any {
-      debugger
+       
       if(value==null) return ;
     return `${super.transform(value.toString())} تومان`
   }

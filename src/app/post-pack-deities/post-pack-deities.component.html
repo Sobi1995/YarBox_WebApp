@@ -19,7 +19,7 @@
       </div>
       
       
-      <div id="myModal" class="modal fade" role="dialog">
+      <div id="myModal" class="modal fade" role="dialog"  >
         <div class="modal-dialog">
 
         <div class="modal-content modal-content-packs">
@@ -29,7 +29,9 @@
       
           <label>تعداد بسته</label>
           <div class="quantity">
-            <input type="number"  value="1" class="number-pack"   (input)="onSearchChange($event.target.value)">
+            <input type="number"  value="1" class="number-pack" min="1" (input)="onSearchChange($event.target.value)" />
+            <div id="inc-button" class="spinner-button">+</div>
+            <div id="dec-button" class="spinner-button">-</div>
             
           </div>
             <hr>
@@ -40,7 +42,7 @@
             
            
             
-            <div class="btn-circle-download" id="btn-ok-pack" >
+            <div class="btn-circle-download" id="btn-ok-pack"   id="myModal" data-dismiss="modal">
               <svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
               <path d="M24,15 L24,32"></path>
               <polyline points="30 27 24 33 18 27"></polyline>
@@ -67,11 +69,12 @@
         <button (click)="deletepack(pack)">  حدف</button>
       </div> -->
         
-      <div class="packs" *ngFor="let pack of packs; let i = index">
-        <div class="pack-item"><span class="pack-item-number"> {{i+1}}</span>{{pack.count}} عدد  {{getPostPackType(pack.typeId) }}  برای شما ثبت شد <a ><i class="far fa-times-circle" (click)="deletepack(pack)"></i></a></div>
+      <div class="packs">
+        <div  *ngFor="let pack of packs; let i = index" class="pack-item"><span class="pack-item-number"> {{i+1}}</span>{{pack.count}} عدد  {{getPostPackType(pack.typeId) }}  برای شما ثبت شد <a ><i class="far fa-times-circle" (click)="deletepack(pack)"></i></a></div>
+        <p *ngIf="packs.length==0" class="nul-pack"><img src="/assets/img/2-ghavanin.svg" width="25" height="35">لطفا مرسوله خود را وارد کنید</p>
       </div>
         
-        <p *ngIf="packs.length==0">لطفا مرسوله خود را وارد کنید</p>
+        
         
         
       </div>

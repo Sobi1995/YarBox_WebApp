@@ -49,7 +49,7 @@ this.accept.isCashPayment=chah;
     if(this.accept.isCashPayment==true && this.accept.isCashPayment==true)
     {
       this._webapp.getCheck().subscribe(res=>{
-        debugger
+         
         if(parseInt(this.Factor.price)>parseInt(res.credit)){
           alert("کیف خود را شارژ کنید")
         }

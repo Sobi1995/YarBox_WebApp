@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import swal from 'sweetalert';
 import { fadeAnimation } from './Shared/fade.animation';
 import { WebAppService } from './Services/webapp-service';
- 
+import  $ from 'jquery';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,9 +21,19 @@ export class AppComponent  implements OnInit{
     this._auth.setIsLogin(false);
     }
     else{
-      this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
-      this._auth.setProfile(this.jsonProfile);
-         this.router.navigate(["/Home"]);
+        this._auth.setProfile(this.jsonProfile);
+        this._webApp.getPackrunning().subscribe(res=>{
+          let count=res.filter(x=> x.isCanceled==false).length
+     
+if(count==0){
+  this.router.navigate(["/map"])
+}else{
+  this.router.navigate(["/Home"]);
+}
+ 
+ 
+        })
+      
 
     }
   }
@@ -41,7 +51,7 @@ export class AppComponent  implements OnInit{
     return outlet.isActivated ? outlet.activatedRoute : '';
   }
   public getLodingStatus(){
-  console.log( this._webApp.getLoding())
+  
     return this._webApp.getLoding();
   }
 public getIsLogin(){
@@ -56,8 +66,17 @@ public getIsLogin(){
       this.router.navigate(["/"])
     })
   }
+  hideMnu(){
+     
+   var classmnu= $('#sidebar-wrapper').attr('class');
+ 
+   var find = classmnu.search("active");
+   if(find!=-1)
+    $("#sidebar-wrapper").toggleClass("active");
+
+  }
   public getProfile(){
-    console.log( this._auth.getProfile)
+    
     return this._auth.getProfile;
   }
 }

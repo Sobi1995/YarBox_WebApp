@@ -6053,7 +6053,29 @@ input[type=number]::-webkit-outer-spin-button
     width: 100%;
     margin-top: 10px;
     border-radius: 10px;
+    padding: 15px;
+    max-height: 180px;
+    overflow-y: scroll;
 }
+.main-web-app, .packs {
+    -ms-overflow-style: none; 
+    overflow: -moz-scrollbars-none; 
+}
+p.nul-pack {
+    font-size: 17px;
+    text-align: center;
+    padding-top: 20px;
+}
+p.nul-pack img {
+    margin-left: 10px;
+}
+
+.main-web-app::-webkit-scrollbar , .packs::-webkit-scrollbar {
+    display: none; 
+}
+
+
+  
 .modal-content-packs select {
     width: 100%;
     text-align: center;
@@ -6075,6 +6097,50 @@ button.btn.btn-ok {
     height: 50px;
     padding: 9px;
 }
+
+
+
+.number-pack {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 50px;
+    height: 20px;
+    padding: 0px;
+    font-size: 14pt;
+    border: solid 0.5px #000;
+    z-index: 1;
+  }
+  
+  .spinner-button {
+    position: absolute;
+    cursor: default;
+    z-index: 2;
+    background-color: #ccc;
+    width: 22.5px;
+    text-align: center;
+    margin: 0px;
+    pointer-events: none;
+    height: 22px;
+    line-height: 10px;
+    font-size: 21px;
+    padding-top: 7px;
+}
+  
+#inc-button {
+    right: 44%;
+    top: 10.5px;
+    border-radius: 5px 0 0 0;
+}
+  
+  #dec-button {
+    right: 44%;
+    top: 29.5px;
+    border-radius: 0 0 0 5px;
+    border-top: 1px solid #ddd;
+}
+
+
 
 
 .btn-circle-download {
@@ -6188,7 +6254,7 @@ button.btn.btn-ok {
 }
 
 
-
+/*
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button
@@ -6200,7 +6266,9 @@ input[type=number]::-webkit-outer-spin-button
 input[type=number]
 {
   -moz-appearance: textfield;
-}
+}*/
+
+
 
 .quantity input {
   width: 60px;
@@ -6274,7 +6342,8 @@ input[type=number]
 	transition-duration: 0.5s;
 	-webkit-transition-duration: 0.5s;
 	-moz-transition-duration: 0.5s;
-	cursor: pointer;
+    cursor: pointer;
+    display: inherit;
 }
 	
 .vecle-part label span {
