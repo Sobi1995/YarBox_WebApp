@@ -5,13 +5,15 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ProfileDto } from '../Core/DTO/Profile-dto';
 import { Router } from '@angular/router';
+import { WebAppService } from '../Services/webapp-service';
 @Injectable()
 export class authenticationService{
   private  profile:ProfileDto;
   private IsLogin=true;
     constructor(
         private _http:HttpClient,
-        private router: Router,){
+        private router: Router,
+        private _webAppService:WebAppService){
         this.profile=new ProfileDto();
     }
 
@@ -32,18 +34,21 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     }
 
     checkVerifyCode(verifycode:VerifyCode):Observable<JwtFormat> {
+       
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         return   this._http.post<JwtFormat>("http://api.yarbox.co/api/v1/account/verify",verifycode,{headers:headers}).pipe(x=> x);
     }
 
     LogOut(){
+        this._webAppService.setLoding(true);
         let headers = new HttpHeaders();
         headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         return  this._http.get("http://api.yarbox.co/api/v1/account/sign-out",{headers:headers}).pipe(
             map((response) => {
                 localStorage.clear();
+                this._webAppService.setLoding(false);
                 this.router.navigate(["/"]);
                     
                
@@ -52,7 +57,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     }
 
     getProfileOnApi():Observable<void>{
-        
+        this._webAppService.setLoding(true);
          let headers = new HttpHeaders();
         headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
@@ -62,19 +67,20 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
                  
                 this.profile=response as ProfileDto
                 this.getCheck().subscribe(res=>{
-                    
+                    this._webAppService.setLoding(false);
                 });
             } )
             );
     }
     getCheck():Observable<void>{
+        this._webAppService.setLoding(true);
         let headers = new HttpHeaders();
         headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
       return  this._http.get("http://api.yarbox.co/api/v1/account/check",{headers:headers}).pipe(
             map((response) => {
-                 
+                this._webAppService.setLoding(false);
                 var check= response as ProfileDto;
                 this.profile.credit=check.credit;
                 this.profile.score=check.score;

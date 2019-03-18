@@ -41,7 +41,7 @@ export class AppComponent  implements OnInit{
     return outlet.isActivated ? outlet.activatedRoute : '';
   }
   public getLodingStatus(){
-  
+  console.log( this._webApp.getLoding())
     return this._webApp.getLoding();
   }
 public getIsLogin(){
