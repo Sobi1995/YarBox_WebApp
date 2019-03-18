@@ -8,14 +8,14 @@
 				 <li class="sidebar-top">
 					<div>
 						<div class="sidebar-top-info">
-							<div class="profile-info"><p class="name-user" *ngIf="jsonProfile!=null">{{jsonProfile.firstName}}  {{jsonProfile.lastName}}</p></div>
-							<div class="profile-info emtiaz"><span *ngIf="jsonProfile!=null">{{jsonProfile.point}}</span>امتیاز</div>
+							<div class="profile-info"><p class="name-user"  >{{ getProfile().firstName}}  {{ getProfile().lastName}}</p></div>
+							<div class="profile-info emtiaz"><span  >{{ getProfile().point}}</span>امتیاز</div>
 						</div>
 					</div> 
 				</li>
 				<li>
 					<div class="etebar-side-bar">
-					اعتبار شما <span *ngIf="jsonProfile!=null">{{jsonProfile.credit}}</span>تومان<a href="#"><img src="/assets/img/3-mosbat.svg" width="25" height="25"></a>
+					اعتبار شما <span  >{{ getProfile().credit}}</span>تومان<a href="#"><img src="/assets/img/3-mosbat.svg" width="25" height="25"></a>
 					</div>
 				</li>
 				<li>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
 import { PackService } from '../Services/Pack-Service';
 import { AddressOrigin } from '../Model/Address-Origin';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class MapComponent implements OnInit  {
  
- 
+  @ViewChild('closeModal') private closeModal: ElementRef;
  // google maps zoom level
 
  
@@ -98,7 +98,9 @@ centerChange($event){
 }
 
  destnation(){
-this.router.navigate(["/destination"])
+  setTimeout(function(){ }, 3000);
+  this.closeModal.nativeElement.click();     
+//this.router.navigate(["/destination"])
  }
  mapClicked($event: MouseEvent) {
  
@@ -115,10 +117,14 @@ this.router.navigate(["/destination"])
  
  }
  
- AcceptMap(){
-  // [routerLink]="['/destination']"
- }
  
+ AcceptAddress(val:string){
+   this._packService.setAddress(val);
+   this.closeModal.nativeElement.click();     
+   this.router.navigate(["/destination"])
+
+  //  this.router.navigate(["/destination"])
+ }
 }
 // just an interface for type safety.
   interface marker {

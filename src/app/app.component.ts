@@ -52,7 +52,12 @@ public getIsLogin(){
     this._webApp.SingOut().subscribe(res=>{
       this.jsonProfile=null;
       this._auth.setIsLogin(false);
+      this._auth.clearProfile();
       this.router.navigate(["/"])
     })
+  }
+  public getProfile(){
+    console.log( this._auth.getProfile)
+    return this._auth.getProfile;
   }
 }

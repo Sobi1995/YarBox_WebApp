@@ -44,7 +44,9 @@ this.MultiplePacks.origin.senderPhoneNumber= origin.senderPhoneNumber!=undefined
    getAddress(){
    return this.MultiplePacks.origin.street;
  }
-
+setAddress(address:string){
+  this.MultiplePacks.origin.street=address;
+}
    SetAddress(addressOrigin:AddressOrigin){
    this.getMultiplePacks.origin.street=addressOrigin.address;
    this.getMultiplePacks.origin.latitude=addressOrigin.lat;

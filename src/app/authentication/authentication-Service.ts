@@ -88,6 +88,18 @@ return this.profile;
     setProfile(profile :ProfileDto){
         this.profile=profile;
     }
+    clearProfile(){
+        this.profile.credit=null ;
+  this.profile.email=null ;
+  this.profile.firstName=null ;
+  this.profile.lastName=null ;
+  this.profile.phoneNumber=null ;
+  this.profile.photoUrl=null ;
+
+  this.profile.point=null ;
+  this.profile.reagentCode=null ;
+  this.profile.score=null ;
+    }
     getIsLogin(){
         return this.IsLogin;
     }
