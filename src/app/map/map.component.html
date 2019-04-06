@@ -1,4 +1,4 @@
- 
+
 
  <div class="section-main-web-app">
     	
@@ -10,6 +10,7 @@
 		 
 			<div class="title-web-app1">
 				<p>ثبت مبدا</p>
+				 
 				<img src="/assets/img/3-mabda.svg" width="25" height="25" class="icon-serch1">
 				<input type="search"  value={{_packService.getAddress()}}>
 				<img src="/assets/img/3-search.svg" width="25" height="25" class="icon-serch2">
@@ -20,7 +21,7 @@
 		<div class="main-web-app-map">
 				<div class="marker-orgin"><a href="#"><img src="/assets/img/locstion.svg" width="70" height="70"></a></div>
 				<div class="fav-address-orgin"><a href="#"><img src="/assets/img/3-setareh.svg" width="22" height="22"></a></div>
-				<div class="location-my"><a href="#"><img src="/assets/img/mokhtasat.svg" width="30" height="30"></a></div>
+				<div class="location-my"><a (click)="myLocation()"><img src="/assets/img/mokhtasat.svg" width="30" height="30"></a></div>
 				
 				<agm-map 
 				(centerChange)="centerChange($event)"

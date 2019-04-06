@@ -50,14 +50,15 @@
 					</div>
 			
 				</form>
+		 
+				<app-error *ngIf="error==true"></app-error>
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  *ngIf="typeCity==3" >
 				<div class="type-part">
 					<i class="fas fa-angle-double-up"></i>
 					<p>ابتدا <span>نوع ارسال بار</span> خود را مشخص کنید</p>
 					</div>
-					
-	
+			
 			</div>
 			<div class="btn-web-app"><a (click)="AcceptDestination()">تایید و ادامه</a></div>
 		</section>

@@ -112,8 +112,9 @@
       <br>
       <input type="text" placeholder="توضیحات اقلام داخل بسته"  [(ngModel)]="mainPacks.content" name="content">
       </div>
-    </div>
     
+    </div>
+    <app-error *ngIf="error==true"></app-error>
     <div class="btn-web-app">
       <a (click)="AcceptPack()">ثبت درخواست</a></div>
   

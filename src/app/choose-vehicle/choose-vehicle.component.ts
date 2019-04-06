@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./choose-vehicle.component.css']
 })
 export class ChooseVehicleComponent implements OnInit {
-
+error:Boolean=false;
   constructor(
     private _packService:PackService,
     private _webapp:WebAppService,
@@ -24,16 +24,15 @@ this.vehicle=this._packService.getVehicle();
   } 
   checkValidation(){
      
-    if(this.vehicle==0){
-      alert("لطفا یکی از گزینه ها را وارد کنید")
-      return false
-    }
-    else{
+    if(this.vehicle==0)
       return true;
-    }
+
+      return false;
+    
   }
   getFactor(){
- if(this.checkValidation()==true){
+    this.error=this.checkValidation();
+ if(!this.error){
   this._webapp.getFactorKey().subscribe(res=>{
    
     this.router.navigate(["/factor/"+res.packKey]);

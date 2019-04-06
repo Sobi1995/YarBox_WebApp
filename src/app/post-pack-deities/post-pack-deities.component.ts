@@ -18,6 +18,7 @@ packs:packsDto[]=[]
 count:number;
 type:number;
 mainPacks:MainPacks;
+error:boolean=false;
 statusInsuranceStatus:boolean=true;
   constructor(
     private _webappservice:WebAppService,
@@ -79,7 +80,8 @@ console.log(res);
    this.mainPacks.isPacking=status;
     }
     AcceptPack(){
-       if(this.checkValidation()==true){
+      this.error=this.checkValidation();
+       if(! this.error){
       this._packService.setMainPaks(this.mainPacks);
       this._packService.setPaks(this.packs);
       this.router.navigate(["/choose-vehicle"])
@@ -96,20 +98,14 @@ if (index > -1) {
 
     checkValidation(){
         
-     if(this.packs.length<=0){
-       alert("لطفا حداقل یک بسته ثبت کنبد");
-       return false;}
-       else if(this.mainPacks.content==undefined)
-       {
-        alert("توضیحات را وارد کنید");
-        return false;
-       }
-       else if(this.mainPacks.isInsurance==true && (this.mainPacks.insurancePrice==undefined || !this.is_Number(this.mainPacks.insurancePrice) ))
-       {
-        alert("ارزش مرسوله را وارد کنید");
-        return false;
-       }
-    return true
+     if(this.packs.length<=0
+      ||this.mainPacks.isInsurance==true && (this.mainPacks.insurancePrice==undefined || !this.is_Number(this.mainPacks.insurancePrice) ))
+ 
+       return true;
+      
+     
+   
+    return false
     }
     is_Number(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
 }

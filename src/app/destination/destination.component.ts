@@ -18,6 +18,7 @@ export class DestinationComponent implements OnInit {
   Cities:any;
   Province:string;
  portlocation:string="";
+ error:boolean=false;
   constructor(
     private _webappService:WebAppService,
     private _postPackService:PackService,
@@ -39,8 +40,10 @@ export class DestinationComponent implements OnInit {
   AcceptDestination(){
       
     this.destinationModel.portId=10198;
-  if(this.checkValidation(this.destinationModel)==false){
-    alert("لطفا فیلدارو کامل پر کنید");
+     
+    this.error=this.checkValidation(this.destinationModel);
+  if(this.error){
+ 
     return;
   }
  
@@ -96,7 +99,7 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
   
   checkValidation(destination:DestinationDto){
       
-     var a=  this.is_Number(destination.receiverPhoneNumber);
+      
     if (destination.city ==undefined ||
        destination.portId ==0 ||
        destination.province ==undefined ||
@@ -105,10 +108,12 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
        destination.street ==undefined ||
        !this.is_Number(destination.receiverPhoneNumber ||
         destination.receiverPhoneNumber.length>=13) ){
-         return  false
+         
+          return  true
+
        }
        else{
-         return true;
+         return false;
        }
   
   }

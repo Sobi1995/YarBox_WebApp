@@ -57,8 +57,7 @@ export class MapComponent implements OnInit  {
       if (navigator)
       {
          
-      navigator.geolocation.getCurrentPosition( pos => {
-         
+      navigator.geolocation.getCurrentPosition( pos => { 
           this.lng = +pos.coords.longitude;
           this.lat = +pos.coords.latitude;
           // self.markers=[];
@@ -67,10 +66,8 @@ export class MapComponent implements OnInit  {
           //   lng:   pos.coords.longitude,
           //   label: 'A',
           //   draggable: true
-          // });
-          
-          self._webappservice.getCedarmapAddress(this.lat.toString(),this.lng.toString()).subscribe(res=>{
-             
+          // });       
+          self._webappservice.getCedarmapAddress(this.lat.toString(),this.lng.toString()).subscribe(res=>{      
             let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
             this._packService.SetAddress(new AddressOrigin(this.lat.toString(),this.lng.toString(),myAddress))
           
@@ -105,7 +102,23 @@ centerChange($event){
  mapClicked($event: MouseEvent) {
  
  }
- 
+ myLocation(){
+   let self=this;
+  if (navigator)
+  {
+     
+  navigator.geolocation.getCurrentPosition( pos => { 
+      this.lng = +pos.coords.longitude;
+      this.lat = +pos.coords.latitude;
+       
+      self._webappservice.getCedarmapAddress(this.lat.toString(),this.lng.toString()).subscribe(res=>{      
+        let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
+        this._packService.SetAddress(new AddressOrigin(this.lat.toString(),this.lng.toString(),myAddress))
+      
+      })
+    });
+  }
+ }
  markerDragEnd(m: marker, $event) {
     
   this._webappservice.getCedarmapAddress( $event.coords.lat,$event.coords.lng).subscribe(res=>{

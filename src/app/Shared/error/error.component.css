@@ -1,0 +1,10 @@
+.alertmas {
+    background: #ffe4ed;
+    display: inline-block;
+    width: 95%;
+    margin: 2.5%;
+    border-radius: 7px;
+    color: red;
+    text-align: center;
+    padding: 20px;
+}

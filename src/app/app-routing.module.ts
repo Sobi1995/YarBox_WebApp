@@ -19,6 +19,10 @@ import { FactorComponent } from './factor/factor.component';
 import { SearchDriverComponent } from './search-driver/search-driver.component';
 
 import { NgModule } from '@angular/core';
+import { SupportComponent } from './support/support.component';
+import { AboutYarboxComponent } from './about-yarbox/about-yarbox.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MyMessagesComponent } from './my-messages/my-messages.component';
 
  
 const routes: Routes = [
@@ -30,7 +34,11 @@ const routes: Routes = [
   {path:'accept-driver/:mobile',component:AcceptDriverComponent},
   {path:'destination',component:DestinationComponent},
   {path:'factor/:key',component:FactorComponent},
-  {path:'search-driver/:postpackid',component:SearchDriverComponent},
+  {path:'search-driver/:postpackid',component:SearchDriverComponent}, 
+  {path:'Support',component:SupportComponent},
+  {path:'about-yarbox',component:AboutYarboxComponent},
+  {path:'messages',component:MessagesComponent},
+  {path:'my-messages',component:MyMessagesComponent},
   ];
 
 @NgModule({

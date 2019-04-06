@@ -22,22 +22,22 @@
 				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-gozareshat.svg" width="35" height="35">گزارشات</a>
 				</li>
 				<li>
-				  <a [routerLink]="['/Home']" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">فعالیت ها</a>
+				  <a [routerLink]="['/Home']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">فعالیت ها</a>
 				</li>
 				<li>
-				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-adreshaye-montakhab.svg" width="35" height="35">آدرس های منتخب</a>
+				  <a href="#" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-adreshaye-montakhab.svg" width="35" height="35">آدرس های منتخب</a>
 				</li>
 				  <li>
-				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-sandoghe-payam.svg" width="35" height="35">صندوق پیام</a>
+				  <a   [routerLink]="['/messages']"  class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-sandoghe-payam.svg" width="35" height="35">صندوق پیام</a>
 				</li>
 				<li>
-				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-darbareye-ma.svg" width="35" height="35">درباره ما</a>
+				  <a  [routerLink]="['/about-yarbox']"  class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-darbareye-ma.svg" width="35" height="35">درباره ما</a>
 				</li>
 				<li>
-				  <a href="#" class="a-sidebar"><img src="/assets/img/3-icon-poshtibani.svg" width="35" height="35">پشتیبانی</a>
+				  <a   [routerLink]="['/Support']"  class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-poshtibani.svg" width="35" height="35">پشتیبانی</a>
 				</li>
 				  <li>
-				  <a (click)="SingOut()" class="a-sidebar"><img src="/assets/img/3-icon-khorooj.svg" width="35" height="35">خروج</a>
+				  <a (click)="SingOut()" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-khorooj.svg" width="35" height="35">خروج</a>
 				</li>
 			  </ul>
 			</div>

@@ -28,6 +28,11 @@ import { WebAppService } from './Services/webapp-service';
 import { PackService } from './Services/Pack-Service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Shared/AuthInterceptor ';
+import { ErrorComponent } from './Shared/error/error.component';
+import { SupportComponent } from './support/support.component';
+import { AboutYarboxComponent } from './about-yarbox/about-yarbox.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MyMessagesComponent } from './my-messages/my-messages.component';
  
  
  
@@ -45,7 +50,12 @@ import { AuthInterceptor } from './Shared/AuthInterceptor ';
     FactorComponent,
     SliderComponent,
     AcceptDriverComponent,
-    SearchDriverComponent
+    SearchDriverComponent,
+    ErrorComponent,
+    SupportComponent,
+    AboutYarboxComponent,
+    MessagesComponent,
+    MyMessagesComponent
   ],
   imports: [
     BrowserModule,

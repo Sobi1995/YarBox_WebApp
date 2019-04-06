@@ -12,7 +12,26 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/public.css">
 		<link rel="stylesheet" type="text/css" href="./assets/css/custom.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
+<style>
+.main-web-app-pic {
+    margin-top: -2.5% !important;
+    background: url(../img/back-pic1.jpg) !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% !important;
+    text-align: center;
+}
+.main-web-app-pic .piclogo {
+    width: 40%;
+    margin-top: 55px;
+}
+.main-web-app-pic .picmatn {
+    width: 40%;
+    display: block;
+    margin: 30% auto;
+}
+img.picloading {
+    width: 20%;
+}</style>
 
 
 </head>
@@ -21,7 +40,20 @@
  
   
 
-<app-root></app-root>
+<app-root>
+    <div class="section-main-web-app">
+    	
+        <section class="main-web-app main-web-app-pic">
+          
+          <img src="./assets/img/logo-pic1.png" class="piclogo">
+          <img src="./assets/img/matn-pic1.png" class="picmatn">
+          <img src="./assets/img/picloading2.gif" class="picloading">
+          
+        </section>
+        
+        </div>
+    
+</app-root>
     
 </body>
 </html>
