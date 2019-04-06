@@ -18,7 +18,7 @@ export class authenticationService{
     }
 
     sendVerifyCode(phonenumber:String ) {
-         
+        this._webAppService.setLoding(true);
         let headers = new HttpHeaders();
 headers = headers.set('Content-Type', 'application/json; charset=utf-8');
          var modelphonenumber={
@@ -28,13 +28,15 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     .post("http://api.yarbox.co/api/v1/account/retry-verify",modelphonenumber
     ,{headers:headers})
     .pipe(
-     map((response: Response) => response )
+     map((response: Response) => {
+        this._webAppService.setLoding(false); 
+       return response} )
      );
     
     }
 
     checkVerifyCode(verifycode:VerifyCode):Observable<JwtFormat> {
-       
+        this._webAppService.setLoding(true);
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         return   this._http.post<JwtFormat>("http://api.yarbox.co/api/v1/account/verify",verifycode,{headers:headers}).pipe(x=> x);

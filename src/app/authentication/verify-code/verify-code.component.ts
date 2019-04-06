@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VerifyCode } from '../Model/VerifyCode';
 import { authenticationService } from '../authentication-Service';
+import { WebAppService } from 'src/app/Services/webapp-service';
  
 
 @Component({
@@ -18,6 +19,7 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private auth:authenticationService,
+    private _webAppService:WebAppService,
  
     private router: Router) {
        this.VerifyCode=new  VerifyCode();
@@ -32,6 +34,7 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
     this.VerifyCode.verifyCode=verifycodeinput;
 
     this.auth.checkVerifyCode(this.VerifyCode).subscribe(res=>{
+      this._webAppService.setLoding(true);
       localStorage.setItem('access_token', res.access_token);
       localStorage.setItem('refresh_token', res.refresh_token);
       this.auth.getProfileOnApi().subscribe(res=>{

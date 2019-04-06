@@ -33,6 +33,8 @@ import { SupportComponent } from './support/support.component';
 import { AboutYarboxComponent } from './about-yarbox/about-yarbox.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MyMessagesComponent } from './my-messages/my-messages.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
  
  
  
@@ -71,7 +73,8 @@ import { MyMessagesComponent } from './my-messages/my-messages.component';
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
       apiKey: 'AIzaSyBk6zk8Beu9-gi2EZZZCPxFmlT7hTxDDQ0'
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
    
   ],
   providers: [

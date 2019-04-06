@@ -27,25 +27,25 @@ export class LoginComponent implements OnInit,OnDestroy {
   }
 
   sendCode(phonenumber:string){
-  
-       this.auth.sendVerifyCode(phonenumber).subscribe(
-        data => {
-          this.router.navigate(["/verify-vode/"+phonenumber]);
-        },
-        (error) => {
+    this.router.navigate(["/verify-vode/5454"+phonenumber]);
+//        this.auth.sendVerifyCode(phonenumber).subscribe(
+//         data => {
+//           this.router.navigate(["/verify-vode/"+phonenumber]);
+//         },
+//         (error) => {
            
- if(error.error.errorMessage!=undefined){
-  alert("شما هنوز ثبت نام نکرده اید")
+//  if(error.error.errorMessage!=undefined){
+//   alert("شما هنوز ثبت نام نکرده اید")
  
- }
- else if(error.error.message!=undefined){
+//  }
+//  else if(error.error.message!=undefined){
 
-  alert("شماره همراه را درست وارد کنید")
-}
+//   alert("شماره همراه را درست وارد کنید")
+// }
  
- console.log(error)
+//  console.log(error)
           
-        });
+//         });
   }
 
 }
