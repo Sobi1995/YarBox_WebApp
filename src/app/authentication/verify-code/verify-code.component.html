@@ -1,16 +1,19 @@
 
 
 	 <div class="section-main-web-app">
-    	
+			
 			<section class="main-web-app main-web-app-1">
+					
+				<a  [routerLink]="['/']" class="back-web-app2"><i class="fas fa-angle-left"></i></a>
 				<img src="./assets/img/img2.jpg" class="img-web-app"/>
 				
 				<div class="web-app-text">
 					<p>کد تایید ارسال شده را وارد نمایید</p>
-					<a [routerLink]="['/login']" >وارد کردن شماره</a>
+					 
 					<input type="text" placeholder="----   ---   ----" class="login-input"  #verifycode />
 					<i class="fas fa-lock-open"></i>
-					<a   >ارسال مجدد</a>
+					<br>
+					<a (click)="retrysms()"  >ارسال مجدد</a>
 				</div>
 			
 				<div class="btn-web-app"><a (click)="Login(verifycode.value)">وارد شوید</a></div>

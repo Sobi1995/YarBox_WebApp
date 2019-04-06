@@ -15,7 +15,7 @@
 				</li>
 				<li>
 					<div class="etebar-side-bar">
-					اعتبار شما <span  >{{ getProfile().credit}}</span>تومان<a href="#"><img src="/assets/img/3-mosbat.svg" width="25" height="25"></a>
+					اعتبار شما <span  >{{ getProfile().credit}}</span>تومان<a (click)=" hideMnu()" [routerLink]="['/wallet-charging']"><img src="/assets/img/3-mosbat.svg" width="25" height="25"></a>
 					</div>
 				</li>
 				<li>
@@ -25,6 +25,9 @@
 				  <a [routerLink]="['/Home']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">فعالیت ها</a>
 				</li>
 				<li>
+						<a [routerLink]="['/wallet-charging']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">شارژ کیف پول</a>
+					</li>
+				<li>
 				  <a href="#" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-adreshaye-montakhab.svg" width="35" height="35">آدرس های منتخب</a>
 				</li>
 				  <li>
@@ -33,6 +36,7 @@
 				<li>
 				  <a  [routerLink]="['/about-yarbox']"  class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-darbareye-ma.svg" width="35" height="35">درباره ما</a>
 				</li>
+				
 				<li>
 				  <a   [routerLink]="['/Support']"  class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-poshtibani.svg" width="35" height="35">پشتیبانی</a>
 				</li>

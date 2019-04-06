@@ -35,6 +35,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { MyMessagesComponent } from './my-messages/my-messages.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { WalletChargingComponent } from './wallet-charging/wallet-charging.component';
  
  
  
@@ -57,7 +58,8 @@ import { environment } from '../environments/environment';
     SupportComponent,
     AboutYarboxComponent,
     MessagesComponent,
-    MyMessagesComponent
+    MyMessagesComponent,
+    WalletChargingComponent
   ],
   imports: [
     BrowserModule,

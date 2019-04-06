@@ -23,6 +23,7 @@ import { SupportComponent } from './support/support.component';
 import { AboutYarboxComponent } from './about-yarbox/about-yarbox.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MyMessagesComponent } from './my-messages/my-messages.component';
+import { WalletChargingComponent } from './wallet-charging/wallet-charging.component';
 
  
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   {path:'Support',component:SupportComponent},
   {path:'about-yarbox',component:AboutYarboxComponent},
   {path:'messages',component:MessagesComponent},
-  {path:'my-messages',component:MyMessagesComponent},
+  {path:'my-messages',component:MyMessagesComponent},  
+  {path:'wallet-charging',component:WalletChargingComponent},
   ];
 
 @NgModule({
