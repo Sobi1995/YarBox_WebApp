@@ -27,9 +27,9 @@ import { WalletChargingComponent } from './wallet-charging/wallet-charging.compo
 
  
 const routes: Routes = [
-  {path:'Home',component:HomeComponent},
-  {path:'choose-vehicle',component:ChooseVehicleComponent, pathMatch: 'full'}, 
-  {path:'postPack-deities',component:PostPackDeitiesComponent, pathMatch: 'full'},
+  {path:'base',component:HomeComponent},
+  {path:'choose-vehicle',component:ChooseVehicleComponent}, 
+  {path:'postPack-deities',component:PostPackDeitiesComponent},
   {path:'map',component:MapComponent},
   {path:'orgin',component:OriginComponent}, 
   {path:'accept-driver/:mobile',component:AcceptDriverComponent},
@@ -49,8 +49,4 @@ const routes: Routes = [
 })
  
 
-@NgModule({
- 
-  exports: [RouterModule]
-})
 export class AppRoutingModule { }

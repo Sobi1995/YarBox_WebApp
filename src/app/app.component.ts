@@ -14,10 +14,11 @@ import  $ from 'jquery';
 export class AppComponent  implements OnInit{
   //test git
   ngOnInit(): void {
+    debugger
     let profile=localStorage.getItem("Profile"); 
     this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
     if(profile==null){
-    this.router.navigate(["/"]);
+    this.router.navigate(["/login"]);
     this._auth.setIsLogin(false);
     }
     else{
@@ -28,7 +29,7 @@ export class AppComponent  implements OnInit{
 if(count==0){
   this.router.navigate(["/map"])
 }else{
-  this.router.navigate(["/Home"]);
+  this.router.navigate(["/base"]);
 }
  
  
@@ -63,7 +64,7 @@ public getIsLogin(){
       this.jsonProfile=null;
       this._auth.setIsLogin(false);
       this._auth.clearProfile();
-      this.router.navigate(["/"])
+      this.router.navigate(["/login"])
     })
   }
   hideMnu(){

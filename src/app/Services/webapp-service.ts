@@ -17,7 +17,7 @@ private packsRuning:any;
  
 constructor(private _http:HttpClient,private _packService:PackService){
 
-this.api="http://api.yarbox.co/api/";
+this.api="https://api.yarbox.co/api/";
 }
  
 
@@ -213,4 +213,20 @@ return  this._http.get(this.api+"vv2/account/sign-out",{headers:headers},).pipe(
       
       );
 }
+
+
+
+walletCharge(value:number){
+      
+  let headers = new HttpHeaders();
+  headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+  headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+//https://api.yarbox.co/api/vv2/payment/charge?price=20
+return  this._http.get(this.api+"v1/payment/charge?price="+value,{headers:headers}).pipe(
+      map((response:any) => {
+          
+      return    response
+      } )
+      );
+ }
 }

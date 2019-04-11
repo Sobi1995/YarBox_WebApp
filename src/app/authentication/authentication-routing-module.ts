@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { VerifyCodeComponent } from './verify-code/verify-code.component';
  
 const routes: Routes = [
-    {path:'',component:LoginComponent},
+    {path:'login',component:LoginComponent},
     {path:'verify-vode/:phonenumber',component:VerifyCodeComponent}
     ];
  

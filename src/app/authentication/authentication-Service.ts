@@ -25,7 +25,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
             phoneNumber:phonenumber
          };  
     return   this._http
-    .post("http://api.yarbox.co/api/v1/account/retry-verify",modelphonenumber
+    .post("https://api.yarbox.co/api/v1/account/retry-verify",modelphonenumber
     ,{headers:headers})
     .pipe(
      map((response: Response) => {
@@ -39,7 +39,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         this._webAppService.setLoding(true);
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-        return   this._http.post<JwtFormat>("http://api.yarbox.co/api/v1/account/verify",verifycode,{headers:headers}).pipe(x=> x);
+        return   this._http.post<JwtFormat>("https://api.yarbox.co/api/v1/account/verify",verifycode,{headers:headers}).pipe(x=> x);
     }
 
     LogOut(){
@@ -47,11 +47,11 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         let headers = new HttpHeaders();
         headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-        return  this._http.get("http://api.yarbox.co/api/v1/account/sign-out",{headers:headers}).pipe(
+        return  this._http.get("https://api.yarbox.co/api/v1/account/sign-out",{headers:headers}).pipe(
             map((response) => {
                 localStorage.clear();
                 this._webAppService.setLoding(false);
-                this.router.navigate(["/"]);
+                this.router.navigate(["/login"]);
                     
                
             } )
@@ -64,7 +64,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-      return  this._http.get("http://api.yarbox.co/api/v1/profile",{headers:headers}).pipe(
+      return  this._http.get("https://api.yarbox.co/api/v1/profile",{headers:headers}).pipe(
             map((response) => {
                  
                 this.profile=response as ProfileDto
@@ -80,7 +80,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-      return  this._http.get("http://api.yarbox.co/api/v1/account/check",{headers:headers}).pipe(
+      return  this._http.get("https://api.yarbox.co/api/v1/account/check",{headers:headers}).pipe(
             map((response) => {
                 this._webAppService.setLoding(false);
                 var check= response as ProfileDto;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebAppService } from '../Services/webapp-service';
 
 @Component({
   selector: 'app-wallet-charging',
@@ -7,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WalletChargingComponent implements OnInit {
 pay:number=0;
-  constructor() { }
+  constructor(private _webAppService:WebAppService) { }
 
   ngOnInit() {
   }
 
   vlauePay(value:number){
     this.pay=value;
+  }
+  Pay(){
+    this._webAppService.walletCharge(this.pay).subscribe(res=>{
+       
+       window.open(res.redirectTo);
+    })
   }
 }

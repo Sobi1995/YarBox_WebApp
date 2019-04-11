@@ -36,7 +36,8 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
       localStorage.setItem('refresh_token', res.refresh_token);
       this.auth.getProfileOnApi().subscribe(res=>{
         this.auth.setIsLogin(true);
-        this.router.navigate(["/Home"]);
+        debugger
+        this.router.navigate(["/map"]);
       })
    
 
