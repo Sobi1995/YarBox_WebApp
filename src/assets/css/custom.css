@@ -878,7 +878,7 @@ a.aos-init.aos-animate:active {
 	.btn-web-app {
     width: 100% !important;
 	}
-	.web-app-text img {
+	.web-app-text img, .web-app-text i {
     left: 3% !important;
     
 	}
@@ -901,7 +901,7 @@ a.aos-init.aos-animate:active {
     right: 0 !important;
 	}
 	ul.sidebar-nav li:last-child {
-    bottom: -39vh !important;
+    bottom: -19vh !important;
 	}
 	.register-form img {
     right: 13% !important;
@@ -916,7 +916,7 @@ a.aos-init.aos-animate:active {
     margin-right: 2px !important;
 	}
 	.web-app-title {
-    padding-top: 10% !important;
+    padding-top: 4% !important;
 	}
 	ul.nav.nav-tabs.nav-factor {
     margin: 13px 20px 17px !important;
@@ -1025,7 +1025,35 @@ a.aos-init.aos-animate:active {
     }
 	.etebar .item img {
     	width: 70%;
-	}
+    }
+    .main-web-app-top {
+     
+        height: 100px !important;
+    }
+    .main-web-app-top1 {
+        height: 185px !important;
+    }
+    .type-part {
+        margin: 8% 6% !important;
+        height: 110px !important;
+    }
+    .type-part p {
+        font-size: 14px !important;
+        padding: 10px !important;
+    }
+    .sidebar-nav {
+        overflow: scroll;
+    }
+    .main-web-app-body {
+        height: 75vh;
+        overflow: scroll;
+    }
+    .main-web-app-pack, .main-web-app-factor{
+        overflow: scroll;
+        margin-bottom: 30px; 
+        height: 75vh;
+    }
+    .vecltype1{margin-top: 0px !important;}
     
 }
 
@@ -1373,7 +1401,7 @@ a.aos-init.aos-animate:active {
 	.btn-web-app {
     width: 100% !important;
 	}
-	.web-app-text img {
+	.web-app-text img, .web-app-text i {
     left: 3% !important;
     
 	}
@@ -1396,8 +1424,15 @@ a.aos-init.aos-animate:active {
     right: 0 !important;
 	}
 	ul.sidebar-nav li:last-child {
-    bottom: -39vh !important;
-	}
+    bottom: -18vh !important;
+    }
+    
+    .marker-orgin {
+        margin: 0 42% 25% 0 !important;
+    }
+    .location-my {
+        left: 10% !important;
+    }
 	.register-form img {
     right: 16% !important;
 	}
@@ -1405,7 +1440,7 @@ a.aos-init.aos-animate:active {
     height: 78% !important;
 	}
 	a.back-web-app {
-    margin-top: -30% !important;
+    margin-top: -19% !important;
 	}
 	.info-rule img {
     margin-right: 2px !important;
@@ -1553,7 +1588,15 @@ a.aos-init.aos-animate:active {
 	}
 	table.pay-table th img {
     margin-left: 5px !important;
-	}
+    }
+    .main-web-app-top {
+     
+        height: 100px !important;
+    }
+    .main-web-app-top1 {
+        height: 150px !important;
+    }
+
 }
 @media screen and (max-width:350px) {
 	ul.nav.nav-tabs.nav-factor {
@@ -1566,7 +1609,7 @@ a.aos-init.aos-animate:active {
     padding: 14px !important;
 	}
 	a.back-web-app {
-    margin-top: -40% !important;
+    margin-top: -24% !important;
 	}
 	.step-i img {
     width: 42px !important;
@@ -1996,7 +2039,13 @@ a.amot h4 {
 	}
 	section.main-web-app {
     height: 100vh !important;
-	}
+    }
+    .marker-orgin {
+        margin: 0 47% 4% 0 !important;
+    }
+    .location-my {
+        left: 6% !important;
+    }
 }
 
 @media (min-width:1200px) and (max-width:1700px) {
@@ -5618,7 +5667,7 @@ section.main-web-app {
     display: inline-block;
     height: 100vh;
     margin: 0 33%;
-	overflow: scroll;
+	
 }
 .main-web-app {
     -ms-overflow-style: none;  // IE 10+
@@ -5653,7 +5702,7 @@ section.main-web-app {
     border: 3px solid #f3f3f3;
     margin: 3% 12%;
 }
-.web-app-text img {
+.web-app-text img, .web-app-text i {
     position: relative;
     left: 19%;
     top: 0px;
@@ -5705,8 +5754,9 @@ section.main-web-app {
     position: relative;
     margin-top: 5%;
 	color: #333;
-    padding-right: 50px;
+    padding-right: 37px;
     font-family: 'IRANSans';
+    padding-left: 37px;
 }
 .title-web-app1 {
     text-align: center;
@@ -5758,14 +5808,14 @@ section.main-web-app {
 }
 .marker-orgin {
     bottom: 35%;
-    margin-right: 14.5%;
+    margin: 4% 15%;
     background: no-repeat;
     padding: 0;
     position: fixed;
     z-index: 2;
 }
 .location-my {
-    left: 36%;
+    left: 35%;
 }
 .sidebar-top {
     background: #d01d57;
@@ -5804,7 +5854,9 @@ section.main-web-app {
 .btn-web-app a{
     color: #fff !important;
     font-family: 'IRANSans';
+    cursor: pointer;
 }
+a{cursor: pointer;}
 a.back-web-app {
     float: left;
     padding: 15px;

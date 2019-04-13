@@ -36,3 +36,18 @@
     position: absolute;
     width: 100%;
 }
+
+
+
+@media screen and (max-width:768px) {
+    .loding-img {
+        margin: 12% 24% !important;
+    }
+
+}
+@media screen and (max-width:500px) {
+    .loding-img {
+        margin: 12% auto !important;
+    }
+
+}

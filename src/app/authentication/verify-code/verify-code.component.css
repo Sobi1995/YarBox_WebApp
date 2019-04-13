@@ -7,3 +7,11 @@ a.back-web-app2 {
     color: #fff;
     margin-top: 0;
 }
+@media screen and (max-width:768px) {
+    a.back-web-app2 {
+        left: 1% !important;
+    }
+}
+@media screen and (max-width:500px) {
+   
+}
