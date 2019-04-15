@@ -106,7 +106,7 @@ if (index > -1) {
 
     onSubmit() {
       // this.error=this.checkValidation();
-       alert("");
+     
      //  if(! this.error){
          if(this.mainPacks.content=="")
          this.mainPacks.content="ندارد"
