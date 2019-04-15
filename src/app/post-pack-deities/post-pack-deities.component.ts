@@ -80,15 +80,7 @@ console.log(res);
    this.mainPacks.isPacking=status;
     }
     AcceptPack(){
-      this.error=this.checkValidation();
-      debugger
-       if(! this.error){
-         if(this.mainPacks.content=="")
-         this.mainPacks.content="ندارد"
-      this._packService.setMainPaks(this.mainPacks);
-      this._packService.setPaks(this.packs);
-      this.router.navigate(["/choose-vehicle"])
-      }
+
     }
 
     deletepack(pack){
@@ -99,16 +91,28 @@ if (index > -1) {
     }
 
 
-    checkValidation(){
+    // checkValidation(){
         
-     if(this.packs.length<=0
-      ||this.mainPacks.isInsurance==true && (this.mainPacks.insurancePrice==undefined || !this.is_Number(this.mainPacks.insurancePrice) ))
+    //  if(this.packs.length<=0
+    //   ||this.mainPacks.isInsurance==true && (this.mainPacks.insurancePrice==undefined || !this.is_Number(this.mainPacks.insurancePrice) ))
  
-       return true;
+    //    return true;
       
      
    
-    return false
-    }
+    // return false
+    // }
     is_Number(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
+
+    onSubmit() {
+      // this.error=this.checkValidation();
+       alert("");
+     //  if(! this.error){
+         if(this.mainPacks.content=="")
+         this.mainPacks.content="ندارد"
+      this._packService.setMainPaks(this.mainPacks);
+      this._packService.setPaks(this.packs);
+      this.router.navigate(["/choose-vehicle"])
+     // }
+    }
 }

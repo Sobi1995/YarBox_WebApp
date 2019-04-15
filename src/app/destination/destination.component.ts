@@ -26,19 +26,8 @@ export class DestinationComponent implements OnInit {
     this.destinationModel=new DestinationDto("","",0,"","","");
     
   }
-
-  ngOnInit() {
-      this._postPackService.clearPaks();
-    this.destinationModel=this._postPackService.getDestination();
-    this.typeCity=this._postPackService.getTypeCity();
-    this._webappService.getProvinces().subscribe(res=>{
-      this.Provinces=res;
-       
- //[routerLink]="['/postPack-deities']"
-    })
-  }
-  AcceptDestination(){
-      
+  onSubmit() {
+    alert("")
     this.destinationModel.portId=10198;
      
     this.error=this.checkValidation(this.destinationModel);
@@ -51,6 +40,20 @@ export class DestinationComponent implements OnInit {
 
   this._postPackService.setDestination(this.destinationModel);
   this.router.navigate(["/postPack-deities"])
+  }
+  ngOnInit() {
+      this._postPackService.clearPaks();
+    this.destinationModel=this._postPackService.getDestination();
+    this.typeCity=this._postPackService.getTypeCity();
+    this._webappService.getProvinces().subscribe(res=>{
+      this.Provinces=res;
+       
+ //[routerLink]="['/postPack-deities']"
+    })
+  }
+  AcceptDestination(){
+      
+
   }
   PostType(type:number){
  this._postPackService.setTypeCity(type);

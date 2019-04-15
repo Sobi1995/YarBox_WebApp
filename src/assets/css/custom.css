@@ -6538,6 +6538,7 @@ form.maghsad {
 	color: #26306d;
     margin: 20px;
     display: inline-block;
+    width: 95%;
 }
 form.maghsad input, form.maghsad select, .form-pack input, .form-pack select{
     margin: 20px 0;

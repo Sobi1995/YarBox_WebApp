@@ -24,8 +24,7 @@
 					<input type="radio" id="terminal" name="type-web-app" class="radio-type" (click)="PostType(1)"  [checked]="typeCity==1? true: false">
 				    <label for="terminal" class="vecl-type-label2" data-toggle="modal" data-target="#myModal4" ></label>
 				</div>
-			 
-				<form class="maghsad" *ngIf="typeCity!=3">
+				<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad" *ngIf="typeCity!=3">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
 						<select   (change)="SelectProvince($event.target.value)" >
 						<option >
@@ -34,6 +33,7 @@
 						</option>
             <option *ngFor="let item of Provinces"   >  {{item}} </option>
 						</select>
+						<div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)"  > استان را وارد کنید </div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
 						<select (change)="SelectCity($event.target.value)">
@@ -43,13 +43,28 @@
 						</option>
             <option *ngFor="let city of Cities" value="{{city.name}}">{{city.name}}</option>
 						</select>
+						<div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)"  > استان را وارد کنید </div>
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="typeCity!=3">
-					<input type="text" placeholder="نام و نام خانوادگی گیرنده"  [(ngModel)]="destinationModel.receiverName" name="receiverName"><br>
-					<input type="text" placeholder="آدرس گیرنده" [(ngModel)]="destinationModel.street" [disabled]="typeCity==1" name="street"><br>
-					<input type="text" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber" maxlength="13"><br>
+
+					<input type="text" placeholder="نام و نام خانوادگی گیرنده"  [(ngModel)]="destinationModel.receiverName" name="receiverName" #receiverName="ngModel" required><br>
+					<div *ngIf="f.submitted && receiverName.invalid" class="invalid-feedback">
+						<div *ngIf="receiverName.errors.required">نام و نام خانوادگی گیرنده را وارد کنید</div>
+				  </div>
+
+					<input type="text" placeholder="آدرس گیرنده" [(ngModel)]="destinationModel.street" [disabled]="typeCity==1" name="street" #street="ngModel"  required><br>
+					<div *ngIf="f.submitted && street.invalid" class="invalid-feedback">
+							<div *ngIf="street.errors.required">آدرس گیرنده را وارد کنید</div>
+						</div>
+
+					<input type="text" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber"  #receiverPhoneNumber="ngModel" pattern="[0-9]+" required ><br>
+					<div *ngIf="f.submitted && receiverPhoneNumber.invalid" class="invalid-feedback">
+							<div *ngIf="receiverPhoneNumber.errors.required">شماره همراه / ثابت را وارد کنید</div>
+							<div [hidden]="!receiverPhoneNumber.errors.pattern"> لطفا  عدد وارد کنید </div>
 					</div>
+				</div>
 			
+					<button type="submit">cd</button>
 				</form>
 		 
 				<app-error *ngIf="error==true"></app-error>
@@ -78,16 +93,6 @@
 					<p class="type-modal">با انتخاب گزینه درب منزل ، مرسوله شما به درب آدرس گیرنده تحویل داده می شود </p>
 					  <div class="btn-circle-download" id="btn-ok-address" data-dismiss="modal">
 							<span class='pulse-button' data-dismiss="modal" (click)="AcceptPacks()"><i class="fas fa-check"></i></span>
-						  <!--svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
-							<path d="M24,15 L24,32"></path>
-							<polyline points="30 27 24 33 18 27"></polyline>
-						  </svg>
-						  <svg id="check" width="21px" height="15px" viewBox="13 17 21 15">
-							<polyline points="32.5 18.5 20 31 14.5 25.5"></polyline>
-						  </svg>
-						  <svg  id="border" (click)="AcceptPacks()" width="48px" height="48px" viewBox="0 0 48 48">
-							<path d="M24,1 L24,1 L24,1 C36.7025492,1 47,11.2974508 47,24 L47,24 L47,24 C47,36.7025492 36.7025492,47 24,47 L24,47 L24,47 C11.2974508,47 1,36.7025492 1,24 L1,24 L1,24 C1,11.2974508 11.2974508,1 24,1 L24,1 Z"></path>
-						  </svg-->
 				    </div>
 			  </div>
 			</div>
@@ -103,16 +108,7 @@
 					<p class="type-modal">با انتخاب گزینه درب ترمینال ، مرسوله شما به پایانه اتوبوسرانی شهر مورد نظر تحویل داده می شود .</p>
 					  <div class="btn-circle-download" id="btn-ok-address">
 								<span class='pulse-button' data-dismiss="modal" ><i class="fas fa-check"></i></span>
-						  <!--svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
-							<path d="M24,15 L24,32"></path>
-							<polyline points="30 27 24 33 18 27"></polyline>
-						  </svg>
-						  <svg id="check" width="21px" height="15px" viewBox="13 17 21 15">
-							<polyline points="32.5 18.5 20 31 14.5 25.5"></polyline>
-						  </svg>
-						  <svg  id="border" width="48px" height="48px" viewBox="0 0 48 48">
-							<path d="M24,1 L24,1 L24,1 C36.7025492,1 47,11.2974508 47,24 L47,24 L47,24 C47,36.7025492 36.7025492,47 24,47 L24,47 L24,47 C11.2974508,47 1,36.7025492 1,24 L1,24 L1,24 C1,11.2974508 11.2974508,1 24,1 L24,1 Z"></path>
-						  </svg-->
+
 				    </div>
 			  </div>
 			</div>
