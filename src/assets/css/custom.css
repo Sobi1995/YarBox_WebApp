@@ -1045,15 +1045,23 @@ a.aos-init.aos-animate:active {
         overflow: scroll;
     }
     .main-web-app-body {
-        height: 75vh;
+        height: 80vh;
         overflow: scroll;
+        width: 100%;
     }
     .main-web-app-pack, .main-web-app-factor{
         overflow: scroll;
         margin-bottom: 30px; 
         height: 75vh;
+        width: 100%;
     }
     .vecltype1{margin-top: 0px !important;}
+    .pack-item {
+        font-size: 14px;
+    }
+    p.p-support {
+        top: 10px !important;
+    }
     
 }
 
@@ -1424,7 +1432,7 @@ a.aos-init.aos-animate:active {
     right: 0 !important;
 	}
 	ul.sidebar-nav li:last-child {
-    bottom: -18vh !important;
+    bottom: -1vh !important;
     }
     
     .marker-orgin {
@@ -1595,6 +1603,12 @@ a.aos-init.aos-animate:active {
     }
     .main-web-app-top1 {
         height: 150px !important;
+    }
+    .main-web-app-top2 {
+        height: 275px !important;
+    }
+    a.info-web-app-a {
+        font-size: 14px;
     }
 
 }
@@ -5757,6 +5771,7 @@ section.main-web-app {
     padding-right: 37px;
     font-family: 'IRANSans';
     padding-left: 37px;
+    font-size: 12px;
 }
 .title-web-app1 {
     text-align: center;
@@ -5855,6 +5870,11 @@ section.main-web-app {
     color: #fff !important;
     font-family: 'IRANSans';
     cursor: pointer;
+    width: 100%;
+}
+button[disabled], html input[disabled], html input[disabled]::placeholder {
+    background: #fff;
+    color: #ccc !important;
 }
 a{cursor: pointer;}
 a.back-web-app {
@@ -6195,6 +6215,62 @@ button.btn.btn-ok {
 
 
 
+
+
+div#btn-ok-address {
+    text-align: center;
+}
+.pulse-button {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 1.6em;
+    font-weight: light;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 0;
+    letter-spacing: -1px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    background: #13d254;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 #13d254;
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 1.5s infinite;
+    margin: 8px auto;
+    padding-top: 10px;
+}
+
+@keyframes pulse {
+    0% {
+      transform:scale(.9);
+    }
+    70% {
+      transform:scale(1);
+      box-shadow: 0 0 0 20px rgba(19, 210, 84, 0);
+    }
+      100% {
+      transform:scale(.9);
+      box-shadow: 0 0 0 0 rgba(19, 210, 84, 0);
+    }
+  }
+@-webkit-keyframes pulse {
+  0% {
+    transform:scale(.9);
+  }
+  70% {
+    transform:scale(1);
+    box-shadow: 0 0 0 20px rgba(19, 210, 84, 0);
+  }
+    100% {
+    transform:scale(.9);
+    box-shadow: 0 0 0 0 rgba(19, 210, 84, 0);
+  }
+}
+
+/*
 .btn-circle-download {
     position: relative;
     height: 48px;
@@ -6305,7 +6381,7 @@ button.btn.btn-ok {
   }
 }
 
-
+*/
 /*
 
 input[type=number]::-webkit-inner-spin-button,
@@ -6461,6 +6537,7 @@ form.maghsad {
     line-height: 30px;
 	color: #26306d;
     margin: 20px;
+    display: inline-block;
 }
 form.maghsad input, form.maghsad select, .form-pack input, .form-pack select{
     margin: 20px 0;
@@ -6470,11 +6547,7 @@ form.maghsad select {
     margin: 20px 0;
 	font-weight: 600;
 }
-form.maghsad {
-    line-height: 30px;
-    color: #26306d;
-   
-}
+
 form.maghsad input::placeholder, .form-pack input::placeholder {
     color: #26306d;
 	
@@ -6755,25 +6828,8 @@ span.pelak-car {
 }
 .step-pack.done .step-pack-ok{display: inline-block;}
 .step-pack.done .step-pack-no{display: none;}
-.step-i:before {
-    width: 100px;
-    height: 1px;
-    border-bottom: 2px dashed #333;
-    content: '';
-    position: absolute;
-    top: 37%;
-    right: 74%;
-}
-.step-pack4 .step-i:before {
-    
-    border-bottom: none;
-    
-}
-.step-pack.done .step-i:before {
-    
-    border-bottom: 2px dashed #0ACD81;
-    
-}
+
+
 .hover-Unsuccess {
     background: rgba(40, 47, 108, 0.9);
     display: inline-block;
@@ -6916,15 +6972,7 @@ p.p-support img {
     position: relative;
     
 }
-p.p-support:before {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 2px;
-    border: 2px dashed #ccc;
-    top: 19px;
-    right: -3%;
-}
+
 p.about-p {
     color: #37438e;
     font-size: 17px;
@@ -7049,13 +7097,13 @@ div#myModal2 input {
     border: none;
     border-bottom: 1px solid #ccc;
     padding: 10px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
 }
 p.type-modal {
-    margin-bottom: 13px;
-    font-size: 16px;
-    padding: 25px;
-    line-height: 35px;
+    margin-bottom: -3px;
+    font-size: 13px;
+    padding: 12px 2px;
+    line-height: 30px;
 }
 .modal-dialog {
     position: relative;

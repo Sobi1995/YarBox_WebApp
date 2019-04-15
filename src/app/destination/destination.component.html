@@ -22,7 +22,7 @@
 				    <label for="darb" class="vecl-type-label1" data-toggle="modal" data-target="#myModal3"></label>
 					
 					<input type="radio" id="terminal" name="type-web-app" class="radio-type" (click)="PostType(1)"  [checked]="typeCity==1? true: false">
-				    <label for="terminal" class="vecl-type-label2" data-toggle="modal" data-target="#myModal3" ></label>
+				    <label for="terminal" class="vecl-type-label2" data-toggle="modal" data-target="#myModal4" ></label>
 				</div>
 			 
 				<form class="maghsad" *ngIf="typeCity!=3">
@@ -75,9 +75,10 @@
 
 			  <div class="modal-body">
 
-					<p class="type-modal">در صورت انتخاب درب منزل مرسوله شما در آدرس وارد شده به گیرنده تحویل داده می شود</p>
-					 <div class="btn-circle-download" id="btn-ok-address" data-dismiss="modal">
-						  <svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
+					<p class="type-modal">با انتخاب گزینه درب منزل ، مرسوله شما به درب آدرس گیرنده تحویل داده می شود </p>
+					  <div class="btn-circle-download" id="btn-ok-address" data-dismiss="modal">
+							<span class='pulse-button' data-dismiss="modal" (click)="AcceptPacks()"><i class="fas fa-check"></i></span>
+						  <!--svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
 							<path d="M24,15 L24,32"></path>
 							<polyline points="30 27 24 33 18 27"></polyline>
 						  </svg>
@@ -86,8 +87,8 @@
 						  </svg>
 						  <svg  id="border" (click)="AcceptPacks()" width="48px" height="48px" viewBox="0 0 48 48">
 							<path d="M24,1 L24,1 L24,1 C36.7025492,1 47,11.2974508 47,24 L47,24 L47,24 C47,36.7025492 36.7025492,47 24,47 L24,47 L24,47 C11.2974508,47 1,36.7025492 1,24 L1,24 L1,24 C1,11.2974508 11.2974508,1 24,1 L24,1 Z"></path>
-						  </svg>
-				     </div>
+						  </svg-->
+				    </div>
 			  </div>
 			</div>
 		  </div>
@@ -99,9 +100,10 @@
 			<div class="modal-content modal-content-packs">
 
 			  <div class="modal-body">
-					<p class="type-modal">در صورت انتخاب درب منزل مرسوله شما در آدرس وارد شده به گیرنده تحویل داده می شود</p>
-					 <div class="btn-circle-download" id="btn-ok-address">
-						  <svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
+					<p class="type-modal">با انتخاب گزینه درب ترمینال ، مرسوله شما به پایانه اتوبوسرانی شهر مورد نظر تحویل داده می شود .</p>
+					  <div class="btn-circle-download" id="btn-ok-address">
+								<span class='pulse-button' data-dismiss="modal" ><i class="fas fa-check"></i></span>
+						  <!--svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
 							<path d="M24,15 L24,32"></path>
 							<polyline points="30 27 24 33 18 27"></polyline>
 						  </svg>
@@ -110,8 +112,8 @@
 						  </svg>
 						  <svg  id="border" width="48px" height="48px" viewBox="0 0 48 48">
 							<path d="M24,1 L24,1 L24,1 C36.7025492,1 47,11.2974508 47,24 L47,24 L47,24 C47,36.7025492 36.7025492,47 24,47 L24,47 L24,47 C11.2974508,47 1,36.7025492 1,24 L1,24 L1,24 C1,11.2974508 11.2974508,1 24,1 L24,1 Z"></path>
-						  </svg>
-				     </div>
+						  </svg-->
+				    </div>
 			  </div>
 			</div>
 		  </div>
