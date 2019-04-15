@@ -5,6 +5,7 @@ import swal from 'sweetalert';
 import { fadeAnimation } from './Shared/fade.animation';
 import { WebAppService } from './Services/webapp-service';
 import  $ from 'jquery';
+import { SwUpdate } from '@angular/service-worker';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -43,9 +44,18 @@ if(count==0){
   constructor(
     private _auth :authenticationService,
     private router: Router,
-    private _webApp:WebAppService){
+    private _webApp:WebAppService,
+    public swUpdate: SwUpdate){
   
-
+      if(this.swUpdate.isEnabled)
+      {
+        this.swUpdate.available.subscribe(()=> {
+  
+          if(confirm("New Version available.Load New Version?")){
+            window.location.reload();
+          }
+        })
+      }
    
   }
   public getRouterOutletState(outlet) {

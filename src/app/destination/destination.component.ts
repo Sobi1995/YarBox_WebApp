@@ -68,13 +68,13 @@ export class DestinationComponent implements OnInit {
       
   }
   AcceptPacks(){
-    $(".btn-circle-download").addClass("load");
-  setTimeout(function() {
-  $(".btn-circle-download").addClass("done");
-  }, 1000);
-  setTimeout(function() {
-  $(".btn-circle-download").removeClass("load done");
-  }, 5000);
+  //   $(".btn-circle-download").addClass("load");
+  // setTimeout(function() {
+  // $(".btn-circle-download").addClass("done");
+  // }, 1000);
+  // setTimeout(function() {
+  // $(".btn-circle-download").removeClass("load done");
+  // }, 5000);
    
   }
   SelectProvince(province:string){

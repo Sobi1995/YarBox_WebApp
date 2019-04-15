@@ -18,11 +18,6 @@ export class OriginComponent implements OnInit {
     private _packService:PackService
     ) {
     
-
-   
- 
- 
-
    }
 
   ngOnInit() {
