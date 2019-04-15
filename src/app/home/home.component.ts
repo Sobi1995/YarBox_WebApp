@@ -15,13 +15,12 @@ PacksRuning:any;
 
   ngOnInit() {
 this._webappservice.getPackrunning().subscribe(res=>{
+  debugger
   this.PacksRuning=res;
   let count=res.filter(x=> x.isCanceled==false).length
-     
 if(count==0){
   this.router.navigate(["/map"])
 }
-  console.log(res);
 })
 this.PacksRuning=this._webappservice.getPackrunningOnCache();
   }

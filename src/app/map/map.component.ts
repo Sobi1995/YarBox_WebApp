@@ -5,13 +5,16 @@ import { AddressOrigin } from '../Model/Address-Origin';
 import $ from 'jquery'
 import { google } from '@agm/core/services/google-maps-types';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit  {
- 
+  @ViewChild(AgmMap) map: any;
+  private dragEndSubscription: Subscription;
   @ViewChild('closeModal') private closeModal: ElementRef;
  // google maps zoom level
 
@@ -21,6 +24,10 @@ export class MapComponent implements OnInit  {
  // initial center position for the map
  lat: number = 51.673858;
  lng: number = 7.815982;
+
+
+ latDragEnd: string ;
+ lngDragEnd: string ;
  Origin:any;
  
 //  clickedMarker(label: string, index: number) {
@@ -34,7 +41,20 @@ export class MapComponent implements OnInit  {
 }
 
  ngOnInit(): void {
+  this.dragEndSubscription = (this.map._mapsWrapper as GoogleMapsAPIWrapper) 
+  .subscribeToMapEvent('dragend')
+  .subscribe(() => {
+
     
+    this._webappservice.getCedarmapAddress( this.latDragEnd,this.lngDragEnd).subscribe(res=>{
+         
+      let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
+        this._packService.SetAddress(new AddressOrigin(this.latDragEnd,this.lngDragEnd,myAddress))
+       console.log( myAddress)
+      })
+
+  });
+  
  this._packService.clearDestination();
     this.Origin=this._packService.getOrigin();
      
@@ -58,6 +78,8 @@ export class MapComponent implements OnInit  {
       {
          
       navigator.geolocation.getCurrentPosition( pos => { 
+
+        
           this.lng = +pos.coords.longitude;
           this.lat = +pos.coords.latitude;
           // self.markers=[];
@@ -83,15 +105,10 @@ export class MapComponent implements OnInit  {
 }
 
 centerChange($event){
-  console.log($event);
-// this.lat=Number($event.lat);
-// this.lng=Number($event.lng);
-  this._webappservice.getCedarmapAddress( $event.lat,$event.lng).subscribe(res=>{
-         
-    let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
-      this._packService.SetAddress(new AddressOrigin($event.lat,$event.lng,myAddress))
-     console.log( myAddress)
-    })
+  this.latDragEnd=$event.lat;
+  this.lngDragEnd=$event.lng;
+ 
+
 }
 
  destnation(){
@@ -138,6 +155,9 @@ centerChange($event){
    this.router.navigate(["/destination"])
 
   //  this.router.navigate(["/destination"])
+ }
+ onDragEnd($event){
+   debugger
  }
 }
 // just an interface for type safety.

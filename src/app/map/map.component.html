@@ -30,7 +30,8 @@
 					[zoom]="zoom"
 					[disableDefaultUI]="false"
 					[zoomControl]="false"
-					(mapClick)="mapClicked($event)">
+					(mapClick)="mapClicked($event)"
+					(dragEnd)="onDragEnd($event)">
 
 				</agm-map>
 			

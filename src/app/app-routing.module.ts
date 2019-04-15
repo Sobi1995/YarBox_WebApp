@@ -1,23 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
-
 import { HomeComponent } from './home/home.component';
-
 import { ChooseVehicleComponent } from './choose-vehicle/choose-vehicle.component';
-
 import { PostPackDeitiesComponent } from './post-pack-deities/post-pack-deities.component';
-
 import { MapComponent } from './map/map.component';
-
 import { OriginComponent } from './origin/origin.component';
-
 import { AcceptDriverComponent } from './accept-driver/accept-driver.component';
-
 import { DestinationComponent } from './destination/destination.component';
-
 import { FactorComponent } from './factor/factor.component';
-
 import { SearchDriverComponent } from './search-driver/search-driver.component';
-
 import { NgModule } from '@angular/core';
 import { SupportComponent } from './support/support.component';
 import { AboutYarboxComponent } from './about-yarbox/about-yarbox.component';
