@@ -146,5 +146,9 @@ setTypeCity(status:number){
 getTypeCity(){
  return this.typeCity 
 }
+setLatLong(long:string,lat:string){
+this.MultiplePacks.origin.latitude=lat;
+this.MultiplePacks.origin.llongitude=long;
+}
 } 
  

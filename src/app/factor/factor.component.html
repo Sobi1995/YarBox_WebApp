@@ -35,9 +35,9 @@
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
 					<div class="vecle-type">
 						
-			    <img *ngIf="Factor.vehicleId==1 &&  Factor.vehicleId!=undefined" src="/assets/img/5-vasileye-naghlie3motor.svg" width="70" height="70">
-				<img *ngIf="Factor.vehicleId==2 &&  Factor.vehicleId!=undefined"  src="/assets/img/5-vasileye-naghlie1pride.svg" width="70" height="70">
-				<img *ngIf="Factor.vehicleId==3 &&  Factor.vehicleId!=undefined" src="/assets/img/5-vasileye-naghlie2pride-vanet.svg" width="70" height="70">
+			  <img *ngIf="Vehicle==1" src="/assets/img/5-vasileye-naghlie3motor.svg" width="70" height="70">
+				<img *ngIf="Vehicle==2"  src="/assets/img/5-vasileye-naghlie1pride.svg" width="70" height="70">
+				<img *ngIf="Vehicle==3" src="/assets/img/5-vasileye-naghlie2pride-vanet.svg" width="70" height="70">
 						
 					</div>
 					</div>
@@ -75,7 +75,7 @@
 					<h3>هزینه ارسال</h3>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: left;"> 
-						<span>{{Factor.price}}</span>تومان
+						<!-- <span>{{Factor.price}}</span>تومان -->
 					</div>
 				</div>
 				<div class="pay-factor">
@@ -97,9 +97,9 @@
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
 					<h3>کیف پول شما</h3>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: left;"> 
+					<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: left;"> 
 						<span>{{Profile.credit}}</span>تومان
-					</div>
+					</div> -->
 				</div>
 				
 				<div class="pay-btn-web-app">

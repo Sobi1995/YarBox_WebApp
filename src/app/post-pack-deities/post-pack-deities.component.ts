@@ -82,6 +82,8 @@ console.log(res);
     AcceptPack(){
       this.error=this.checkValidation();
        if(! this.error){
+         if(this. mainPacks.content="")
+         this. mainPacks.content="ندارد"
       this._packService.setMainPaks(this.mainPacks);
       this._packService.setPaks(this.packs);
       this.router.navigate(["/choose-vehicle"])

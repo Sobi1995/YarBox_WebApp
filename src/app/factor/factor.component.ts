@@ -14,6 +14,7 @@ export class FactorComponent implements OnInit {
   Factor:any;
   Profile:any;
   payment:number=-1;
+  Vehicle:number;
    accept=new AcceptSearchDto();
   constructor(
      private activatedRoute: ActivatedRoute,
@@ -24,6 +25,7 @@ export class FactorComponent implements OnInit {
 
   ngOnInit() {
  
+ this.Vehicle=this.PacksService.getVehicle();
     let factore= this.activatedRoute.snapshot.params["key"];
      console.log(factore)
      this.Profile=this.PacksService.getProfile();
@@ -57,6 +59,7 @@ this.accept.isCashPayment=chah;
       })
     }
     else{
+       
       this.accept.id=this.Factor.id;
       this._webapp.AcceptToSearch(this.accept).subscribe(res=>{
         this.router.navigate(['/search-driver/'+this.Factor.id]) 

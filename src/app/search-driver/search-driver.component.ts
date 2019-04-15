@@ -34,7 +34,7 @@ if(res!=null){
   this.router.navigate(["/accept-driver/"+res.mobile])
 }
       })
-    },1000)
+    },10000)
   }
 
   pauseTimer() {

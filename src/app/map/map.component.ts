@@ -133,6 +133,7 @@ centerChange($event){
  
  AcceptAddress(val:string){
    this._packService.setAddress(val);
+   this._packService.setLatLong(this.lng.toString(),this.lat.toString());
    this.closeModal.nativeElement.click();     
    this.router.navigate(["/destination"])
 

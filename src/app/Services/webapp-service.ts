@@ -17,7 +17,7 @@ private packsRuning:any;
  
 constructor(private _http:HttpClient,private _packService:PackService){
 
-this.api="https://api.yarbox.co/api/";
+this.api="http://localhost:11926/api/vv2/";
 }
  
 
@@ -29,7 +29,7 @@ this.api="https://api.yarbox.co/api/";
     headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
    
-  return  this._http.get(this.api+"v1/provinces/"+provinces+"/GetCityByType?type="+type,{headers:headers}).pipe(
+  return  this._http.get(this.api+"provinces/"+provinces+"/GetCityByType?type="+type,{headers:headers}).pipe(
         map((response:any) => {
             this.setLoding(false);
  return  response.items
@@ -43,7 +43,7 @@ this.api="https://api.yarbox.co/api/";
     headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-  return  this._http.get(this.api+"v1/provinces",{headers:headers}).pipe(
+  return  this._http.get(this.api+"provinces",{headers:headers}).pipe(
         map((response:any) => {
             this.setLoding(false);
         return    response.items
@@ -57,7 +57,7 @@ this.api="https://api.yarbox.co/api/";
     headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-   return  this._http.get(this.api+"v1/packs/running",{headers:headers}).pipe(
+   return  this._http.get(this.api+"packs/running",{headers:headers}).pipe(
         map((response:any) => {
             this.setLoding(false);
             this.packsRuning= response.items;
@@ -75,7 +75,7 @@ this.api="https://api.yarbox.co/api/";
     headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-  return  this._http.get(this.api+"v1/pack-data/types",{headers:headers}).pipe(
+  return  this._http.get(this.api+"pack-data/types",{headers:headers}).pipe(
         map((response:any) => {
             this.setLoding(false);
         return    response.items
@@ -101,7 +101,7 @@ return  this._http.get("https://api.cedarmaps.com/v1/geocode/cedarmaps.streets/"
   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-return  this._http.get(this.api+"/v1/account/check",{headers:headers}).pipe(
+return  this._http.get(this.api+"account/check",{headers:headers}).pipe(
       map((response:any) => {
           
       return    response
@@ -114,7 +114,7 @@ return  this._http.get(this.api+"/v1/account/check",{headers:headers}).pipe(
        headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
        headers = headers.set('Content-Type', 'application/json; charset=utf-8');
    let packs=this._packService.getMultiplePacks;
-     return  this._http.post(this.api+"v1/packs/MultiplePacks",packs,{headers:headers},).pipe(
+     return  this._http.post(this.api+"packs/MultiplePacks",packs,{headers:headers},).pipe(
            map((response:any) => {
             this.setLoding(false);
            return    response
@@ -129,7 +129,7 @@ getFactorDatiles(key){
       headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
       headers = headers.set('Content-Type', 'application/json; charset=utf-8');
   let packs=this._packService.getMultiplePacks;
-    return  this._http.get(this.api+"/vv2/packs/factor/"+key,{headers:headers},).pipe(
+    return  this._http.get(this.api+"/packs/factor/"+key,{headers:headers},).pipe(
           map((response:any) => {
             this.setLoding(false);
           return    response
@@ -138,14 +138,14 @@ getFactorDatiles(key){
 }
 
 getSearchDriver(packid:number){
-      this.setLoding(true);
+     
            let headers = new HttpHeaders();
       headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
       headers = headers.set('Content-Type', 'application/json; charset=utf-8');
   let packs=this._packService.getMultiplePacks;
-    return  this._http.post(this.api+"vv2/driver/AcceptedCarrierInfo?postPackId="+packid,null,{headers:headers},).pipe(
+    return  this._http.post(this.api+"driver/AcceptedCarrierInfo?postPackId="+packid,null,{headers:headers},).pipe(
           map((response:any) => {
-            this.setLoding(false);
+          
           return    response
           } )
           );
@@ -156,7 +156,7 @@ getDriver(mobile:string){
  
       headers = headers.set('Content-Type', 'application/json; charset=utf-8');
   let packs=this._packService.getMultiplePacks;
-    return  this._http.post(this.api+"vv2/driver/profile?mobile="+mobile,null,{headers:headers},).pipe(
+    return  this._http.post(this.api+"driver/profile?mobile="+mobile,null,{headers:headers},).pipe(
           map((response:any) => {
             this.setLoding(false);
           return    response
@@ -170,7 +170,7 @@ AcceptToSearch(acceptsearch:AcceptSearchDto){
   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
  
-return  this._http.post(this.api+"/vv2/packs/accept",acceptsearch,{headers:headers}).pipe(
+return  this._http.post(this.api+"packs/accept",acceptsearch,{headers:headers}).pipe(
       map((response:any) => {
         this.setLoding(false);
       return    response
@@ -190,7 +190,7 @@ getPortLocation(city:string){
   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 let packs=this._packService.getMultiplePacks;
-return  this._http.get(this.api+"vv2/provinces/p/getPortLocation?city="+city,{headers:headers},).pipe(
+return  this._http.get(this.api+"provinces/p/getPortLocation?city="+city,{headers:headers},).pipe(
       map((response:any) => {
         this.setLoding(false);
       return    response
@@ -204,7 +204,7 @@ SingOut(){
   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 let packs=this._packService.getMultiplePacks;
-return  this._http.get(this.api+"vv2/account/sign-out",{headers:headers},).pipe(
+return  this._http.get(this.api+"account/sign-out",{headers:headers},).pipe(
       map((response:any) => {
         this.setLoding(false);
         localStorage.clear();
@@ -222,7 +222,7 @@ walletCharge(value:number){
   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 //https://api.yarbox.co/api/vv2/payment/charge?price=20
-return  this._http.get(this.api+"v1/payment/charge?price="+value,{headers:headers}).pipe(
+return  this._http.get(this.api+"payment/charge?price="+value,{headers:headers}).pipe(
       map((response:any) => {
           
       return    response

@@ -14,7 +14,7 @@ import  $ from 'jquery';
 export class AppComponent  implements OnInit{
   //test git
   ngOnInit(): void {
-    debugger
+     
     let profile=localStorage.getItem("Profile"); 
     this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
     if(profile==null){
