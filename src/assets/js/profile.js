@@ -228,25 +228,6 @@ $(function(){
     
 
 
-	$(document).ready(function(){
-		$( "#btn-ok-pack" ).click(function() {
-			setTimeout(function() {
-				if ( $('#myModal').hasClass('in') ) { //Check if the modal is already showing
-					$('#myModal').modal('hide');
-				};
-			}, 2000); // milliseconds
-		});
-	});
-	
-	$(document).ready(function(){
-		$( "#btn-ok-address" ).click(function() {
-			setTimeout(function() {
-				if ( $('#myModal2').hasClass('in') ) { //Check if the modal is already showing
-					$('#myModal2').modal('hide');
-				};
-			}, 2000); // milliseconds
-		});
-	});
 	
 	$(document).ready(function(){
 		$( ".vecl-type-label1" ).click(function() {
