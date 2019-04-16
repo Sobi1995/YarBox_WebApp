@@ -15,6 +15,7 @@ export class PackService{
     private MultiplePacks:MultiplePacksDto;
     private Profile:Profile;
     private typeCity:number;
+   private defultMenu=true;
 constructor(){
   this.MultiplePacks=new MultiplePacksDto();
   this.MultiplePacks.origin=new originDto();
@@ -149,6 +150,12 @@ getTypeCity(){
 setLatLong(long:string,lat:string){
 this.MultiplePacks.origin.latitude=lat;
 this.MultiplePacks.origin.llongitude=long;
+}
+setDefultMenu(status:boolean){
+this.defultMenu=status
+}
+get getDefultMenu(){
+  return this.defultMenu;
 }
 } 
  

@@ -21,7 +21,39 @@ export class FactorComponent implements OnInit {
      private _webapp:WebAppService,
      private PacksService:PackService,
      private router:Router,
-     ) { }
+     ) { 
+
+this.Factor={
+  id: Number,
+  price: Number,
+  deliverTime:String,
+  content: String,
+  isPacking: Boolean,
+  isInsurance: false,
+  insurance: String,
+  vehicle: String,
+  vehicleId: String,
+  sender: {
+    name: String,
+    address: String,
+    phoneNumber: String
+  },
+  receiver: {
+    name:String,
+    address: "",
+    phoneNumber: String,
+    telephone: String
+  },
+  packdetails: [
+    {
+      type: String,
+      count: Number
+    }
+  ]
+}
+
+
+     }
 
   ngOnInit() {
  

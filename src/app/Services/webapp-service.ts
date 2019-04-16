@@ -12,8 +12,8 @@ export class WebAppService{
 private packsRuning:any;
  
 constructor(private _http:HttpClient,private _packService:PackService){
-
-this.api="https://api.yarbox.co/api/vv2/";
+this.api="http://localhost:11926/api/vv2/";
+// this.api="https://api.yarbox.co/api/vv2/";
 }
  
 
@@ -282,5 +282,20 @@ return  this._http.get(this.api+"/wallets/paid",{headers:headers},).pipe(
       return    response
       } )
       );
+}
+
+
+cancelPack(id:number){
+  this.setLoding(true);
+   let headers = new HttpHeaders();
+   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+ 
+ return  this._http.post(this.api+"packs/cancelpostpackcustomer?id="+id,null,{headers:headers},).pipe(
+       map((response:any) => {
+        this.setLoding(false);
+       return    response
+       } )
+       );
 }
 }

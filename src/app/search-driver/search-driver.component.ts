@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PackService } from '../Services/Pack-Service';
 
 @Component({
   selector: 'app-search-driver',
@@ -15,6 +16,7 @@ export class SearchDriverComponent implements OnInit {
     private _webapp:WebAppService,
     private router:Router,
     private activatedRoute: ActivatedRoute,
+    private PackService:PackService
     ) { 
     this.startTimer();
   }
@@ -28,7 +30,7 @@ export class SearchDriverComponent implements OnInit {
       //self.postpackid)
       this._webapp.getSearchDriver(self.postpackid).subscribe(res=>{
 if(res!=null){
-  alert("راننده پیدا شد")
+  // alert("راننده پیدا شد")
   this.pauseTimer();
   console.log(res);
   this.router.navigate(["/accept-driver/"+res.mobile])
@@ -39,5 +41,12 @@ if(res!=null){
 
   pauseTimer() {
     clearInterval(this.interval);
+  }
+
+  cancelPack(){
+    this._webapp.cancelPack(this.postpackid).subscribe(res=>{
+      this.PackService.setDefultMenu(false);
+      this.router.navigate(["/base"])
+    })
   }
 }

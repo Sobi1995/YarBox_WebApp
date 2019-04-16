@@ -18,7 +18,7 @@ export class ReportsComponent implements OnInit {
     })
 
     this._webappservice.getPaid().subscribe(res=>{
-      debugger
+       
       this.Paids=res.items;
     })
 

@@ -15,16 +15,16 @@
 			</div>
 			<!-- <a href="#" class="back-web-app"><i class="fas fa-angle-left"></i></a> -->
 			<div class="main-web-app">
-				
+                    <!-- class="active" -->
 				<ul class="nav nav-tabs nav-active">
-				  <li class="active"><a data-toggle="tab" href="#menu1">در حال اجرا</a></li>
-				  <li><a data-toggle="tab" href="#menu2">ناموفق</a></li>
+				  <li [class.active]="defultMenu==true"><a data-toggle="tab" href="#menu1">در حال اجرا</a></li>
+				  <li [class.active]="defultMenu==false" ><a data-toggle="tab" href="#menu2">ناموفق</a></li>
 				 
 				</ul>
-
+               
 				<div class="tab-content">
 				  
-				  <div id="menu1" class="tab-pane fade  in active"   >
+				  <div id="menu1" class="tab-pane fade " [class.active]="defultMenu==true" [class.in]="defultMenu==true"   >
 					
 					<div class="box-pack-web-app" *ngFor="let pack of PacksRuning" >
                         <div  *ngIf="pack.isCanceled==false">
@@ -66,12 +66,12 @@
 				
 					
 					</div>
-				 
+				<div *ngIf="countPackRuningInCancelFalse ==0">بسته در حال اجرا وجود ندارد</div>
 				  </div>
 					
 					
-				  <div id="menu2" class="tab-pane fade">
-					
+				  <div id="menu2" class="tab-pane fade   " [class.active]="defultMenu==false" [class.in]="defultMenu==false">
+ 
 					<div class="box-pack-web-app" *ngFor="let pack of PacksRuning" >
                         <div *ngIf="pack.isCanceled==true">
                                 <div class="head-pack head-pack1">
@@ -121,7 +121,8 @@
                                     </div>
                                     
                         </div>
-					</div> 
+                    </div> 
+                    <div *ngIf="countPackRuningInCancelTrue==0">بسته ناموفق ندارد</div>
 				  </div>
 				</div>
 				

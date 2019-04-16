@@ -127,7 +127,7 @@ centerChange($event){
      
   navigator.geolocation.getCurrentPosition( pos => { 
 
-    debugger
+     
       this.lng = +pos.coords.longitude;
       this.lat = +pos.coords.latitude;
       // self.markers=[];
@@ -158,6 +158,7 @@ centerChange($event){
  
  
  AcceptAddress(val:string){
+ if(val=="")return
    this._packService.setAddress(val);
    this._packService.setLatLong(this.lng.toString(),this.lat.toString());
    this.closeModal.nativeElement.click();     
