@@ -1,0 +1,76 @@
+<div class="section-main-web-app">
+
+  <section class="main-web-app">
+
+    <div class="main-web-app-top">
+
+      <div class="web-app-title">
+
+        <div class="title-web-app">تراکنش ها</div>
+      </div>
+
+    </div>
+    <a [routerLink]="['/map']" class="back-web-app"><i class="fas fa-angle-left"></i></a>
+    <div class="main-web-app main-web-app4">
+
+      <ul class="nav nav-tabs nav-active">
+        <li class="active"><a data-toggle="tab" href="#menu1">کیف پول</a></li>
+        <li><a data-toggle="tab" href="#menu2">گردش مالی</a></li>
+
+      </ul>
+
+      <div class="tab-content">
+
+        <div id="menu1" class="tab-pane fade  in active">
+
+          <table class="pay-table">
+            <tr>
+              <th><img src="/assets/img/12-tarikh.svg" width="20" height="20">تاریخ</th>
+              <th><img src="/assets/img/12-mablagh.svg" width="20" height="20">مبلغ</th>
+              <th><img src="/assets/img/12-noe.svg" width="20" height="20">نوع</th>
+              <th><img src="/assets/img/12-code-marsoole.svg" width="20" height="20">کد مرسوله</th>
+            </tr>
+            <tr *ngFor="let wallet of wallets">
+              <td>97/02/15</td>
+              <td>{{wallet.price}}</td>
+              <td *ngIf="wallet.type=='debtor'">واریز</td>
+              <td *ngIf="wallet.type=='creditor'">برداشت</td>
+              <td>ندارد</td>
+            </tr>
+
+         
+          </table>
+
+        </div>
+
+
+        <div id="menu2" class="tab-pane fade">
+
+          <table class="pay-table">
+            <tr>
+              <th><img src="/assets/img/12-tarikh.svg" width="20" height="20">تاریخ</th>
+              <th><img src="/assets/img/12-mablagh.svg" width="20" height="20">مبلغ</th>
+              <th><img src="/assets/img/12-noe.svg" width="20" height="20">نوع</th>
+              <th><img src="/assets/img/12-code-marsoole.svg" width="20" height="20">کد مرسوله</th>
+            </tr>
+            <tr *ngFor="let Paid of Paids">
+                <td>97/02/15</td>
+                <td>{{Paid.price}}</td>
+                <td *ngIf="Paid.type=='debtor'">واریز</td>
+                <td *ngIf="Paid.type=='creditor'">برداشت</td>
+                <td>{{Paid.packId}}</td>
+            </tr>
+
+     
+          </table>
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </section>
+
+</div>

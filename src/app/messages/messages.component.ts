@@ -7,7 +7,6 @@ import { WebAppService } from '../Services/webapp-service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-
   messages:any;
   constructor(  private _webappservice:WebAppService) { }
 

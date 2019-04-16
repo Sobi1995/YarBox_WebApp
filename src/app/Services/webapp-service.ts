@@ -256,4 +256,31 @@ return  this._http.get(this.api+"/messages",{headers:headers},).pipe(
       } )
       );
 }
+getWallet(){
+  this.setLoding(true);
+  let headers = new HttpHeaders();
+  headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+  headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+let packs=this._packService.getMultiplePacks;
+return  this._http.get(this.api+"/wallets",{headers:headers},).pipe(
+      map((response:any) => {
+        this.setLoding(false);
+      return    response
+      } )
+      );
+}
+
+getPaid(){
+  this.setLoding(true);
+  let headers = new HttpHeaders();
+  headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+  headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+let packs=this._packService.getMultiplePacks;
+return  this._http.get(this.api+"/wallets/paid",{headers:headers},).pipe(
+      map((response:any) => {
+        this.setLoding(false);
+      return    response
+      } )
+      );
+}
 }

@@ -45,7 +45,7 @@ export class MapComponent implements OnInit  {
   .subscribeToMapEvent('dragend')
   .subscribe(() => {
 
-    
+  
     this._webappservice.getCedarmapAddress( this.latDragEnd,this.lngDragEnd).subscribe(res=>{
          
       let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
@@ -127,7 +127,7 @@ centerChange($event){
      
   navigator.geolocation.getCurrentPosition( pos => { 
 
-    
+    debugger
       this.lng = +pos.coords.longitude;
       this.lat = +pos.coords.latitude;
       // self.markers=[];

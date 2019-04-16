@@ -14,6 +14,7 @@ import { AboutYarboxComponent } from './about-yarbox/about-yarbox.component';
 import { MessagesComponent } from './messages/messages.component';
 
 import { WalletChargingComponent } from './wallet-charging/wallet-charging.component';
+import { ReportsComponent } from './reports/reports.component';
 
  
 const routes: Routes = [
@@ -29,7 +30,7 @@ const routes: Routes = [
   {path:'Support',component:SupportComponent},
   {path:'about-yarbox',component:AboutYarboxComponent},
   {path:'messages',component:MessagesComponent},
- 
+  {path:'reports',component:ReportsComponent},
   {path:'wallet-charging',component:WalletChargingComponent},
   ];
 
