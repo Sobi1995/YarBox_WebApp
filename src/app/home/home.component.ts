@@ -25,4 +25,15 @@ if(count==0){
 this.PacksRuning=this._webappservice.getPackrunningOnCache();
   }
 
+
+  deletePaks(id:number){
+    debugger
+this._webappservice.deletePack(id).subscribe(res=>{
+  debugger
+  const index = this.PacksRuning.findIndex(x=> x.id==id);
+  if (index > -1) {
+    this.PacksRuning.splice(index, 1);
+  }
+})
+  }
 }

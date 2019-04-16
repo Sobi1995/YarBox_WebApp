@@ -7115,6 +7115,12 @@ img#loding {
     z-index: 10;
     margin: 13% 40%;
 }
+span.border-pack {
+    background: red;
+    width: 70%;
+    height: 2px;
+    margin: 0 15%;
+}
 /*menu burger*/
   #sidebar-wrapper {
    
@@ -7283,6 +7289,7 @@ img#loding {
   .toggle {
     margin: 5px 5px 0 0;
   }
+  
 /*menu burger*/
 @media print {
     .fcrow.fcrow-p, .fcrow.fcrow-p p, .prefactor-head, .prefactor-head i.fas.fa-map-marker-alt {

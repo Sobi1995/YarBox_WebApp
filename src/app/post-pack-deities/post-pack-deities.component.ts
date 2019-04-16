@@ -105,10 +105,11 @@ if (index > -1) {
     is_Number(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
 
     onSubmit() {
+      debugger
       // this.error=this.checkValidation();
-     
+     if(this.packs.length==0 || this.mainPacks.content=="" || this.mainPacks.isInsurance==true && (this.mainPacks.insurancePrice==undefined))return;
      //  if(! this.error){
-         if(this.mainPacks.content=="")
+         
          this.mainPacks.content="ندارد"
       this._packService.setMainPaks(this.mainPacks);
       this._packService.setPaks(this.packs);

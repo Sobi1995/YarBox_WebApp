@@ -59,7 +59,8 @@
         
       <div class="packs">
         <div  *ngFor="let pack of packs; let i = index" class="pack-item"><span class="pack-item-number"> {{i+1}}</span>{{pack.count}} عدد  {{getPostPackType(pack.typeId) }}  برای شما ثبت شد <a ><i class="fas fa-trash-alt" (click)="deletepack(pack)"></i></a></div>
-        <p *ngIf="packs.length==0" class="nul-pack"><img src="/assets/img/2-ghavanin.svg" width="25" height="35">لطفا مرسوله خود را وارد کنید</p>
+        <p *ngIf="packs.length==0" class="nul-pack"  ><img src="/assets/img/2-ghavanin.svg" width="25" height="35">لطفا مرسوله خود را وارد کنید</p>
+   <span *ngIf="f.submitted && packs.length==0"  class="border-pack"></span>
       </div>
         
         
@@ -93,9 +94,10 @@
       <br>
       
       <div class="form-pack">
-      <input type="text" placeholder="ارزش مرسوله خود را وارد کنید" [hidden]="!mainPacks.isInsurance==true" [(ngModel)]="mainPacks.insurancePrice"  name="insurancePrice"  #insurancePrice="ngModel"    required>
-     <p [hidden]="!mainPacks.isInsurance==true">{{mainPacks.insurancePrice | toman}}</p> 
+      <input type="text" placeholder="ارزش مرسوله خود را وارد کنید" [hidden]="!mainPacks.isInsurance==true" [(ngModel)]="mainPacks.insurancePrice"  name="insurancePrice"  #insurancePrice="ngModel"     >
+     <p *ngIf="mainPacks.isInsurance==true && mainPacks.insurancePrice>=1">{{mainPacks.insurancePrice | toman}}</p> 
       <br>
+ 
       <div *ngIf="f.submitted && insurancePrice.invalid && mainPacks.isInsurance==true" class="invalid-feedback">
           <div *ngIf="insurancePrice.errors.required">ارزش مرسوله خود را وارد کنید</div>
         </div>

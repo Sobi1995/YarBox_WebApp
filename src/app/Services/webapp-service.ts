@@ -225,4 +225,20 @@ return  this._http.get(this.api+"payment/charge?price="+value,{headers:headers})
       } )
       );
  }
+
+
+
+ deletePack(id:number){
+  this.setLoding(true);
+  let headers = new HttpHeaders();
+  headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+  headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+let packs=this._packService.getMultiplePacks;
+return  this._http.get(this.api+"packs/remove?id="+id,{headers:headers},).pipe(
+      map((response:any) => {
+        this.setLoding(false);
+      return    response
+      } )
+      );
+}
 }

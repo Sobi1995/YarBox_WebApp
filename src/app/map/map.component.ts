@@ -120,14 +120,23 @@ centerChange($event){
  
  }
  myLocation(){
-   let self=this;
+   debugger
+  let self=this;
   if (navigator)
   {
      
   navigator.geolocation.getCurrentPosition( pos => { 
+
+    
       this.lng = +pos.coords.longitude;
       this.lat = +pos.coords.latitude;
-       
+      // self.markers=[];
+      // self.markers.push({
+      //   lat: pos.coords.latitude,
+      //   lng:   pos.coords.longitude,
+      //   label: 'A',
+      //   draggable: true
+      // });       
       self._webappservice.getCedarmapAddress(this.lat.toString(),this.lng.toString()).subscribe(res=>{      
         let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
         this._packService.SetAddress(new AddressOrigin(this.lat.toString(),this.lng.toString(),myAddress))

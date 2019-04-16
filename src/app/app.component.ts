@@ -26,11 +26,11 @@ export class AppComponent  implements OnInit{
         this._auth.setProfile(this.jsonProfile);
         this._webApp.getPackrunning().subscribe(res=>{
           let count=res.filter(x=> x.isCanceled==false).length
-     
+     debugger
 if(count==0){
-  this.router.navigate(["/postPack-deities"])
+  this.router.navigate(["/map"])
 }else{
-  this.router.navigate(["/"]);
+  this.router.navigate(["/base"]);
 }
  
  
