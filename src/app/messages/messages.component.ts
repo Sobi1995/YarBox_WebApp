@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebAppService } from '../Services/webapp-service';
 
 @Component({
   selector: 'app-messages',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor() { }
+  messages:any;
+  constructor(  private _webappservice:WebAppService) { }
 
   ngOnInit() {
+    this._webappservice.getUserMessages().subscribe(res=>{
+      this.messages=res;
+        
+    })
   }
-
 }

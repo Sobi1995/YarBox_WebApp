@@ -1,0 +1,10 @@
+.massege-page .panel-body {
+    border-top: none !important;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 7%;
+    background: #f9f9f9;
+    margin-top: -4px;
+}
+.massege-page .panel {
+    box-shadow: none !important;
+}

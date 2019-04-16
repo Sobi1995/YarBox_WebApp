@@ -32,7 +32,6 @@ import { ErrorComponent } from './Shared/error/error.component';
 import { SupportComponent } from './support/support.component';
 import { AboutYarboxComponent } from './about-yarbox/about-yarbox.component';
 import { MessagesComponent } from './messages/messages.component';
-import { MyMessagesComponent } from './my-messages/my-messages.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { WalletChargingComponent } from './wallet-charging/wallet-charging.component';
@@ -58,7 +57,6 @@ import { WalletChargingComponent } from './wallet-charging/wallet-charging.compo
     SupportComponent,
     AboutYarboxComponent,
     MessagesComponent,
-    MyMessagesComponent,
     WalletChargingComponent
   ],
   imports: [

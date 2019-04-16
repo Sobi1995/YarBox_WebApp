@@ -217,8 +217,8 @@ walletCharge(value:number){
   let headers = new HttpHeaders();
   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-//https://api.yarbox.co/api/vv2/payment/charge?price=20
-return  this._http.get(this.api+"payment/charge?price="+value,{headers:headers}).pipe(
+//https://api.yarbox.co/api/vv2/payment/charge?price=20 => this.api+"payment/charge?price="+value
+ return  this._http.get("http://api.yarbox.co/api/v1/payment/charge?price=10000",{headers:headers}).pipe(
       map((response:any) => {
           
       return    response
@@ -235,6 +235,21 @@ return  this._http.get(this.api+"payment/charge?price="+value,{headers:headers})
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 let packs=this._packService.getMultiplePacks;
 return  this._http.get(this.api+"packs/remove?id="+id,{headers:headers},).pipe(
+      map((response:any) => {
+        this.setLoding(false);
+      return    response
+      } )
+      );
+}
+
+
+getUserMessages(){
+  this.setLoding(true);
+  let headers = new HttpHeaders();
+  headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+  headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+let packs=this._packService.getMultiplePacks;
+return  this._http.get(this.api+"/messages",{headers:headers},).pipe(
       map((response:any) => {
         this.setLoding(false);
       return    response

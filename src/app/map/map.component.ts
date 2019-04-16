@@ -120,7 +120,7 @@ centerChange($event){
  
  }
  myLocation(){
-   debugger
+    
   let self=this;
   if (navigator)
   {
@@ -166,7 +166,7 @@ centerChange($event){
   //  this.router.navigate(["/destination"])
  }
  onDragEnd($event){
-   debugger
+    
  }
 }
 // just an interface for type safety.
