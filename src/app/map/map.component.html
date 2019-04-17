@@ -11,9 +11,10 @@
 				<p>ثبت مبدا</p>
 				<img src="/assets/img/3-mabda.svg" width="25" height="25" class="icon-serch1">
 				<input type="search"  value={{_packService.getAddress()}}>
+				
 				<img src="/assets/img/3-search.svg" width="25" height="25" class="icon-serch2">
 			</div>
-		
+			<button  data-toggle="modal" data-target="#selectfavoriteaddresses">address</button>
 		</div>
 	 
 		<div class="main-web-app-map">
@@ -32,7 +33,7 @@
 					(dragEnd)="onDragEnd($event)">
 
 				</agm-map>
-			<button>address</button>
+		
 			
 		</div>
 		
@@ -92,3 +93,19 @@
 						</div>
 					</div>
 					</div>
+
+
+					<div id="selectfavoriteaddresses" class="modal fade" role="dialog" #closeModalSelectAddress>
+						<div class="modal-dialog">
+							<div class="modal-content modal-content-packs">
+							<div class="modal-body">
+									<h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
+									<p  *ngFor="let item of savedaddress" (click)="SelectAddress(item)">{{item.address}}  </p>
+									 <div class="btn-circle-download" id="btn-ok-address">
+									 </div>
+							</div>
+							</div>
+						</div>
+						</div>
+
+		 
