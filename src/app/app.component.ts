@@ -30,7 +30,7 @@ export class AppComponent  implements OnInit{
           
 if(count==0){ 
   //  this.router.navigate(["/map"])
-  this.router.navigate(["/destination"])
+  this.router.navigate(["/map"])
 }else{
   this.router.navigate(["/base"]);
 }
