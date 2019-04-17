@@ -21,6 +21,8 @@ export class DestinationComponent implements OnInit {
  portlocation:string="";
  @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
  @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
+ 
+ @ViewChild('addAddress') button;
  error:boolean=false;
   constructor(
     private _webappService:WebAppService,
@@ -155,5 +157,6 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
       this._postPackService.setTypeCity(this.typeCity);
       this._postPackService.setDestination(this.destinationModel);
       this.closeModalSelectAddress.nativeElement.click(); 
+      this.button.nativeElement.disabled = true;
     }
 }

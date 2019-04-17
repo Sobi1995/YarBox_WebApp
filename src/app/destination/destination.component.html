@@ -67,7 +67,7 @@
 			
 					<button type="submit">cd</button>
 	 
-					<button    *ngIf="typeCity==0 && f.form.valid"  data-toggle="modal" data-target="#favoriteaddresses"  type="button">add</button>
+					<button    *ngIf="typeCity==0 && f.form.valid"  data-toggle="modal" data-target="#favoriteaddresses"  #addAddress  type="button">add</button>
 				</form>
 		 
 				<app-error *ngIf="error==true"></app-error>
@@ -138,7 +138,7 @@
 					<div class="modal-content modal-content-packs">
 					<div class="modal-body">
 							<h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
-							<p  *ngFor="let item of savedaddress" (click)="SelectAddress(item)">{{item.city}}  {{item.province}}  </p>
+							<p  *ngFor="let item of savedaddress" (click)="SelectAddress(item)">{{item.street}}  </p>
 							 <div class="btn-circle-download" id="btn-ok-address">
 							 </div>
 					</div>
