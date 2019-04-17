@@ -8,15 +8,16 @@
 				<img src="./assets/img/img2.jpg" class="img-web-app"/>
 				
 				<div class="web-app-text">
-					<p>کد تایید ارسال شده را وارد نمایید</p>
+					
 					 
 					<input type="text" placeholder="----   ---   ----" class="login-input"  #verifycode />
 					<i class="fas fa-lock-open"></i>
 					<br>
-					<a (click)="retrysms()"  >ارسال مجدد</a>
+					<p>کد تایید ارسال شده را وارد نمایید</p>
+					<a (click)="retrysms()"  class="resend">ارسال مجدد</a>
 				</div>
 			
-				<div class="btn-web-app"><a (click)="Login(verifycode.value)">وارد شوید</a></div>
+				<div class="btn-web-app"><button (click)="Login(verifycode.value)">وارد شوید</button></div>
 			</section>
 			
 			</div>

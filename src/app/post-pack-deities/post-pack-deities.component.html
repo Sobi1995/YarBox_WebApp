@@ -35,7 +35,7 @@
             <div id="dec-button" class="spinner-button">-</div>
             
           </div>
-            <hr>
+           
             <select (change)="SelectType($event.target.value)">
             <option *ngFor="let type of PostPackType" value="{{type.id}}" >{{type.title}} </option>
          
@@ -68,7 +68,7 @@
         
       </div>
       <br>
-      <div class="pack-part">
+      <div class="pack-part pack-part2">
       <img src="/assets/img/6-baste-bandi.svg" width="80" height="80" class="pack-part-i">
       <label for="pack-web-app">بسته بندی شود</label>
       <div class="radiobtn-pack">
@@ -80,7 +80,7 @@
       </div>
       <br>
   
-      <div class="pack-part">
+      <div class="pack-part pack-part2">
       <img src="/assets/img/6-bime.svg" width="80" height="80" class="pack-part-i">
       <label for="bime-web-app">بیمه شود</label>
         <div class="radiobtn-pack">
@@ -93,7 +93,7 @@
       </div>
       <br>
       
-      <div class="form-pack">
+      <div class="form-pack pack-part2">
       <input type="text" placeholder="ارزش مرسوله خود را وارد کنید" [hidden]="!mainPacks.isInsurance==true" [(ngModel)]="mainPacks.insurancePrice"  name="insurancePrice"  #insurancePrice="ngModel"     >
      <p *ngIf="mainPacks.isInsurance==true && mainPacks.insurancePrice>=1">{{mainPacks.insurancePrice | toman}}</p> 
       <br>
@@ -104,12 +104,14 @@
       <br>
       <input type="text" placeholder="توضیحات اقلام داخل بسته"  [(ngModel)]="mainPacks.content" name="content">
       </div>
-      <button type="submit">send</button>
+      <!--button type="submit">send</button-->
+      <div class="btn-web-app">
+        <button type="submit" (click)="AcceptPack()">ثبت درخواست</button>
+      </div>
     </form>
     </div>
     <app-error *ngIf="error==true"></app-error>
-    <div class="btn-web-app">
-      <a (click)="AcceptPack()">ثبت درخواست</a></div>
+    
   
   </section>
   

@@ -41,13 +41,13 @@
 
 @media screen and (max-width:768px) {
     .loding-img {
-        margin: 12% 24% !important;
+        margin: 27% 24% !important;
     }
 
 }
 @media screen and (max-width:500px) {
     .loding-img {
-        margin: 12% auto !important;
+        margin: 43% auto !important;
     }
 
 }

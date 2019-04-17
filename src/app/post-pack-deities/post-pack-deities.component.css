@@ -23,9 +23,22 @@ span.pack-item-number {
 .pack-item:last-child {
     border: none;
 }
+.btn-web-app button {
+    margin-right: -20px;
+}
+
 @media screen and (max-width:768px) {
     .pack-item a {
-        font-size: 18px !important;
-        top: 11px !important;
+        font-size: 15px !important;
+        top: 9px !important;
+    }
+    .modal.in .modal-dialog {
+        -webkit-transform: translate(0,54%) !important;
+        -ms-transform: translate(0,54%) !important;
+        -o-transform: translate(0,54%) !important;
+        transform: translate(0,54%) !important;
+    }
+    .btn-web-app button {
+        margin-right: 0 !important;
     }
 }
