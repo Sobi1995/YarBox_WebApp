@@ -1,0 +1,17 @@
+.btn-web-app button {
+    margin-right: 0 !important;
+}
+@media screen and (max-width: 768px){
+    .main-web-app-factor {
+        height: 74vh !important;
+
+    }
+
+}
+@media screen and (max-width: 500px){
+    .main-web-app-factor {
+        height: 84vh !important;
+
+    }
+
+}

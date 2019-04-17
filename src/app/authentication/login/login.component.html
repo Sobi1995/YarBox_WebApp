@@ -7,12 +7,14 @@
 				<img src="/assets/img/img2.jpg" class="img-web-app"/>
 				 
 				<div class="web-app-text">
-					<p>برای ورود به سیستم شماره موبایل خود را وارد کنید .</p>
+					
 					
 					<input type="text" placeholder="----   ---   ----" class="login-input" #phonenumber />
 					<img src="/assets/img/2-mob.svg" width="30" height="30">
+
+					<p>برای ورود به سیستم شماره موبایل خود را وارد کنید .</p>
 				</div>
-				<div class="btn-web-app"><a (click)="sendCode(phonenumber.value)">وارد شوید</a></div>
+				<div class="btn-web-app"><button type="submit" (click)="sendCode(phonenumber.value)">وارد شوید</button></div>
 			</section>
 			
 			</div>

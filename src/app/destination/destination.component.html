@@ -25,7 +25,7 @@
 					<input type="radio" id="terminal" name="type-web-app" class="radio-type" (click)="PostType(1)"  [checked]="typeCity==1? true: false">
 				    <label for="terminal" class="vecl-type-label2" data-toggle="modal" data-target="#myModal4" ></label>
 				</div>
-				<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad" *ngIf="typeCity!=3">
+				<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad maghsad2" *ngIf="typeCity!=3">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
 						<select   (change)="SelectProvince($event.target.value)" >
 						<option >
@@ -34,7 +34,7 @@
 						</option>
             <option *ngFor="let item of Provinces">  {{item}} </option>
 						</select>
-						<div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)"  > استان را وارد کنید </div>
+						<div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> استان را وارد کنید </div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
 						<select (change)="SelectCity($event.target.value)">
@@ -44,29 +44,28 @@
 						</option>
             <option *ngFor="let city of Cities" value="{{city.name}}">{{city.name}}</option>
 						</select>
-						<div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)"  > استان را وارد کنید </div>
+						<div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)"  class="error-webapp">شهر را وارد کنید </div>
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="typeCity!=3">
 
 					<input type="text" placeholder="نام و نام خانوادگی گیرنده"  [(ngModel)]="destinationModel.receiverName" name="receiverName" #receiverName="ngModel" required><br>
 					<div *ngIf="f.submitted && receiverName.invalid" class="invalid-feedback">
-						<div *ngIf="receiverName.errors.required">نام و نام خانوادگی گیرنده را وارد کنید</div>
+						<div *ngIf="receiverName.errors.required" class="error-webapp">نام و نام خانوادگی گیرنده را وارد کنید</div>
 				  </div>
 
 					<input type="text" placeholder="آدرس گیرنده" [(ngModel)]="destinationModel.street" [disabled]="typeCity==1" name="street" #street="ngModel"  required><br>
 					<div *ngIf="f.submitted && street.invalid" class="invalid-feedback">
-							<div *ngIf="street.errors.required">آدرس گیرنده را وارد کنید</div>
+							<div *ngIf="street.errors.required" class="error-webapp">آدرس گیرنده را وارد کنید</div>
 						</div>
 
 					<input type="text" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber"  #receiverPhoneNumber="ngModel" pattern="[0-9]+" required ><br>
 					<div *ngIf="f.submitted && receiverPhoneNumber.invalid" class="invalid-feedback">
-							<div *ngIf="receiverPhoneNumber.errors.required">شماره همراه / ثابت را وارد کنید</div>
-							<div [hidden]="!receiverPhoneNumber.errors.pattern"> لطفا  عدد وارد کنید </div>
+							<div *ngIf="receiverPhoneNumber.errors.required" class="error-webapp">شماره همراه / ثابت را وارد کنید</div>
+							<div [hidden]="!receiverPhoneNumber.errors.pattern" class="error-webapp"> لطفا  عدد وارد کنید </div>
 					</div>
 				</div>
 			
-					<button type="submit">cd</button>
-	 
+				<div class="btn-web-app"><button (click)="AcceptDestination()">تایید و ادامه</button></div>
 					<button    *ngIf="typeCity==0 && f.form.valid"  data-toggle="modal" data-target="#favoriteaddresses"  #addAddress  type="button">add</button>
 				</form>
 		 
@@ -80,7 +79,7 @@
 			
 			</div>
 		</div>
-			<div class="btn-web-app"><button (click)="AcceptDestination()">تایید و ادامه</button></div>
+			
 		</section>
 		
 		</div>

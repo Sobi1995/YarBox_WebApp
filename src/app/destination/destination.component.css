@@ -724,3 +724,11 @@ button.btn-sidebar-form1:hover, button.btn-sidebar-form1:hover i {
     width: 100%;
     outline: none;
 }
+.btn-web-app button {
+    margin-right: -20px;
+}
+@media screen and (max-width: 768px){
+    .btn-web-app button {
+        margin-right: 0 !important;
+    }   
+}
