@@ -16,6 +16,8 @@ export class MapComponent implements OnInit  {
   @ViewChild(AgmMap) map: any;
   private dragEndSubscription: Subscription;
   @ViewChild('closeModal') private closeModal: ElementRef;
+  @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
+    @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
  // google maps zoom level
 
  
@@ -24,7 +26,7 @@ export class MapComponent implements OnInit  {
  // initial center position for the map
  lat: number = 51.673858;
  lng: number = 7.815982;
-
+   savedaddress:any[]=[]
 
  latDragEnd: string ;
  lngDragEnd: string ;
@@ -41,6 +43,7 @@ export class MapComponent implements OnInit  {
 }
 
  ngOnInit(): void {
+  this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddress"));
   this.dragEndSubscription = (this.map._mapsWrapper as GoogleMapsAPIWrapper) 
   .subscribeToMapEvent('dragend')
   .subscribe(() => {
@@ -169,6 +172,33 @@ centerChange($event){
  onDragEnd($event){
     
  }
+ SaveAddress(address :string,title:string){
+    
+   
+   let fs:any={
+     title:title,
+     address:address,
+     lat:this.latDragEnd,
+     lng:this.lngDragEnd
+   }
+ 
+   
+    this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddress"));
+  if(this.savedaddress==null)
+  this.savedaddress=Array.of(fs);
+  else
+  this.savedaddress.push(fs)
+  localStorage.setItem("Favoriteaddress",JSON.stringify(this.savedaddress));
+  this.closeModalfavoriteaddresses.nativeElement.click();  
+ }
+
+ SelectAddress(val:any){
+   this.lat=val.lat;
+   this.lng=val.lng;
+ 
+this._packService.SetAddress(new AddressOrigin( this.lat.toString(), this.lng.toString(),val.address))
+this.closeModalSelectAddress.nativeElement.click(); 
+ }
 }
 // just an interface for type safety.
   interface marker {
@@ -177,3 +207,11 @@ centerChange($event){
  label?: string;
  draggable: boolean;
 }
+
+
+interface Favoriteaddress {
+  lat: number;
+  lng: number;
+  label?: string;
+  draggable: boolean;
+ }
