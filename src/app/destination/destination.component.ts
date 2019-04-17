@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
 import { $ } from "jquery"
  
@@ -12,12 +12,15 @@ import { DestinationDto } from '../Model/dto/destination-dto';
   styleUrls: ['./destination.component.css']
 })
 export class DestinationComponent implements OnInit {
+  savedaddress:any[]=[]
   destinationModel:DestinationDto;
   typeCity:number=3;
   Provinces:any;
   Cities:any;
   Province:string;
  portlocation:string="";
+ @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
+ @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
  error:boolean=false;
   constructor(
     private _webappService:WebAppService,
@@ -28,6 +31,8 @@ export class DestinationComponent implements OnInit {
   }
   onSubmit() {
     // alert("")
+    debugger
+
     this.destinationModel.portId=10198;
      
     this.error=this.checkValidation(this.destinationModel);
@@ -42,6 +47,7 @@ export class DestinationComponent implements OnInit {
   this.router.navigate(["/postPack-deities"])
   }
   ngOnInit() {
+    this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
       this._postPackService.clearPaks();
     this.destinationModel=this._postPackService.getDestination();
     this.typeCity=this._postPackService.getTypeCity();
@@ -123,4 +129,31 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
   
   }
     is_Number(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
+
+    SaveAddress(val :string){
+         
+    this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
+    let distnation:any=this.destinationModel;
+    distnation.title=val;
+    distnation.typeCity=this.typeCity;
+    if(this.savedaddress==null)
+    this.savedaddress=Array.of(distnation);
+    else
+    this.savedaddress.push(distnation)
+    localStorage.setItem("Favoriteaddressdestination",JSON.stringify(this.savedaddress));
+    this.closeModalfavoriteaddresses.nativeElement.click();  
+    }
+
+    SelectAddress(val:any){
+      this.destinationModel.city=val.city;
+      this.destinationModel.portId=val.portId;
+      this.destinationModel.province=val.province;
+      this.destinationModel.receiverName=val.receiverName;
+      this.destinationModel.receiverPhoneNumber=val.receiverPhoneNumber;
+      this.destinationModel.street=val.street;
+      this.typeCity=val.typeCity;
+      this._postPackService.setTypeCity(this.typeCity);
+      this._postPackService.setDestination(this.destinationModel);
+      this.closeModalSelectAddress.nativeElement.click(); 
+    }
 }

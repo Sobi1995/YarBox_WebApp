@@ -28,8 +28,9 @@ export class AppComponent  implements OnInit{
         this._webApp.getPackrunning().subscribe(res=>{
           let count=res.filter(x=> x.isCanceled==false).length
           
-if(count==0){
-  this.router.navigate(["/map"])
+if(count==0){ 
+  //  this.router.navigate(["/map"])
+  this.router.navigate(["/destination"])
 }else{
   this.router.navigate(["/base"]);
 }
