@@ -1,0 +1,94 @@
+<div class="section-main-web-app">
+    	
+		<section class="main-web-app">
+			
+			<div class="main-web-app-top">
+				
+				<div class="web-app-title">
+					
+					<div class="title-web-app">آدرس های منتخب</div>
+				</div>
+			
+			</div>
+			<a  [routerLink]="['/map']" class="back-web-app"><i class="fas fa-angle-left"></i></a>
+			<div class="main-web-app">
+				
+				<ul class="nav nav-tabs nav-active">
+				  <li class="active"><a data-toggle="tab" href="#menu1">مبدا</a></li>
+				  <li><a data-toggle="tab" href="#menu2">مقصد</a></li>
+				 
+				</ul>
+
+				<div class="tab-content">
+				  
+				  <div id="menu1" class="tab-pane fade  in active">
+					
+					<div class="box-pack-web-app" *ngFor="let item of FavoriteAddress">
+					<div class="head-pack head-pack2">
+						<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+					 عنوان   {{item.title}}
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+							<div class="btn-favi-address" (click)="deleteAddress(item)">
+					    		<i class="far fa-times-circle"></i>
+							</div>
+						</div>
+						
+					</div> 
+					<div class="body-pack body-pack2">
+						<div class="map-fav-address"></div>
+						<div class="p-fav-address">
+						<p>آدرس : {{item.address}}</p>
+						</div>
+						
+					</div>
+					
+					</div>
+					   
+
+					
+				  </div>
+					
+					
+				  <div id="menu2" class="tab-pane fade">
+					
+					<div class="box-pack-web-app" *ngFor="let item of FavoriteAddressDistnation">
+					<div class="head-pack head-pack2">
+						<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+		             		{{item.city}}   	{{item.province}} 
+						</div> 
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+							<div class="btn-favi-address"   (click)="deleteAddressDistnation(item)">
+					    		<i class="far fa-times-circle"></i>
+							</div>
+						</div>
+						
+					</div> 
+					<div class="body-pack body-pack2">
+						<div class="map-fav-address"></div>
+						<div class="p-fav-address">
+						<p>{{item.receiverName}}  {{item.receiverPhoneNumber}}   {{item.street}}</p>
+						</div>
+						
+					</div>
+					
+					</div>
+			 
+					  
+					  
+				  </div>
+				</div>
+				
+
+					
+			</div>
+			
+			<div class="btn-web-app">
+				<a href="#">افزودن آدرس جدید</a>
+				</div>
+		</section>
+		
+		</div>
+       
+
+
