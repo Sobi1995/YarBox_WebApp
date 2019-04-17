@@ -36,6 +36,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { WalletChargingComponent } from './wallet-charging/wallet-charging.component';
 import { ReportsComponent } from './reports/reports.component';
+import { FavoriteAddressComponent } from './favorite-address/favorite-address.component';
+import { CoreModule } from './Core/core.module';
  
  
  
@@ -59,7 +61,8 @@ import { ReportsComponent } from './reports/reports.component';
     AboutYarboxComponent,
     MessagesComponent,
     WalletChargingComponent,
-    ReportsComponent
+    ReportsComponent,
+    FavoriteAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import { ReportsComponent } from './reports/reports.component';
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    CoreModule,
     AgmCoreModule.forRoot({
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
@@ -81,11 +85,7 @@ import { ReportsComponent } from './reports/reports.component';
   ],
   providers: [
     WebAppService,PackService,  
-    {
-  provide: HTTP_INTERCEPTORS,
-  useClass: AuthInterceptor,
-  multi: true,
-},
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

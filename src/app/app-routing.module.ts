@@ -15,6 +15,7 @@ import { MessagesComponent } from './messages/messages.component';
 
 import { WalletChargingComponent } from './wallet-charging/wallet-charging.component';
 import { ReportsComponent } from './reports/reports.component';
+import { FavoriteAddressComponent } from './favorite-address/favorite-address.component';
 
  
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path:'messages',component:MessagesComponent},
   {path:'reports',component:ReportsComponent},
   {path:'wallet-charging',component:WalletChargingComponent},
+  {path:'favorite-address',component:FavoriteAddressComponent},
   ];
 
 @NgModule({

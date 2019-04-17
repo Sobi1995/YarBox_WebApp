@@ -16,6 +16,7 @@ export class MapComponent implements OnInit  {
   @ViewChild(AgmMap) map: any;
   private dragEndSubscription: Subscription;
   @ViewChild('closeModal') private closeModal: ElementRef;
+  @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
  // google maps zoom level
 
  
@@ -169,6 +170,25 @@ centerChange($event){
  onDragEnd($event){
     
  }
+ SaveAddress(address :string,title:string){
+    
+   
+   let fs:any={
+     title:title,
+     address:address,
+     lat:this.lat,
+     lng:this.lng
+   }
+ 
+   let savedaddress:any[]=[]
+    savedaddress = JSON.parse(localStorage.getItem("Favoriteaddress"));
+  if(savedaddress==null)
+  savedaddress=Array.of(fs);
+  else
+  savedaddress.push(fs)
+  localStorage.setItem("Favoriteaddress",JSON.stringify(savedaddress));
+  this.closeModalfavoriteaddresses.nativeElement.click();  
+ }
 }
 // just an interface for type safety.
   interface marker {
@@ -177,3 +197,11 @@ centerChange($event){
  label?: string;
  draggable: boolean;
 }
+
+
+interface Favoriteaddress {
+  lat: number;
+  lng: number;
+  label?: string;
+  draggable: boolean;
+ }
