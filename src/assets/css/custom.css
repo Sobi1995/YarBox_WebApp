@@ -7480,6 +7480,25 @@ a.resend {
     color: #fff;
     font-size: 13px;
 }
+input.text-favorite, input.titr-favorite {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    padding: 10px;
+    margin: 5% 0;
+}
+input.text-favorite{
+    width: 60%;
+    margin-right: 7%;
+}
+div#selectfavoriteaddresses p {
+    line-height: 30px;
+    padding: 2% 4%;
+    cursor: pointer;
+}
+div#selectfavoriteaddresses p:hover {
+    color: #d01d57;
+}
 /*menu burger*/
 @media print {
     .fcrow.fcrow-p, .fcrow.fcrow-p p, .prefactor-head, .prefactor-head i.fas.fa-map-marker-alt {
