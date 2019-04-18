@@ -11,6 +11,7 @@ import { authenticationService } from '../authentication-Service';
   
 })
 export class VerifyCodeComponent implements OnInit,OnDestroy {
+  error:string="";
   ngOnDestroy(): void {
  
   }
@@ -40,6 +41,8 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
       })
    
 
+    },(err) => {
+      this.error="کد وارد شده صحیح نمی باشد لطفا مجددا تلاش کنید";
     })
   }
 

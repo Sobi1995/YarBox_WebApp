@@ -11,8 +11,12 @@ import { HttpErrorResponse } from '@angular/common/http';
   
 })
 export class LoginComponent implements OnInit,OnDestroy {
+error:String="";
+model: any = {};
   ngOnDestroy(): void {
-  ;
+  this.model={
+    model:String
+  }
   }
  
   constructor(
@@ -22,30 +26,29 @@ export class LoginComponent implements OnInit,OnDestroy {
 
    
      }
-
-  ngOnInit() {
-  }
-
-  sendCode(phonenumber:string){
+     onSubmit(){
   
-       this.auth.sendVerifyCode(phonenumber).subscribe(
+      this.auth.sendVerifyCode(this.model.mobile).subscribe(
         data => {
-          this.router.navigate(["/verify-vode/"+phonenumber]);
+          this.router.navigate(["/verify-vode/"+this.model.mobile]);
         },
         (error) => {
-           
+           debugger
  if(error.error.errorMessage!=undefined){
-  alert("شما هنوز ثبت نام نکرده اید")
+ this.error=  "شماره شما مجاز به ثبت نام نمی باشد" 
  
  }
  else if(error.error.message!=undefined){
 
-  alert("شماره همراه را درست وارد کنید")
+  this.error=  "شماره همراه را درست وارد کنید";
 }
  
- console.log(error)
+ 
           
         });
+     }
+  ngOnInit() {
   }
 
+ 
 }

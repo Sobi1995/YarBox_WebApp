@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { VerifyCode } from './Model/VerifyCode';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -30,7 +30,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     .pipe(
      map((response: Response) => {
         this._webAppService.setLoding(false); 
-       return response} )
+       return response} ,(err:HttpErrorResponse)=>{ return err })
      );
     
     }

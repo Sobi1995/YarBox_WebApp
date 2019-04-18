@@ -69,7 +69,6 @@ import { CoreModule } from './Core/core.module';
     AuthenticationModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    BrowserModule,
     FormsModule,
     CommonModule,
     AppRoutingModule,

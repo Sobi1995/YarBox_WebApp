@@ -13,7 +13,11 @@
 					<input type="text" placeholder="----   ---   ----" class="login-input"  #verifycode />
 					<i class="fas fa-lock-open"></i>
 					<br>
+					<p *ngIf="error!=''">{{error}}</p>
+					<br>
 					<p>کد تایید ارسال شده را وارد نمایید</p>
+				 
+				
 					<a (click)="retrysms()"  class="resend">ارسال مجدد</a>
 				</div>
 			

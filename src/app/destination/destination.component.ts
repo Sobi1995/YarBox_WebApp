@@ -89,7 +89,7 @@ export class DestinationComponent implements OnInit {
    
   }
   SelectProvince(province:string){
-     
+    this.destinationModel.city=undefined;
     
     this.destinationModel.province=province;
 this._webappService.getCities(province,this.typeCity).subscribe(res=>{

@@ -5,16 +5,25 @@
     	
 			<section class="main-web-app">
 				<img src="/assets/img/img2.jpg" class="img-web-app"/>
-				 
+				<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 				<div class="web-app-text">
+				
+						<!-- #mobile="ngModel" pattern="[0-9]+" required  -->
+					<input type="text" placeholder="----   ---   ----" class="login-input"   [(ngModel)]="model.mobile" #mobile="ngModel"  name="mobile"  pattern="^(\+98|0)?9\d{9}$" required />
 					
-					
-					<input type="text" placeholder="----   ---   ----" class="login-input" #phonenumber />
-					<img src="/assets/img/2-mob.svg" width="30" height="30">
 
-					<p>برای ورود به سیستم شماره موبایل خود را وارد کنید .</p>
+					<div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
+						<div *ngIf="mobile.errors.required" class="error-webapp">شماره همراه / ثابت را وارد کنید</div>
+						<div [hidden]="!mobile.errors.pattern" class="error-webapp"> فرمت شماره همراه را درست وارد کنید </div>
 				</div>
-				<div class="btn-web-app"><button type="submit" (click)="sendCode(phonenumber.value)">وارد شوید</button></div>
+
+					<img src="/assets/img/2-mob.svg" width="30" height="30">
+                      <p *ngIf="error!=''">{{error}}</p>
+					<p>برای ورود به سیستم شماره موبایل خود را وارد کنید .</p>
+					
+				</div>
+				<div class="btn-web-app"><button type="submit" >وارد شوید</button></div>
+			</form>
 			</section>
 			
 			</div>
