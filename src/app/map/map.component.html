@@ -9,12 +9,13 @@
 		 
 			<div class="title-web-app1">
 				<p>ثبت مبدا</p>
+				<button  data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite"><i class="far fa-bookmark"></i></button>
 				<img src="/assets/img/3-mabda.svg" width="25" height="25" class="icon-serch1">
 				<input type="search"  value={{_packService.getAddress()}}>
 				
 				<img src="/assets/img/3-search.svg" width="25" height="25" class="icon-serch2">
 			</div>
-			<button  data-toggle="modal" data-target="#selectfavoriteaddresses">address</button>
+			
 		</div>
 	 
 		<div class="main-web-app-map">
@@ -52,16 +53,7 @@
 					  <input type="text" placeholder="لطفا آدرس فرستنده را همراه با پلاک وارد نمایید"  value={{_packService.getAddress()}} #senderAddress>
 					   <div class="btn-circle-download" id="btn-ok-address">
 								<span class='pulse-button'  (click)="AcceptAddress(senderAddress.value)"><i class="fas fa-check"></i></span>
-							<!--svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
-							  <path d="M24,15 L24,32"></path>
-							  <polyline points="30 27 24 33 18 27"></polyline>
-							</svg>
-							<svg id="check" width="21px" height="15px" viewBox="13 17 21 15">
-							  <polyline points="32.5 18.5 20 31 14.5 25.5"></polyline>
-							</svg>
-							<svg  id="border" (click)="AcceptAddress(senderAddress.value)" width="48px" height="48px" viewBox="0 0 48 48">
-							  <path d="M24,1 L24,1 L24,1 C36.7025492,1 47,11.2974508 47,24 L47,24 L47,24 C47,36.7025492 36.7025492,47 24,47 L24,47 L24,47 C11.2974508,47 1,36.7025492 1,24 L1,24 L1,24 C1,11.2974508 11.2974508,1 24,1 L24,1 Z"></path>
-							</svg-->
+							
 						 </div>
 				</div>
 			  </div>
@@ -89,7 +81,7 @@
 							<div class="modal-content modal-content-packs">
 							<div class="modal-body">
 									<h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
-									<p  *ngFor="let item of savedaddress" (click)="SelectAddress(item)">{{item.address}}  </p>
+									<p  *ngFor="let item of savedaddress" (click)="SelectAddress(item)">{{item.title}}  </p>
 									 <div class="btn-circle-download" id="btn-ok-address">
 									 </div>
 							</div>
