@@ -4,6 +4,7 @@ import { MainPacks } from '../Model/dto/Main-Packs-dto';
 import { PackService } from '../Services/Pack-Service';
 import { Router } from '@angular/router';
 import { packsDto } from '../Model/dto/packs-dto';
+import { empty } from 'rxjs';
  
 
 @Component({
@@ -71,6 +72,10 @@ console.log(res);
     InsuranceStatus(status:boolean){
       this.mainPacks.isInsurance=status
       this.statusInsuranceStatus=status;
+      if(status==false)
+      this.mainPacks.insurancePrice=0;
+      else
+      this.mainPacks.insurancePrice=null;
     }
     getInsuranceStatus(){
       return this.statusInsuranceStatus;

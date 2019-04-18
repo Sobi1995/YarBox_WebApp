@@ -9,7 +9,7 @@ import { WebAppService } from '../Services/webapp-service';
 @Injectable()
 export class authenticationService{
   private  profile:ProfileDto;
-  private IsLogin=true;
+  private IsLogin=false;
     constructor(
         private _http:HttpClient,
         private router: Router,
@@ -103,7 +103,6 @@ return this.profile;
   this.profile.lastName=null ;
   this.profile.phoneNumber=null ;
   this.profile.photoUrl=null ;
-
   this.profile.point=null ;
   this.profile.reagentCode=null ;
   this.profile.score=null ;
@@ -114,6 +113,22 @@ return this.profile;
     setIsLogin(status:boolean){
 this.IsLogin=status;
     }
+
+
+    IsLoginOnServer():Observable<any>{
+    
+        this._webAppService.setLoding(true);
+      let headers = new HttpHeaders();
+      headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+      headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+     
+    return  this._http.get("http://api.yarbox.co/api/vv2/account/isLogin",{headers:headers}).pipe(
+          map((response:any) => {
+            this._webAppService.setLoding(false);
+   return  response.items
+          } )
+          );
+   }
 }
 
  

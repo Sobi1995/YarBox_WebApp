@@ -26,7 +26,7 @@ localStorage.setItem("Favoriteaddress",JSON.stringify(this.FavoriteAddress));
 }
 
 deleteAddressDistnation(val:any){
-  debugger
+   
   const index: number = this.FavoriteAddressDistnation.indexOf(val);
   if (index !== -1) {
       this.FavoriteAddressDistnation.splice(index, 1);

@@ -7,6 +7,7 @@ import { google } from '@agm/core/services/google-maps-types';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
+import { PlatformLocation } from '@angular/common';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -39,7 +40,12 @@ export class MapComponent implements OnInit  {
  constructor(
   private _webappservice:WebAppService,
   public _packService:PackService,
-  private router:Router){
+  private router:Router,
+  location: PlatformLocation){
+    location.onPopState(() => {
+        history.go(1);
+    
+  });
 }
 
  ngOnInit(): void {

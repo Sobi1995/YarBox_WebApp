@@ -94,7 +94,7 @@
       <br>
       
       <div class="form-pack pack-part2">
-      <input type="text" placeholder="ارزش مرسوله خود را وارد کنید" [hidden]="!mainPacks.isInsurance==true" [(ngModel)]="mainPacks.insurancePrice"  name="insurancePrice"  #insurancePrice="ngModel"     >
+      <input type="text" placeholder="ارزش مرسوله خود را وارد کنید" [hidden]="!mainPacks.isInsurance==true" required [(ngModel)]="mainPacks.insurancePrice"  name="insurancePrice"  #insurancePrice="ngModel"     >
      <p *ngIf="mainPacks.isInsurance==true && mainPacks.insurancePrice>=1">{{mainPacks.insurancePrice | toman}}</p> 
       <br>
  

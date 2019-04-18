@@ -39,11 +39,12 @@ export class AuthInterceptor implements HttpInterceptor {
      
       }
     }, (err: any) => {
-
+debugger
       if (err instanceof HttpErrorResponse) {
    
         if (err.status === 403) {
             localStorage.clear();
+            this._auth.setIsLogin(false);
             this.router.navigate(['/login']);
         }
         else if (err.status==500)

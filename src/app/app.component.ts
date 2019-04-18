@@ -15,31 +15,31 @@ import { SwUpdate } from '@angular/service-worker';
 export class AppComponent  implements OnInit{
   //test git
   ngOnInit(): void {
-     
-    let profile=localStorage.getItem("Profile"); 
-    this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
-    if(profile==null){
-    this.router.navigate(["/login"]);
-    this._auth.setIsLogin(false);
-    }
-    else{
-      
-        this._auth.setProfile(this.jsonProfile);
-        this._webApp.getPackrunning().subscribe(res=>{
-          let count=res.filter(x=> x.isCanceled==false).length
-          
+   
+     this._auth.IsLoginOnServer().subscribe(res=>{
+       
+       this._auth.setIsLogin(true);
+       this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
+       this._auth.setProfile(this.jsonProfile);
+       this._webApp.getPackrunning().subscribe(res=>{
+         let count=res.filter(x=> x.isCanceled==false).length
+         
 if(count==0){ 
-  //  this.router.navigate(["/map"])
-  this.router.navigate(["/map"])
+ //  this.router.navigate(["/map"])
+ this.router.navigate(["/"])
 }else{
-  this.router.navigate(["/base"]);
+ this.router.navigate(["/base"]);
 }
+})
+     },(err) => {
+      this._auth.setIsLogin(false);
+      this.router.navigate(["/login"]);
+    })
  
- 
-        })
+
       
 
-    }
+     
   }
   title = 'webapp';
   jsonProfile:any;
