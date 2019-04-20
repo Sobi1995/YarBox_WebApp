@@ -28,10 +28,12 @@ statusInsuranceStatus:boolean=true;
     this.mainPacks=new MainPacks()
     this.mainPacks.isPacking=true;
     this.mainPacks.isInsurance=true;
+  
   }
 
   ngOnInit() {
-    this.count=this.type=1;
+    this.type=1;
+    this.count=1;
      this._packService.clearVehicle();
     if(this._packService.IsExistpacks()==true){
       this.packs=this._packService.getPaks();
@@ -45,10 +47,10 @@ statusInsuranceStatus:boolean=true;
 console.log(res);
     });
   }
-  onSearchChange(searchValue : string ) {  
-    console.log(searchValue);
-    this.count= parseInt(searchValue); ;
-  }
+  // onSearchChange(searchValue : string ) {  
+  //   console.log(searchValue);
+  //   this.count= parseInt(searchValue); ;
+  // }
   SelectType($event){
     
     this.type=parseInt($event);
@@ -120,5 +122,12 @@ if (index > -1) {
       this._packService.setPaks(this.packs);
       this.router.navigate(["/choose-vehicle"])
      // }
+    }
+    CountPacks(type:number){
+       
+      if(type==0)
+      this.count --;
+      else
+      this.count++;
     }
 }

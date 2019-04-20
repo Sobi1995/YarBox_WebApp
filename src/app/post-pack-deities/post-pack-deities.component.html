@@ -30,9 +30,10 @@
       
           <label>تعداد بسته</label>
           <div class="quantity">
-            <input type="number"  value="1" class="number-pack" min="1" (input)="onSearchChange($event.target.value)" />
-            <div id="inc-button" class="spinner-button">+</div>
-            <div id="dec-button" class="spinner-button">-</div>
+              <!-- (input)="onSearchChange($event.target.value)" -->
+            <input type="number" [(ngModel)]="count" class="number-pack" name="count" min="1"   />
+            <div id="inc-button" (click)="CountPacks(1)" class="spinner-button">+</div>
+            <div id="dec-button" (click)="CountPacks(0)" class="spinner-button">-</div>
             
           </div>
            
@@ -71,6 +72,7 @@
       <div class="pack-part pack-part2">
       <img src="/assets/img/6-baste-bandi.svg" width="80" height="80" class="pack-part-i">
       <label for="pack-web-app">بسته بندی شود</label>
+    
       <div class="radiobtn-pack">
           <input id="radio-1" type="radio" name="Data1" value="agree" [checked]="mainPacks.isPacking==true? true: false" (click)="PackingStatus(true)" />
           <label for="radio-1"><i class="fas fa-check"></i></label>

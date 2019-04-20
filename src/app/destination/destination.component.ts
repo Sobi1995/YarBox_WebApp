@@ -41,8 +41,8 @@ export class DestinationComponent implements OnInit {
  
     return;
   }
-  this.destinationModel.city="تهران";
-  this.destinationModel.city="تهران";
+  // this.destinationModel.city="تهران";
+  // this.destinationModel.city="تهران";
 
   this._postPackService.setDestination(this.destinationModel);
   this.router.navigate(["/postPack-deities"])

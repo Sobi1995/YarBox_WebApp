@@ -9,12 +9,13 @@ import { WebAppService } from '../Services/webapp-service';
 @Injectable()
 export class authenticationService{
   private  profile:ProfileDto;
-  private IsLogin=false;
+  private IsLogin=true;
     constructor(
         private _http:HttpClient,
         private router: Router,
         private _webAppService:WebAppService){
         this.profile=new ProfileDto();
+   
     }
 
     sendVerifyCode(phonenumber:String ) {
