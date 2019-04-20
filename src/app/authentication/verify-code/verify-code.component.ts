@@ -26,7 +26,10 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
    }
 
   ngOnInit() {
-   
+   if(this.auth.getIsLogin()){
+    this.router.navigate(["/"])
+     return;
+   }
    this.VerifyCode.phoneNumber= this.activatedRoute.snapshot.params["phonenumber"];
   }
   Login(verifycodeinput:string){
@@ -37,7 +40,7 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
       localStorage.setItem('refresh_token', res.refresh_token);
       this.auth.getProfileOnApi().subscribe(res=>{
         this.auth.setIsLogin(true);
-         this.router.navigate(["/map"]);
+         this.router.navigate([""]);
       })
    
 

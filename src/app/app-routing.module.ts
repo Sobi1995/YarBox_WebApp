@@ -16,24 +16,25 @@ import { MessagesComponent } from './messages/messages.component';
 import { WalletChargingComponent } from './wallet-charging/wallet-charging.component';
 import { ReportsComponent } from './reports/reports.component';
 import { FavoriteAddressComponent } from './favorite-address/favorite-address.component';
+import { LoginGuardService } from './Services/login-guard.service';
 
  
 const routes: Routes = [
-  {path:'base',component:HomeComponent},
-  {path:'choose-vehicle',component:ChooseVehicleComponent}, 
-  {path:'postPack-deities',component:PostPackDeitiesComponent},
-  {path:'map',component:MapComponent},
-  {path:'orgin',component:OriginComponent}, 
-  {path:'accept-driver/:mobile',component:AcceptDriverComponent},
-  {path:'destination',component:DestinationComponent},
-  {path:'factor/:key',component:FactorComponent},
-  {path:'search-driver/:postpackid',component:SearchDriverComponent}, 
-  {path:'Support',component:SupportComponent},
-  {path:'about-yarbox',component:AboutYarboxComponent},
-  {path:'messages',component:MessagesComponent},
-  {path:'reports',component:ReportsComponent},
-  {path:'wallet-charging',component:WalletChargingComponent},
-  {path:'favorite-address',component:FavoriteAddressComponent},
+  {path:'base',component:HomeComponent, canActivate: [LoginGuardService]},
+  {path:'choose-vehicle',component:ChooseVehicleComponent, canActivate: [LoginGuardService]}, 
+  {path:'postPack-deities',component:PostPackDeitiesComponent, canActivate: [LoginGuardService]},
+  {path:'',component:MapComponent, canActivate: [LoginGuardService]},
+  {path:'orgin',component:OriginComponent, canActivate: [LoginGuardService]}, 
+  {path:'accept-driver/:mobile',component:AcceptDriverComponent, canActivate: [LoginGuardService]},
+  {path:'destination',component:DestinationComponent, canActivate: [LoginGuardService]},
+  {path:'factor/:key',component:FactorComponent, canActivate: [LoginGuardService]},
+  {path:'search-driver/:postpackid',component:SearchDriverComponent, canActivate: [LoginGuardService]}, 
+  {path:'Support',component:SupportComponent, canActivate: [LoginGuardService]},
+  {path:'about-yarbox',component:AboutYarboxComponent, canActivate: [LoginGuardService]},
+  {path:'messages',component:MessagesComponent, canActivate: [LoginGuardService]},
+  {path:'reports',component:ReportsComponent, canActivate: [LoginGuardService]},
+  {path:'wallet-charging',component:WalletChargingComponent, canActivate: [LoginGuardService]},
+  {path:'favorite-address',component:FavoriteAddressComponent, canActivate: [LoginGuardService]},
   ];
 
 @NgModule({

@@ -33,8 +33,7 @@ export class DestinationComponent implements OnInit {
   }
   onSubmit() {
     // alert("")
-    debugger
-
+ 
     this.destinationModel.portId=10198;
      
     this.error=this.checkValidation(this.destinationModel);

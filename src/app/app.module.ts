@@ -38,6 +38,7 @@ import { WalletChargingComponent } from './wallet-charging/wallet-charging.compo
 import { ReportsComponent } from './reports/reports.component';
 import { FavoriteAddressComponent } from './favorite-address/favorite-address.component';
 import { CoreModule } from './Core/core.module';
+import { LoginGuardService } from './Services/login-guard.service';
  
  
  
@@ -85,6 +86,7 @@ import { CoreModule } from './Core/core.module';
   providers: [
     WebAppService,PackService,  
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: LoginGuardService, useClass: LoginGuardService }
   ],
   bootstrap: [AppComponent]
 })
