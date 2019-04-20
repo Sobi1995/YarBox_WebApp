@@ -902,7 +902,7 @@ a.aos-init.aos-animate:active {
     right: 0 !important;
 	}
 	ul.sidebar-nav li:last-child {
-    bottom: -19vh !important;
+    bottom: -1vh !important;
 	}
 	.register-form img {
     right: 13% !important;
@@ -925,6 +925,8 @@ a.aos-init.aos-animate:active {
 	}
 	.tab-content.tab-factor .tab-pane {
     margin: 3px 20px 3px 20px !important;
+    padding: 4px 15px !important;
+    line-height: 14px !important;
 	}
 	.vecle-part label {
     font-size: 15px !important;
@@ -1066,11 +1068,10 @@ a.aos-init.aos-animate:active {
     p.nul-pack {
         font-size: 15px !important;
     }
-    .pack-part.pack-part2 {
-        margin: -5% 20px !important;
-    }
+    
     .pack-part {
         padding-bottom: 0 !important;
+        margin: 27px 35px -26px !important;
     }
     .form-pack {
         margin: -5% 35px !important;
@@ -1083,6 +1084,7 @@ a.aos-init.aos-animate:active {
     button.selectfavorite i {
         top: 9px !important;
     }
+    
 
     
 }
@@ -1680,6 +1682,7 @@ a.aos-init.aos-animate:active {
     }
     form.maghsad input, form.maghsad select, .form-pack input, .form-pack select {
         font-size: 13px !important;
+        margin: 11px 0 -2px !important;
     }
     form.maghsad {
         margin: -3% 0% !important;
@@ -1689,6 +1692,11 @@ a.aos-init.aos-animate:active {
         margin-top: -20px !important;
         font-size: 10px !important;
     }
+    .error-webapp2 {
+        margin-top: -5px !important;
+        margin-bottom: 10px !important;
+    }
+
     form.maghsad2 input, .form-pack select {
         margin: 5% 0 !important;
     }
@@ -1810,6 +1818,9 @@ a.aos-init.aos-animate:active {
     .add-favorite {
         margin-top: 1% !important;
        
+    }
+    .pack-part.pack-part2 {
+        margin: -5% 20px !important;
     }
     
 
@@ -2258,6 +2269,33 @@ a.amot h4 {
     }
     .location-my {
         left: 6% !important;
+    }
+    form.maghsad {
+        margin: -18px 20px 20px !important;
+    }
+    .main-web-app-form p, .type-part p {
+        padding: 13px 22px !important;
+    }
+    .pack-part.pack-part2 {
+        margin: -1% 20px !important;
+    }
+    form.maghsad input, form.maghsad select{
+        margin: 16px 0 -2px !important;
+    }
+    form.maghsad2 input, form.maghsad2 select {
+        margin: 20px 0 !important;
+    }
+    button.cancel-btn {
+        margin: 4% 45% !important;
+    }
+    .etebar ol.carousel-indicators {
+        margin-bottom: -7% !important;
+    }
+    .main-web-app-top2 {
+        height: 62% !important;
+    }
+    .null-pack {
+        margin-top: 7%;
     }
 }
 
@@ -5906,7 +5944,7 @@ section.main-web-app {
     border: none;
     padding: 15px;
     width: 50%;
-    margin: 6% 12%;
+    margin: 0% 12% 3%;
     border-radius: 10px;
     text-align: center;
 }
@@ -7512,7 +7550,7 @@ span.border-pack {
 a.resend {
     background: rgba(38, 48, 109, 0.6);
     padding: 7px 20px;
-    margin-top: 8%;
+    margin-top: 2%;
     border-radius: 10px;
     color: #fff;
     font-size: 13px;
@@ -7587,6 +7625,13 @@ button.selectfavorite i, button.selectfavorite2 i {
     font-size: 11px;
     margin-right: 10px;
     margin-top: 10px;
+}
+.swal-button-container {
+    float: left;
+}
+.swal-button {
+    background-color: #12bb4c !important;
+    border: none !important;
 }
 /*menu burger*/
 @media print {

@@ -26,7 +26,7 @@
 					<div class="box-pack-web-app" *ngFor="let item of FavoriteAddress">
 					<div class="head-pack head-pack2">
 						<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-					 عنوان   {{item.title}}
+					 عنوان :  {{item.title}}
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 							<div class="btn-favi-address" (click)="deleteAddress(item)">
@@ -55,7 +55,7 @@
 					<div class="box-pack-web-app" *ngFor="let item of FavoriteAddressDistnation">
 					<div class="head-pack head-pack2">
 						<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-		             		{{item.city}}   	{{item.province}} 
+		             		{{item.title}}
 						</div> 
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 							<div class="btn-favi-address"   (click)="deleteAddressDistnation(item)">

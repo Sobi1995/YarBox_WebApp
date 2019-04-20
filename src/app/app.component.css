@@ -21,7 +21,7 @@
     margin: 12% 40%;
     position: relative;
     z-index: 999;
-    width: 400px;
+    width: 200px;
     height: auto;
 }
 .back-loding {
@@ -41,13 +41,13 @@
 
 @media screen and (max-width:768px) {
     .loding-img {
-        margin: 27% 24% !important;
+        margin: 27% 37% !important;
     }
 
 }
 @media screen and (max-width:500px) {
     .loding-img {
-        margin: 43% auto !important;
+        margin: 51% 19% !important;
     }
 
 }

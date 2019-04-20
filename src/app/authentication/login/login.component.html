@@ -10,14 +10,14 @@
 				
 						<!-- #mobile="ngModel" pattern="[0-9]+" required  -->
 					<input type="text" placeholder="----   ---   ----" class="login-input"   [(ngModel)]="model.mobile" #mobile="ngModel"  name="mobile"  pattern="^(\+98|0)?9\d{9}$" required />
-					
+					<img src="/assets/img/2-mob.svg" width="30" height="30">
 
 					<div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
-						<div *ngIf="mobile.errors.required" class="error-webapp">شماره همراه / ثابت را وارد کنید</div>
-						<div [hidden]="!mobile.errors.pattern" class="error-webapp"> فرمت شماره همراه را درست وارد کنید </div>
+						<div *ngIf="mobile.errors.required" class="error-webapp error-webapp2">شماره همراه / ثابت را وارد کنید</div>
+						<div [hidden]="!mobile.errors.pattern" class="error-webapp error-webapp2"> فرمت شماره همراه را درست وارد کنید </div>
 				</div>
 
-					<img src="/assets/img/2-mob.svg" width="30" height="30">
+					
                       <p *ngIf="error!=''">{{error}}</p>
 					<p>برای ورود به سیستم شماره موبایل خود را وارد کنید .</p>
 					
