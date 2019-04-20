@@ -9,6 +9,7 @@ import { authenticationService } from './authentication-Service';
 import { AuthenticationRoutingModule } from './authentication-routing-module';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { LoginProfileGuardService } from './login-profile-guard.service';
 
 @NgModule({
   declarations: [LoginComponent, VerifyCodeComponent],
@@ -20,6 +21,7 @@ import { BrowserModule } from '@angular/platform-browser';
  
     AuthenticationRoutingModule
   ],
-  providers:[authenticationService]
+  providers:[authenticationService,
+    { provide: LoginProfileGuardService, useClass: LoginProfileGuardService }]
 })
 export class AuthenticationModule { }

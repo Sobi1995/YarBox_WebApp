@@ -122,7 +122,7 @@ this.IsLogin=status;
       headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
       headers = headers.set('Content-Type', 'application/json; charset=utf-8');
      
-    return  this._http.get("http://api.yarbox.co/api/vv2/account/isLogin",{headers:headers}).pipe(
+    return  this._http.get("https://api.yarbox.co/api/vv2/account/isLogin",{headers:headers}).pipe(
           map((response:any) => {
             this._webAppService.setLoding(false);
    return  response.items
