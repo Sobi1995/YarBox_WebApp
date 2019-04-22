@@ -39,7 +39,6 @@ export class AuthInterceptor implements HttpInterceptor {
      
       }
     }, (err: any) => {
-debugger
       if (err instanceof HttpErrorResponse) {
    
         if (err.status === 403) {

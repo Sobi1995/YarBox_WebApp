@@ -24,12 +24,12 @@ export class AppComponent  implements OnInit{
        this._webApp.getPackrunning().subscribe(res=>{
          let count=res.filter(x=> x.isCanceled==false).length
          
-if(count==0){ 
- //  this.router.navigate(["/map"])
- this.router.navigate(["/"])
-}else{
- this.router.navigate(["/base"]);
-}
+// if(count==0){ 
+//  //  this.router.navigate(["/map"])
+//  this.router.navigate(["/"])
+// }else{
+//  this.router.navigate(["/base"]);
+// }
 })
      },(err) => {
       this._auth.setIsLogin(false);

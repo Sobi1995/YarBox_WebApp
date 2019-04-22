@@ -43,10 +43,14 @@ this.MultiplePacks.origin.senderPhoneNumber= origin.senderPhoneNumber!=undefined
 
  }
    getAddress(){
+ 
+   
    return this.MultiplePacks.origin.street;
+   
  }
 setAddress(address:string){
   this.MultiplePacks.origin.street=address;
+  this.setOnLocalStorage();
 }
    SetAddress(addressOrigin:AddressOrigin){
    this.getMultiplePacks.origin.street=addressOrigin.address;
@@ -55,7 +59,8 @@ setAddress(address:string){
  }
  
 getOrigin(){
-  return this.getMultiplePacks.origin;
+  // return this.getMultiplePacks.origin;
+  return JSON.parse(localStorage.getItem("MultiplePacks")).origin;
 }
 clearOrigin(){
   this.MultiplePacks.origin=new originDto();
@@ -71,7 +76,8 @@ clearOrigin(){
  }
 
  getDestination(){
-  return this.MultiplePacks.destination;
+  // return this.MultiplePacks.destination;
+  return JSON.parse(localStorage.getItem("MultiplePacks")).destination;
  }
  clearDestination(){
   this.MultiplePacks.destination=new DestinationDto();
@@ -156,6 +162,10 @@ this.defultMenu=status
 }
 get getDefultMenu(){
   return this.defultMenu;
+}
+
+setOnLocalStorage(){
+  localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
 }
 } 
  
