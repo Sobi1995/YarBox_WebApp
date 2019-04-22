@@ -1078,8 +1078,8 @@ a.aos-init.aos-animate:active {
     }
     button.selectfavorite {
         position: absolute !important;
-        left: 20px !important;
-        top: 23px !important;
+        right: 86% !important;
+        top: 25px !important;
     }
     button.selectfavorite i {
         top: 9px !important;
@@ -1691,7 +1691,7 @@ a.aos-init.aos-animate:active {
         padding: 2% !important;
     }
     form.maghsad input, form.maghsad select, .form-pack input, .form-pack select {
-        font-size: 13px !important;
+        /*font-size: 13px !important;*/
         margin: 11px 0 -2px !important;
     }
     form.maghsad {
@@ -1720,7 +1720,7 @@ a.aos-init.aos-animate:active {
         margin: 13% 0 !important;
     }
     .title-web-app1 input {
-        width: 83% !important;
+        width: 73% !important;
         padding: 3% 12% !important;
         font-size: 10px !important;
     }
@@ -1732,9 +1732,10 @@ a.aos-init.aos-animate:active {
         left: -9% !important;
         width: 7% !important;
     }
+    /*
     .marker-orgin img {
         width: 155px !important;
-    }
+    }*/
     .fav-address-orgin, .location-my {
         width: 10% !important;
         height: 5.5% !important;
@@ -6082,7 +6083,7 @@ section.main-web-app {
 }
 .sidebar-top {
     background: #d01d57;
-    padding-top: 70px;
+    padding-top: 55px;
 	padding-bottom: 40px;
 	padding-right: 20px;
 }
@@ -7648,6 +7649,9 @@ button.selectfavorite i, button.selectfavorite2 i {
     margin-top: -1%;
     font-size: 10px;
 }
+.marker-orgin img {
+    width: 60px;
+}
 /*menu burger*/
 @media print {
     .fcrow.fcrow-p, .fcrow.fcrow-p p, .prefactor-head, .prefactor-head i.fas.fa-map-marker-alt {
@@ -7679,4 +7683,64 @@ button.selectfavorite i, button.selectfavorite2 i {
     .prefactor2 {
         display: inline-block;
     }
+}
+
+
+
+/*** Styles added to fix the issue with zoom in on iphone ***/
+/* iPhone < 5: */
+@media screen and (device-aspect-ratio: 2/3) {
+    select, textarea, input[type="text"], input[type="password"],
+    input[type="datetime"], input[type="datetime-local"],
+    input[type="date"], input[type="month"], input[type="time"],
+    input[type="week"], input[type="number"], input[type="email"],
+    input[type="url"]{ font-size: 16px; }
+}
+
+/* iPhone 5, 5C, 5S, iPod Touch 5g */
+@media screen and (device-aspect-ratio: 40/71) {
+    select, textarea, input[type="text"], input[type="password"],
+    input[type="datetime"], input[type="datetime-local"],
+    input[type="date"], input[type="month"], input[type="time"],
+    input[type="week"], input[type="number"], input[type="email"],
+    input[type="url"]{ font-size: 16px; }
+}
+
+/* iPhone 6, iPhone 6s, iPhone 7 portrait/landscape */
+@media screen and (device-aspect-ratio: 375/667) {
+    select, textarea, input[type="text"], input[type="password"],
+    input[type="datetime"], input[type="datetime-local"],
+    input[type="date"], input[type="month"], input[type="time"],
+    input[type="week"], input[type="number"], input[type="email"],
+    input[type="url"]{ font-size: 16px; }
+}
+
+/* iPhone 6 Plus, iPhone 6s Plus, iPhone 7 Plus portrait/landscape */
+@media screen and (device-aspect-ratio: 9/16) {
+    select, textarea, input[type="text"], input[type="password"],
+    input[type="datetime"], input[type="datetime-local"],
+    input[type="date"], input[type="month"], input[type="time"],
+    input[type="week"], input[type="number"], input[type="email"],
+    input[type="url"]{ font-size: 16px; }
+}
+
+
+/*
+ * disable auto-zoom on iphone input field focus 
+ * http://www.456bereastreet.com/archive/201212/ios_webkit_browsers_and_auto-zooming_form_controls/
+*/
+input[type='text']:focus,
+input[type='number']:focus,
+textarea:focus {
+	font-size: 16px !important;
+}
+
+/* disable auto-zoom on iphone input field focus */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+	select:focus,
+	textarea:focus,
+	input:focus {
+		font-size: 16px !important;
+	}
 }
