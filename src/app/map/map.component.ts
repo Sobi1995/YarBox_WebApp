@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
 import { PlatformLocation } from '@angular/common';
+import { originDto } from '../Model/dto/origin-dto';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -31,7 +32,7 @@ export class MapComponent implements OnInit  {
 
  latDragEnd: string ;
  lngDragEnd: string ;
- Origin:any;
+ Origin:originDto;
  
 //  clickedMarker(label: string, index: number) {
 //    console.log(`clicked the marker: ${label || index}`)
@@ -42,6 +43,8 @@ export class MapComponent implements OnInit  {
   public _packService:PackService,
   private router:Router,
   location: PlatformLocation){
+    this.Origin=new originDto();
+     
     location.onPopState(() => {
         history.go(1);
     
@@ -58,20 +61,24 @@ export class MapComponent implements OnInit  {
     this._webappservice.getCedarmapAddress( this.latDragEnd,this.lngDragEnd).subscribe(res=>{
          
       let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
+      this.Origin.street=myAddress;
         this._packService.SetAddress(new AddressOrigin(this.latDragEnd,this.lngDragEnd,myAddress))
+        
        console.log( myAddress)
       })
 
   });
   
- this._packService.clearDestination();
+
+  
     this.Origin=this._packService.getOrigin();
-     
+     this.Origin.street= this.Origin.street;
     if(this.Origin.latitude!= undefined && this.Origin.llongitude!=undefined )
     {
       // this.markers=[];
       this.lat=Number(this.Origin.latitude);
       this.lng=Number(this.Origin.llongitude);
+  
       // this.markers.push({
       //   lat: this.Origin.latitude,
       //   lng:   this.Origin.llongitude,
@@ -99,7 +106,9 @@ export class MapComponent implements OnInit  {
           //   draggable: true
           // });       
           self._webappservice.getCedarmapAddress(this.lat.toString(),this.lng.toString()).subscribe(res=>{      
+            
             let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
+            this.Origin.street=myAddress;
             this._packService.SetAddress(new AddressOrigin(this.lat.toString(),this.lng.toString(),myAddress))
           
           })

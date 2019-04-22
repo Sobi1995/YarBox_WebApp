@@ -49,9 +49,9 @@ export class DestinationComponent implements OnInit {
   }
   ngOnInit() {
     this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
-      this._postPackService.clearPaks();
+   
     this.destinationModel=this._postPackService.getDestination();
-    this.typeCity=this._postPackService.getTypeCity();
+    this.typeCity =+this._postPackService.getTypeCity();
     this._webappService.getProvinces().subscribe(res=>{
       this.Provinces=res;
        
@@ -157,5 +157,14 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
       this._postPackService.setDestination(this.destinationModel);
       this.closeModalSelectAddress.nativeElement.click(); 
       this.button.nativeElement.disabled = true;
+    }
+    onSelectedChange(value: number) {
+  
+      this._postPackService.setTypeCity(this.typeCity);
+      this._postPackService.setDestination(this.destinationModel);
+    }
+    Back(){
+      this._postPackService.clearDestination();
+this.router.navigate(["/"]);
     }
 }

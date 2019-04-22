@@ -40,4 +40,8 @@ this.vehicle=this._packService.getVehicle();
  }
 
   }
+  Back(){
+    this._packService.clearVehicle();
+    this.router.navigate(['/postPack-deities']);
+  }
 }

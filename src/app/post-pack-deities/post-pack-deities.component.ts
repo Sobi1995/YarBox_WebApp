@@ -25,6 +25,7 @@ statusInsuranceStatus:boolean=true;
     private _webappservice:WebAppService,
     private _packService:PackService,
     private router:Router) { 
+       
     this.mainPacks=new MainPacks()
     this.mainPacks.isPacking=true;
     this.mainPacks.isInsurance=true;
@@ -32,14 +33,16 @@ statusInsuranceStatus:boolean=true;
   }
 
   ngOnInit() {
+ 
     this.type=1;
     this.count=1;
-     this._packService.clearVehicle();
-    if(this._packService.IsExistpacks()==true){
-      this.packs=this._packService.getPaks();
-      this.mainPacks=this._packService.getMainPack();
      
+    if(this._packService.IsExistpacks()==true){
+      this.packs=this._packService.getPaks(); 
+      this.mainPacks=this._packService.getMainPack();
+      debugger
     }
+ 
     
     this._webappservice.getPostPackType().subscribe(res=>{
    this.PostPackType=res;
@@ -63,8 +66,10 @@ console.log(res);
         
     //this.router.navigate(["/destination"])
      
-    
+     
       this.packs.push({count:this.count,weightId:this.type,typeId:this.type})
+ 
+      this._packService.setPaks(this.packs);
     }
     getPostPackType(id :number){
     
@@ -78,6 +83,8 @@ console.log(res);
       this.mainPacks.insurancePrice=0;
       else
       this.mainPacks.insurancePrice=null;
+      this._packService.setMainPaks(this.mainPacks);
+     
     }
     getInsuranceStatus(){
       return this.statusInsuranceStatus;
@@ -85,6 +92,7 @@ console.log(res);
     PackingStatus(status:boolean){
        
    this.mainPacks.isPacking=status;
+   this._packService.setMainPaks(this.mainPacks);
     }
     AcceptPack(){
 
@@ -129,5 +137,10 @@ if (index > -1) {
       this.count --;
       else
       this.count++;
+    }
+    Back(){  
+    
+      this._packService.clearPaks();
+      this.router.navigate(['/destination'])
     }
 }

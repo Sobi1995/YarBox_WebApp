@@ -53,9 +53,13 @@ export class AppComponent  implements OnInit{
       {
         this.swUpdate.available.subscribe(()=> {
   
-          if(confirm("New Version available.Load New Version?")){
+         
+          swal({
+            title: 'ابدیت جدید',
+            text: "برای ابدیت جدید کلیک کنید",
+          }).then(()=> {
             window.location.reload();
-          }
+          })
         })
       }
    
