@@ -1,3 +1,4 @@
+
 <div class="section-main-web-app">
     	
   <section class="main-web-app">
@@ -101,10 +102,10 @@
       <br>
  
       <div *ngIf="f.submitted && insurancePrice.invalid && mainPacks.isInsurance==true" class="invalid-feedback">
-          <div *ngIf="insurancePrice.errors.required">ارزش مرسوله خود را وارد کنید</div>
+          <div *ngIf="insurancePrice.errors.required" class="arzesh-pack">ارزش مرسوله خود را وارد کنید</div>
         </div>
-      <br>
-      <input type="text" placeholder="توضیحات اقلام داخل بسته"  [(ngModel)]="mainPacks.content" name="content">
+     
+      <input type="text" placeholder="توضیحات اقلام داخل بسته"  [(ngModel)]="mainPacks.content" name="content" class="des-pack">
       </div>
       <!--button type="submit">send</button-->
       <div class="btn-web-app">
