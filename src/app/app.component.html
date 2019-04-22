@@ -8,7 +8,7 @@
 				 <li class="sidebar-top">
 					<div>
 						<div class="sidebar-top-info">
-							<div class="profile-info"><p class="name-user"  >{{ getProfile().firstName}}  {{ getProfile().lastName}}</p></div>
+							<div class="profile-info"><button class="name-user"   data-toggle="modal" data-target="#ModalProfile" >{{ getProfile().firstName}}  {{ getProfile().lastName}}</button></div>
 							<div class="profile-info emtiaz"><span  >{{ getProfile().point}}</span>امتیاز</div>
 						</div>
 					</div> 
@@ -57,3 +57,21 @@
 		</router-outlet>
 	</main>
 	<!-- [hidden]="!getLodingStatus()" -->
+
+
+ 
+
+		<div id="ModalProfile" class="modal fade" role="dialog" #ModalProfile>
+			<div class="modal-dialog">
+				<div class="modal-content modal-content-packs">
+				<div class="modal-body">
+						<h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
+						<input type="text" placeholder="نام"  value="{{getProfile().firstName}}"   #lname class="titr-favorite">
+						<input type="text" placeholder="نام خانوادگی" value="{{getProfile().lastName}}"   #fname class="text-favorite">
+						 <div class="btn-circle-download" id="btn-ok-address"  (click)="UpdateProfiele(lname.value,fname.value)">
+								<span class='pulse-button' ><i class="fas fa-check"></i></span>
+						 </div>
+				</div>
+				</div>
+			</div>
+			</div>

@@ -67,7 +67,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
       return  this._http.get("https://api.yarbox.co/api/v1/profile",{headers:headers}).pipe(
             map((response) => {
-                 
+                  
                 this.profile=response as ProfileDto
                 this.getCheck().subscribe(res=>{
                     this._webAppService.setLoding(false);
@@ -75,6 +75,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
             } )
             );
     }
+ 
     getCheck():Observable<void>{
         this._webAppService.setLoding(true);
         let headers = new HttpHeaders();
@@ -96,6 +97,7 @@ return this.profile;
     }
     setProfile(profile :ProfileDto){
         this.profile=profile;
+       
     }
     clearProfile(){
         this.profile.credit=null ;

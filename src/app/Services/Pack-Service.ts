@@ -93,7 +93,7 @@ clearOrigin(){
   localStorage.setItem("typeCity","3");
  }
  setMainPaks(mainpacks:MainPacks){
- debugger
+  
   this.MultiplePacks.content= mainpacks.content!=undefined ? mainpacks.content  : this.MultiplePacks.content
   this.MultiplePacks.insurancePrice= mainpacks.insurancePrice!=undefined ? mainpacks.insurancePrice  : this.MultiplePacks.insurancePrice
   this.MultiplePacks.isInsurance= mainpacks.isInsurance!=undefined ? mainpacks.isInsurance  : this.MultiplePacks.isInsurance

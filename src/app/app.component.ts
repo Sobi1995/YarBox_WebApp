@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { authenticationService } from './authentication/authentication-Service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
@@ -6,6 +6,7 @@ import { fadeAnimation } from './Shared/fade.animation';
 import { WebAppService } from './Services/webapp-service';
 import  $ from 'jquery';
 import { SwUpdate } from '@angular/service-worker';
+import { ProfileDto } from './Core/DTO/Profile-dto';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,8 +15,9 @@ import { SwUpdate } from '@angular/service-worker';
 })
 export class AppComponent  implements OnInit{
   //test git
+  @ViewChild('ModalProfile') private ModalProfile: ElementRef;
   ngOnInit(): void {
-   
+
      this._auth.IsLoginOnServer().subscribe(res=>{
        
        this._auth.setIsLogin(true);
@@ -95,5 +97,20 @@ public getIsLogin(){
   public getProfile(){
     
     return this._auth.getProfile;
+  }
+  UpdateProfiele(lname:string,fname:string){
+let profile ={
+  firstName: fname,
+  lastName: lname,
+  phoneNumber: JSON.parse(localStorage.getItem("Profile")).phoneNumber
+}
+this._webApp.UpdateUser(profile).subscribe(res=>{
+ 
+ 
+  
+  this._auth.getProfileOnApi().subscribe(res=>{
+    this.ModalProfile.nativeElement.click();  
+  })
+})
   }
 }

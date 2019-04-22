@@ -5,6 +5,7 @@ import { PackService } from '../Services/Pack-Service';
 import { Router } from '@angular/router';
 import { packsDto } from '../Model/dto/packs-dto';
 import { empty } from 'rxjs';
+import { delayWhen } from 'rxjs/operators';
  
 
 @Component({
@@ -33,20 +34,21 @@ statusInsuranceStatus:boolean=true;
   }
 
   ngOnInit() {
- 
+ debugger
     this.type=1;
     this.count=1;
      
     if(this._packService.IsExistpacks()==true){
+      debugger
       this.packs=this._packService.getPaks(); 
       this.mainPacks=this._packService.getMainPack();
-      debugger
+       
     }
  
-    
+    debugger
     this._webappservice.getPostPackType().subscribe(res=>{
    this.PostPackType=res;
-  
+  debugger
 console.log(res);
     });
   }
