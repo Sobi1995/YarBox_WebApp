@@ -1,0 +1,68 @@
+
+ <div class="section-main-web-app">
+    	
+	<section class="main-web-app">
+		
+		<div class="main-web-app-top main-web-app-top1">
+	 
+	 
+		 
+			<div class="title-web-app1">
+				<p>ثبت مبدا</p>
+				<!-- <button  data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><i class="far fa-bookmark"></i></button> -->
+				<img src="/assets/img/3-mabda.svg" width="25" height="25" class="icon-serch1">
+				<input type="search"  value={{address}}>
+				
+				<img src="/assets/img/3-search.svg" width="25" height="25" class="icon-serch2">
+			</div>
+			
+		</div>
+	 
+		<div class="main-web-app-map">
+				<div class="marker-orgin"><a href="#"><img src="/assets/img/locstion.svg"></a></div>
+				<div class="fav-address-orgin"><a  data-toggle="modal" data-target="#favoriteaddresses" (click)="favoriteAddressTitle.value=''"><img src="/assets/img/3-setareh.svg" width="22" height="22"></a></div>
+				<div class="location-my" ><a ><img (click)="myLocation()" src="/assets/img/mokhtasat.svg" width="30" height="30"></a></div>
+				
+				<agm-map 
+				(centerChange)="centerChange($event)"
+					[latitude]="lat"
+					[longitude]="lng"
+					[zoom]="zoom"
+					[disableDefaultUI]="false"
+					[zoomControl]="false"
+					(mapClick)="mapClicked($event)"
+					(dragEnd)="onDragEnd($event)">
+
+				</agm-map>
+		
+			
+		</div>
+		
+		
+		<div class="btn-web-app" data-toggle="modal" data-target="#favoriteaddresses"><button  >ثبت ادرس</button></div>
+	</section>
+	
+	</div>
+
+ 
+ 
+			
+			<div id="favoriteaddresses" class="modal fade" role="dialog" #closeModalfavoriteaddresses>
+					<div class="modal-dialog">
+						<div class="modal-content modal-content-packs">
+						<div class="modal-body">
+								<h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
+								<input type="text" placeholder="عنوان"    #favoriteAddressTitle class="titr-favorite">
+								<input type="text" placeholder="لطفا آدرس فرستنده را همراه با پلاک وارد نمایید"  value={{address}} #favoriteAddress class="text-favorite">
+								 <div class="btn-circle-download" id="btn-ok-address">
+										<span class='pulse-button'  (click)="SaveAddress(favoriteAddress.value,favoriteAddressTitle.value)"><i class="fas fa-check"></i></span>
+								 </div>
+						</div>
+						</div>
+					</div>
+					</div>
+
+
+			 
+
+		 

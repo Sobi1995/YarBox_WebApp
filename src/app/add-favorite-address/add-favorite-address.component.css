@@ -1,0 +1,23 @@
+agm-map {
+    height: 100%;
+  }
+  
+  
+  
+  a {
+    color: darkblue;
+  }
+  .btn-web-app button {
+    margin-right: 0 !important;
+}
+
+@media screen and (max-width: 500px){
+  .btn-web-app button {
+    padding: 4% !important;
+
+}
+.btn-web-app button {
+  font-size: 16px !important;
+}
+}
+
