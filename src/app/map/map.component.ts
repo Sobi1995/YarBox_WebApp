@@ -26,8 +26,8 @@ export class MapComponent implements OnInit  {
  zoom: number = 15;
 //  markers: marker[]=[];
  // initial center position for the map
- lat: number = 51.673858;
- lng: number = 7.815982;
+ lat: number = 35.7556095;
+ lng: number =51.4127404;
    savedaddress:any[]=[]
 
  latDragEnd: string ;

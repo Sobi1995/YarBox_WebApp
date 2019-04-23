@@ -7,6 +7,8 @@ import { WebAppService } from './Services/webapp-service';
 import  $ from 'jquery';
 import { SwUpdate } from '@angular/service-worker';
 import { ProfileDto } from './Core/DTO/Profile-dto';
+import { Observable, fromEvent, merge, of } from 'rxjs';
+import { mapTo } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,7 +17,9 @@ import { ProfileDto } from './Core/DTO/Profile-dto';
 })
 export class AppComponent  implements OnInit{
   //test git
-  @ViewChild('ModalProfile') private ModalProfile: ElementRef;
+  @ViewChild('ModalProfile') private ModalProfile: ElementRef;  
+  @ViewChild('openmodal') private openmodal: ElementRef;
+  online$: Observable<boolean>;
   ngOnInit(): void {
 
      this._auth.IsLoginOnServer().subscribe(res=>{
@@ -24,7 +28,7 @@ export class AppComponent  implements OnInit{
        this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
        this._auth.setProfile(this.jsonProfile);
        this._webApp.getPackrunning().subscribe(res=>{
-         let count=res.filter(x=> x.isCanceled==false).length
+       let count=res.filter(x=> x.isCanceled==false).length
          
 // if(count==0){ 
 //  //  this.router.navigate(["/map"])
@@ -32,16 +36,15 @@ export class AppComponent  implements OnInit{
 // }else{
 //  this.router.navigate(["/base"]);
 // }
+      if(this.jsonProfile.lastName=="نام خانوادگی"){
+        this.openmodal.nativeElement.click();  
+      }
 })
      },(err) => {
       this._auth.setIsLogin(false);
       this.router.navigate(["/login"]);
     })
- 
 
-      
-
-     
   }
   title = 'webapp';
   jsonProfile:any;
@@ -65,6 +68,11 @@ export class AppComponent  implements OnInit{
         })
       }
    
+      this.online$ = merge(
+        of(navigator.onLine),
+        fromEvent(window, 'online').pipe(mapTo(true)),
+        fromEvent(window, 'offline').pipe(mapTo(false))
+      )
   }
   public getRouterOutletState(outlet) {
     return outlet.isActivated ? outlet.activatedRoute : '';
