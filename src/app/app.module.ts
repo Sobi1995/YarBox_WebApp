@@ -39,6 +39,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { FavoriteAddressComponent } from './favorite-address/favorite-address.component';
 import { CoreModule } from './Core/core.module';
 import { LoginGuardService } from './Services/login-guard.service';
+import { AddFavoriteAddressComponent } from './add-favorite-address/add-favorite-address.component';
  
  
  
@@ -63,7 +64,8 @@ import { LoginGuardService } from './Services/login-guard.service';
     MessagesComponent,
     WalletChargingComponent,
     ReportsComponent,
-    FavoriteAddressComponent
+    FavoriteAddressComponent,
+    AddFavoriteAddressComponent
   ],
   imports: [
     BrowserModule,

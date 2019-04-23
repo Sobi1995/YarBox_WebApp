@@ -17,6 +17,7 @@ import { WalletChargingComponent } from './wallet-charging/wallet-charging.compo
 import { ReportsComponent } from './reports/reports.component';
 import { FavoriteAddressComponent } from './favorite-address/favorite-address.component';
 import { LoginGuardService } from './Services/login-guard.service';
+import { AddFavoriteAddressComponent } from './add-favorite-address/add-favorite-address.component';
 
  
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path:'reports',component:ReportsComponent, canActivate: [LoginGuardService]},
   {path:'wallet-charging',component:WalletChargingComponent, canActivate: [LoginGuardService]},
   {path:'favorite-address',component:FavoriteAddressComponent, canActivate: [LoginGuardService]},
+  {path:'add-favorite-address',component:AddFavoriteAddressComponent, canActivate: [LoginGuardService]},
   ];
 
 @NgModule({
