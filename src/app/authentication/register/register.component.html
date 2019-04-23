@@ -1,0 +1,46 @@
+<div class="section-main-web-app">
+    	
+		<section class="main-web-app main-web-app-1">
+			
+			<div class="logo-web-app">
+			<img src="/assets/img/logo1.png" />
+      </div>
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+			<div class="web-app-text1">
+				<div class="register-form">
+					<img src="/assets/img/2-name&name-khanevadegi.svg" width="35" height="35">
+					<input type="text" placeholder=" نام خانوادگی" class="register-input"  [(ngModel)]="regiserModel.lastName" name="lastName" #lastName="ngModel" required  />
+          <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+              <div *ngIf="lastName.errors.required" class="error-webapp">نام خانوادگی  را وارد کنید</div>
+            </div>
+        </div>
+				<div class="register-form">
+					<img src="/assets/img/2-name&name-khanevadegi.svg" width="35" height="35">
+					<input type="text" placeholder="نام " class="register-input"  [(ngModel)]="regiserModel.firstName" name="firstName" #firstName="ngModel" required />
+          <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+              <div *ngIf="firstName.errors.required" class="error-webapp">نام  را وارد کنید</div>
+            </div>
+        </div>
+				<div class="register-form">
+					<img src="/assets/img/2-mob.svg" width="35" height="35">
+					<input type="text" placeholder="شماره موبایل" class="register-input"   [(ngModel)]="regiserModel.phoneNumber" #mobile="ngModel"  name="phoneNumber"  pattern="^(\+98|0)?9\d{9}$" required />
+          <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
+              <div *ngIf="mobile.errors.required" class="error-webapp error-webapp2">شماره همراه / ثابت را وارد کنید</div>
+              <div [hidden]="!mobile.errors.pattern" class="error-webapp error-webapp2"> فرمت شماره همراه را درست وارد کنید </div>
+               </div>
+        </div>
+        <div class="register-form">
+            <img src="/assets/img/2-mob.svg" width="35" height="35">
+            <input type="text" placeholder="کد معرف" class="register-input"   [(ngModel)]="regiserModel.reagentCode" name="reagentCode" #reagentCode="ngModel"/>
+          </div>
+				
+				<div class="info-rule"><img src="/assets/img/2-ghavanin.svg" width="35" height="35">قبول شرایط و قوانین استفاده از خدمات یارباکس</div>
+        <button type="submit">register</button>
+      </div>
+      <!-- <div class="btn-web-app"><a href="#">عضویت</a></div> -->
+   
+      </form>
+		
+		</section>
+		
+		</div>

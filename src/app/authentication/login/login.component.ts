@@ -33,15 +33,16 @@ model: any = {};
           this.router.navigate(["/verify-vode/"+this.model.mobile]);
         },
         (error) => {
-            
+            debugger
  if(error.error.errorMessage!=undefined){
  this.error=  "شماره شما مجاز به ثبت نام نمی باشد" 
  
  }
  else if(error.error.message!=undefined){
 
-  this.error=  "شماره همراه را درست وارد کنید";
+  this.router.navigate(["/register/"+this.model.mobile])
 }
+ 
  
  
           

@@ -10,9 +10,10 @@ import { AuthenticationRoutingModule } from './authentication-routing-module';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { LoginProfileGuardService } from './login-profile-guard.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [LoginComponent, VerifyCodeComponent],
+  declarations: [LoginComponent, VerifyCodeComponent, RegisterComponent],
   imports: [
     CommonModule,
     HttpClientModule ,
