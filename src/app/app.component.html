@@ -10,7 +10,7 @@
 						<div class="sidebar-top-info">
 							<div class="profile-info"><button class="name-user"   data-toggle="modal" data-target="#ModalProfile"  #openmodal>{{ getProfile().firstName}}  {{ getProfile().lastName}}<i class="far fa-edit"></i></button></div>
 							<div class="profile-info emtiaz"><span  >{{ getProfile().point}}</span>امتیاز</div>	
-							<div class="profile-info emtiaz"><span  >{{ getProfile().reagentCode}}</span>کد معرف</div>
+							<!--div class="profile-info emtiaz"><span  >{{ getProfile().reagentCode}}</span>کد معرف</div-->
 						</div>
 					</div> 
 				</li>
@@ -26,7 +26,7 @@
 				  <a [routerLink]="['/base']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">فعالیت ها</a>
 				</li>
 				<li>
-						<a [routerLink]="['/wallet-charging']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">شارژ کیف پول</a>
+						<a [routerLink]="['/wallet-charging']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-sharzhe-kifepool.svg" width="35" height="35">شارژ کیف پول</a>
 					</li>
 				<li>
 				  <a  [routerLink]="['/favorite-address']" (click)=" hideMnu()" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-adreshaye-montakhab.svg" width="35" height="35">آدرس های منتخب</a>
