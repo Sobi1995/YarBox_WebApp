@@ -43,6 +43,9 @@
     .loding-img {
         margin: 27% 37% !important;
     }
+    h4.modal-title {
+        font-size: 15px !important;
+    }
 
 }
 @media screen and (max-width:500px) {

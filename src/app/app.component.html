@@ -8,9 +8,9 @@
 				 <li class="sidebar-top">
 					<div>
 						<div class="sidebar-top-info">
-							<div class="profile-info"><button class="name-user"   data-toggle="modal" data-target="#ModalProfile"  #openmodal>{{ getProfile().firstName}}  {{ getProfile().lastName}}</button></div>
+							<div class="profile-info"><button class="name-user"   data-toggle="modal" data-target="#ModalProfile"  #openmodal>{{ getProfile().firstName}}  {{ getProfile().lastName}}<i class="far fa-edit"></i></button></div>
 							<div class="profile-info emtiaz"><span  >{{ getProfile().point}}</span>امتیاز</div>	
-							<div class="profile-info emtiaz"><span  >{{ getProfile().reagentCode}}</span>کد معرف</div>
+							<!--div class="profile-info emtiaz"><span  >{{ getProfile().reagentCode}}</span>کد معرف</div-->
 						</div>
 					</div> 
 				</li>
@@ -27,7 +27,7 @@
 				  <a [routerLink]="['/base']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">فعالیت ها</a>
 				</li>
 				<li>
-						<a [routerLink]="['/wallet-charging']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">شارژ کیف پول</a>
+						<a [routerLink]="['/wallet-charging']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-sharzhe-kifepool.svg" width="35" height="35">شارژ کیف پول</a>
 					</li>
 				<li>
 				  <a  [routerLink]="['/favorite-address']" (click)=" hideMnu()" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-adreshaye-montakhab.svg" width="35" height="35">آدرس های منتخب</a>
@@ -67,7 +67,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content modal-content-packs">
 				<div class="modal-body">
-						<h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
+						<h4 class="modal-title">نام و نام خانوادگی خود را ویرایش نمایید</h4>
 						<input type="text" placeholder="نام"  value="{{getProfile().firstName}}"   #lname class="titr-favorite">
 						<input type="text" placeholder="نام خانوادگی" value="{{getProfile().lastName}}"   #fname class="text-favorite">
 						 <div class="btn-circle-download" id="btn-ok-address"  (click)="UpdateProfiele(lname.value,fname.value)">

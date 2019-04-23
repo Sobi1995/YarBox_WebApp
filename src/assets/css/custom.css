@@ -1358,7 +1358,6 @@ a.aos-init.aos-animate:active {
         right: 23% !important;
     }
     .img-brand {
-
         background-size: cover !important;
         height: 345px !important;
         background-repeat: no-repeat !important;
@@ -1436,6 +1435,9 @@ a.aos-init.aos-animate:active {
     .web-app-text p {
         font-size: 12px !important;
     }
+    p.code-massege {
+        margin-top: -7px ;
+    }
 	section.main-web-app {
     width: 100% !important;
     margin: 0 !important;
@@ -1443,7 +1445,7 @@ a.aos-init.aos-animate:active {
 	}
 	.btn-web-app button {
     width: 100% !important;
-    padding: 2% !important;
+    padding: 3% !important;
     font-size: 15px !important;
 	}
 	.web-app-text img, .web-app-text i {
@@ -1452,7 +1454,7 @@ a.aos-init.aos-animate:active {
 	}
 	.login-input {
     width: 77% !important;
-    margin: 0% 1% 6% -7% !important;
+    margin: 0% 1% 1% -7% !important;
 	}
 	.register-input {
     width: 77% !important;
@@ -1471,7 +1473,10 @@ a.aos-init.aos-animate:active {
 	ul.sidebar-nav li:last-child {
     bottom: -1vh !important;
     }
-    
+    .sidebar-nav {
+        overflow: scroll !important; 
+        height: 100vh !important;
+    }
     .marker-orgin {
         margin: 0 42% 25% 0 !important;
     }
@@ -1537,8 +1542,9 @@ a.aos-init.aos-animate:active {
     padding: 10px !important;
 	}
 	.img-wait {
-    width: 300px !important;
-    height: 300px !important;
+    width: 250px !important;
+    height: 250px !important;
+    padding-top: 3% !important;
 	}
 	.map-web-app {
     height: 83vh !important;
@@ -1722,7 +1728,7 @@ a.aos-init.aos-animate:active {
     .title-web-app1 input {
         width: 73% !important;
         padding: 3% 12% !important;
-        font-size: 10px !important;
+        margin-top: 2% !important;
     }
     .icon-serch2 {
         right: -9% !important;
@@ -6096,12 +6102,14 @@ section.main-web-app {
 	text-align: center;
 	
 }
-.profile-info.emtiaz {
+
+  .profile-info {
+    width: 60%;
+  }
+  .profile-info.emtiaz {
     text-align: left;
     padding-left: 21px;
-  }
-  .profile-info {
-    width: 50%;
+    width: 40%;
   }
 .btn-web-app button {
     background: #d01d58;
@@ -7113,7 +7121,7 @@ span.pelak-car {
     border-radius: 50%;
     margin: 10% auto;
     box-shadow: 0 0 5px 1px #ddd;
-	background: #fff;
+    background: #fff;
 }
 p.p-wait, .p-active {
     color: #fff;
@@ -7405,7 +7413,6 @@ span.border-pack {
     width: 320px;
     list-style: none;
     margin: 0;
-
     padding: 0;
   }
 
@@ -7485,18 +7492,25 @@ span.border-pack {
     text-align: left;
     padding-left: 21px;
   }
-  .profile-info {
-    width: 50%;
-  }
+  
   a#menu-close {
     color: #282f6c;
     font-size: 22px;
     padding: 9px 17px;
   }
   .name-user {
-	font-size: 18px;
-	margin-right: 6px;
+	font-size: 16px;
+    margin-right: 6px;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    -webkit-appearance: none;
+    border-radius: 0;
+
   }
+  .name-user i {
+    margin-right: 10px;
+}
   .sidebar-top-info {
     display: flex;
     line-height: 32px;
@@ -7712,7 +7726,7 @@ button.selectfavorite i, button.selectfavorite2 i {
     input[type="datetime"], input[type="datetime-local"],
     input[type="date"], input[type="month"], input[type="time"],
     input[type="week"], input[type="number"], input[type="email"],
-    input[type="url"]{ font-size: 16px; }
+    input[type="url"]{ font-size: 16px !important; }
 }
 
 /* iPhone 6 Plus, iPhone 6s Plus, iPhone 7 Plus portrait/landscape */
@@ -7721,14 +7735,11 @@ button.selectfavorite i, button.selectfavorite2 i {
     input[type="datetime"], input[type="datetime-local"],
     input[type="date"], input[type="month"], input[type="time"],
     input[type="week"], input[type="number"], input[type="email"],
-    input[type="url"]{ font-size: 16px; }
+    input[type="url"]{ font-size: 16px !important; }
 }
 
 
-/*
- * disable auto-zoom on iphone input field focus 
- * http://www.456bereastreet.com/archive/201212/ios_webkit_browsers_and_auto-zooming_form_controls/
-*/
+
 input[type='text']:focus,
 input[type='number']:focus,
 textarea:focus {

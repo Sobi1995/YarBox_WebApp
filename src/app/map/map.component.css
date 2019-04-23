@@ -13,8 +13,11 @@ agm-map {
 
 @media screen and (max-width: 500px){
   .btn-web-app button {
-    padding: 3% !important;
+    padding: 4% !important;
 
+}
+.btn-web-app button {
+  font-size: 16px !important;
 }
 }
 
