@@ -2,7 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VerifyCode } from '../Model/VerifyCode';
 import { authenticationService } from '../authentication-Service';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-verify-code',
@@ -51,7 +53,7 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
 
   retrysms(){
     this.auth.sendVerifyCode(this.VerifyCode.phoneNumber).subscribe(res=>{
-      swal("کد مورد نظر ارسال شد");
+      swal.fire("کد مورد نظر ارسال شد");
       
       
     })

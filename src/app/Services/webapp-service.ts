@@ -10,7 +10,7 @@ export class WebAppService{
  private api:string;
  private httpLoding:boolean=false;     
 private packsRuning:any;
- 
+ private IsNet:boolean=false;
 constructor(private _http:HttpClient,private _packService:PackService){
   // this.api="http://localhost:11926/api/vv2/";
   this.api="https://api.yarbox.co/api/vv2/";
@@ -312,5 +312,11 @@ return  this._http.put(this.api+"profile",profile,{headers:headers}).pipe(
       return    response
       } )
       );
+}
+setIsNet(status:boolean){
+  this.IsNet=status;
+}
+get getIsNet(){
+  return this.IsNet;
 }
 }

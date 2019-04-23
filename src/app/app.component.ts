@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { authenticationService } from './authentication/authentication-Service';
 import { Router } from '@angular/router';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
+
 import { fadeAnimation } from './Shared/fade.animation';
 import { WebAppService } from './Services/webapp-service';
 import  $ from 'jquery';
@@ -9,6 +10,7 @@ import { SwUpdate } from '@angular/service-worker';
 import { ProfileDto } from './Core/DTO/Profile-dto';
 import { Observable, fromEvent, merge, of } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,6 +24,18 @@ export class AppComponent  implements OnInit{
   online$: Observable<boolean>;
   ngOnInit(): void {
 
+
+
+//     swal.fire({
+//       title: 'Please Enter Page Name',
+//       input: 'text',
+ 
+//       confirmButtonText: 'Save',
+//       showLoaderOnConfirm: true,
+//       onOpen: function (){
+//           swal.disableConfirmButton();
+//       }
+// })
      this._auth.IsLoginOnServer().subscribe(res=>{
        
        this._auth.setIsLogin(true);
@@ -59,20 +73,11 @@ export class AppComponent  implements OnInit{
         this.swUpdate.available.subscribe(()=> {
   
          
-          swal({
-            title: 'ابدیت جدید',
-            text: "برای ابدیت جدید کلیک کنید",
-          }).then(()=> {
-            window.location.reload();
-          })
+          swal.fire('ابدیت جدید')
+           window.location.reload();
         })
       }
-   
-      this.online$ = merge(
-        of(navigator.onLine),
-        fromEvent(window, 'online').pipe(mapTo(true)),
-        fromEvent(window, 'offline').pipe(mapTo(false))
-      )
+   this.checkNet();
   }
   public getRouterOutletState(outlet) {
     return outlet.isActivated ? outlet.activatedRoute : '';
@@ -120,5 +125,48 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
     this.ModalProfile.nativeElement.click();  
   })
 })
+  }
+
+  checkNet(){
+   
+     
+    this.online$ = merge(
+      of(navigator.onLine),
+      fromEvent(window, 'online').pipe(mapTo(true)),
+      fromEvent(window, 'offline').pipe(mapTo(false))
+    )
+    this.networkStatus()
+  }
+
+  public networkStatus() {
+    //<button (click)="TryNet()" >سعی مجدد</button>
+    this.online$.subscribe(value => {
+      this._webApp.setIsNet(value);
+      console.log("Net "+value);
+      debugger
+      if(value!=true)
+      this.SweetNet();
+ {
+
+ }
+    })
+  }
+  
+
+  SweetNet(){
+    let self=this;
+    swal.fire({
+      title: 'Auto close alert!',
+      text: 'I will close in 2 seconds.',
+ 
+      showCancelButton: true,
+      showConfirmButton: false,
+      cancelButtonText:"سعی مجدد",
+      allowOutsideClick: false,
+    }) .then(function (result) {
+      if(!self._webApp.getIsNet)
+      self.SweetNet();
+    })
+     
   }
 }

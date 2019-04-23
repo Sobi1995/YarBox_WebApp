@@ -4,7 +4,9 @@ import { WebAppService } from '../Services/webapp-service';
 import { ProfileDto } from 'src/app/Core/DTO/Profile-dto';
 import { PackService } from '../Services/Pack-Service';
 import { AcceptSearchDto } from '../Services/accept-search-dto';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
+
+
 @Component({
   selector: 'app-factor',
   templateUrl: './factor.component.html',
@@ -78,10 +80,7 @@ this.accept.isCashPayment=chah;
     if(this.payment==-1)
     {
    
-      swal({
-        text: "نحوه پرداخت را  انتخاب نماید",
-        buttons: ["تاید"],
-      });
+      swal.fire({text: "نحوه پرداخت را  انتخاب نماید"});
       return;
     } 
     if(this.accept.isCashPayment==true && this.accept.isCashPayment==true)
@@ -90,10 +89,9 @@ this.accept.isCashPayment=chah;
          
         if(parseInt(this.Factor.price)>parseInt(res.credit)){
           
-          swal({
-            text: "کیف خود را شارژ کنید",
-            buttons: ["تاید"],
-          });
+         
+
+          swal.fire({text: "کیف خود را شارژ کنید"});
         }
      
       })
