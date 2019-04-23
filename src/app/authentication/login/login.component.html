@@ -17,9 +17,11 @@
 						<div [hidden]="!mobile.errors.pattern" class="error-webapp error-webapp2"> فرمت شماره همراه را درست وارد کنید </div>
 			     	</div>
 
-					<a  [routerLink]="['/register/09185688292']">ثبت نام</a>
+					
                       <p *ngIf="error!=''">{{error}}</p>
 					<p>برای ورود به سیستم شماره موبایل خود را وارد کنید .</p>
+
+					<!--a  [routerLink]="['/register/09185688292']" class="regester-btn">ثبت نام</a-->
 				 
 				</div>
 				<div class="btn-web-app"><button type="submit" >وارد شوید</button></div>
