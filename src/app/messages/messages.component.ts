@@ -12,8 +12,7 @@ export class MessagesComponent implements OnInit {
 
   ngOnInit() {
     this._webappservice.getUserMessages().subscribe(res=>{
-      this.messages=res;
-        
+      this.messages=res.items;
     })
   }
 }

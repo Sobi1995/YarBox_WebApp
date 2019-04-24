@@ -22,10 +22,10 @@
 				<br>	
 					<div class="panel-group massege-page" id="accordion">
 
-					  <div class="panel panel-default" *ngFor="let msg of messages.items">
+					  <div class="panel panel-default" *ngFor="let msg of messages; let j = index">
 						<div class="panel-heading">
 						  <h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="massege-part">
+							<a data-toggle="collapse" data-parent="#accordion"   [attr.href]="'#collapse'+j"   class="massege-part">
 								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 								<!-- <div class="not-read-message"></div> -->
 								<i class="fas fa-envelope"></i>
@@ -39,7 +39,7 @@
 							</a>
 						  </h4>
 						</div>
-						<div id="collapse1" class="panel-collapse collapse ">
+						<div id="collapse{{j}}" class="panel-collapse collapse ">
 						  <div class="panel-body">
 						  <p>{{msg.message}}</p>
 						  </div>

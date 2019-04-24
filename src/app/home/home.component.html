@@ -26,8 +26,8 @@
 				  
 				  <div id="menu1" class="tab-pane fade " [class.active]="defultMenu==true" [class.in]="defultMenu==true"   >
 					
-					<div class="box-pack-web-app" *ngFor="let pack of PacksRuning" >
-                        <div  *ngIf="pack.isCanceled==false">
+					<div class="box-pack-web-app" *ngFor="let pack of PackRuningInCancelFalse" >
+                        <div>
                                 <div class="head-pack">
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                             {{pack.receiverName}}
@@ -66,14 +66,14 @@
 				
 					
 					</div>
-				<div *ngIf="countPackRuningInCancelFalse ==0" class="null-pack"><div class="img-wait"><img src="/assets/img/11-faalliatha.svg"></div></div>
+				<div *ngIf="PackRuningInCancelFalse.length==0" class="null-pack"><div class="img-wait"><img src="/assets/img/11-faalliatha.svg"></div></div>
 				  </div>
 					
 					
 				  <div id="menu2" class="tab-pane fade   " [class.active]="defultMenu==false" [class.in]="defultMenu==false">
  
-					<div class="box-pack-web-app" *ngFor="let pack of PacksRuning" >
-                        <div *ngIf="pack.isCanceled==true">
+					<div class="box-pack-web-app" *ngFor="let pack of PackRuningInCancelTrue" >
+                        <div >
                                 <div class="head-pack head-pack1">
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                             {{pack.receiverName}}
@@ -124,7 +124,7 @@
                                     
                         </div>
                     </div> 
-                    <div *ngIf="countPackRuningInCancelTrue==0" class="null-pack"><div class="img-wait"><img src="/assets/img/11-faalliatha-namovaghha.svg"></div></div>
+                    <div *ngIf="PackRuningInCancelTrue.length==0" class="null-pack"><div class="img-wait"><img src="/assets/img/11-faalliatha-namovaghha.svg"></div></div>
 				  </div>
 				</div>
 				

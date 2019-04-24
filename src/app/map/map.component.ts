@@ -21,7 +21,7 @@ export class MapComponent implements OnInit  {
   @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
     @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
  // google maps zoom level
-
+ errorAddress:string=null;
  
  zoom: number = 15;
 //  markers: marker[]=[];
@@ -188,8 +188,10 @@ centerChange($event){
     
  }
  SaveAddress(address :string,title:string){
+    if(address=="" || title ==""){
+    this.errorAddress="لطفا مقادیر را وارد کنید"
+  return}
     
-   
    let fs:any={
      title:title,
      address:address,
@@ -204,6 +206,7 @@ centerChange($event){
   else
   this.savedaddress.push(fs)
   localStorage.setItem("Favoriteaddress",JSON.stringify(this.savedaddress));
+  this.errorAddress=null;
   this.closeModalfavoriteaddresses.nativeElement.click();  
  }
 
