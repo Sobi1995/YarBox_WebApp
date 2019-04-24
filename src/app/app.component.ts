@@ -143,7 +143,7 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
     this.online$.subscribe(value => {
       this._webApp.setIsNet(value);
       console.log("Net "+value);
-      debugger
+       
       if(value!=true)
       this.SweetNet();
  {

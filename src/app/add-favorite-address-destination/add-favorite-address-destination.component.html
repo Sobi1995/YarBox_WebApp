@@ -1,0 +1,122 @@
+ 
+
+   <div class="section-main-web-app">
+    	
+		<section class="main-web-app">
+			
+			<div class="main-web-app-top">
+				
+				<div class="web-app-title">
+					<div class="title-web-app">ثبت ادرس مقصد</div>
+					<!-- <button  data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><i class="far fa-bookmark"></i></button> -->
+				</div>
+			
+			</div>
+			<a  [routerLink]="['/favorite-address']"  class="back-web-app"><i class="fas fa-angle-left"></i></a>
+			<div class="main-web-app-body">
+			<div class="main-web-app-form">
+			
+				<p> انتخاب نوع ارسال</p>
+			 
+				<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad maghsad2"  >
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+						<select   (change)="SelectProvince($event.target.value)" >
+						<option >استان</option>
+            <option *ngFor="let item of Provinces">  {{item}} </option>
+						</select>
+						<div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> استان را وارد کنید </div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+						<select (change)="SelectCity($event.target.value)">
+						<option>شهر</option>
+            <option *ngFor="let city of Cities" value="{{city.name}}">{{city.name}}</option>
+						</select>
+						<div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)"  class="error-webapp">شهر را وارد کنید </div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
+
+					<input type="text" placeholder="نام و نام خانوادگی گیرنده"  [(ngModel)]="destinationModel.receiverName" name="receiverName" #receiverName="ngModel" required   ><br>
+					<div *ngIf="f.submitted && receiverName.invalid" class="invalid-feedback">
+						<div *ngIf="receiverName.errors.required" class="error-webapp">نام و نام خانوادگی گیرنده را وارد کنید</div>
+				  </div>
+
+					<input type="text" placeholder="آدرس گیرنده" [(ngModel)]="destinationModel.street" [disabled]="typeCity==1" name="street" #street="ngModel"  required  ><br>
+					<div *ngIf="f.submitted && street.invalid" class="invalid-feedback">
+							<div *ngIf="street.errors.required" class="error-webapp">آدرس گیرنده را وارد کنید</div>
+						</div>
+
+					<input type="text" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber"  #receiverPhoneNumber="ngModel" pattern="[0-9]+" required    ><br>
+					<div *ngIf="f.submitted && receiverPhoneNumber.invalid" class="invalid-feedback">
+							<div *ngIf="receiverPhoneNumber.errors.required" class="error-webapp">شماره همراه / ثابت را وارد کنید</div>
+							<div [hidden]="!receiverPhoneNumber.errors.pattern" class="error-webapp"> لطفا شماره  صحیح را وارد کنید</div>
+					</div>
+				</div>
+			
+				<div class="btn-web-app">
+					<button type="submit"  >تایید و ادامه</button>
+					<button id="OpenModal" data-toggle="modal" data-target="#favoriteaddresses" style="visibility: hidden;"> </button>
+				</div>
+					<!-- <button    *ngIf="typeCity==0 && f.form.valid"  data-toggle="modal" data-target="#favoriteaddresses"  #addAddress  type="button" class="add-favorite"><img src="/assets/img/3-setareh.svg" width="22" height="22"><span>افزودن به آدرس منتخب</span></button> -->
+				</form>
+		 
+				<app-error *ngIf="error==true"></app-error>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  *ngIf="typeCity==3" >
+				<div class="type-part">
+					<i class="fas fa-angle-double-up"></i>
+					<p>ابتدا <span>نوع ارسال بار</span> خود را مشخص کنید</p>
+					</div>
+			
+			</div>
+		</div>
+			
+		</section>
+		
+		</div>
+
+		
+		<div id="myModal3" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<div class="modal-content modal-content-packs">
+
+			  <div class="modal-body">
+
+					<p class="type-modal">با انتخاب گزینه درب منزل ، مرسوله شما به درب آدرس گیرنده تحویل داده می شود </p>
+					  <div class="btn-circle-download" id="btn-ok-address" data-dismiss="modal">
+							<span class='pulse-button' data-dismiss="modal" (click)="AcceptPacks()"><i class="fas fa-check"></i></span>
+				    </div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<div id="myModal4" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<div class="modal-content modal-content-packs">
+
+			  <div class="modal-body">
+					<p class="type-modal">با انتخاب گزینه درب ترمینال ، مرسوله شما به پایانه اتوبوسرانی شهر مورد نظر تحویل داده می شود .</p>
+					  <div class="btn-circle-download" id="btn-ok-address">
+								<span class='pulse-button' data-dismiss="modal" ><i class="fas fa-check"></i></span>
+
+				    </div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<div id="favoriteaddresses" class="modal fade" role="dialog" #closeModalfavoriteaddresses>
+			<div class="modal-dialog">
+				<div class="modal-content modal-content-packs">
+				<div class="modal-body">
+						 <div class="btn-circle-download" id="btn-ok-address">
+								<input type="text" placeholder="عنوان"    #favoriteAddressTitle class="titr-favorite2">
+								<span class='pulse-button' (click)="SaveAddress(favoriteAddressTitle.value)"><i class="fas fa-check"></i></span>
+						 </div>
+				</div>
+				</div>
+			</div>
+			</div>
+ 

@@ -40,6 +40,7 @@ import { FavoriteAddressComponent } from './favorite-address/favorite-address.co
 import { CoreModule } from './Core/core.module';
 import { LoginGuardService } from './Services/login-guard.service';
 import { AddFavoriteAddressComponent } from './add-favorite-address/add-favorite-address.component';
+import { AddFavoriteAddressDestinationComponent } from './add-favorite-address-destination/add-favorite-address-destination.component';
  
  
  
@@ -65,7 +66,8 @@ import { AddFavoriteAddressComponent } from './add-favorite-address/add-favorite
     WalletChargingComponent,
     ReportsComponent,
     FavoriteAddressComponent,
-    AddFavoriteAddressComponent
+    AddFavoriteAddressComponent,
+    AddFavoriteAddressDestinationComponent
   ],
   imports: [
     BrowserModule,
