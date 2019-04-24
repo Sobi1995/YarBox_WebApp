@@ -20,6 +20,8 @@ import { LoginGuardService } from './Services/login-guard.service';
 import { AddFavoriteAddressComponent } from './add-favorite-address/add-favorite-address.component';
 import { AddFavoriteAddressDestinationComponent } from './add-favorite-address-destination/add-favorite-address-destination.component';
 import { WebPlatformComponent } from './web-platform/web-platform.component';
+import { IosHomeScreenComponent } from './ios-home-screen/ios-home-screen.component';
+import { AndroidHomeScreenComponent } from './android-home-screen/android-home-screen.component';
 
  
 const routes: Routes = [
@@ -41,6 +43,8 @@ const routes: Routes = [
   {path:'add-favorite-address',component:AddFavoriteAddressComponent, canActivate: [LoginGuardService]}, 
   {path:'add-favorite-address-destination',component:AddFavoriteAddressDestinationComponent, canActivate: [LoginGuardService]}, 
   {path:'WebPlatform',component:WebPlatformComponent},
+  {path:'Ios-home-screen',component:IosHomeScreenComponent},
+  {path:'android-home-screen',component:AndroidHomeScreenComponent},
   ];
 
 @NgModule({

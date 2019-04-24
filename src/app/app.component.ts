@@ -25,11 +25,17 @@ export class AppComponent  implements OnInit{
   ngOnInit(): void {
 
 this.getPlants().subscribe(res=>{
-  var a=this.deviceInfo;
+ 
   debugger
   if (res==false){
     this.router.navigate(["/WebPlatform"])
   }
+  else if (this.deviceInfo.device=="safari"){
+        this.router.navigate(["/Ios-home-screen"])
+  }
+  else if (this.deviceInfo.device=="android"){
+    this.router.navigate(["/android-home-screen"])
+}
   else{
      this._auth.IsLoginOnServer().subscribe(res=>{
        
