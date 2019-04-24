@@ -189,7 +189,7 @@ centerChange($event){
  }
  SaveAddress(address :string,title:string){
     if(address=="" || title ==""){
-    this.errorAddress="لطفا مقادیر را وارد کنید"
+    this.errorAddress="لطفا عنوان را وارد کنید"
   return}
     
    let fs:any={

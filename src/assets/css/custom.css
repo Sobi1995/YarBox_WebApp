@@ -6519,12 +6519,6 @@ button.btn.btn-ok {
     border-radius: 0 0 0 5px;
     border-top: 1px solid #ddd;
 }
-
-
-
-
-
-
 div#btn-ok-address {
     text-align: center;
 }
@@ -6533,13 +6527,13 @@ div#btn-ok-address {
     display: block;
     width: 40px;
     height: 40px;
-    font-size: 1.6em;
+    font-size: 1.6em !important;
     font-weight: light;
     text-transform: uppercase;
     text-align: center;
     line-height: 0;
     letter-spacing: -1px;
-    color: white;
+    color: white !important;
     border: none;
     border-radius: 50%;
     background: #13d254;
@@ -7736,6 +7730,10 @@ span.error-null-tedad {
     font-size: 12px;
     color: red;
     display: inherit;
+}
+div#favoriteaddresses span {
+    color: red;
+    font-size: 12px;
 }
 /*menu burger*/
 @media print {
