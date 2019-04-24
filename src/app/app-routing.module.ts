@@ -43,7 +43,7 @@ const routes: Routes = [
   {path:'add-favorite-address',component:AddFavoriteAddressComponent, canActivate: [LoginGuardService]}, 
   {path:'add-favorite-address-destination',component:AddFavoriteAddressDestinationComponent, canActivate: [LoginGuardService]}, 
   {path:'WebPlatform',component:WebPlatformComponent},
-  {path:'Ios-home-screen',component:IosHomeScreenComponent},
+  {path:'ios-home-screen',component:IosHomeScreenComponent},
   {path:'android-home-screen',component:AndroidHomeScreenComponent},
   ];
 

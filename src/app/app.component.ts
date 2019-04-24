@@ -27,7 +27,7 @@ export class AppComponent  implements OnInit{
 this.getPlants().subscribe(res=>{
   this.deviceInfo.device="android"
   debugger
-  if (res==false){
+  if (res.isMobile==false){
     this.router.navigate(["/WebPlatform"])
   }
   else if (this.deviceInfo.device=="safari"){
