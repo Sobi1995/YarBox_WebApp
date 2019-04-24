@@ -67,10 +67,11 @@ console.log(res);
         
     //this.router.navigate(["/destination"])
      
-     
+     if(this.count==null)
+     return
       this.packs.push({count:this.count,weightId:this.type,typeId:this.type})
- 
       this._packService.setPaks(this.packs);
+      this.closeModal.nativeElement.click();
     }
     getPostPackType(id :number){
     
@@ -144,4 +145,5 @@ if (index > -1) {
       this._packService.clearPaks();
       this.router.navigate(['/destination'])
     }
+  
 }
