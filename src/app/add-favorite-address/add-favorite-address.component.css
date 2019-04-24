@@ -4,9 +4,7 @@ agm-map {
   
   
   
-  a {
-    color: darkblue;
-  }
+  
   .btn-web-app button {
     margin-right: 0 !important;
 }
@@ -15,9 +13,12 @@ agm-map {
   .btn-web-app button {
     padding: 4% !important;
 
+  }
+  .btn-web-app button {
+    font-size: 16px !important;
+  }
+  a.back-web-app {
+    margin-top: -9% !important;
+    padding: 0 !important;
+  }
 }
-.btn-web-app button {
-  font-size: 16px !important;
-}
-}
-
