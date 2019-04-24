@@ -22,7 +22,7 @@ regiserModel:any={};
       reagentCode:"",
       lastName:""
     }
-    debugger
+    
     let mobile= this.activatedRoute.snapshot.params["mobile"];
     this.regiserModel.phoneNumber=mobile;
   }
