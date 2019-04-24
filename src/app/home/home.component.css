@@ -1,9 +1,10 @@
 .btn-web-app button {
     margin-right: 0 !important;
 }
-.main-web-app.main-web-app5 {
-    height: 85%;
-    overflow: scroll;
+
+.section-main-web-app .tab-content {
+    height: 70vh;
+    overflow-y: scroll;
 }
 @media screen and (max-width: 500px){
     .btn-web-app button {
