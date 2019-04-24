@@ -1,9 +1,9 @@
 {
-  "name": "webapp",
-  "short_name": "webapp",
+  "name": "yrabox",
+  "short_name": "yrabox",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
-  "display": "standalone",
+  "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
   "icons": [

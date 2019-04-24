@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { authenticationService } from './authentication/authentication-Service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
-
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { fadeAnimation } from './Shared/fade.animation';
 import { WebAppService } from './Services/webapp-service';
 import  $ from 'jquery';
@@ -18,24 +18,19 @@ import { mapTo } from 'rxjs/operators';
   animations: [fadeAnimation]
 })
 export class AppComponent  implements OnInit{
-  //test git
+  deviceInfo = null;
   @ViewChild('ModalProfile') private ModalProfile: ElementRef;  
   @ViewChild('openmodal') private openmodal: ElementRef;
   online$: Observable<boolean>;
   ngOnInit(): void {
 
-
-
-//     swal.fire({
-//       title: 'Please Enter Page Name',
-//       input: 'text',
- 
-//       confirmButtonText: 'Save',
-//       showLoaderOnConfirm: true,
-//       onOpen: function (){
-//           swal.disableConfirmButton();
-//       }
-// })
+this.getPlants().subscribe(res=>{
+  var a=this.deviceInfo;
+  debugger
+  if (res==false){
+    this.router.navigate(["/WebPlatform"])
+  }
+  else{
      this._auth.IsLoginOnServer().subscribe(res=>{
        
        this._auth.setIsLogin(true);
@@ -43,13 +38,7 @@ export class AppComponent  implements OnInit{
        this._auth.setProfile(this.jsonProfile);
        this._webApp.getPackrunning().subscribe(res=>{
        let count=res.filter(x=> x.isCanceled==false).length
-         
-// if(count==0){ 
-//  //  this.router.navigate(["/map"])
-//  this.router.navigate(["/"])
-// }else{
-//  this.router.navigate(["/base"]);
-// }
+ 
       if(this.jsonProfile.lastName=="نام خانوادگی"){
         this.openmodal.nativeElement.click();  
       }
@@ -58,6 +47,9 @@ export class AppComponent  implements OnInit{
       this._auth.setIsLogin(false);
       this.router.navigate(["/login"]);
     })
+  }
+})
+
 
   }
   title = 'webapp';
@@ -66,8 +58,9 @@ export class AppComponent  implements OnInit{
     private _auth :authenticationService,
     private router: Router,
     private _webApp:WebAppService,
-    public swUpdate: SwUpdate){
-  
+    public swUpdate: SwUpdate,
+     private deviceService: DeviceDetectorService){
+      this.epicFunction();
       if(this.swUpdate.isEnabled)
       {
         this.swUpdate.available.subscribe(()=> {
@@ -78,6 +71,7 @@ export class AppComponent  implements OnInit{
         })
       }
    this.checkNet();
+
   }
   public getRouterOutletState(outlet) {
     return outlet.isActivated ? outlet.activatedRoute : '';
@@ -168,5 +162,25 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
       self.SweetNet();
     })
      
+  }
+
+  epicFunction() {
+    
+  }
+
+  public getPlants(): Observable<any> {
+ 
+    debugger
+    console.log('hello `Home` component');
+    this.deviceInfo = this.deviceService.getDeviceInfo();
+    const isMobile = this.deviceService.isMobile();
+    const isTablet = this.deviceService.isTablet();
+    const isDesktopDevice = this.deviceService.isDesktop();
+    console.log(this.deviceInfo);
+    console.log(isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
+    console.log(isTablet);  // returns if the device us a tablet (iPad etc)
+    console.log(isDesktopDevice); // returns if the app is running on a Desktop browser.
+   
+    return of({isMobile});
   }
 }

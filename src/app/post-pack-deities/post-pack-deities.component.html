@@ -98,8 +98,8 @@
       <div class="form-pack pack-part2">
       <input type="text" placeholder="ارزش مرسوله خود را وارد کنید" [hidden]="!mainPacks.isInsurance==true" required [(ngModel)]="mainPacks.insurancePrice"  name="insurancePrice"  #insurancePrice="ngModel"   pattern="[0-9]+"  >
      <p *ngIf="mainPacks.isInsurance==true && mainPacks.insurancePrice>=1">{{mainPacks.insurancePrice | toman}}</p> 
-     <div [hidden]="!insurancePrice.errors.pattern" class="error-webapp error-webapp2"> لطفا عدد وارد کنید </div>
-     
+     <div [hidden]="mainPacks.isInsurance==true && !insurancePrice.errors.pattern" class="error-webapp error-webapp2"> لطفا عدد وارد کنید </div>
+     <br>
  
       <div *ngIf="f.submitted && insurancePrice.invalid && mainPacks.isInsurance==true" class="invalid-feedback">
           <div *ngIf="insurancePrice.errors.required" class="arzesh-pack">ارزش مرسوله خود را وارد کنید</div>
