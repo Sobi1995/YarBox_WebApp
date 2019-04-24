@@ -7747,7 +7747,7 @@ text-align: center;
 }
 p.page-mob-p1 {
     text-align: center;
-    margin: 3em auto 2em;
+    margin: 1em auto;
     font-size: 18px;
     font-weight: 600;
 }
@@ -7783,6 +7783,17 @@ a.page-mob-a1 {
     text-align: center;
     font-size: 16px;
     padding: 2px;
+}
+
+p.page-mob-p5 {
+    color: #282f6c;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+.home-page-tosi {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
 }
 /*menu burger*/
 @media print {
