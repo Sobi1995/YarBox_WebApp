@@ -24,6 +24,13 @@ export class AppComponent  implements OnInit{
   online$: Observable<boolean>;
   ngOnInit(): void {
 
+this.getPlants().subscribe(res=>{
+  var a=this.deviceInfo;
+  debugger
+  if (res==false){
+    this.router.navigate(["/WebPlatform"])
+  }
+  else{
      this._auth.IsLoginOnServer().subscribe(res=>{
        
        this._auth.setIsLogin(true);
@@ -40,6 +47,9 @@ export class AppComponent  implements OnInit{
       this._auth.setIsLogin(false);
       this.router.navigate(["/login"]);
     })
+  }
+})
+
 
   }
   title = 'webapp';
@@ -50,7 +60,7 @@ export class AppComponent  implements OnInit{
     private _webApp:WebAppService,
     public swUpdate: SwUpdate,
      private deviceService: DeviceDetectorService){
-  
+      this.epicFunction();
       if(this.swUpdate.isEnabled)
       {
         this.swUpdate.available.subscribe(()=> {
@@ -61,7 +71,7 @@ export class AppComponent  implements OnInit{
         })
       }
    this.checkNet();
-   this.epicFunction();
+
   }
   public getRouterOutletState(outlet) {
     return outlet.isActivated ? outlet.activatedRoute : '';
@@ -155,6 +165,12 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
   }
 
   epicFunction() {
+    
+  }
+
+  public getPlants(): Observable<any> {
+ 
+    debugger
     console.log('hello `Home` component');
     this.deviceInfo = this.deviceService.getDeviceInfo();
     const isMobile = this.deviceService.isMobile();
@@ -164,5 +180,7 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
     console.log(isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
     console.log(isTablet);  // returns if the device us a tablet (iPad etc)
     console.log(isDesktopDevice); // returns if the app is running on a Desktop browser.
+   
+    return of({isMobile});
   }
 }
