@@ -7735,6 +7735,55 @@ div#favoriteaddresses span {
     color: red;
     font-size: 12px;
 }
+p.page-1-p1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-top: 25rem;
+    padding: 6rem;
+    text-align: center;
+}
+p.page-1-p2 {
+text-align: center;
+}
+p.page-mob-p1 {
+    text-align: center;
+    margin: 3em auto 2em;
+    font-size: 18px;
+    font-weight: 600;
+}
+.ios-help {
+    padding: 5%;
+    line-height: 35px;
+    overflow: scroll;
+    height: 100vh;
+}
+p.page-mob-p2 {
+    color: #089000;
+    font-weight: 600;
+    font-size: 17px;
+}
+p.page-mob-p4 {
+    text-align: center;
+    font-weight: 600;
+    color: #282f6c;
+    font-size: 16px;
+}
+img.page-mob-img1, img.page-mob-img3 {
+    width: 16%;
+}
+img.page-mob-img2 {
+    width: 46%;
+}
+a.page-mob-a1 {
+    background: #D41C58 !important;
+    color: #fff !important;
+    display: block;
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 16px;
+    padding: 2px;
+}
 /*menu burger*/
 @media print {
     .fcrow.fcrow-p, .fcrow.fcrow-p p, .prefactor-head, .prefactor-head i.fas.fa-map-marker-alt {
