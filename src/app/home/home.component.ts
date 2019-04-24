@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit,  OnDestroy {
    this.PackService.setDefultMenu(true);
   }
 PacksRuning:any;
-countPackRuningInCancelTrue:number;
-countPackRuningInCancelFalse:number;
+PackRuningInCancelFalse:any;
+PackRuningInCancelTrue:any;
 defultMenu:boolean;
   constructor(
     private _webappservice:WebAppService,
@@ -28,9 +28,8 @@ defultMenu:boolean;
 this._webappservice.getPackrunning().subscribe(res=>{
    
   this.PacksRuning=res;
-    
-  this.countPackRuningInCancelTrue=res.filter(x=> x.isCanceled==true).length
-  this.countPackRuningInCancelFalse=res.filter(x=> x.isCanceled==false).length
+  this.PackRuningInCancelTrue=res.filter(x=> x.isCanceled==true)
+  this.PackRuningInCancelFalse=res.filter(x=> x.isCanceled==false)
 // if(count==0){
 //   this.router.navigate(["/map"])
 // }

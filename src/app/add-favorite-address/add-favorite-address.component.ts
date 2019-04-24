@@ -24,7 +24,7 @@ export class AddFavoriteAddressComponent implements OnInit {
     @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
  // google maps zoom level
 
- 
+  errorAddress:string=null;
  zoom: number = 15;
 //  markers: marker[]=[];
  // initial center position for the map
@@ -156,8 +156,10 @@ centerChange($event){
     
  }
  SaveAddress(address :string,title:string){
-    
-   
+    debugger
+  if(address=="" || title ==""){
+    this.errorAddress="لطفا مقادیر را وارد کنید"
+  return}
    let fs:any={
      title:title,
      address:address,
@@ -172,8 +174,10 @@ centerChange($event){
   else
   this.savedaddress.push(fs)
   localStorage.setItem("Favoriteaddress",JSON.stringify(this.savedaddress));
+  this.errorAddress=null;
   this.closeModalfavoriteaddresses.nativeElement.click();  
   this.router.navigate(["/favorite-address"])
+
  }
 
  

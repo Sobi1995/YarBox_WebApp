@@ -113,6 +113,7 @@
 				<div class="modal-body">
 						 <div class="btn-circle-download" id="btn-ok-address">
 								<input type="text" placeholder="عنوان"    #favoriteAddressTitle class="titr-favorite2">
+							<span *ngIf="errorAddress!=null">{{errorAddress}}</span>
 								<span class='pulse-button' (click)="SaveAddress(favoriteAddressTitle.value)"><i class="fas fa-check"></i></span>
 						 </div>
 				</div>

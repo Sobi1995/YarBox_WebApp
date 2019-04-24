@@ -19,6 +19,7 @@ export class DestinationComponent implements OnInit {
   Cities:any;
   Province:string;
  portlocation:string="";
+ errorAddress:string=null;
  @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
  @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
  
@@ -132,7 +133,10 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
     is_Number(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
 
     SaveAddress(val :string){
-         
+      if(val==""){
+        this.errorAddress="لطفا  عنوان را وارد کنید"
+        return
+      }
     this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
     let distnation:any=this.destinationModel;
     distnation.title=val;
