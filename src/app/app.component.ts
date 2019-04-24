@@ -25,7 +25,7 @@ export class AppComponent  implements OnInit{
   ngOnInit(): void {
 
 this.getPlants().subscribe(res=>{
- 
+  this.deviceInfo.device="android"
   debugger
   if (res==false){
     this.router.navigate(["/WebPlatform"])
