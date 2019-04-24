@@ -1091,7 +1091,7 @@ a.aos-init.aos-animate:active {
         display: none;
     }
     .quantity input {
-        width: 40px !important;
+        width: 50px !important;
         font-size: 18px !important;
     }
     .img-support {
@@ -1109,6 +1109,23 @@ a.aos-init.aos-animate:active {
     }
     .info-rule {
         font-size: 11px !important;
+    }
+    .quantity-button {
+        z-index: 10;
+        background: #ccc !important;
+        border-radius: 10px 0 0 0 !important;
+        line-height: 1.2 !important;
+    }
+    .quantity-button.quantity-up {
+        top: 21px !important;
+        right: 0px !important;
+        border-radius: 10px 0 0 0 !important;
+        
+    }
+    .quantity-button.quantity-down {
+        top: 42px !important;
+        right: 0px !important;
+        border-radius: 0 0 0 10px  !important;
     }
     
 }
@@ -6170,7 +6187,7 @@ a.back-web-app {
     left: 7%;
     font-size: 26px;
     color: #fff;
-    margin-top: -17%;
+    margin-top: -7%;
 }
 .main-web-app-form p, .type-part p {
     text-align: center;
@@ -6699,8 +6716,13 @@ input[type=number]
   margin: 0;
   padding-right: 13px;
   border: 1px solid #eee;
+  
 }
-
+.quantity-nav{
+    z-index: 10;
+    background: #ccc !important;
+    line-height: 1.2 !important;
+}
 .quantity input:focus {
   outline: 0;
 }
@@ -6730,15 +6752,20 @@ input[type=number]
 .quantity-button.quantity-up {
     position: absolute;
     height: 50%;
-    top: 10px;
-    right: 17px;
+    top: 70%;
+    right: 9px;
+    background: #ccc !important;
+    border-radius: 10px 0 0 0 !important;
+
 }
 
 .quantity-button.quantity-down {
     position: absolute;
-    top: 32px;
+    top: 120%;
     height: 50%;
-    right: 17px;
+    right: 9px;
+    background: #ccc !important;
+    border-radius: 0 0 0 10px !important;
 }
 .form-pack {
     margin: 35px;
@@ -7704,6 +7731,11 @@ a.regester-btn {
 button.btn-ghavanin {
     background: transparent !important;
     border: none !important;
+}
+span.error-null-tedad {
+    font-size: 12px;
+    color: red;
+    display: inherit;
 }
 /*menu burger*/
 @media print {

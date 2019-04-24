@@ -33,10 +33,10 @@
           <div class="quantity">
               <!-- (input)="onSearchChange($event.target.value)" -->
             <input type="number" [(ngModel)]="count" class="number-pack" name="count" min="1"    />
-            <div id="inc-button" (click)="CountPacks(1)" class="spinner-button">+</div>
-            <div id="dec-button" (click)="CountPacks(0)" class="spinner-button">-</div>
+            <!--div id="inc-button" (click)="CountPacks(1)" class="spinner-button">+</div>
+            <div id="dec-button" (click)="CountPacks(0)" class="spinner-button">-</div-->
           </div>
-           <span *ngIf="count==null">لطفا مقادیر را  پر کنید</span>
+           <span *ngIf="count==null" class="error-null-tedad">لطفا مقادیر را  پر کنید</span>
             <select (change)="SelectType($event.target.value)">
             <option *ngFor="let type of PostPackType" value="{{type.id}}" >{{type.title}} </option>
          
