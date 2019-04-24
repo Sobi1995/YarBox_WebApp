@@ -1,13 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationModule } from './authentication/authentication.module';
- 
- 
-
- 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
@@ -22,7 +17,6 @@ import { AcceptDriverComponent } from './accept-driver/accept-driver.component';
 import { SearchDriverComponent } from './search-driver/search-driver.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
- 
 import { AgmCoreModule } from '@agm/core';
 import { WebAppService } from './Services/webapp-service';
 import { PackService } from './Services/Pack-Service';
@@ -41,10 +35,7 @@ import { CoreModule } from './Core/core.module';
 import { LoginGuardService } from './Services/login-guard.service';
 import { AddFavoriteAddressComponent } from './add-favorite-address/add-favorite-address.component';
 import { AddFavoriteAddressDestinationComponent } from './add-favorite-address-destination/add-favorite-address-destination.component';
- 
- 
- 
-
+import { DeviceDetectorModule } from 'ngx-device-detector';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +65,7 @@ import { AddFavoriteAddressDestinationComponent } from './add-favorite-address-d
     AuthenticationModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    DeviceDetectorModule.forRoot(),
     FormsModule,
     CommonModule,
     AppRoutingModule,
