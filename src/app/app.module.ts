@@ -38,6 +38,7 @@ import { AddFavoriteAddressDestinationComponent } from './add-favorite-address-d
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { WebPlatformComponent } from './web-platform/web-platform.component';
 import { IosHomeScreenComponent } from './ios-home-screen/ios-home-screen.component';
+import { AndroidHomeScreenComponent } from './android-home-screen/android-home-screen.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { IosHomeScreenComponent } from './ios-home-screen/ios-home-screen.compon
     AddFavoriteAddressComponent,
     AddFavoriteAddressDestinationComponent,
     WebPlatformComponent,
-    IosHomeScreenComponent
+    IosHomeScreenComponent,
+    AndroidHomeScreenComponent
   ],
   imports: [
     BrowserModule,
