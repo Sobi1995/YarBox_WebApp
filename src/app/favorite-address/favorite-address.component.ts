@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PlatformLocation } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favorite-address',
@@ -8,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class FavoriteAddressComponent implements OnInit {
   FavoriteAddress:any;
   FavoriteAddressDistnation:any;
-  constructor() { }
+  constructor( location: PlatformLocation,private router:Router) {
+    location.onPopState(() => {
+      history.go(1);
+      this.router.navigate(["/"])
+});
+   }
 
   ngOnInit() {
     this.FavoriteAddress=JSON.parse(localStorage.getItem("Favoriteaddress"));

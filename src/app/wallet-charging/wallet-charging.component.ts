@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
+import { PlatformLocation } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wallet-charging',
@@ -8,7 +10,15 @@ import { WebAppService } from '../Services/webapp-service';
 })
 export class WalletChargingComponent implements OnInit {
 pay:number=0;
-  constructor(private _webAppService:WebAppService) { }
+constructor(  private _webappservice:WebAppService,
+  location: PlatformLocation,
+  private router:Router) { 
+    location.onPopState(() => {
+      // history.go(1);
+      debugger
+     this.router.navigate(["/"])
+});
+  }
 
   ngOnInit() {
   }
@@ -17,7 +27,7 @@ pay:number=0;
     this.pay=value;
   }
   Pay(){
-    this._webAppService.walletCharge(this.pay).subscribe(res=>{
+    this._webappservice.walletCharge(this.pay).subscribe(res=>{
        
        window.open(res.redirectTo);
     })

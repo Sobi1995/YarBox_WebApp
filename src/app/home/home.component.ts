@@ -23,7 +23,7 @@ defultMenu:boolean;
     private PackService:PackService,
     location: PlatformLocation) { 
       location.onPopState(() => {
-        debugger
+         
         history.go(1);
   });
     }
@@ -44,12 +44,10 @@ this._webappservice.getPackrunning().subscribe(res=>{
 
 
   deletePaks(id:number){
-     
 this._webappservice.deletePack(id).subscribe(res=>{
-   
-  const index = this.PacksRuning.findIndex(x=> x.id==id);
+  const index = this.PackRuningInCancelTrue.findIndex(x=> x.id==id);
   if (index > -1) {
-    this.PacksRuning.splice(index, 1);
+    this.PackRuningInCancelTrue.splice(index, 1);
   }
 })
   }

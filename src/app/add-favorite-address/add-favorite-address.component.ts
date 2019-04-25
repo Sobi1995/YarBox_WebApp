@@ -49,6 +49,7 @@ address:string;
      
     location.onPopState(() => {
         history.go(1);
+        this.router.navigate(["/"])
     
   });
 }

@@ -46,7 +46,6 @@ export class MapComponent implements OnInit  {
     this.Origin=new originDto();
      
     location.onPopState(() => {
-      debugger
         history.go(1);
   });
 }

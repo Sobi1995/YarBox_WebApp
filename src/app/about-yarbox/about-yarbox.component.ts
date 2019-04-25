@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'app-about-yarbox',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutYarboxComponent implements OnInit {
 
-  constructor() { }
+  constructor(  private router:Router, location: PlatformLocation) { 
+    location.onPopState(() => {
+      // history.go(1);
+      debugger
+     this.router.navigate(["/"])
+});
+}
 
   ngOnInit() {
   }
