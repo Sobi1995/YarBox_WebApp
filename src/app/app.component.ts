@@ -23,22 +23,30 @@ export class AppComponent  implements OnInit{
   @ViewChild('openmodal') private openmodal: ElementRef;
   online$: Observable<boolean>;
   ngOnInit(): void {
-
-this.getPlants().subscribe(res=>{
  
-  debugger
+    // if (window.matchMedia('(display-mode: standalone)').matches) {
+    //   alert("Thank you for installing our app!");
+    // }
+ let   rootVar = window["rootVar"];
+this.getPlants().subscribe(res=>{
+   
+ 
+  let homescreen=JSON.parse(localStorage.getItem("add-homescreen"))
+  
   if (res.isMobile==false){
+    
     this.router.navigate(["/WebPlatform"])
   }
-  else if (this.deviceInfo.device=="safari"){
-        this.router.navigate(["/Ios-home-screen"])
+  else if ((this.deviceInfo.browser=="safari" || this.deviceInfo.browser=="Safari") && homescreen==false && window.matchMedia('(display-mode: standalone)').matches==false){
+ 
+        this.router.navigate(["/ios-home-screen"])
+        return
   }
-  else if (this.deviceInfo.device=="android"){
-    this.router.navigate(["/android-home-screen"])
-}
+//   else if (this.deviceInfo.device=="android"){
+//     this.router.navigate(["/android-home-screen"])
+// }
   else{
      this._auth.IsLoginOnServer().subscribe(res=>{
-       
        this._auth.setIsLogin(true);
        this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
        this._auth.setProfile(this.jsonProfile);
@@ -66,6 +74,13 @@ this.getPlants().subscribe(res=>{
     private _webApp:WebAppService,
     public swUpdate: SwUpdate,
      private deviceService: DeviceDetectorService){
+ 
+       let homescreen=JSON.parse(localStorage.getItem("add-homescreen"))
+       if(homescreen==null){
+         localStorage.setItem("add-homescreen","false")
+      
+       }
+ 
       this.epicFunction();
       if(this.swUpdate.isEnabled)
       {
@@ -175,8 +190,6 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
   }
 
   public getPlants(): Observable<any> {
- 
-    debugger
     console.log('hello `Home` component');
     this.deviceInfo = this.deviceService.getDeviceInfo();
     const isMobile = this.deviceService.isMobile();

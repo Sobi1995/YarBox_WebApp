@@ -156,7 +156,7 @@ centerChange($event){
     
  }
  SaveAddress(address :string,title:string){
-    debugger
+     
   if(address=="" || title ==""){
     this.errorAddress="لطفا عنوان را وارد کنید"
   return}

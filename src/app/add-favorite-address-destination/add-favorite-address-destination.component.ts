@@ -45,7 +45,7 @@ export class AddFavoriteAddressDestinationComponent implements OnInit {
   }
 
   PostType(type:number){
-debugger
+ 
   this.Cities=null;
   
      this.typeCity=type;

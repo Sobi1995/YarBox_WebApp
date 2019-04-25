@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { authenticationService } from '../authentication/authentication-Service';
 
 @Component({
   selector: 'app-ios-home-screen',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IosHomeScreenComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,
+    private _auth :authenticationService,) { }
 
   ngOnInit() {
   }
-
+  Ok(){
+     
+   localStorage.setItem("add-homescreen","true") 
+   this.router.navigate(["/login"])
+   this._auth.setIsLogin(false);
+  }
 }

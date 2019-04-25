@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
 import { Router } from '@angular/router';
 import { PackService } from '../Services/Pack-Service';
+import { PlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +20,12 @@ defultMenu:boolean;
   constructor(
     private _webappservice:WebAppService,
     private router: Router,
-    private PackService:PackService) { 
-
+    private PackService:PackService,
+    location: PlatformLocation) { 
+      location.onPopState(() => {
+        debugger
+        history.go(1);
+  });
     }
 
   ngOnInit() {
