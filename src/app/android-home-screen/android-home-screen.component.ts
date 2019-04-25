@@ -11,7 +11,9 @@ export class AndroidHomeScreenComponent implements OnInit {
   }
  
  
-
+Ok(){
+  
+}
 
  
 }
