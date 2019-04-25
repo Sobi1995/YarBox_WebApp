@@ -1883,7 +1883,18 @@ a.aos-init.aos-animate:active {
     .pack-part.pack-part2 {
         margin: -5% 20px !important;
     }
-    
+    .info-driver1-line2 .col-lg-6.col-md-6.col-sm-8.col-xs-8 {
+        padding: 0;
+    }
+    .info-driver1-line2 img {
+        width: 50px !important;
+        height: 50px !important;
+        padding: 5px !important;
+    }
+    span.name-driver {
+        font-size: 11px !important;
+        padding-right: 7px !important;
+    }
 
     
 }
@@ -6823,6 +6834,9 @@ input[type=number]
 .vecle-part-image img {
     transform: scaleX(-1);
 }
+.vecle-part-image3 img {
+    transform: scaleX(1);
+}
 
 .pay-btn-web-app a {
     display: inline-block;
@@ -7747,32 +7761,36 @@ text-align: center;
 }
 p.page-mob-p1 {
     text-align: center;
-    margin: 1em auto;
-    font-size: 18px;
+    margin: 0.5em auto;
+    font-size: 16px;
     font-weight: 600;
 }
 .ios-help {
     padding: 5%;
-    line-height: 35px;
+    line-height: 33px;
     overflow: scroll;
     height: 100vh;
+    font-size: 11px;
 }
 p.page-mob-p2 {
     color: #089000;
     font-weight: 600;
-    font-size: 17px;
+    font-size: 13px;
+}
+p.page-mob-p3 {
+    font-size: 13px;
 }
 p.page-mob-p4 {
     text-align: center;
     font-weight: 600;
     color: #282f6c;
-    font-size: 16px;
+    font-size: 14px;
 }
 img.page-mob-img1, img.page-mob-img3 {
     width: 16%;
 }
 img.page-mob-img2 {
-    width: 46%;
+    width: 42%;
 }
 a.page-mob-a1 {
     background: #D41C58 !important;
