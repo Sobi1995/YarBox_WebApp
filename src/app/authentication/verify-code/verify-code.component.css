@@ -18,3 +18,25 @@ a.back-web-app2 {
         padding: 4% !important;
     }
 }
+@media screen and (max-width: 375px){
+    .btn-web-app button {
+        
+        padding: 6% !important;
+    }
+    p.code-massege {
+        margin-top: 7px !important;
+    }
+    
+
+}
+@media screen and (max-width: 320px){
+    .btn-web-app button {
+        
+        padding: 4% !important;
+    }
+    p.code-massege {
+        margin-top: -7px !important;
+    }
+    
+
+}

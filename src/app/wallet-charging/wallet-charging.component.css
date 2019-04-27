@@ -9,3 +9,15 @@ a.back-web-app {
     }
 
 }
+@media screen and (max-width:414px) {
+	.btn-web-app button {
+        padding: 6% !important;
+    }
+  
+}
+@media screen and (max-width: 320px){
+  .btn-web-app button {
+      
+      padding: 4% !important;
+  }
+}

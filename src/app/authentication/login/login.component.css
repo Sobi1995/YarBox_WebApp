@@ -5,4 +5,48 @@
     }
 
 }
+@media screen and (max-width: 414px){
+    .btn-web-app button {
+        
+        padding: 6% !important;
+    }
+    .web-app-text p {
+        padding-top: 8% !important;
+    }
+
+}
+@media screen and (max-width: 320px){
+    .btn-web-app button {
+        
+        padding: 4% !important;
+    }
+    
+
+}
+/*@media screen and (max-width:375px) {
+	
+    .btn-web-app button, .add-fav {
+        width: 80% !important;
+        margin: 0 10%;
+        border-radius: 28px;
+        bottom: 15% !important;
+    }
+    .web-app-text p {
+        padding-top: 6%;
+    }
+	
+}
+@media screen and (max-width:320px) {
+	
+    .btn-web-app button, .add-fav {
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        bottom: 0 !important;
+    }
+    .web-app-text p {
+        padding-top: 0 !important;
+    }
+	
+}*/
 

@@ -123,7 +123,9 @@ a.rowa .section-style {
 .statistics-layer a.rowa:active .section-style, .statistics-layer a.rowa:hover .section-style {
     border: 2px solid #d41b58
 }
-
+.loding-img{
+    width: 300px !important;
+}
 
 
 @media screen and (max-width:1050px) {
@@ -420,6 +422,17 @@ a.rowa .section-style {
         right: 0px !important;
         border-radius: 0 0 0 10px  !important;
     }
+    .picpack {
+        margin: 2% auto !important;
+    }
+    .info-pack {
+        margin: 1% auto !important;
+    }
+    .main-web-app.main-web-app6 {
+        height: 78vh;
+        overflow: scroll;
+    }
+    
     
 }
 
@@ -1076,9 +1089,9 @@ a.rowa .section-style {
         width: 7% !important;
     }
     .fav-address-orgin, .location-my {
-        width: 10% !important;
-        height: 5.5% !important;
-        padding: 4px !important;
+        width: 37px !important;
+        height: 37px !important;
+        padding: 6px 2px !important;
         margin-right: 6% !important;
     }
     .fav-address-orgin img, .location-my img {
@@ -1184,8 +1197,31 @@ a.rowa .section-style {
         font-size: 11px !important;
         padding-right: 7px !important;
     }
+    .loding-img{
+        width: 240px !important;
+    }
+    .picpack {
+        margin: 7% auto !important;
+    }
+    .info-pack {
+        margin: 4% auto !important;
+    }
+    .main-web-app.main-web-app6 {
+        height: 87vh;
+        overflow: scroll;
+        width: 100%;
+    }
+    .stutus-pack {
+        margin: 8% auto !important;
+    }
 
     
+}
+@media screen and (max-width:414px) {
+	.btn-web-app button {
+        padding: 6% !important;
+    }
+  
 }
 @media screen and (max-width:350px) {
 	ul.nav.nav-tabs.nav-factor {
@@ -1202,7 +1238,8 @@ a.rowa .section-style {
 	.step-i img {
     width: 42px !important;
     height: 42px !important;
-	}
+    }
+    
 	
 }
 
@@ -1296,6 +1333,16 @@ footer * {
     }
     .null-pack {
         margin-top: 7%;
+    }
+    .picpack {
+        margin: 2% auto !important;
+    }
+    .info-pack {
+        margin: 1% auto !important;
+    }
+    .main-web-app.main-web-app6 {
+        height: 78vh;
+        overflow: scroll;
     }
 }
 
@@ -1909,7 +1956,14 @@ a.back-web-app {
     left: 7%;
     font-size: 26px;
     color: #fff;
-    margin-top: -7%;
+    margin-top: -18%;
+}
+.panel-heading {
+    padding: 0 2px !important;
+    background: 0 0 !important;
+}
+div#accordion .panel {
+    border: none;
 }
 .main-web-app-form p, .type-part p {
     text-align: center;
@@ -3387,6 +3441,82 @@ p.page-mob-p5 {
 .home-page-tosi {
     margin-top: 20px;
     border-top: 1px solid #ccc;
+}
+.picpack {
+    width: 135px;
+    border: 1px solid #efefef;
+    border-radius: 50%;
+    box-shadow: 0 0 6px 1px #ddd;
+    margin: 7% auto;
+}
+.stutus-pack {
+    background: #F6F9FC;
+    width: 70%;
+    margin: 0 auto;
+    padding: 3%;
+    border-radius: 50px;
+    text-align: center;
+    color: #26306d;
+    font-weight: 600;
+}
+.info-part {
+    width: 50%;
+    display: inline-block;
+    padding: 3%;
+}
+.info-pack {
+    background: #F6F9FC;
+    margin: 6% auto;
+    width: 80%;
+    text-align: center;
+    border-radius: 7px;
+    font-size: 15px;
+    color: #D41B59;
+}
+.info-part.info-part1 {
+    border-left: 2px dashed #DDE;
+    color: #26306d;
+    
+}
+.factor-box-red {
+    background: #D41B59;
+}
+.factor-box-green {
+    background: #0ACD81;
+}
+
+.factor-box {
+    width: 80%;
+    margin: 3% auto;
+    color: #fff;
+    border-radius: 5px;
+    padding: 2%;
+}
+.factor-nam, .factor-address {
+    background: #fff;
+    color: #26306d;
+    border-radius: 5px;
+    padding: 2%;
+    margin: 5%;
+}
+.cri-titr {
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    position: relative;  
+    border-radius: 50%;
+    top: 3px;
+    right: 5%;
+}
+.factor-box p {
+    margin-right: 13%;
+    font-size: 16px;
+    display: inline-block;
+}
+.factor-box-tosi {
+    background: #A6B7C7;
+    text-align: center;
+    font-size: 15px;
 }
 /*menu burger*/
 

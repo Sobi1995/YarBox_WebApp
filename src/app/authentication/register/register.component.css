@@ -1,3 +1,19 @@
 .error-webapp {
     margin-top: -3px;
 }
+
+@media screen and (max-width: 375px){
+    .btn-web-app button {
+        
+        padding: 6% !important;
+    }
+    
+}
+@media screen and (max-width: 320px){
+    .btn-web-app button {
+        
+        padding: 4% !important;
+    }
+    
+
+}
