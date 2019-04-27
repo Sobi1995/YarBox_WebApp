@@ -35,7 +35,7 @@
 					<input type="text" placeholder="شماره موبایل" class="register-input"   [(ngModel)]="regiserModel.phoneNumber" #mobile="ngModel"  name="phoneNumber"  pattern="^(\+98|0)?9\d{9}$" required />
           <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
               <div *ngIf="mobile.errors.required" class="error-webapp error-webapp2">شماره همراه / ثابت را وارد کنید</div>
-              <div [hidden]="!mobile.errors.pattern" class="error-webapp error-webapp2"> فرمت شماره همراه را درست وارد کنید </div>
+              <div [hidden]="!mobile.errors.pattern" class="error-webapp error-webapp2">  فرمت شماره همراه را درست وارد کنید از ارقام انگیسی استفاده کنید </div>
                </div>
         </div>
         <div class="register-form">

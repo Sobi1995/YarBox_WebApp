@@ -35,6 +35,7 @@ this._webappservice.getPackrunning().subscribe(res=>{
   this.PacksRuning=res;
   this.PackRuningInCancelTrue=res.filter(x=> x.isCanceled==true)
   this.PackRuningInCancelFalse=res.filter(x=> x.isCanceled==false)
+  
 // if(count==0){
 //   this.router.navigate(["/map"])
 // }

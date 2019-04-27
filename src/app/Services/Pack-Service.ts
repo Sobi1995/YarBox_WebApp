@@ -7,6 +7,7 @@ import { DestinationDto } from '../Model/dto/destination-dto';
 import { AddressOrigin } from '../Model/Address-Origin';
 import { MainPacks } from '../Model/dto/Main-Packs-dto';
 import { packsDto } from '../Model/dto/packs-dto';
+import { empty } from 'rxjs';
 
  
 @Injectable()
@@ -204,6 +205,13 @@ get getDefultMenu(){
 setOnLocalStorage(){
   
   localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
+}
+
+get getRetryFlow(){
+  // debugger
+  // var a=this.MultiplePacks.
+  
+  return "";
 }
 } 
  

@@ -70,7 +70,7 @@
 						<h4 class="modal-title">نام و نام خانوادگی خود را ویرایش نمایید</h4>
 						<input type="text" placeholder="نام"  value="{{getProfile().firstName}}"   #lname class="titr-favorite">
 						<input type="text" placeholder="نام خانوادگی" value="{{getProfile().lastName}}"   #fname class="text-favorite">
-						 <div class="btn-circle-download" id="btn-ok-address"  (click)="UpdateProfiele(lname.value,fname.value)">
+						 <div class="btn-circle-download" id="btn-ok-address"  (click)="UpdateProfiele(fname.value,lname.value)">
 								<span class='pulse-button' ><i class="fas fa-check"></i></span>
 						 </div>
 				</div>

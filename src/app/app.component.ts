@@ -27,7 +27,7 @@ export class AppComponent  implements OnInit{
     // if (window.matchMedia('(display-mode: standalone)').matches) {
     //   alert("Thank you for installing our app!");
     // }
- 
+   
 this.getPlants().subscribe(res=>{
    
  
@@ -85,10 +85,18 @@ this.getPlants().subscribe(res=>{
       if(this.swUpdate.isEnabled)
       {
         this.swUpdate.available.subscribe(()=> {
-  
-         
-          swal.fire('ابدیت جدید')
-           window.location.reload();
+          swal.fire({
+            position: 'center',
+            type: 'success',
+            title: 'یار باکس بروز شد',
+            showConfirmButton: true,
+          confirmButtonText:"باشه",
+          }).then(function (result) {
+            
+            window.location.reload();
+          })
+       
+          
         })
       }
    this.checkNet();
@@ -171,8 +179,8 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
   SweetNet(){
     let self=this;
     swal.fire({
-      title: 'Auto close alert!',
-      text: 'I will close in 2 seconds.',
+      title: 'عدم دسترسی به شبکه!',
+      text: 'لطفا دسترسی خود را به شبکه اینترنت چک نماید',
  
       showCancelButton: true,
       showConfirmButton: false,

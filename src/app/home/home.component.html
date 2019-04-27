@@ -39,23 +39,23 @@
                                     </div> 
                                     <div class="body-pack">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                             <div class="step-pack step-pack1 done">
+                                             <div class="step-pack step-pack1 " [ngClass]=" pack.status=='driverRecived' || pack.status=='originPort' || pack.status=='destinationPort' ? 'done' : '' ">
                                                 <div class="step-i"><img src="/assets/img/9-tahvile-peyk-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-tahvile-peyk-ok.svg" width="70" height="70" class="step-pack-ok"></div>
                                                 <span class="step-span">تحویل به پیک</span>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                             <div class="step-pack step-pack2 done">
+                                             <div class="step-pack step-pack2"  [ngClass]=" pack.status=='originPort' ||  pack.status=='destinationPort' ? 'done' : '' ">
                                                 <div class="step-i"><img src="/assets/img/9-maghsad-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-maghsad-ok.svg" width="70" height="70" class="step-pack-ok"></div>
                                                 <span class="step-span">پورت مقصد</span></div> 
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <div class="step-pack step-pack3">
+                                            <div class="step-pack step-pack3"  [ngClass]="pack.status == 'destinationPort' ? 'done': ''">
                                                 <div class="step-i"><img src="/assets/img/9-mabda-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-mabda-ok.svg" width="70" height="70" class="step-pack-ok"></div>
                                                 <span class="step-span">پورت مبدا</span></div>
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <div class="step-pack step-pack4">
+                                            <div class="step-pack step-pack4"   >
                                                 <div class="step-i"><img src="/assets/img/9-girandeh-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-girandeh-ok.svg" width="70" height="70" class="step-pack-ok"></div>
                                                 <span class="step-span">گیرنده</span></div>
                                         </div>

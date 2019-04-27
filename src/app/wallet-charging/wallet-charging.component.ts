@@ -15,7 +15,7 @@ constructor(  private _webappservice:WebAppService,
   private router:Router) { 
     location.onPopState(() => {
       // history.go(1);
-      debugger
+      
      this.router.navigate(["/"])
 });
   }
