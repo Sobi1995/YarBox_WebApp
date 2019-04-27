@@ -23,11 +23,11 @@ export class AppComponent  implements OnInit{
   @ViewChild('openmodal') private openmodal: ElementRef;
   online$: Observable<boolean>;
   ngOnInit(): void {
- 
+     
     // if (window.matchMedia('(display-mode: standalone)').matches) {
     //   alert("Thank you for installing our app!");
     // }
- let   rootVar = window["rootVar"];
+ 
 this.getPlants().subscribe(res=>{
    
  
