@@ -12,7 +12,7 @@ export class AboutYarboxComponent implements OnInit {
   constructor(  private router:Router, location: PlatformLocation) { 
     location.onPopState(() => {
       // history.go(1);
-      debugger
+      
      this.router.navigate(["/"])
 });
 }

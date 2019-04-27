@@ -51,6 +51,7 @@ export class MapComponent implements OnInit  {
 }
 
  ngOnInit(): void {
+   var a=this._packService.getRetryFlow;
   this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddress"));
   this.dragEndSubscription = (this.map._mapsWrapper as GoogleMapsAPIWrapper) 
   .subscribeToMapEvent('dragend')

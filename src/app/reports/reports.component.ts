@@ -17,7 +17,7 @@ export class ReportsComponent implements OnInit {
     private router:Router) { 
       location.onPopState(() => {
         // history.go(1);
-        debugger
+        
        this.router.navigate(["/"])
   });
     }
