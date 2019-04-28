@@ -9,7 +9,7 @@
 @media screen and (max-width: 414px){
     .btn-web-app button {
         
-        padding: 6% !important;
+        padding: 5% !important;
     }
     .web-app-text p {
         padding-top: 8% !important;
@@ -24,6 +24,39 @@
     }
     
 
+}
+/*
+img.img-web-app {
+    position: fixed;
+    top: 0;
+}*/
+input.login-input {
+    position: fixed;
+    bottom: 13vh;
+    margin: 0 -39% !important;
+}
+.web-app-text {
+    background: #fff;
+    height: 29vh;
+    bottom: 1vh;
+}
+.web-app-text p {
+    position: fixed;
+    bottom: 24vh;
+    margin: 0 auto;
+    width: 100%;
+}
+.web-app-text img {
+    position: fixed !important;
+    bottom: 15vh !important;
+    left: 13% !important;
+}
+.error-webapp {
+    color: red;
+    position: fixed;
+    bottom: 8vh;
+    margin: 0 auto;
+    width: 100%;
 }
 
 

@@ -153,13 +153,12 @@ a.rowa .section-style {
         top: 25px !important;
     }
 	/*web app*/
-	.web-app-text {
+	/*.web-app-text {
     top: 11% !important;
-	}
+	}*/
 	section.main-web-app {
     width: 100% !important;
     margin: 0 !important;
-	height: auto !important;
     }
 	div#accordion .panel {
     border: none
@@ -778,7 +777,6 @@ a.rowa .section-style {
 	section.main-web-app {
     width: 100% !important;
     margin: 0 !important;
-	height: 100vh !important;
 	}
 	.btn-web-app button, .add-fav {
     width: 100% !important;
@@ -1750,8 +1748,8 @@ section.main-web-app {
     width: 33%;
     background: #fff;
     display: inline-block;
-    height: 100vh;
     margin: 0 33%;
+   
 	
 }
 .main-web-app {
@@ -1762,16 +1760,26 @@ section.main-web-app {
 .main-web-app::-webkit-scrollbar {
     display: none; // Safari and Chrome
 }
-.section-main-web-app{background: #ddd;overflow: hidden;height: 100vh;}
+.section-main-web-app{background: #ddd;}
 
 
-.web-app-text {
+/*.web-app-text {
     font-size: 17px;
     position: relative;
     text-align: center;
     color: #26306d;
     font-weight: 600;
 	top:0;
+}*/
+.web-app-text {
+    font-size: 17px;
+    position: fixed;
+    text-align: center;
+    color: #26306d;
+    font-weight: 600;
+    width: 100%;
+    height: 91px;
+    bottom: 40vh;
 }
 .login-input, .register-input {
     background: #f3f3f3;
@@ -1790,7 +1798,7 @@ section.main-web-app {
 .web-app-text img, .web-app-text i {
     position: relative;
     left: 19%;
-    top: 0px;
+    
 }
 .info-rule img {
     margin-right: 34px;
