@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Profile } from 'selenium-webdriver/firefox';
+ 
 import { MultiplePacksDto } from '../Model/dto/multiple-packs-dto';
 import { originDto } from '../Model/dto/origin-dto';
 import { DestinationDto } from '../Model/dto/destination-dto';
@@ -8,6 +8,7 @@ import { AddressOrigin } from '../Model/Address-Origin';
 import { MainPacks } from '../Model/dto/Main-Packs-dto';
 import { packsDto } from '../Model/dto/packs-dto';
 import { empty } from 'rxjs';
+import { Profile } from '../Model/dto/Profile';
 
  
 @Injectable()
@@ -180,8 +181,11 @@ this.setOnLocalStorage();
  SetPofile(profile:Profile){
 this.Profile=profile;
 }
-getProfile(){
+get getProfile(){
   return this.Profile;
+}
+get getCredit(){
+return this.Profile.credit;
 }
 setTypeCity(status:number){
   // this.typeCity=status;

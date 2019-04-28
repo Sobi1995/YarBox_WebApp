@@ -12,7 +12,7 @@
 				<a  [routerLink]="['/favorite-address']" class="back-web-app"><i class="fas fa-angle-left"></i></a>
 				<!-- <button  data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><i class="far fa-bookmark"></i></button> -->
 				<img src="/assets/img/3-mabda.svg" width="25" height="25" class="icon-serch1">
-				<input type="search"  value={{address}}>
+				<input  autocomplete="off" type="search"  value={{address}}>
 				
 				<img src="/assets/img/3-search.svg" width="25" height="25" class="icon-serch2">
 			</div>
@@ -52,8 +52,8 @@
 						<div class="modal-content modal-content-packs">
 						<div class="modal-body">
 								<h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
-								<input type="text" placeholder="عنوان"    #favoriteAddressTitle class="titr-favorite">
-								<input type="text" placeholder="لطفا آدرس فرستنده را همراه با پلاک وارد نمایید"  value={{address}} #favoriteAddress class="text-favorite">
+								<input  autocomplete="off" type="text" placeholder="عنوان"    #favoriteAddressTitle class="titr-favorite">
+								<input  autocomplete="off" type="text" placeholder="لطفا آدرس فرستنده را همراه با پلاک وارد نمایید"  value={{address}} #favoriteAddress class="text-favorite">
 								<span *ngIf="errorAddress!=null">{{errorAddress}}</span>
 								<div class="btn-circle-download" id="btn-ok-address">
 										<span class='pulse-button'  (click)="SaveAddress(favoriteAddress.value,favoriteAddressTitle.value)"><i class="fas fa-check"></i></span>

@@ -35,17 +35,17 @@
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
 
-					<input type="text" placeholder="نام و نام خانوادگی گیرنده"  [(ngModel)]="destinationModel.receiverName" name="receiverName" #receiverName="ngModel" required   ><br>
+					<input  autocomplete="off" type="text" placeholder="نام و نام خانوادگی گیرنده"  [(ngModel)]="destinationModel.receiverName" name="receiverName" #receiverName="ngModel" required   ><br>
 					<div *ngIf="f.submitted && receiverName.invalid" class="invalid-feedback">
 						<div *ngIf="receiverName.errors.required" class="error-webapp">نام و نام خانوادگی گیرنده را وارد کنید</div>
 				  </div>
 
-					<input type="text" placeholder="آدرس گیرنده" [(ngModel)]="destinationModel.street" [disabled]="typeCity==1" name="street" #street="ngModel"  required  ><br>
+					<input  autocomplete="off" type="text" placeholder="آدرس گیرنده" [(ngModel)]="destinationModel.street" [disabled]="typeCity==1" name="street" #street="ngModel"  required  ><br>
 					<div *ngIf="f.submitted && street.invalid" class="invalid-feedback">
 							<div *ngIf="street.errors.required" class="error-webapp">آدرس گیرنده را وارد کنید</div>
 						</div>
 
-					<input type="text" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber"  #receiverPhoneNumber="ngModel" pattern="[0-9]+" required    ><br>
+					<input  autocomplete="off" type="number" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber"  #receiverPhoneNumber="ngModel" pattern="[0-9]+" required    ><br>
 					<div *ngIf="f.submitted && receiverPhoneNumber.invalid" class="invalid-feedback">
 							<div *ngIf="receiverPhoneNumber.errors.required" class="error-webapp">شماره همراه / ثابت را وارد کنید</div>
 							<div [hidden]="!receiverPhoneNumber.errors.pattern" class="error-webapp"> لطفا شماره  صحیح را وارد کنید</div>
@@ -112,7 +112,7 @@
 				<div class="modal-content modal-content-packs">
 				<div class="modal-body">
 						 <div class="btn-circle-download" id="btn-ok-address">
-								<input type="text" placeholder="عنوان"    #favoriteAddressTitle class="titr-favorite2">
+								<input  autocomplete="off" type="text" placeholder="عنوان"    #favoriteAddressTitle class="titr-favorite2">
 							<span *ngIf="errorAddress!=null">{{errorAddress}}</span>
 								<span class='pulse-button' (click)="SaveAddress(favoriteAddressTitle.value)"><i class="fas fa-check"></i></span>
 						 </div>

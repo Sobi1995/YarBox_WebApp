@@ -35,6 +35,7 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
    this.VerifyCode.phoneNumber= this.activatedRoute.snapshot.params["phonenumber"];
   }
   Login(verifycodeinput:string){
+     
     this.VerifyCode.verifyCode=verifycodeinput;
 
     this.auth.checkVerifyCode(this.VerifyCode).subscribe(res=>{ 

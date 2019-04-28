@@ -19,10 +19,10 @@
 				<p> انتخاب نوع ارسال</p>
 				<div class="vecl-type">
 				 
-					<input type="radio" id="darb" name="type-web-app" class="radio-type" (click)="PostType(0)" [checked]="typeCity==0? true: false">
+					<input  autocomplete="off" type="radio" id="darb" name="type-web-app" class="radio-type" (click)="PostType(0)" [checked]="typeCity==0? true: false">
 				    <label for="darb" class="vecl-type-label1" data-toggle="modal" data-target="#myModal3"></label>
 					
-					<input type="radio" id="terminal" name="type-web-app" class="radio-type" (click)="PostType(1)"  [checked]="typeCity==1? true: false">
+					<input  autocomplete="off" type="radio" id="terminal" name="type-web-app" class="radio-type" (click)="PostType(1)"  [checked]="typeCity==1? true: false">
 				    <label for="terminal" class="vecl-type-label2" data-toggle="modal" data-target="#myModal4" ></label>
 				</div>
 				<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad maghsad2" *ngIf="typeCity!=3">
@@ -48,17 +48,17 @@
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="typeCity!=3">
 
-					<input type="text" placeholder="نام و نام خانوادگی گیرنده"  [(ngModel)]="destinationModel.receiverName" name="receiverName" #receiverName="ngModel" required  (ngModelChange)="onSelectedChange($event)"><br>
+					<input  autocomplete="off" type="text" placeholder="نام و نام خانوادگی گیرنده"  [(ngModel)]="destinationModel.receiverName" name="receiverName" #receiverName="ngModel" required  (ngModelChange)="onSelectedChange($event)"><br>
 					<div *ngIf="f.submitted && receiverName.invalid" class="invalid-feedback">
 						<div *ngIf="receiverName.errors.required" class="error-webapp">نام و نام خانوادگی گیرنده را وارد کنید</div>
 				  </div>
 
-					<input type="text" placeholder="آدرس گیرنده" [(ngModel)]="destinationModel.street" [disabled]="typeCity==1" name="street" #street="ngModel"  required  (ngModelChange)="onSelectedChange($event)"><br>
+					<input  autocomplete="off" type="text" placeholder="آدرس گیرنده" [(ngModel)]="destinationModel.street" [disabled]="typeCity==1" name="street" #street="ngModel"  required  (ngModelChange)="onSelectedChange($event)"><br>
 					<div *ngIf="f.submitted && street.invalid" class="invalid-feedback">
 							<div *ngIf="street.errors.required" class="error-webapp">آدرس گیرنده را وارد کنید</div>
 						</div>
 
-					<input type="text" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber"  #receiverPhoneNumber="ngModel" pattern="[0-9]+" required   (ngModelChange)="onSelectedChange($event)"><br>
+					<input  autocomplete="off" type="number" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber"  #receiverPhoneNumber="ngModel" pattern="[0-9]+" required   (ngModelChange)="onSelectedChange($event)"><br>
 					<div *ngIf="f.submitted && receiverPhoneNumber.invalid" class="invalid-feedback">
 							<div *ngIf="receiverPhoneNumber.errors.required" class="error-webapp">شماره همراه / ثابت را وارد کنید</div>
 							<div [hidden]="!receiverPhoneNumber.errors.pattern" class="error-webapp"> لطفا شماره  صحیح را وارد کنید</div>
@@ -124,7 +124,7 @@
  
 						 <div class="btn-circle-download" id="btn-ok-address">
 
-								<input type="text" placeholder="عنوان"    #favoriteAddressTitle class="titr-favorite2">
+								<input  autocomplete="off" type="text" placeholder="عنوان"    #favoriteAddressTitle class="titr-favorite2">
 								<span *ngIf="errorAddress!=null">{{errorAddress}}</span>
 								<span class='pulse-button' (click)="SaveAddress(favoriteAddressTitle.value)"><i class="fas fa-check"></i></span>
 						 </div>

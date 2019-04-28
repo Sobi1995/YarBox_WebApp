@@ -30,7 +30,7 @@ statusInsuranceStatus:boolean=true;
     this.mainPacks=new MainPacks()
     this.mainPacks.isPacking=true;
     this.mainPacks.isInsurance=true;
-  
+    
   }
 
   ngOnInit() {
@@ -43,6 +43,8 @@ statusInsuranceStatus:boolean=true;
       this.packs=this._packService.getPaks(); 
       this.mainPacks=this._packService.getMainPack();
        
+    }else{
+      this.mainPacks.insurancePrice=null;
     }
  
     this._webappservice.getPostPackType().subscribe(res=>{
@@ -50,6 +52,7 @@ statusInsuranceStatus:boolean=true;
    
 console.log(res);
     });
+  
   }
   // onSearchChange(searchValue : string ) {  
   //   console.log(searchValue);
@@ -74,11 +77,13 @@ console.log(res);
       this.closeModal.nativeElement.click();
     }
     getPostPackType(id :number){
-    
+     
+    if(this.PostPackType!=undefined)
      return this.PostPackType.find(x=> x.id==id).title
     
     }
     InsuranceStatus(status:boolean){
+       
       this.mainPacks.isInsurance=status
       this.statusInsuranceStatus=status;
       if(status==false)
