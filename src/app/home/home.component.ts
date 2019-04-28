@@ -52,4 +52,11 @@ this._webappservice.deletePack(id).subscribe(res=>{
   }
 })
   }
+
+  ReOrder(id:number){
+this._webappservice.reReorder(id).subscribe(res=>{
+  debugger
+  this.router.navigate(["/factor/"+res.packKey]);
+})
+  }
 }
