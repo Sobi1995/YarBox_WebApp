@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WebAppService } from '../Services/webapp-service';
+import { PackService } from '../Services/Pack-Service';
 
 @Component({
   selector: 'app-accept-driver',
@@ -9,6 +10,7 @@ import { WebAppService } from '../Services/webapp-service';
 })
 export class AcceptDriverComponent implements OnInit {
 Driver:any;
+vehicle:number;
 marckerIco:string="http://icons.iconarchive.com/icons/artdesigner/urban-stories/64/Car-icon.png"
 // google maps zoom level
 zoom: number =15;
@@ -18,12 +20,16 @@ lat: number = 51.673858;
 lng: number = 7.815982;
   constructor( 
       private activatedRoute: ActivatedRoute,
-      private _webapp:WebAppService
+      private _webapp:WebAppService,
+      private _pack:PackService
       ) { }
 
   ngOnInit() {
+    debugger
+    this.vehicle=this._pack.getVehicle();
     let mobile= this.activatedRoute.snapshot.params["mobile"];
     this._webapp.getDriver(mobile).subscribe(res=>{
+      debugger
 this.Driver=res;
  
 this.lat=parseFloat(res.latitude);

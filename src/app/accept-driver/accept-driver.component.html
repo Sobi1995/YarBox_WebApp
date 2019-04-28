@@ -10,7 +10,7 @@
       </div>
     
     </div>
-    <a href="#" class="back-web-app"><i class="fas fa-angle-left"></i></a>
+    <a  [routerLink]="['/base']" class="back-web-app"><i class="fas fa-angle-left"></i></a>
     <div class="main-web-app">
       
       <div class="map-web-app">
@@ -71,9 +71,9 @@
         
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding: 0">
           <span class="img-car">
-            <img *ngIf="Driver.vehicleTypeId==1" src="/assets/img/5-vasileye-naghlie3motor.svg" width="70" height="70">
-            <img *ngIf="Driver.vehicleTypeId==2" src="/assets/img/5-vasileye-naghlie1pride.svg" width="70" height="70">
-            <img *ngIf="Driver.vehicleTypeId==3"src="/assets/img/5-vasileye-naghlie2pride-vanet.svg" width="70" height="70">
+            <img *ngIf="vehicle==1" src="/assets/img/5-vasileye-naghlie3motor.svg" width="70" height="70">
+            <img *ngIf="vehicle==2" src="/assets/img/5-vasileye-naghlie1pride.svg" width="70" height="70">
+            <img *ngIf="vehicle==3"src="/assets/img/5-vasileye-naghlie2pride-vanet.svg" width="70" height="70">
           </span>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">

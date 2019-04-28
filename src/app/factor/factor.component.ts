@@ -14,7 +14,7 @@ import swal from 'sweetalert2';
 })
 export class FactorComponent implements OnInit {
   Factor:any;
-  Profile:any;
+  credit:number=0;
   payment:number=-1;
   Vehicle:number;
    accept=new AcceptSearchDto();
@@ -62,7 +62,9 @@ this.Factor={
  this.Vehicle=this.PacksService.getVehicle();
     let factore= this.activatedRoute.snapshot.params["key"];
      console.log(factore)
-     this.Profile=this.PacksService.getProfile();
+      
+   
+     this.credit=+this.PacksService.getCredit;
     this._webapp.getFactorDatiles(factore).subscribe(res=>{
        
       this.Factor=res;
