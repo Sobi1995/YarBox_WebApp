@@ -319,4 +319,18 @@ setIsNet(status:boolean){
 get getIsNet(){
   return this.IsNet;
 }
+
+reReorder(id:number):Observable<any>{
+    
+  this.setLoding(true);
+let headers = new HttpHeaders();
+headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
+return  this._http.get(this.api+"packs/alopeyk/"+id+"/re-order",{headers:headers}).pipe(
+    map((response:any) => {
+return response
+    } )
+    );
+}
 }
