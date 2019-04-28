@@ -767,7 +767,7 @@ a.rowa .section-style {
     }
 	/*web app*/
 	.web-app-text {
-    top: -1% !important;
+    margin-top: 5% !important;
     }
     .web-app-text p {
         font-size: 12px !important;
@@ -826,7 +826,7 @@ a.rowa .section-style {
     height: 78% !important;
 	}
 	a.back-web-app {
-    margin-top: -19% !important;
+    margin-top: -17% !important;
 	}
 	.info-rule img {
     margin-right: 2px !important;
@@ -1214,8 +1214,12 @@ a.rowa .section-style {
     .stutus-pack {
         margin: 8% auto !important;
     }
-
-    
+    .history-head {
+        font-size: 12px !important;
+    }
+    .historry-price .col-lg-4.col-md-4.col-sm-4.col-xs-4 {
+        padding: 0;
+    }
 }
 @media screen and (max-width:414px) {
 	.btn-web-app button {
@@ -2296,7 +2300,7 @@ div#btn-ok-address {
     display: block;
     width: 40px;
     height: 40px;
-    font-size: 1.6em !important;
+    font-size: 1.3em !important;
     font-weight: light;
     text-transform: uppercase;
     text-align: center;
@@ -3478,10 +3482,10 @@ p.page-mob-p5 {
     color: #26306d;
     
 }
-.factor-box-red {
+.factor-box-red, .history-red {
     background: #D41B59;
 }
-.factor-box-green {
+.factor-box-green, .history-green {
     background: #0ACD81;
 }
 
@@ -3508,16 +3512,141 @@ p.page-mob-p5 {
     top: 3px;
     right: 5%;
 }
-.factor-box p {
+.factor-box p, .history-part p{
     margin-right: 13%;
     font-size: 16px;
     display: inline-block;
+    color: #fff;
 }
 .factor-box-tosi {
     background: #A6B7C7;
     text-align: center;
     font-size: 15px;
 }
+.factor-info {
+    background: #F6F9FC;
+    width: 80%;
+    margin: 2% auto;
+    border-radius: 5px;
+    padding: 3%;
+}
+.factor-info-info, .factor-info-title{
+    width: 50%;
+    display: inline-block;
+}
+.factor-info-line {
+    background: #fff;
+    margin: 5% 3%;
+    padding: 3%;
+    border-radius: 5px;
+}
+.factor-info-info {
+    text-align: center;
+}
+.factor-info-line.factor-info-btn {
+    background: #f6f9fc;
+    border: 2px dashed #09cd80;
+    border-radius: 23px;
+}
+.btn-web-app2 button {
+    background: #d01d58;
+    color: #fff;
+    display: block;
+    width: 80%;
+    bottom: 0;
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    z-index: 10;
+    border: none;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.main-web-app.main-web-app6 {
+    height: 82vh;
+    overflow: scroll;
+}
+.history-parts {
+    background: #E8EFF7;
+    width: 80%;
+    margin: 5% auto;
+    border-radius: 5px;
+}
+.history-head {
+    background: #26306d;
+    color: #fff;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+}
+.history-head1 {
+    border-left: 1px solid #464E8D;
+    padding: 3%;
+}
+.history-head2 {
+    padding: 3%;
+}
+.history-part {
+    width: 90%;
+    margin: 1.5% 5%;
+    display: inline-block;
+    border-radius: 5px;
+    padding-top: 2%;
+}
+.history-info {
+    background: #fff;
+    margin: 3%;
+    padding: 2%;
+    border-radius: 5px;
+    height: 100px;
+}
+.historry-price p {
+    display: inline-block;
+}
+.historry-price {
+    border: 2px solid #09cd80;
+    width: 90%;
+    border-radius: 27px;
+    margin: 4% 5%;
+    padding: 3%;
+    display: inline-block;
+}
+.historry-price-3 {
+    text-align: left;
+}
+.historry-price-2 {
+    text-align: center;
+    font-size: 18px;
+    color: #09cd80;
+}/*
+.login-input {
+    width: 17%;
+    margin: 1% -8%;
+    position: fixed;
+    bottom: 22vh;
+}
+.web-app-text img, .web-app-text i {
+    position: relative;
+    left: -14%;
+    top: 0px;
+}
+.web-app-text i {
+    position: fixed;
+    bottom: 26vh;
+    left: 44%;
+}
+p.code-massege {
+    position: fixed;
+    bottom: 19vh;
+    left: 45%;
+}
+a.resend {
+    position: fixed;
+    bottom: 14vh;
+    left: 48%;
+}*/
 /*menu burger*/
 
 

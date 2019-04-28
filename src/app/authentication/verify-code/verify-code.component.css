@@ -14,8 +14,10 @@ a.back-web-app2 {
 }
 @media screen and (max-width:500px) {
     .btn-web-app button {
-        
         padding: 4% !important;
+    }
+    .web-app-text {
+        margin-top: -15% !important;
     }
 }
 @media screen and (max-width: 375px){

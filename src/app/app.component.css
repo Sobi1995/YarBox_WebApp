@@ -50,7 +50,13 @@
 }
 @media screen and (max-width:500px) {
     .loding-img {
-        margin: 51% 19% !important;
+        margin: 60% 17% !important;
+    }
+
+}
+@media screen and (max-width:350px) {
+    .loding-img {
+        margin: 55% 11% !important;
     }
 
 }
