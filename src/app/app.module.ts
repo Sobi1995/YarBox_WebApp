@@ -39,6 +39,9 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import { WebPlatformComponent } from './web-platform/web-platform.component';
 import { IosHomeScreenComponent } from './ios-home-screen/ios-home-screen.component';
 import { AndroidHomeScreenComponent } from './android-home-screen/android-home-screen.component';
+import { PackDaltileComponent } from './pack-daltile/pack-daltile.component';
+import { FinalFactorComponent } from './final-factor/final-factor.component';
+import { PackHistoryComponent } from './pack-history/pack-history.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +67,10 @@ import { AndroidHomeScreenComponent } from './android-home-screen/android-home-s
     AddFavoriteAddressDestinationComponent,
     WebPlatformComponent,
     IosHomeScreenComponent,
-    AndroidHomeScreenComponent
+    AndroidHomeScreenComponent,
+    PackDaltileComponent,
+    FinalFactorComponent,
+    PackHistoryComponent
   ],
   imports: [
     BrowserModule,

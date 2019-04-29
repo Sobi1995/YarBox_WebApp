@@ -59,4 +59,7 @@ this._webappservice.reReorder(id).subscribe(res=>{
   this.router.navigate(["/factor/"+res.packKey]);
 })
   }
+  PackDitile(id:number){
+this.router.navigate(["/pack-daltile"]);
+  }
 }
