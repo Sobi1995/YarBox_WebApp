@@ -9,7 +9,7 @@
 		 
 			<div class="title-web-app1">
 				<p>ثبت مبدا</p>
-				<button  data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><i class="far fa-bookmark"></i></button>
+				<button  data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><img src="/assets/img/icon-bookmark.svg"  width="20" /></button>
 				<img src="/assets/img/3-mabda.svg" width="25" height="25" class="icon-serch1">
 				<input  autocomplete="off" type="search"  value={{Origin.street}} onfocus="this.value=''">
 				
@@ -52,7 +52,7 @@
 					  <h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
 					  <input  autocomplete="off" type="text" placeholder="لطفا آدرس فرستنده را همراه با پلاک وارد نمایید"  value={{Origin.street}} #senderAddress>
 					   <div class="btn-circle-download" id="btn-ok-address">
-								<span class='pulse-button'  (click)="AcceptAddress(senderAddress.value)"><i class="fas fa-check"></i></span>
+								<span class='pulse-button'  (click)="AcceptAddress(senderAddress.value)"><img src="/assets/img/icon-ok.svg" width="20" /></span>
 							
 						 </div>
 				</div>
@@ -69,7 +69,7 @@
 								<input  autocomplete="off" type="text" placeholder="لطفا آدرس فرستنده را همراه با پلاک وارد نمایید"  value={{Origin.street}} #favoriteAddress class="text-favorite">
 							<span *ngIf="errorAddress!=null">{{errorAddress}}</span>
 								<div class="btn-circle-download" id="btn-ok-address">
-										<span class='pulse-button'  (click)="SaveAddress(favoriteAddress.value,favoriteAddressTitle.value)"><i class="fas fa-check"></i></span>
+										<span class='pulse-button'  (click)="SaveAddress(favoriteAddress.value,favoriteAddressTitle.value)"><img src="/assets/img/icon-ok.svg" width="20" /></span>
 								 </div>
 						</div>
 						</div>
