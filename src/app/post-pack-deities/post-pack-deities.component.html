@@ -105,11 +105,11 @@
           <div *ngIf="insurancePrice.errors.required" class="arzesh-pack">ارزش مرسوله خود را وارد کنید</div>
         </div>
      
-      <input  autocomplete="off" type="text" placeholder="توضیحات اقلام داخل بسته"  [(ngModel)]="mainPacks.content" name="content" class="des-pack">
+      <input  autocomplete="off" type="text" placeholder="توضیحات اقلام داخل بسته"  [(ngModel)]="mainPacks.content" name="content" #content class="des-pack">
       </div>
       <!--button type="submit">send</button-->
       <div class="btn-web-app">
-        <button type="submit" (click)="AcceptPack()">ثبت درخواست</button>
+        <button type="submit"  >ثبت درخواست</button>
       </div>
     </form>
     </div>

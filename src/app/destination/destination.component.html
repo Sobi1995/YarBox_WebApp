@@ -27,13 +27,14 @@
 				</div>
 				<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad maghsad2" *ngIf="typeCity!=3">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
-						<select   (change)="SelectProvince($event.target.value)" >
+						<select   (change)="SelectProvince($event.target.value)" #ProvinceSelect>
 						<option >
 							<p *ngIf="destinationModel.province!=undefined"> {{destinationModel.province}}</p>
 							<p *ngIf="destinationModel.province==undefined"> استان</p>
 						</option>
-            <option *ngFor="let item of Provinces">  {{item}} </option>
+            <option *ngFor="let item of Provinces" value="{{item}}">  {{item}} </option>
 						</select>
+				 
 						<div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> استان را وارد کنید </div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 

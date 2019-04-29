@@ -39,7 +39,7 @@ statusInsuranceStatus:boolean=true;
     this.count=1;
      
     if(this._packService.IsExistpacks()==true){
-       
+        
       this.packs=this._packService.getPaks(); 
       this.mainPacks=this._packService.getMainPack();
        
@@ -101,10 +101,7 @@ console.log(res);
    this.mainPacks.isPacking=status;
    this._packService.setMainPaks(this.mainPacks);
     }
-    AcceptPack(){
-
-    }
-
+    
     deletepack(pack){
       const index = this.packs.indexOf(pack, 0);
 if (index > -1) {
@@ -129,9 +126,10 @@ if (index > -1) {
     onSubmit() {
        
       // this.error=this.checkValidation();
-     if(this.packs.length==0 || this.mainPacks.content=="" || this.mainPacks.isInsurance==true && (this.mainPacks.insurancePrice==undefined))return;
+     if(this.packs.length==0   || this.mainPacks.isInsurance==true && (this.mainPacks.insurancePrice==undefined))return;
      //  if(! this.error){
-         
+       debugger
+         if(this.mainPacks.content=="")
          this.mainPacks.content="ندارد"
       this._packService.setMainPaks(this.mainPacks);
       this._packService.setPaks(this.packs);
