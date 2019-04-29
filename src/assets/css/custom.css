@@ -790,7 +790,10 @@ a.rowa .section-style {
 	.login-input {
     width: 77% !important;
     margin: 0% 1% 1% -7% !important;
-	}
+    }
+    .verify-code .login-input {
+        width: 97% !important;
+    }
 	.register-input {
     width: 77% !important;
 	}
@@ -1789,6 +1792,11 @@ section.main-web-app {
     margin: 0% 12% 3%;
     border-radius: 10px;
     text-align: center;
+}
+.verify-code .login-input{
+    color: #333;
+    position: relative;
+    top: -19px;
 }
 .register-input {
     background: none;
@@ -3282,6 +3290,8 @@ a.resend {
     border-radius: 10px;
     color: #fff;
     font-size: 13px;
+    width: 100%;
+    text-align: center;
 }
 input.text-favorite, input.titr-favorite, .titr-favorite2 {
     border: none;
@@ -3628,7 +3638,34 @@ p.page-mob-p5 {
     text-align: center;
     font-size: 18px;
     color: #09cd80;
-}/*
+}
+.verify-code {
+    background: #25306c;
+    width: 90%;
+    margin: 20% auto;
+    padding: 6% 4%;
+    color: #fff;
+    border-radius: 20px;
+}
+.verify-code i {
+    width: 80px;
+    height: 80px;
+    background: #f4f4f4;
+    font-size: 34px;
+    padding: 7%;
+    border-radius: 50%;
+    position: relative;
+    top: -57px;
+    left: -34%;
+    color: #d01d57;
+    box-shadow: 0 0 3px 1px #ccc;
+}
+p.code-massege {
+    position: relative;
+    text-align: center;
+    top: -38px;
+}
+/*
 .login-input {
     width: 17%;
     margin: 1% -8%;
