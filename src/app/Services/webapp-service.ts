@@ -333,4 +333,20 @@ return response
     } )
     );
 }
+ 
+
+getCityOnGoogleApi(val:string):Observable<any>{
+    
+  this.setLoding(true);
+let headers = new HttpHeaders();
+headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
+return  this._http.get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+val+"&types=(cities)&language=pt_BR&key=AIzaSyBk6zk8Beu9-gi2EZZZCPxFmlT7hTxDDQ0",{headers:headers}).pipe(
+    map((response:any) => {
+return response
+    } )
+    );
+}
+
 }

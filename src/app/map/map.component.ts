@@ -19,7 +19,7 @@ export class MapComponent implements OnInit  {
   private dragEndSubscription: Subscription;
   @ViewChild('closeModal') private closeModal: ElementRef;
   @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
-    @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
+  @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
  // google maps zoom level
  errorAddress:string=null;
  
@@ -219,7 +219,11 @@ this._packService.SetAddress(new AddressOrigin( this.lat.toString(), this.lng.to
 this.closeModalSelectAddress.nativeElement.click();
 this.router.navigate(["/destination"])
  }
-
+ onSearchChange(val){
+this._webappservice.getCityOnGoogleApi(val).subscribe(res=>{
+  console.log(val)
+})
+ }
 }
 // just an interface for type safety.
   interface marker {
