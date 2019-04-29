@@ -22,7 +22,7 @@ export class DestinationComponent implements OnInit {
  errorAddress:string=null;
  @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
  @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
- 
+ @ViewChild('ProvinceSelect') private ProvinceSelect: ElementRef;
  @ViewChild('addAddress') button;
  error:boolean=false;
   constructor(
@@ -53,6 +53,9 @@ export class DestinationComponent implements OnInit {
    
     this.destinationModel=this._postPackService.getDestination();
     this.typeCity =+this._postPackService.getTypeCity();
+    this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
+      this.Cities=res;
+    })
     this._webappService.getProvinces().subscribe(res=>{
       this.Provinces=res;
        
@@ -74,9 +77,11 @@ export class DestinationComponent implements OnInit {
        this._postPackService.setReceiveType("doorToDoor");
        this.destinationModel.street=""
        this.portlocation=""}
-     
+       this.destinationModel.city=undefined;
       
-      
+       this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
+        this.Cities=res;
+      })
   }
   AcceptPacks(){
   //   $(".btn-circle-download").addClass("load");
@@ -97,6 +102,7 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
 })
   }
   SelectCity(city:string){
+    
       if(this.typeCity==1)
   {
     this._webappService.getPortLocation(city).subscribe(res=>{
@@ -150,17 +156,22 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
     }
 
     SelectAddress(val:any){
-      this.destinationModel.city=val.city;
+       this.destinationModel.city=val.city;
       this.destinationModel.portId=val.portId;
       this.destinationModel.province=val.province;
       this.destinationModel.receiverName=val.receiverName;
       this.destinationModel.receiverPhoneNumber=val.receiverPhoneNumber;
+      this.destinationModel.province=val.province;
       this.destinationModel.street=val.street;
       this.typeCity=val.typeCity;
       this._postPackService.setTypeCity(this.typeCity);
       this._postPackService.setDestination(this.destinationModel);
       this.closeModalSelectAddress.nativeElement.click(); 
       this.button.nativeElement.disabled = true;
+      this.ProvinceSelect.nativeElement.value=val.province;
+      this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
+        this.Cities=res;
+      })
     }
     onSelectedChange(value: number) {
   

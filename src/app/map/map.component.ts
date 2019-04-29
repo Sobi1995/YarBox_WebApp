@@ -212,12 +212,12 @@ centerChange($event){
  }
 
  SelectAddress(val:any){
-   debugger
    this.lat=val.lat;
    this.lng=val.lng;
  
 this._packService.SetAddress(new AddressOrigin( this.lat.toString(), this.lng.toString(),val.address))
-this.closeModalSelectAddress.nativeElement.click(); 
+this.closeModalSelectAddress.nativeElement.click();
+this.router.navigate(["/destination"])
  }
 
 }
