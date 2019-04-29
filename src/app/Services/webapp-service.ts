@@ -218,7 +218,7 @@ walletCharge(value:number){
   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 //https://api.yarbox.co/api/vv2/payment/charge?price=20 => this.api+"payment/charge?price="+value
- return  this._http.get("https://api.yarbox.co/api/v1/payment/charge?price=10000",{headers:headers}).pipe(
+ return  this._http.get("https://api.yarbox.co/api/v1/payment/charge?price="+value,{headers:headers}).pipe(
       map((response:any) => {
           
       return    response

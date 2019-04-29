@@ -211,6 +211,7 @@ centerChange($event){
  }
 
  SelectAddress(val:any){
+   debugger
    this.lat=val.lat;
    this.lng=val.lng;
  
