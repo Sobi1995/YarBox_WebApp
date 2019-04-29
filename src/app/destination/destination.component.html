@@ -8,11 +8,11 @@
 				
 				<div class="web-app-title">
 					<div class="title-web-app">اطلاعات ارسال</div>
-					<button  data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><i class="far fa-bookmark"></i></button>
+					<button  data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><img src="/assets/img/icon-bookmark.svg" width="20" /></button>
 				</div>
 			
 			</div>
-			<a (click)="Back()"  class="back-web-app"><i class="fas fa-angle-left"></i></a>
+			<a (click)="Back()"  class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
 			<div class="main-web-app-body">
 			<div class="main-web-app-form">
 			
@@ -74,7 +74,7 @@
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  *ngIf="typeCity==3" >
 				<div class="type-part">
-					<i class="fas fa-angle-double-up"></i>
+					<img src="/assets/img/icon-top.svg" width="20" />
 					<p>ابتدا <span>نوع ارسال بار</span> خود را مشخص کنید</p>
 					</div>
 			
@@ -95,7 +95,7 @@
 
 					<p class="type-modal">با انتخاب گزینه درب منزل ، مرسوله شما به درب آدرس گیرنده تحویل داده می شود </p>
 					  <div class="btn-circle-download" id="btn-ok-address" data-dismiss="modal">
-							<span class='pulse-button' data-dismiss="modal" (click)="AcceptPacks()"><i class="fas fa-check"></i></span>
+							<span class='pulse-button' data-dismiss="modal" (click)="AcceptPacks()"><img src="/assets/img/icon-ok.svg" width="20" /></span>
 				    </div>
 			  </div>
 			</div>
@@ -110,7 +110,7 @@
 			  <div class="modal-body">
 					<p class="type-modal">با انتخاب گزینه درب ترمینال ، مرسوله شما به پایانه اتوبوسرانی شهر مورد نظر تحویل داده می شود .</p>
 					  <div class="btn-circle-download" id="btn-ok-address">
-								<span class='pulse-button' data-dismiss="modal" ><i class="fas fa-check"></i></span>
+								<span class='pulse-button' data-dismiss="modal" ><img src="/assets/img/icon-ok.svg" width="20" /></span>
 
 				    </div>
 			  </div>
@@ -127,7 +127,7 @@
 
 								<input  autocomplete="off" type="text" placeholder="عنوان"    #favoriteAddressTitle class="titr-favorite2">
 								<span *ngIf="errorAddress!=null">{{errorAddress}}</span>
-								<span class='pulse-button' (click)="SaveAddress(favoriteAddressTitle.value)"><i class="fas fa-check"></i></span>
+								<span class='pulse-button' (click)="SaveAddress(favoriteAddressTitle.value)"><img src="/assets/img/icon-ok.svg" width="20" /></span>
 						 </div>
 				</div>
 				</div>
