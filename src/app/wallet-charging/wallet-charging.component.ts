@@ -28,7 +28,7 @@ constructor(  private _webappservice:WebAppService,
   }
   Pay(){
     this._webappservice.walletCharge(this.pay).subscribe(res=>{
-       
+       debugger
        window.open(res.redirectTo);
     })
   }

@@ -22,6 +22,9 @@ import { AddFavoriteAddressDestinationComponent } from './add-favorite-address-d
 import { WebPlatformComponent } from './web-platform/web-platform.component';
 import { IosHomeScreenComponent } from './ios-home-screen/ios-home-screen.component';
 import { AndroidHomeScreenComponent } from './android-home-screen/android-home-screen.component';
+import { PackDaltileComponent } from './pack-daltile/pack-daltile.component';
+import { FinalFactorComponent } from './final-factor/final-factor.component';
+import { PackHistoryComponent } from './pack-history/pack-history.component';
 
  
 const routes: Routes = [
@@ -41,7 +44,10 @@ const routes: Routes = [
   {path:'wallet-charging',component:WalletChargingComponent, canActivate: [LoginGuardService]},
   {path:'favorite-address',component:FavoriteAddressComponent, canActivate: [LoginGuardService]},
   {path:'add-favorite-address',component:AddFavoriteAddressComponent, canActivate: [LoginGuardService]}, 
-  {path:'add-favorite-address-destination',component:AddFavoriteAddressDestinationComponent, canActivate: [LoginGuardService]}, 
+  {path:'add-favorite-address-destination',component:AddFavoriteAddressDestinationComponent, canActivate: [LoginGuardService]},  
+  {path:'pack-daltile',component:PackDaltileComponent, canActivate: [LoginGuardService]}, 
+  {path:'final-factor',component:FinalFactorComponent, canActivate: [LoginGuardService]},
+  {path:'pack-history',component:PackHistoryComponent, canActivate: [LoginGuardService]},
   {path:'WebPlatform',component:WebPlatformComponent},
   {path:'ios-home-screen',component:IosHomeScreenComponent},
   {path:'android-home-screen',component:AndroidHomeScreenComponent},
