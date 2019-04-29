@@ -9,6 +9,7 @@ import { MainPacks } from '../Model/dto/Main-Packs-dto';
 import { packsDto } from '../Model/dto/packs-dto';
 import { empty } from 'rxjs';
 import { Profile } from '../Model/dto/Profile';
+import { ProfileDto } from '../Core/DTO/Profile-dto';
 
  
 @Injectable()
@@ -216,6 +217,12 @@ get getRetryFlow(){
   // var a=this.MultiplePacks.
   
   return "";
+}
+uodateCredit(val){
+ 
+  let profile:ProfileDto= JSON.parse(localStorage.getItem("Profile"));
+  profile.credit=val
+  localStorage.setItem("Profile",JSON.stringify(profile))
 }
 } 
  
