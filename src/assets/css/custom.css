@@ -2,7 +2,7 @@
     border-spacing: 0;
     width: 100%
 }
-
+/* git */
 .ood .profile-content > .inner, div.footermo {
     overflow: hidden
 }
@@ -1752,6 +1752,7 @@ section.main-web-app {
     background: #fff;
     display: inline-block;
     margin: 0 33%;
+    height: 100vh;
    
 	
 }

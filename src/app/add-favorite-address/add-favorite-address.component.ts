@@ -143,7 +143,7 @@ centerChange($event){
       // });       
       self._webappservice.getCedarmapAddress(this.lat.toString(),this.lng.toString()).subscribe(res=>{      
         let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
- 
+        this.address=myAddress;
       
       })
     });

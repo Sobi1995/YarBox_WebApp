@@ -21,6 +21,8 @@ constructor(  private _webappservice:WebAppService,
   }
 
   ngOnInit() {
+  
+  
   }
 
   vlauePay(value:number){
@@ -28,8 +30,8 @@ constructor(  private _webappservice:WebAppService,
   }
   Pay(){
     this._webappservice.walletCharge(this.pay).subscribe(res=>{
-       debugger
-       window.open(res.redirectTo);
+    
+      window.location.href=res.redirectTo;
     })
   }
 }
