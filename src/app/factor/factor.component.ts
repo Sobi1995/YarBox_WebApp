@@ -26,30 +26,30 @@ export class FactorComponent implements OnInit {
      ) { 
 
 this.Factor={
-  id: Number,
-  price: Number,
-  deliverTime:String,
-  content: String,
-  isPacking: Boolean,
+  id: 0,
+  price: 0,
+  deliverTime:"",
+  content: "",
+  isPacking: false,
   isInsurance: false,
-  insurance: String,
-  vehicle: String,
-  vehicleId: String,
+  insurance: "",
+  vehicle: "",
+  vehicleId: "",
   sender: {
-    name: String,
-    address: String,
-    phoneNumber: String
+    name: "",
+    address: "",
+    phoneNumber: ""
   },
   receiver: {
-    name:String,
+    name:"",
     address: "",
-    phoneNumber: String,
-    telephone: String
+    phoneNumber: "",
+    telephone: ""
   },
   packdetails: [
     {
-      type: String,
-      count: Number
+      type: "",
+      count: 0
     }
   ]
 }
@@ -64,14 +64,21 @@ this.Factor={
      console.log(factore)
       
    
-     this.credit=+this.PacksService.getCredit;
+  
     this._webapp.getFactorDatiles(factore).subscribe(res=>{
-       
+        
       this.Factor=res;
+    })
+    this._webapp.getCheck().subscribe(res=>{
+      this.credit=+res.credit;
+      this.PacksService.uodateCredit(res.credit);
     })
   }
 
-  paymentType(pay:boolean,chah:boolean){
+  paymentType(pay,chah){
+     
+    if(chah==0)
+    chah=false;
 this.payment=0;
 this.accept.payAtOrigin=pay;
 this.accept.isCashPayment=chah;

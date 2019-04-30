@@ -128,7 +128,7 @@ if (index > -1) {
       // this.error=this.checkValidation();
      if(this.packs.length==0   || this.mainPacks.isInsurance==true && (this.mainPacks.insurancePrice==undefined))return;
      //  if(! this.error){
-       debugger
+        
          if(this.mainPacks.content=="")
          this.mainPacks.content="ندارد"
       this._packService.setMainPaks(this.mainPacks);
