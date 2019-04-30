@@ -12,7 +12,7 @@ export class PackDaltileComponent implements OnInit {
 
   ngOnInit() {
     this.PackDitile=this.PackService.getPackStatus;
-     
+      
   }
 
 }

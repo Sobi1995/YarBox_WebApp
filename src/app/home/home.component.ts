@@ -34,8 +34,9 @@ defultMenu:boolean;
 this._webappservice.getPackrunning().subscribe(res=>{
      
   this.PacksRuning=res;
-  this.PackRuningInCancelTrue=res.filter(x=> x.isCanceled==true)
-  this.PackRuningInCancelFalse=res.filter(x=> x.isCanceled==false)
+   
+  this.PackRuningInCancelTrue=res.filter(x=> x.isCanceled==true &&( x.status=="cancellationByAdmin" || x.status=="cancellationByDriver" || x.status=="cancellationByCustomer"))
+  this.PackRuningInCancelFalse=res.filter(x=> x.isCanceled==false  &&  x.status!="cancellationByAdmin"    &&   x.status!="cancellationByCustomer" && x.status!="cancellationByDriver" &&  x.status!="NotShown" &&  x.status!="factor" &&  x.status!="returned" )
   
 // if(count==0){
 //   this.router.navigate(["/map"])
