@@ -40,6 +40,15 @@ constructor(){
   this.setOrigin(new originDto(phoneNumber.phoneNumber,"تهران","تهران",undefined,undefined,undefined));
  }
 }
+setOnLocalstoreage(){
+  let isLocalStoragePack=localStorage.getItem("MultiplePacks");
+  if(isLocalStoragePack==null)
+  this.setOnLocalStorage();
+  else{
+     
+    this.MultiplePacks=JSON.parse(isLocalStoragePack);
+  }
+}
  get getMultiplePacks(){
      return this.MultiplePacks;
  }

@@ -51,7 +51,8 @@ export class MapComponent implements OnInit  {
 }
 
  ngOnInit(): void {
-   var a=this._packService.getRetryFlow;
+this._packService.setOnLocalstoreage();
+ 
   this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddress"));
   this.dragEndSubscription = (this.map._mapsWrapper as GoogleMapsAPIWrapper) 
   .subscribeToMapEvent('dragend')
@@ -59,7 +60,7 @@ export class MapComponent implements OnInit  {
 
   
     this._webappservice.getCedarmapAddress( this.latDragEnd,this.lngDragEnd).subscribe(res=>{
-         
+          
       let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
       this.Origin.street=myAddress;
         this._packService.SetAddress(new AddressOrigin(this.latDragEnd,this.lngDragEnd,myAddress))
@@ -93,9 +94,7 @@ export class MapComponent implements OnInit  {
       if (navigator)
       {
          
-      navigator.geolocation.getCurrentPosition( pos => { 
-
-        
+      navigator.geolocation.getCurrentPosition( pos => {        
           this.lng = +pos.coords.longitude;
           this.lat = +pos.coords.latitude;
           // self.markers=[];
