@@ -11,7 +11,7 @@ import { PlatformLocation } from '@angular/common';
 })
 export class HomeComponent implements OnInit,  OnDestroy {
   ngOnDestroy(): void {
-   this.PackService.setDefultMenu(true);
+  // this.PackService.setDefultMenu(true);
   }
 PacksRuning:any;
 PackRuningInCancelFalse:any=null;
@@ -29,6 +29,7 @@ defultMenu:boolean;
     }
 
   ngOnInit() {
+  
     this.defultMenu=this.PackService.getDefultMenu;
 this._webappservice.getPackrunning().subscribe(res=>{
      
@@ -59,12 +60,18 @@ this._webappservice.deletePack(id).subscribe(res=>{
 
   ReOrder(id:number){
 this._webappservice.reReorder(id).subscribe(res=>{
-   
+   this.PackService.setBackStatusFacktore(true);
+   this.PackService.setDefultMenu(false);
   this.router.navigate(["/factor/"+res.packKey]);
 })
   }
   PackDitile(pack){
+ 
     this.PackService.setPackStatus(pack);
 this.router.navigate(["/pack-daltile"]);
+  }
+  defultMenuEvent(status){
+     
+    this.PackService.setDefultMenu(status);
   }
 }
