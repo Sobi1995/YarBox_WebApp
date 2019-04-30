@@ -74,11 +74,11 @@
       <label for="pack-web-app">بسته بندی شود</label>
     
       <div class="radiobtn-pack">
-          <input  autocomplete="off" id="radio-1" type="radio" name="Data1" value="agree" [checked]="mainPacks.isPacking==true? true: false" (click)="PackingStatus(true)" />
-          <label for="radio-1"><i class="fas fa-check"></i></label>
-          <input  autocomplete="off" id="radio-2" type="radio" name="Data1" value="disagree" [checked]="mainPacks.isPacking==false? true: false"  (click)="PackingStatus(false)"/>
-          <label for="radio-2"><i class="fas fa-times"></i></label>
-      </div>
+        <input  autocomplete="off" id="radio-1" type="radio" name="Data1" value="agree" [checked]="mainPacks.isPacking==true? true: false" (click)="PackingStatus(true)" />
+        <label for="radio-1"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+        <input  autocomplete="off" id="radio-2" type="radio" name="Data1" value="disagree" [checked]="mainPacks.isPacking==false? true: false"  (click)="PackingStatus(false)"/>
+        <label for="radio-2"><img src="/assets/img/icon-close.svg" width="20" class="radiobtn3" /><img src="/assets/img/icon-close-w.svg" width="20" class="radiobtn4" /></label>
+    </div>
       </div>
       <br>
   
@@ -87,9 +87,9 @@
       <label for="bime-web-app">بیمه شود</label>
         <div class="radiobtn-pack">
           <input  autocomplete="off" id="radio-3" type="radio" name="Data2" value="agree" [checked]="mainPacks.isInsurance==true? true: false" (click)="InsuranceStatus(true)"/>
-          <label for="radio-3"><i class="fas fa-check"></i></label>
+          <label for="radio-3"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
           <input  autocomplete="off" id="radio-4" type="radio" name="Data2" value="disagree" [checked]="mainPacks.isInsurance==false? true: false"  (click)="InsuranceStatus(false)"/>
-          <label for="radio-4"><i class="fas fa-times"></i></label>
+          <label for="radio-4"><img src="/assets/img/icon-close.svg" width="20" class="radiobtn3" /><img src="/assets/img/icon-close-w.svg" width="20" class="radiobtn4" /></label>
         </div>
         
       </div>

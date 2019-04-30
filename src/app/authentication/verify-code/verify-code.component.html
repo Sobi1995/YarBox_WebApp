@@ -8,7 +8,7 @@
 				<!--img src="./assets/img/img2.jpg" class="img-web-app"/-->
 				
 				<div class="verify-code">
-					<i class="fas fa-lock-open"></i>
+					<img src="./assets/img/ghofl.svg" class="img-web-app"/>
 					<p class="code-massege"> کد تایید ارسال شده را وارد نمایید</p>
 					<input  autocomplete="off" type="number" placeholder="----   ---   ----" class="login-input"  #verifycode />
 					<p *ngIf="error!=''">{{error}}</p>
@@ -17,7 +17,7 @@
 
 			
 			
-				<div class="btn-web-app"><button (click)="Login(verifycode.value)">وارد شوید</button></div>
+				<div class="btn-web-app"><button (click)="Login(verifycode.value)" class="btn-verify">وارد شوید</button></div>
 			</section>
 			
 			</div>
