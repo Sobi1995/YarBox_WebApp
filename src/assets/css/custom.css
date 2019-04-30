@@ -814,9 +814,9 @@ a.rowa .section-style {
         overflow: scroll !important; 
         height: 100vh !important;
     }
-    .marker-orgin {
+    /*.marker-orgin {
         margin: 0 42% 25% 0 !important;
-    }
+    }*/
     .location-my {
         left: 6% !important;
     }
@@ -1917,12 +1917,14 @@ section.main-web-app {
     box-shadow: 0 0 3px 0px #a2a2a2;
 }
 .marker-orgin {
-    bottom: 35%;
-    margin: 4% 15%;
+    /*bottom: 35%;
+    margin: 4% 15%;*/
     background: no-repeat;
     padding: 0;
     position: fixed;
     z-index: 2;
+    top: 45%;
+    right: 45%;
 }
 .location-my {
     left: 35%;
