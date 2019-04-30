@@ -10,7 +10,7 @@ import { PackService } from '../Services/Pack-Service';
   styleUrls: ['./wallet-charging.component.css']
 })
 export class WalletChargingComponent implements OnInit {
-pay:number=0;
+pay:number=null;
 constructor( 
    private _webappservice:WebAppService,
   location: PlatformLocation,
@@ -24,7 +24,9 @@ constructor(
   }
 
   ngOnInit() {
-   
+   if(this.pay <=0 || this.pay==null ){
+    return;
+   }
 
   this._webappservice.getCheck().subscribe(res=>{
     this._packservice.uodateCredit(res.credit);

@@ -89,7 +89,8 @@
 				
 				<div class="input-pay">
 				<input  autocomplete="off" type="number"  [(ngModel)]="pay"><span>تومان</span>
-				<p>مبلغ دلخواه خود را وارد کنید .</p>
+				<p *ngIf="pay<=1 || pay==null">مبلغ دلخواه خود را وارد کنید .</p>
+				<p>{{pay | toman}}</p>
 				</div>
 				
 			</div>

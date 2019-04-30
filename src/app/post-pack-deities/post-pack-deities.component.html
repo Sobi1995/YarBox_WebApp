@@ -36,7 +36,7 @@
             <!--div id="inc-button" (click)="CountPacks(1)" class="spinner-button">+</div>
             <div id="dec-button" (click)="CountPacks(0)" class="spinner-button">-</div-->
           </div>
-           <span *ngIf="count==null" class="error-null-tedad">لطفا مقادیر را  پر کنید</span>
+           <span *ngIf="count==null" class="error-null-tedad">لطفا مقادیر را  پر کنید (از اعداد انگلیسی استفاده کنید)</span>
             <select (change)="SelectType($event.target.value)">
             <option *ngFor="let type of PostPackType" value="{{type.id}}" >{{type.title}} </option>
          
@@ -102,7 +102,7 @@
      <br>
  
       <div *ngIf="f.submitted && insurancePrice.invalid && mainPacks.isInsurance==true" class="invalid-feedback">
-          <div *ngIf="insurancePrice.errors.required" class="arzesh-pack">ارزش مرسوله خود را وارد کنید</div>
+          <div *ngIf="insurancePrice.errors.required" class="arzesh-pack"> ارزش مرسوله خود را وارد کنید (از اعداد انگلیسی استفاده نماید(</div>
         </div>
      
       <input  autocomplete="off" type="text" placeholder="توضیحات اقلام داخل بسته"  [(ngModel)]="mainPacks.content" name="content" #content class="des-pack">
