@@ -188,7 +188,8 @@ a.rowa .section-style {
 	#menu-toggle {
     top: 2% !important;
     right: 0 !important;
-	}
+    }
+    
 	#sidebar-wrapper {
     right: 0 !important;
 	}
@@ -345,6 +346,8 @@ a.rowa .section-style {
         height: 82vh;
         overflow: scroll;
         width: 100%;
+        top: 70px;
+        position: relative;
     }
     .main-web-app-pack, .main-web-app-factor{
         overflow: scroll;
@@ -1844,6 +1847,8 @@ section.main-web-app {
     background: #26306d;
     color: #fff;
     height: 150px;
+    position: fixed;
+    width: 33%;
 }
 .main-web-app-top1 {
     height: 180px;
@@ -3156,6 +3161,7 @@ span.border-pack {
     list-style: none;
     margin: 0;
     padding: 0;
+    z-index: 20;
   }
 
   .sidebar-nav li {
@@ -3700,6 +3706,16 @@ form.form-register {
     margin-top: 13%;
     height: 77%;
     overflow: scroll;
+}
+.sid {
+    width: 1000px;
+    height: 100%;
+    position: fixed;
+    z-index: 11;
+    display: none !important;
+}
+div#sidebar-wrapper.active .sid {
+    display: inline-block !important;
 }
 /*
 .login-input {
