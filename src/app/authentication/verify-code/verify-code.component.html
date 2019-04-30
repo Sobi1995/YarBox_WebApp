@@ -1,24 +1,21 @@
+<div class="section-main-web-app">
+
+	<section class="main-web-app main-web-app-1">
+		<div class="verfy-head">
+			<a [routerLink]="['/login']" class="back-web-app2"><img src="/assets/img/icon-back.svg" width="20" /></a>
+			<!--img src="./assets/img/img2.jpg" class="img-web-app"/-->
+		</div>
+		<div class="verify-code">
+			<img src="./assets/img/ghofl.svg" class="img-web-app" />
+			<p class="code-massege"> کد تایید ارسال شده را وارد نمایید</p>
+			<input autocomplete="off" type="number" placeholder="----   ---   ----" class="login-input" #verifycode />
+			<p *ngIf="error!=''">{{error}}</p>
+			<a (click)="retrysms()" class="resend">ارسال مجدد</a>
+		</div>
 
 
-	 <div class="section-main-web-app">
-			
-			<section class="main-web-app main-web-app-1">
-					
-				<a  [routerLink]="['/login']" class="back-web-app2"><img src="/assets/img/icon-back.svg" width="20" /></a>
-				<!--img src="./assets/img/img2.jpg" class="img-web-app"/-->
-				
-				<div class="verify-code">
-					<img src="./assets/img/ghofl.svg" class="img-web-app"/>
-					<p class="code-massege"> کد تایید ارسال شده را وارد نمایید</p>
-					<input  autocomplete="off" type="number" placeholder="----   ---   ----" class="login-input"  #verifycode />
-					<p *ngIf="error!=''">{{error}}</p>
-					<a (click)="retrysms()"  class="resend">ارسال مجدد</a>
-				</div>
 
-			
-			
-				<div class="btn-web-app"><button (click)="Login(verifycode.value)" class="btn-verify">وارد شوید</button></div>
-			</section>
-			
-			</div>
-	
+		<div class="btn-web-app"><button (click)="Login(verifycode.value)" class="btn-verify">وارد شوید</button></div>
+	</section>
+
+</div>

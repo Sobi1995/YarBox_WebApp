@@ -205,9 +205,9 @@ a.rowa .section-style {
 	.main-web-app-map {
     height: 78% !important;
 	}
-	a.back-web-app {
+	/*a.back-web-app {
     margin-top: -30% !important;
-	}
+	}*/
 	.info-rule img {
     margin-right: 2px !important;
 	}
@@ -827,11 +827,11 @@ a.rowa .section-style {
     right: 16% !important;
 	}
 	.main-web-app-map {
-    height: 78% !important;
+    height: 88% !important;
 	}
-	a.back-web-app {
+	/*a.back-web-app {
     margin-top: -17% !important;
-	}
+	}*/
 	.info-rule img {
     margin-right: 2px !important;
     width: 26px !important;
@@ -1016,7 +1016,7 @@ a.rowa .section-style {
         font-size: 18px !important;
     }
     .main-web-app-top1 {
-        height: 19% !important;
+        height: 100px !important;
     }
     .main-web-app-top2 {
         height: 40% !important;
@@ -1068,7 +1068,7 @@ a.rowa .section-style {
     }
 
     form.maghsad2 input, .form-pack select {
-        margin: 5% 0 !important;
+        margin: 3% 0 !important;
     }
     .form-pack input {
         margin: 1% 0 !important;
@@ -1175,10 +1175,7 @@ a.rowa .section-style {
         height: 50px !important;
         margin-top: 16px !important;
     }
-    button.cancel-btn {
-        margin: 17% 34% !important;
-       
-    }
+    
     button.selectfavorite i {
         top: 0 !important;
     }
@@ -1227,6 +1224,10 @@ a.rowa .section-style {
     .hazine span {
         font-size: 16px !important;
     }
+    .quantity-nav {
+        
+        display: none;
+    }
 }
 @media screen and (max-width:414px) {
 	.btn-web-app button {
@@ -1245,6 +1246,7 @@ a.rowa .section-style {
 	a.back-web-app {
         /*margin-top: -12% !important;*/
         padding: 0 !important;
+        top: 2%;
 	}
 	.step-i img {
     width: 42px !important;
@@ -1904,6 +1906,8 @@ section.main-web-app {
     display: inline-block;
     height: 80%;
     width: 100%;
+    top: 100px;
+    position: relative;
 }
 .fav-address-orgin , .location-my {
     background: #fff;
@@ -1994,11 +1998,11 @@ a.back-web-app {
     float: left;
     padding: 15px;
     font-size: 22px;
-    position: relative;
+    position: fixed;
     left: 7%;
     font-size: 26px;
     color: #fff;
-    margin-top: -18%;
+    
 }
 .panel-heading {
     padding: 0 2px !important;
@@ -2550,7 +2554,7 @@ form.maghsad {
 }
 form.maghsad input, form.maghsad select, .form-pack input, .form-pack select{
     margin: 20px 0;
-	font-size: 16px;
+	font-size: 14px;
 }
 form.maghsad select {
     margin: 20px 0;
@@ -2589,7 +2593,7 @@ ul.nav.nav-tabs.nav-factor {
     border-radius: 10px;
 }
 ul.nav.nav-tabs.nav-factor li {
-    margin: -2px 3px;
+    margin: -2px 2px;
     width: 70px;
     text-align: center;
 }
@@ -3379,12 +3383,16 @@ button.cancel-btn {
     color: #282f6c;
     font-size: 17px;
     text-align: center;
-    margin: 17% 45%;
     background: #282f6c;
     color: #ffffff;
     border-radius: 5px;
     padding:8px 56px;
     cursor: pointer;
+}
+.btn-laghv {
+    text-align: center;
+    position: relative;
+    bottom: -24%;
 }
 button.selectfavorite i, button.selectfavorite2 i {
     color: #49b86e;
@@ -3706,6 +3714,8 @@ form.form-register {
     margin-top: 13%;
     height: 77%;
     overflow: scroll;
+    position: relative;
+    top: 70px;
 }
 .sid {
     width: 1000px;
@@ -3716,6 +3726,14 @@ form.form-register {
 }
 div#sidebar-wrapper.active .sid {
     display: inline-block !important;
+}
+.main-web-app-pack, .main-web-app-vecle, .main-web-app-factor, .main-web-app4, .main-web-app5, .main-web-app-mass, .main-web-app-about, .main-web-app-support, .main-web-app-serch-dri, .main-web-app6{
+    position: relative;
+    top: 70px;
+}
+.main-web-app-18 {
+    position: relative;
+    top: 40%;
 }
 /*
 .login-input {
