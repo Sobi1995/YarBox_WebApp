@@ -973,7 +973,7 @@ a.rowa .section-style {
 	.radiobtn-pack label {
     width: 35px !important;
     height: 35px !important;
-    padding: 7px !important;
+    padding: 3px !important;
     top: 7px;
     position: relative;
 	}
@@ -1007,7 +1007,7 @@ a.rowa .section-style {
     }
     .main-web-app-top {
      
-        height: 10% !important;
+        height: 70px !important;
     }
     .title-web-app {
         font-size: 18px !important;
@@ -1240,7 +1240,7 @@ a.rowa .section-style {
 	}
 	
 	a.back-web-app {
-        margin-top: -12% !important;
+        /*margin-top: -12% !important;*/
         padding: 0 !important;
 	}
 	.step-i img {
@@ -2188,7 +2188,7 @@ p.p-type i{
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    padding: 12px;
+    padding: 9px;
     text-align: center;
     cursor: pointer;
     margin-right: 5px;
@@ -2196,24 +2196,24 @@ p.p-type i{
 .radiobtn-pack label i {
     font-size: 23px;
 }
-/*.radiobtn1, .radiobtn4{display: inline-block;}
-.radiobtn2, .radiobtn3{display: none;}*/
+.radiobtn1, .radiobtn4{display: inline-block;}
+.radiobtn2, .radiobtn3{display: none;}
 .radiobtn-pack input#radio-1[type="radio"]:checked + label, .radiobtn-pack input#radio-3[type="radio"]:checked + label {
     background: #0ACD81;
 	color: #fff;
 	
-}/*
+}
 .radiobtn-pack input#radio-1[type="radio"]:checked + label .radiobtn1, .radiobtn-pack input#radio-3[type="radio"]:checked + label .radiobtn3 {
     display: inline-block;
-}*/
+}
 
 .radiobtn-pack input#radio-2[type="radio"]:checked + label, .radiobtn-pack input#radio-4[type="radio"]:checked + label {
     background: #d01d57;
     color: #fff;	
-}/*
+}
 .radiobtn-pack input#radio-2[type="radio"]:checked .radiobtn2, .radiobtn-pack input#radio-4[type="radio"]:checked .radiobtn4 {
     display: inline-block;	
-}*/
+}
 input.number-pack {
     width: 44px;
     line-height: 45px;
@@ -3693,6 +3693,11 @@ p.code-massege {
     position: relative;
     text-align: center;
     top: -38px;
+}
+form.form-register {
+    margin-top: 13%;
+    height: 77%;
+    overflow: scroll;
 }
 /*
 .login-input {
