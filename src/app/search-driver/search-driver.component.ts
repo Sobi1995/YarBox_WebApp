@@ -49,6 +49,7 @@ if(res!=null){
   }
 
   cancelPack(){
+    this.pauseTimer();
     this._webapp.cancelPack(this.postpackid).subscribe(res=>{
       this.PackService.setDefultMenu(false);
       this.router.navigate(["/base"])

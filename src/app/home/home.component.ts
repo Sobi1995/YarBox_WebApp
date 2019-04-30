@@ -31,7 +31,7 @@ defultMenu:boolean;
   ngOnInit() {
     this.defultMenu=this.PackService.getDefultMenu;
 this._webappservice.getPackrunning().subscribe(res=>{
-   
+     
   this.PacksRuning=res;
   this.PackRuningInCancelTrue=res.filter(x=> x.isCanceled==true)
   this.PackRuningInCancelFalse=res.filter(x=> x.isCanceled==false)
@@ -63,7 +63,8 @@ this._webappservice.reReorder(id).subscribe(res=>{
   this.router.navigate(["/factor/"+res.packKey]);
 })
   }
-  PackDitile(id:number){
+  PackDitile(pack){
+    this.PackService.setPackStatus(pack);
 this.router.navigate(["/pack-daltile"]);
   }
 }

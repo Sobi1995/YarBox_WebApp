@@ -11,7 +11,7 @@
           </div>
 
       </div>
-      <a  class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
+      <a   [routerLink]="['/base']" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
       <div class="main-web-app main-web-app6">
 
           <div class="picpack">
@@ -24,24 +24,24 @@
           <div class="info-packs">
               <div class="info-pack">
                   <div class="info-part info-part1">نام گیرنده</div>
-                  <div class="info-part info-part2">اکبر نوریان</div>
+                  <div class="info-part info-part2">{{PackDitile.destination.receiverName}}</div>
               </div>
               <div class="info-pack">
                   <div class="info-part info-part1">شماره تماس</div>
-                  <div class="info-part info-part2">0912233333</div>
+                  <div class="info-part info-part2">{{PackDitile.destination.receiverPhoneNumber}}</div>
               </div>
               <div class="info-pack">
                   <div class="info-part info-part1">کد مرسوله</div>
-                  <div class="info-part info-part2">45454232</div>
+                  <div class="info-part info-part2">{{PackDitile.id}}</div>
               </div>
               <div class="info-pack">
                   <div class="info-part info-part1">تاریخ</div>
                   <div class="info-part info-part2">98.02.05</div>
               </div>
-              <div class="info-pack">
+              <!-- <div class="info-pack">
                   <div class="info-part info-part1">ساعت</div>
                   <div class="info-part info-part2">13:15</div>
-              </div>
+              </div> -->
           </div>
 
 

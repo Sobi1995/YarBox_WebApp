@@ -78,7 +78,7 @@ export class DestinationComponent implements OnInit {
        this.destinationModel.street=""
        this.portlocation=""}
        this.destinationModel.city=undefined;
-      
+       this.destinationModel.street="";
        this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
         this.Cities=res;
       })

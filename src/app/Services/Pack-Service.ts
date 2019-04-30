@@ -19,6 +19,7 @@ export class PackService{
     private Profile:Profile;
     private typeCity:number;
    private defultMenu=true;
+   private PackStatus:any;
 constructor(){
   this.MultiplePacks=new MultiplePacksDto();
   this.MultiplePacks.origin=new originDto();
@@ -232,6 +233,12 @@ uodateCredit(val){
   let profile:ProfileDto= JSON.parse(localStorage.getItem("Profile"));
   profile.credit=val
   localStorage.setItem("Profile",JSON.stringify(profile))
+}
+setPackStatus(val){
+  this.PackStatus=val;
+}
+get getPackStatus(){
+  return this.PackStatus;
 }
 } 
  
