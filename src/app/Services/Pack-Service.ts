@@ -20,6 +20,7 @@ export class PackService{
     private typeCity:number;
    private defultMenu=true;
    private PackStatus:any;
+   private backStatusFacktore:boolean=false;
 constructor(){
   this.MultiplePacks=new MultiplePacksDto();
   this.MultiplePacks.origin=new originDto();
@@ -239,6 +240,12 @@ setPackStatus(val){
 }
 get getPackStatus(){
   return this.PackStatus;
+}
+get getBackStatusFacktore(){
+  return this.backStatusFacktore;
+}
+  setBackStatusFacktore(status:boolean){
+  this.backStatusFacktore=status;
 }
 } 
  

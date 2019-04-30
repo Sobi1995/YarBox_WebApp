@@ -50,9 +50,9 @@
 	</div>
 
 
-	<main [@fadeAnimation]="getRouterOutletState(o)" (click)="hideMnu()">
+	<main [@fadeAnimation]="getRouterOutletState(o)" (click)="hideMnu()" >
 		
-		<router-outlet #o="outlet" class="bac-loding" >
+		<router-outlet #o="outlet" class="bac-loding"  >
 				<!--img id="loding"  [hidden]="!getLodingStatus()" src="/assets/img/loding2.gif" -->
 				<!-- <div class="back-loding"   [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'" ></div><img [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'"  src="/assets/img/loding2.gif" class="loding-img" width="100" height="100"> -->
 				<div class="back-loding2" [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'">

@@ -51,6 +51,7 @@ export class MapComponent implements OnInit  {
 }
 
  ngOnInit(): void {
+  this._packService.setBackStatusFacktore(false);
 this._packService.setOnLocalstoreage();
  
   this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddress"));

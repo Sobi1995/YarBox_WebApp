@@ -15,8 +15,8 @@
 			<div class="main-web-app main-web-app5">
             
 				<ul class="nav nav-tabs nav-active">
-				  <li [class.active]="defultMenu==true"><a data-toggle="tab" href="#menu1">در حال اجرا</a></li>
-				  <li [class.active]="defultMenu==false" ><a data-toggle="tab" href="#menu2">ناموفق</a></li>
+				  <li [class.active]="defultMenu==true" (click)="defultMenuEvent(true)"><a data-toggle="tab" href="#menu1">در حال اجرا</a></li>
+				  <li [class.active]="defultMenu==false " (click)="defultMenuEvent(false)" ><a data-toggle="tab" href="#menu2">ناموفق</a></li>
 				 
 				</ul>
                
