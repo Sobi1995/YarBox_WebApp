@@ -80,8 +80,8 @@
 				</div>
 				<div class="pay-factor">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-				<input  autocomplete="off" type="radio" id="magsad" name="pay-web-app" class="radio-pay" >  
-				<!-- (click)="paymentType(false,flase)" -->
+				<input  autocomplete="off" type="radio" id="magsad" name="pay-web-app" class="radio-pay" (click)="paymentType(false,0)" >  
+			 
 				<label for="magsad">پرداخت نقدی در مقصد</label>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -99,7 +99,7 @@
 					<h3>کیف پول شما</h3>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: left;"> 
-						<span>{{credit | toman }}</span> 
+						<span *ngIf="credit!=0">{{credit | toman }}</span> 
 					</div>
 				</div>
 			

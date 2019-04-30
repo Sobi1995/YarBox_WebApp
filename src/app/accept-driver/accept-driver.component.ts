@@ -25,11 +25,11 @@ lng: number = 7.815982;
       ) { }
 
   ngOnInit() {
-    debugger
+     
     this.vehicle=this._pack.getVehicle();
     let mobile= this.activatedRoute.snapshot.params["mobile"];
     this._webapp.getDriver(mobile).subscribe(res=>{
-      debugger
+       
 this.Driver=res;
  
 this.lat=parseFloat(res.latitude);

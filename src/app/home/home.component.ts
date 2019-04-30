@@ -14,8 +14,8 @@ export class HomeComponent implements OnInit,  OnDestroy {
    this.PackService.setDefultMenu(true);
   }
 PacksRuning:any;
-PackRuningInCancelFalse:any;
-PackRuningInCancelTrue:any;
+PackRuningInCancelFalse:any=null;
+PackRuningInCancelTrue:any=null;
 defultMenu:boolean;
   constructor(
     private _webappservice:WebAppService,
@@ -41,6 +41,10 @@ this._webappservice.getPackrunning().subscribe(res=>{
 // }
 })
 // this.PacksRuning=this._webappservice.getPackrunningOnCache();
+
+this._webappservice.getCheck().subscribe(res=>{
+  this.PackService.uodateCredit(res.credit);
+})
   }
 
 
@@ -55,7 +59,7 @@ this._webappservice.deletePack(id).subscribe(res=>{
 
   ReOrder(id:number){
 this._webappservice.reReorder(id).subscribe(res=>{
-  debugger
+   
   this.router.navigate(["/factor/"+res.packKey]);
 })
   }

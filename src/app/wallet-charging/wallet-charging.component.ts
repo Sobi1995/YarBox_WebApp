@@ -27,7 +27,6 @@ constructor(
    
 
   this._webappservice.getCheck().subscribe(res=>{
-    
     this._packservice.uodateCredit(res.credit);
   })
   

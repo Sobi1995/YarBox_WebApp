@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationModule } from './authentication/authentication.module';
@@ -42,6 +42,7 @@ import { AndroidHomeScreenComponent } from './android-home-screen/android-home-s
 import { PackDaltileComponent } from './pack-daltile/pack-daltile.component';
 import { FinalFactorComponent } from './final-factor/final-factor.component';
 import { PackHistoryComponent } from './pack-history/pack-history.component';
+import { ErrorsHandler } from './Services/errors-handler.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,7 +95,11 @@ import { PackHistoryComponent } from './pack-history/pack-history.component';
   providers: [
     WebAppService,PackService,  
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: LoginGuardService, useClass: LoginGuardService }
+    { provide: LoginGuardService, useClass: LoginGuardService },
+    {
+      provide: ErrorHandler,
+      useClass: ErrorsHandler,
+    }
   ],
   bootstrap: [AppComponent]
 })
