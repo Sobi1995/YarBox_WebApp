@@ -18,7 +18,19 @@
               <img src="/assets/img/11-faalliatha.svg">
           </div>
           <div class="stutus-pack">
-              <p>در حال رسیدن وسیله حمل بار</p>
+              <p *ngIf="PackDitile.status=='waiting'">در حال یافتن پیک</p>
+              <p *ngIf="PackDitile.status=='driverRecived'">دریافت شده توسط پیک</p>
+              <p *ngIf="PackDitile.status=='originPort'">ترمینال مبدا</p>
+              <p *ngIf="PackDitile.status=='destinationPort'">ترمینال مقصد</p>
+              <p *ngIf="PackDitile.status=='delivered'">تحویل داده شده</p>
+              <p *ngIf="PackDitile.status=='notShown'">عدم نمایش</p>
+              <p *ngIf="PackDitile.status=='factor'">فاکتور</p>
+              <p *ngIf="PackDitile.status=='cancellationByAdmin'">لغو توسط ادمین</p>
+              <p *ngIf="PackDitile.status=='cancellationByDriver'">لغو توسط راننده</p>
+              <p *ngIf="PackDitile.status=='cancellationByCustomer'">لغو توسط مشتری</p>
+              <p *ngIf="PackDitile.status=='returned'">برگشتی</p>
+
+
 
           </div>
           <div class="info-packs">
