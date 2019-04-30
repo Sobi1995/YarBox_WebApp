@@ -37,6 +37,7 @@
     height: 100vh;
     background: rgba(221, 221, 221, 0.6);
     z-index: 90;
+    position: relative;
 }
 .bac-loding {
     position: absolute;
