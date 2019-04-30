@@ -780,7 +780,7 @@ a.rowa .section-style {
 	section.main-web-app {
     width: 100% !important;
     margin: 0 !important;
-	}
+    }
 	.btn-web-app button, .add-fav {
     width: 100% !important;
     padding: 3% !important;
@@ -2002,6 +2002,7 @@ a.back-web-app {
     left: 7%;
     font-size: 26px;
     color: #fff;
+    z-index: 11;
     
 }
 .panel-heading {
@@ -3687,7 +3688,7 @@ p.page-mob-p5 {
 .verify-code {
     background: #25306c;
     width: 90%;
-    margin: 40% auto;
+    margin: 30% auto;
     padding: 6% 4%;
     color: #fff;
     border-radius: 20px;
@@ -3727,13 +3728,30 @@ form.form-register {
 div#sidebar-wrapper.active .sid {
     display: inline-block !important;
 }
-.main-web-app-pack, .main-web-app-vecle, .main-web-app-factor, .main-web-app4, .main-web-app5, .main-web-app-mass, .main-web-app-about, .main-web-app-support, .main-web-app-serch-dri, .main-web-app6{
+.main-web-app-pack, .main-web-app-vecle, .main-web-app-factor, .main-web-app4, .main-web-app5, .main-web-app-mass, .main-web-app-about, .main-web-app-support, .main-web-app-serch-dri, .main-web-app6, .map-web-app{
     position: relative;
     top: 70px;
 }
 .main-web-app-18 {
     position: relative;
     top: 40%;
+}
+.verfy-head {
+    background: #25306c;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+}
+.verfy-head .title-web-app {
+    text-align: center;
+    color: #fff;
+    padding: 6%;
+}
+.main-web-app-factor {
+    overflow-x: hidden;
+}
+input::placeholder{
+    opacity: 0.7;
 }
 /*
 .login-input {
