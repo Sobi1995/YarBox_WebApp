@@ -1,6 +1,7 @@
 
 				
-  <div [style.visibility]="getIsLogin() ? 'visible' : 'hidden'"  >	
+  <div [style.visibility]="getIsLogin() ? 'visible' : 'hidden'" >	
+		
 			<a id="menu-toggle"   class="btn btn-lg toggle"><img   src="/assets/img/3-meno.svg" width="25" height="25"></a>
 			<div id="sidebar-wrapper"  >
 			  <ul class="sidebar-nav">
@@ -45,8 +46,10 @@
 				  <li>
 				  <a (click)="SingOut()" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-khorooj.svg" width="35" height="35">خروج</a>
 				</li>
-			  </ul>
+				</ul>
+				<div class="sid"></div>
 			</div>
+		
 	</div>
 
 
