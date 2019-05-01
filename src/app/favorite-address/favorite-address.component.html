@@ -46,14 +46,14 @@
 					</div>
 					
 					</div>
-					   
+					<p *ngIf=" FavoriteAddress==null || FavoriteAddress.length<=0 ">ادرسی وجود ندارد</p>
 					<button [routerLink]="['/add-favorite-address']" class="add-fav">افزودن آدرس منتخب مبدا</button>
 					
 				  </div>
 					
 					
 				  <div id="menu2" class="tab-pane fade">
-					
+			 
 					<div class="box-pack-web-app" *ngFor="let item of FavoriteAddressDistnation">
 					<div class="head-pack head-pack2">
 						<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
@@ -75,6 +75,7 @@
 					</div>
 					
 					</div>
+					<p *ngIf="FavoriteAddressDistnation==null || FavoriteAddressDistnation.length<=0 ">ادرسی وجود ندارد</p>
 					<button [routerLink]="['/add-favorite-address-destination']" class="add-fav">افزودن آدرس منتخب مقصد</button>
 					  
 					  

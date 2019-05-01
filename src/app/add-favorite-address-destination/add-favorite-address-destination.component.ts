@@ -35,6 +35,8 @@ export class AddFavoriteAddressDestinationComponent implements OnInit {
   }
   
   ngOnInit() {
+    this.destinationModel.province=undefined;
+    this.destinationModel.city=undefined;
     this._webappService.getProvinces().subscribe(res=>{
       this.Provinces=res;
        
