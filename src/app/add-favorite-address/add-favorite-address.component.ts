@@ -61,7 +61,7 @@ address:string;
   .subscribe(() => {
 
   
-    this._webappservice.getCedarmapAddress( this.latDragEnd,this.lngDragEnd).subscribe(res=>{
+    this._webappservice.getCedarmapAddress( +this.latDragEnd,+this.lngDragEnd).subscribe(res=>{
          
       let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
       this.address=myAddress;
@@ -91,7 +91,7 @@ address:string;
           //   label: 'A',
           //   draggable: true
           // });       
-          self._webappservice.getCedarmapAddress(this.lat.toString(),this.lng.toString()).subscribe(res=>{      
+          self._webappservice.getCedarmapAddress(this.lat,this.lng).subscribe(res=>{      
             
             let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
             this.address=myAddress;
@@ -141,7 +141,7 @@ centerChange($event){
       //   label: 'A',
       //   draggable: true
       // });       
-      self._webappservice.getCedarmapAddress(this.lat.toString(),this.lng.toString()).subscribe(res=>{      
+      self._webappservice.getCedarmapAddress(this.lat,this.lng).subscribe(res=>{      
         let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
         this.address=myAddress;
       

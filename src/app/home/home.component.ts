@@ -29,7 +29,7 @@ defultMenu:boolean;
     }
 
   ngOnInit() {
-  
+  this.PackService.setOnLocalStorage();
     this.defultMenu=this.PackService.getDefultMenu;
 this._webappservice.getPackrunning().subscribe(res=>{
      
