@@ -269,7 +269,8 @@ a.rowa .section-style {
         height: 50px !important;
         padding: 10px !important;
     }
-    .img-wait {
+    .img-wait,
+    .null-address {
         width: 300px !important;
         height: 300px !important;
     }
@@ -930,7 +931,8 @@ a.rowa .section-style {
         height: 50px !important;
         padding: 10px !important;
     }
-    .img-wait {
+    .img-wait,
+    .null-address {
         width: 250px !important;
         height: 250px !important;
         padding-top: 3% !important;
@@ -1060,7 +1062,7 @@ a.rowa .section-style {
         font-size: 18px !important;
     }
     .main-web-app-top1 {
-        height: 100px !important;
+        height: 115px !important;
     }
     .main-web-app-top2 {
         height: 40% !important;
@@ -1140,9 +1142,9 @@ a.rowa .section-style {
     }
     .fav-address-orgin,
     .location-my {
-        width: 37px !important;
-        height: 37px !important;
-        padding: 6px 2px !important;
+        width: 42px !important;
+        height: 42px !important;
+        padding: 7px 1px !important;
         margin-right: 6% !important;
     }
     .fav-address-orgin img,
@@ -1999,9 +2001,9 @@ section.main-web-app {
 .main-web-app-map {
     background: #ccc;
     display: inline-block;
-    height: 80%;
+    height: 100% !important;
     width: 100%;
-    top: 100px;
+    /*top: 115px;*/
     position: relative;
 }
 
@@ -2030,7 +2032,7 @@ section.main-web-app {
     padding: 0;
     position: fixed;
     z-index: 2;
-    top: 45%;
+    top: 43%;
     right: 45%;
 }
 
@@ -3109,7 +3111,8 @@ span.pelak-car {
     background: #d01d57 !important;
 }
 
-.img-wait {
+.img-wait,
+.null-address {
     width: 380px;
     height: 380px;
     border-radius: 50%;
@@ -3359,6 +3362,7 @@ img.crousel-right {
 .main-web-app-top1 {
     height: auto;
     padding-bottom: 60px;
+    z-index: 10;
 }
 
 .etebar {
@@ -4160,7 +4164,7 @@ div#sidebar-wrapper.active .sid {
 }
 
 input::placeholder {
-    opacity: 0.7;
+    opacity: 0.4;
 }
 
 .location-my button {
@@ -4168,6 +4172,19 @@ input::placeholder {
     border: none;
     width: 100%;
     padding: 0;
+    outline: none;
+}
+
+p.null-address {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.input-pay {
+    position: absolute;
+    width: 100%;
+    background: #fff;
 }
 
 
