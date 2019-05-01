@@ -78,7 +78,7 @@ constructor(private _http:HttpClient,private _packService:PackService){
         } )
         );
  }
- getCedarmapAddress(lat:number,long:number){
+ getCedarmapAddress(lat:string,long:string){
       
   let headers = new HttpHeaders();
   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));

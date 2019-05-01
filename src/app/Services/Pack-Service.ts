@@ -33,7 +33,7 @@ constructor(){
     this.MultiplePacks=JSON.parse(isLocalStoragePack);
   }
  
-  this.typeCity=3;
+  this.typeCity=0;
    
  if (localStorage.getItem("Profile")!=null){
   let phoneNumber=JSON.parse(localStorage.getItem("Profile"))
@@ -102,9 +102,9 @@ clearOrigin(){
  }
  clearDestination(){
   this.MultiplePacks.destination=new DestinationDto();
-  this.typeCity=3;
+  this.typeCity=0;
   this.setOnLocalStorage();
-  localStorage.setItem("typeCity","3");
+  localStorage.setItem("typeCity","0");
  }
  setMainPaks(mainpacks:MainPacks){
   
@@ -172,7 +172,7 @@ clearOrigin(){
  }
 
  setReceiveType(type:string){
-   debugger
+    
 this.MultiplePacks.receiveType=type;
 this.setOnLocalStorage();
  }
@@ -221,6 +221,10 @@ get getDefultMenu(){
 setOnLocalStorage(){
   
   localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
+}
+setOnLocalStorageEmpty(){
+  let empty=new MultiplePacksDto();
+  localStorage.setItem("MultiplePacks",JSON.stringify(empty))
 }
 
 get getRetryFlow(){

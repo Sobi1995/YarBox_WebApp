@@ -14,7 +14,7 @@ import { DestinationDto } from '../Model/dto/destination-dto';
 export class DestinationComponent implements OnInit {
   savedaddress:any[]=[]
   destinationModel:DestinationDto;
-  typeCity:number=3;
+  typeCity:number=0;
   Provinces:any;
   Cities:any;
   Province:string;
@@ -50,7 +50,7 @@ export class DestinationComponent implements OnInit {
   }
   ngOnInit() {
     this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
-   
+    this._postPackService.setReceiveType("doorToDoor");
     this.destinationModel=this._postPackService.getDestination();
     this.typeCity =+this._postPackService.getTypeCity();
     this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
