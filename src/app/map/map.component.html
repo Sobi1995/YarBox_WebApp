@@ -22,7 +22,7 @@
 		<div class="main-web-app-map">
 				<div class="marker-orgin"><a href="#"><img src="/assets/img/locstion.svg"></a></div>
 				<div class="fav-address-orgin"><a  data-toggle="modal" data-target="#favoriteaddresses" (click)="favoriteAddressTitle.value=''"><img src="/assets/img/3-setareh.svg" width="22" height="22"></a></div>
-				<div class="location-my" ><a ><img (click)="myLocation()" src="/assets/img/mokhtasat.svg" width="30" height="30"></a></div>
+				<div class="location-my" ><button ><img (click)="myLocation()" src="/assets/img/mokhtasat.svg" width="30" height="30"></button></div>
 				
 				<agm-map 
 				(centerChange)="centerChange($event)"
