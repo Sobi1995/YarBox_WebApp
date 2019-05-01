@@ -61,7 +61,8 @@ this.MultiplePacks.origin.latitude=  origin.latitude!=undefined ? origin.latitud
 this.MultiplePacks.origin.province=  origin.province!=undefined ? origin.province  : this.MultiplePacks.origin.province
 this.MultiplePacks.origin.street= origin.street!=undefined ? origin.street  : this.MultiplePacks.origin.street
 this.MultiplePacks.origin.senderPhoneNumber= origin.senderPhoneNumber!=undefined ? origin.senderPhoneNumber  : this.MultiplePacks.origin.senderPhoneNumber
-
+let phoneNumber=JSON.parse(localStorage.getItem("Profile"))
+this.MultiplePacks.origin.senderPhoneNumber=phoneNumber.phoneNumber;
  }
    getAddress(){
   //  return this.MultiplePacks.origin.street;
@@ -93,7 +94,8 @@ clearOrigin(){
   this.MultiplePacks.destination.receiverName= destination.receiverName!=undefined ? destination.receiverName  : this.MultiplePacks.destination.receiverName
   this.MultiplePacks.destination.receiverPhoneNumber= destination.receiverPhoneNumber!=undefined ? destination.receiverPhoneNumber  : this.MultiplePacks.destination.receiverPhoneNumber
   this.MultiplePacks.destination.street= destination.street!=undefined ? destination.street  : this.MultiplePacks.destination.street
- this.setOnLocalStorage();
+    
+  this.setOnLocalStorage();
  }
 
  getDestination(){
@@ -224,6 +226,9 @@ setOnLocalStorage(){
 }
 setOnLocalStorageEmpty(){
   let empty=new MultiplePacksDto();
+  empty=new MultiplePacksDto();
+  empty.origin=new originDto();
+  empty.destination=new DestinationDto();
   localStorage.setItem("MultiplePacks",JSON.stringify(empty))
 }
 

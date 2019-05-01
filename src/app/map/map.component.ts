@@ -112,7 +112,7 @@ this._packService.setOnLocalstoreage();
             
             let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
             this.Origin.street=myAddress;
-            this._packService.SetAddress(new AddressOrigin(this.lat.toString(),this.lng.toString(),myAddress))
+            this._packService.SetAddress(new AddressOrigin(pos.coords.latitude.toString(),pos.coords.longitude.toString()))
           
           })
         });
