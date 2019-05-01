@@ -60,7 +60,7 @@ this._packService.setOnLocalstoreage();
   .subscribe(() => {
 
   
-    this._webappservice.getCedarmapAddress( +this.latDragEnd,+this.lngDragEnd).subscribe(res=>{
+    this._webappservice.getCedarmapAddress( this.latDragEnd,this.lngDragEnd).subscribe(res=>{
           
       let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
       this.Origin.street=myAddress;
@@ -105,7 +105,7 @@ this._packService.setOnLocalstoreage();
           //   label: 'A',
           //   draggable: true
           // });       
-          self._webappservice.getCedarmapAddress(this.lat,this.lng).subscribe(res=>{      
+          self._webappservice.getCedarmapAddress(this.lat.toString(),this.lng.toString()).subscribe(res=>{      
             
             let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
             this.Origin.street=myAddress;
@@ -150,7 +150,7 @@ centerChange($event){
     self.lng = +pos.coords.longitude;
     self.lat = +pos.coords.latitude;
  
-      self._webappservice.getCedarmapAddress(self.lat,self.lng).subscribe(res=>{      
+      self._webappservice.getCedarmapAddress(self.lat.toString(),self.lng.toString()).subscribe(res=>{      
         let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
         self._packService.SetAddress(new AddressOrigin(self.lat.toString(),self.lng.toString(),myAddress))
         self.Origin.street=myAddress;

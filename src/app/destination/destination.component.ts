@@ -49,6 +49,7 @@ export class DestinationComponent implements OnInit {
   this.router.navigate(["/postPack-deities"])
   }
   ngOnInit() {
+    this._postPackService.setReceiveType("doorToDoor");
     this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
    
     this.destinationModel=this._postPackService.getDestination();

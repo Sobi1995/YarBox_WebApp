@@ -172,7 +172,7 @@ clearOrigin(){
  }
 
  setReceiveType(type:string){
-   debugger
+    
 this.MultiplePacks.receiveType=type;
 this.setOnLocalStorage();
  }
@@ -221,6 +221,10 @@ get getDefultMenu(){
 setOnLocalStorage(){
   
   localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
+}
+setOnLocalStorageEmpty(){
+  let empty=new MultiplePacksDto();
+  localStorage.setItem("MultiplePacks",JSON.stringify(empty))
 }
 
 get getRetryFlow(){
