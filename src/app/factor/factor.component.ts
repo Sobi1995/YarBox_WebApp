@@ -38,7 +38,7 @@ this.Factor={
   sender: {
     name: "",
     address: "",
-    phoneNumber:  JSON.parse(localStorage.getItem("MultiplePacks")).origin.senderPhoneNumber
+    phoneNumber: ""
   },
   receiver: {
     name:"",

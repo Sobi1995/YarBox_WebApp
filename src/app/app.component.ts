@@ -10,6 +10,7 @@ import { SwUpdate } from '@angular/service-worker';
 import { ProfileDto } from './Core/DTO/Profile-dto';
 import { Observable, fromEvent, merge, of } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
+import { PackService } from './Services/Pack-Service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ export class AppComponent  implements OnInit{
   @ViewChild('openmodal') private openmodal: ElementRef;
   online$: Observable<boolean>;
   ngOnInit(): void {
-     
+    this.PackService.setOnLocalStorageEmpty();
     // if (window.matchMedia('(display-mode: standalone)').matches) {
     //   alert("Thank you for installing our app!");
     // }
@@ -73,7 +74,8 @@ this.getPlants().subscribe(res=>{
     private router: Router,
     private _webApp:WebAppService,
     public swUpdate: SwUpdate,
-     private deviceService: DeviceDetectorService){
+     private deviceService: DeviceDetectorService,
+     private PackService:PackService){
  
        let homescreen=JSON.parse(localStorage.getItem("add-homescreen"))
        if(homescreen==null){
