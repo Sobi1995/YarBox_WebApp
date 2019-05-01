@@ -61,7 +61,7 @@
 
 					<input  autocomplete="off" type="number" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber"  #receiverPhoneNumber="ngModel" pattern="[0-9]+" required   (ngModelChange)="onSelectedChange($event)"><br>
 					<div *ngIf="f.submitted && receiverPhoneNumber.invalid" class="invalid-feedback">
-							<div *ngIf="receiverPhoneNumber.errors.required" class="error-webapp">شماره همراه / ثابت را وارد کنید</div>
+							<div *ngIf="receiverPhoneNumber.errors.required" class="error-webapp">شماره همراه / ثابت را وارد کنید (از اعداد انگیلیسی استفاده کنید(</div>
 							<div [hidden]="!receiverPhoneNumber.errors.pattern" class="error-webapp"> لطفا شماره  صحیح را وارد کنید (از اعداد انگلیسی استفاده کنید (</div>
 					</div>
 				</div>

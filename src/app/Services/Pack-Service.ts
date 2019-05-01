@@ -112,7 +112,7 @@ clearOrigin(){
   this.MultiplePacks.insurancePrice= mainpacks.insurancePrice!=undefined ? mainpacks.insurancePrice  : this.MultiplePacks.insurancePrice
   this.MultiplePacks.isInsurance= mainpacks.isInsurance!=undefined ? mainpacks.isInsurance  : this.MultiplePacks.isInsurance
   this.MultiplePacks.isPacking= mainpacks.isPacking!=undefined ? mainpacks.isPacking  : this.MultiplePacks.isPacking
-  this.MultiplePacks.receiveType= mainpacks.receiveType!=undefined ? mainpacks.receiveType  : this.MultiplePacks.receiveType
+  // this.MultiplePacks.receiveType= mainpacks.receiveType!=undefined ? mainpacks.receiveType  : this.MultiplePacks.receiveType
   this.MultiplePacks.vehicleId= mainpacks.vehicleId!=undefined ? mainpacks.vehicleId  : this.MultiplePacks.vehicleId
   
   this.setOnLocalStorage();
@@ -150,7 +150,6 @@ clearOrigin(){
 //  return mainpack;
   
    let mainpack=new MainPacks();
-  
    mainpack.content=JSON.parse(localStorage.getItem("MultiplePacks")).content;
    mainpack.isInsurance=JSON.parse(localStorage.getItem("MultiplePacks")).isInsurance;
    mainpack.isPacking=JSON.parse(localStorage.getItem("MultiplePacks")).isPacking;
@@ -173,6 +172,7 @@ clearOrigin(){
  }
 
  setReceiveType(type:string){
+   debugger
 this.MultiplePacks.receiveType=type;
 this.setOnLocalStorage();
  }
