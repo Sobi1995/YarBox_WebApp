@@ -33,7 +33,7 @@ constructor(){
     this.MultiplePacks=JSON.parse(isLocalStoragePack);
   }
  
-  this.typeCity=3;
+  this.typeCity=0;
    
  if (localStorage.getItem("Profile")!=null){
   let phoneNumber=JSON.parse(localStorage.getItem("Profile"))
@@ -102,9 +102,9 @@ clearOrigin(){
  }
  clearDestination(){
   this.MultiplePacks.destination=new DestinationDto();
-  this.typeCity=3;
+  this.typeCity=0;
   this.setOnLocalStorage();
-  localStorage.setItem("typeCity","3");
+  localStorage.setItem("typeCity","0");
  }
  setMainPaks(mainpacks:MainPacks){
   
