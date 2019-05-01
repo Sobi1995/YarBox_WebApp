@@ -58,7 +58,7 @@
 
 
                     <div class="packs">
-                        <div *ngFor="let pack of packs; let i = index" class="pack-item"><span class="pack-item-number"> {{i+1}}</span>{{pack.count}} عدد {{getPostPackType(pack.typeId) }} برای شما ثبت شد <a><i class="fas fa-trash-alt" (click)="deletepack(pack)"></i></a></div>
+                        <div *ngFor="let pack of packs; let i = index" class="pack-item"><span class="pack-item-number"> {{i+1}}</span>{{pack.count}} عدد {{getPostPackType(pack.typeId) }} ثبت شد <a><i class="fas fa-trash-alt" (click)="deletepack(pack)"></i></a></div>
                         <p *ngIf="packs.length==0" class="nul-pack"><img src="/assets/img/2-ghavanin.svg" width="25" height="35">لطفا مرسوله خود را وارد کنید</p>
                         <span *ngIf="f.submitted && packs.length==0" class="border-pack"></span>
                     </div>
@@ -101,7 +101,7 @@
                     <br>
 
                     <div *ngIf="f.submitted && insurancePrice.invalid && mainPacks.isInsurance==true" class="invalid-feedback">
-                        <div *ngIf="insurancePrice.errors.required" class="arzesh-pack"> ارزش مرسوله خود را وارد کنید ( از اعداد انگلیسی استفاده نماید )</div>
+                        <div *ngIf="insurancePrice.errors.required" class="arzesh-pack"> ارزش مرسوله خود را وارد کنید (از اعداد انگلیسی استفاده نماید)</div>
                     </div>
 
                     <input autocomplete="off" type="text" placeholder="توضیحات اقلام داخل بسته" [(ngModel)]="mainPacks.content" name="content" #content class="des-pack">
