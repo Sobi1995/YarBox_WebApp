@@ -1,0 +1,12 @@
+@media screen and (max-width: 500px) {
+    #myModal6.modal.in .modal-dialog {
+        -webkit-transform: translate(0, 43%) !important;
+        -ms-transform: translate(0, 43%) !important;
+        -o-transform: translate(0, 43%) !important;
+        transform: translate(0, 43%) !important;
+    }
+}
+
+#myModal6 .modal-body {
+    padding: 3% 0 !important;
+}
