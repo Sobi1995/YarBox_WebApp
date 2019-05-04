@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WebAppService } from '../Services/webapp-service';
 import { ProfileDto } from 'src/app/Core/DTO/Profile-dto';
@@ -12,7 +12,11 @@ import swal from 'sweetalert2';
   templateUrl: './factor.component.html',
   styleUrls: ['./factor.component.css']
 })
-export class FactorComponent implements OnInit {
+export class FactorComponent implements OnInit,OnDestroy {
+  @ViewChild('closeModal') private closeModal: ElementRef;
+  ngOnDestroy(): void {
+    this.closeModal.nativeElement.click();
+  }
   Factor:any;
   credit:number=0;
   payment:number=-1;

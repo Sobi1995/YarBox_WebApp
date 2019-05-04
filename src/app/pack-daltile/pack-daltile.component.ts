@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { PackService } from '../Services/Pack-Service';
 import { WebAppService } from '../Services/webapp-service';
 
@@ -7,7 +7,11 @@ import { WebAppService } from '../Services/webapp-service';
   templateUrl: './pack-daltile.component.html',
   styleUrls: ['./pack-daltile.component.css']
 })
-export class PackDaltileComponent implements OnInit {
+export class PackDaltileComponent implements OnInit,OnDestroy {
+  ngOnDestroy(): void {
+    this.closemyModal6.nativeElement.click();
+  }
+  @ViewChild('closemyModal6') private closemyModal6: ElementRef;
     PackDitile:any;
     driver:any=null;
   constructor(

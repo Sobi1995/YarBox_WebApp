@@ -18,13 +18,15 @@ import { originDto } from '../Model/dto/origin-dto';
 export class AddFavoriteAddressComponent implements OnInit ,OnDestroy {
   ngOnDestroy(): void {
     this._packService.setStatusMnuAddressFavourite(false);
+    this.closeModalfavoriteaddresses.nativeElement.click();  
+    
   }
 
   @ViewChild(AgmMap) map: any;
   private dragEndSubscription: Subscription;
   @ViewChild('closeModal') private closeModal: ElementRef;
   @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
-    @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
+    
  // google maps zoom level
 
   errorAddress:string=null;
