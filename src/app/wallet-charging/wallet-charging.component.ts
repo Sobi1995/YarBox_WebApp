@@ -43,4 +43,18 @@ constructor(
       window.location.href=res.redirectTo;
     })
   }
+
+  Cardpay(){
+    setTimeout(() => 
+    {
+      var x = document.getElementsByClassName("item active")[0].getAttribute("data-value");; 
+ this.pay= +x;
+    },
+    1000);
+
+   
+  }
+ 
+
+ 
 }

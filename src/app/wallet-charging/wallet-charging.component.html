@@ -25,42 +25,42 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
 
-                        <div class="item active">
+                        <div class="item active"   data-value="20000">
                             <img (click)="vlauePay(20000)" src="../assets/img/18-tasvire-kart.png" width="450" height="215">
                             <div class="carousel-caption">
 
                             </div>
                         </div>
 
-                        <div class="item">
+                        <div class="item"  data-value="40000">
                             <img (click)="vlauePay(40000)" src="../assets/img/18-tasvire-kart-copy.png" width="450" height="215">
                             <div class="carousel-caption">
 
                             </div>
                         </div>
 
-                        <div class="item">
+                        <div class="item"  data-value="60000">
                             <img (click)="vlauePay(60000)" src="../assets/img/18-tasvire-kart-copy2.png" width="450" height="215">
                             <div class="carousel-caption">
 
                             </div>
                         </div>
 
-                        <div class="item ">
+                        <div class="item"  data-value="80000">
                             <img (click)="vlauePay(80000)" src="../assets/img/18-tasvire-kart-copy3.png" width="450" height="215">
                             <div class="carousel-caption">
 
                             </div>
                         </div>
 
-                        <div class="item">
+                        <div class="item"  data-value="100000">
                             <img (click)="vlauePay(100000)" src="../assets/img/18-tasvire-kart-copy4.png" width="450" height="215">
                             <div class="carousel-caption">
 
                             </div>
                         </div>
 
-                        <div class="item">
+                        <div class="item" data-value="120000">
 
                             <img (click)="vlauePay(120000)" src="../assets/img/18-tasvire-kart-copy5.png" width="450" height="215">
                             <div class="carousel-caption">
@@ -71,24 +71,15 @@
                     </div>
 
                     <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev" (click)="Cardpay()">
                         <img src="/assets/img/icon-back.svg" width="20" />
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next" (click)="Cardpay()">
                         <img src="/assets/img/icon-back.svg" width="20" class="crousel-right" />
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-
-
-
-
-
-
-
-
-
             </div>
 
 

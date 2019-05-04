@@ -37,7 +37,7 @@ this.lng=parseFloat(res.longitude);
 this.markers.push({
   lat: parseFloat(res.latitude),
   lng: parseFloat(res.longitude),
-  label: res.firstName+ " "+res.lastName,
+  
   draggable: true
 });
 console.log(res);
