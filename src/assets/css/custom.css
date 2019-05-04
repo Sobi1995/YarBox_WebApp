@@ -25,6 +25,13 @@ input {
     outline: none;
 }
 
+form.maghsad input,
+form.maghsad input:hover,
+form.maghsad input:focus {
+    text-align: right;
+    direction: rtl;
+}
+
 .status-bar.benot:before {
     background: 0 0 !important
 }
@@ -938,7 +945,7 @@ a.rowa .section-style {
         padding-top: 3% !important;
     }
     .map-web-app {
-        height: 90vh !important;
+        height: 92vh !important;
     }
     .hazine h3 {
         font-size: 17px;
@@ -1100,7 +1107,7 @@ a.rowa .section-style {
     .form-pack input,
     .form-pack select {
         /*font-size: 13px !important;*/
-        margin: 11px 0 -2px !important;
+        margin: 20px 0 -2px !important;
     }
     form.maghsad {
         margin: -3% 0% !important;
@@ -1236,7 +1243,7 @@ a.rowa .section-style {
     .info-driver1-line2 img {
         width: 50px !important;
         height: 50px !important;
-        padding: 5px !important;
+        padding: 3px !important;
     }
     span.name-driver {
         font-size: 11px !important;
@@ -2864,7 +2871,7 @@ ul.nav.nav-tabs.nav-factor li {
     background: #ffffff;
     text-align: center;
     margin-right: 36px;
-    top: -50vh;
+    top: -42vh;
     position: relative;
     padding: 10px 20px;
     border-radius: 15px;
@@ -2920,6 +2927,7 @@ span.name-driver {
     font-size: 22px;
     margin-top: -17px;
     z-index: 1;
+    box-shadow: 0 0 6px 1px #6b6b6b;
 }
 
 span.img-car {
@@ -2927,13 +2935,17 @@ span.img-car {
     height: 80px;
     width: 100%;
     position: relative;
-    padding-top: 10px;
+    padding-top: 21px;
     border-radius: 0 0 12px 0;
-    top: 10px;
 }
 
 span.pelak-car {
-    padding-top: 35px;
+    padding-top: 42px;
+    padding: 7px 17px 1px;
+    margin-top: 38px;
+    border-radius: 21px;
+    letter-spacing: 6px;
+    margin-left: 10px;
 }
 
 .nav-active li {
@@ -3188,11 +3200,6 @@ table.pay-table tr:nth-child(2n+1) {
     cursor: pointer;
 }
 
-.map-fav-address {
-    background: #ddd;
-    height: 150px;
-}
-
 .body-pack2 {
     padding: 0;
     margin-top: -6px;
@@ -3264,6 +3271,7 @@ p.about-p {
     font-size: 17px;
     line-height: 40px;
     margin: 40px auto;
+    text-align: justify;
 }
 
 a.about-a {
@@ -3278,8 +3286,9 @@ a.about-a {
 }
 
 p.about-ver {
-    margin: 30px 0;
     color: #aaa;
+    position: fixed;
+    bottom: 5%;
 }
 
 .search-massege input {
@@ -3312,11 +3321,16 @@ div#myModal2 input::placeholder {
     width: 100%;
     line-height: 40px;
     font-size: 15px;
-    padding-bottom: 10px;
+    padding: 10px;
 }
 
 .massege-part p {
     color: #1e619a;
+}
+
+.massege-page .panel-body p {
+    line-height: 24px;
+    text-align: justify;
 }
 
 .massege-part span {
@@ -3422,6 +3436,7 @@ p.type-modal {
     font-size: 13px;
     padding: 12px 2px;
     line-height: 30px;
+    text-align: justify;
 }
 
 .modal-dialog {
@@ -3722,7 +3737,7 @@ button.cancel-btn {
     background: #282f6c;
     color: #ffffff;
     border-radius: 5px;
-    padding: 8px 56px;
+    padding: 8px 40px;
     cursor: pointer;
 }
 
@@ -4187,6 +4202,43 @@ p.null-address {
     position: absolute;
     width: 100%;
     background: #fff;
+}
+
+a.massege-part i {
+    top: 4px;
+    position: relative;
+}
+
+a.massege-part.collapsed .pic-massege-open {
+    display: none;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+}
+
+a.massege-part .pic-massege-close {
+    display: none;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+}
+
+a.massege-part.collapsed .pic-massege-close {
+    display: inline-block;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+}
+
+select.select-tedad {
+    position: absolute;
+    left: 10%;
+    z-index: 10;
+    width: 70px;
+    padding: 2px 10px;
 }
 
 

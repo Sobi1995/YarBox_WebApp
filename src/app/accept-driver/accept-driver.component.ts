@@ -11,7 +11,7 @@ import { PackService } from '../Services/Pack-Service';
 export class AcceptDriverComponent implements OnInit {
 Driver:any;
 vehicle:number;
-marckerIco:string="http://icons.iconarchive.com/icons/artdesigner/urban-stories/64/Car-icon.png"
+marckerIco:string="/assets/img/logo-ranandeh.png"
 // google maps zoom level
 zoom: number =15;
 markers: marker[]=[];

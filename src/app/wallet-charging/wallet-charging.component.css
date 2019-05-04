@@ -1,20 +1,29 @@
-
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
     .btn-web-app button {
-        
         padding: 4% !important;
     }
-
 }
+
 @media screen and (max-width:414px) {
-	.btn-web-app button {
+    .btn-web-app button {
         padding: 6% !important;
     }
-  
 }
-@media screen and (max-width: 320px){
-  .btn-web-app button {
-      
-      padding: 4% !important;
-  }
+
+@media screen and (max-width: 320px) {
+    .btn-web-app button {
+        padding: 4% !important;
+    }
+}
+
+#carousel-example-generic {
+    width: 1280px // use your resolution.
+}
+
+//remove the image dragging
+img {
+    user-drag: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    user-select: none;
 }

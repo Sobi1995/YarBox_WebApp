@@ -1,140 +1,140 @@
 <div class="section-main-web-app">
-    	<!-- git -->
-		<section class="main-web-app">
-			
-			<div class="main-web-app-top">
-				
-				<div class="web-app-title">
-					
-                    <div class="title-web-app">فعالیت های یارباکس</div>
-                   
-				</div>
-			
-			</div>
-            <a  [routerLink]="['/']" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
-			<div class="main-web-app main-web-app5">
-            
-				<ul class="nav nav-tabs nav-active">
-				  <li [class.active]="defultMenu==true" (click)="defultMenuEvent(true)"><a data-toggle="tab" href="#menu1">در حال اجرا</a></li>
-				  <li [class.active]="defultMenu==false " (click)="defultMenuEvent(false)" ><a data-toggle="tab" href="#menu2">ناموفق</a></li>
-				 
-				</ul>
-               
-				<div class="tab-content">
-				  
-				  <div id="menu1" class="tab-pane fade " [class.active]="defultMenu==true" [class.in]="defultMenu==true"   >
-					
-					<div class="box-pack-web-app" *ngFor="let pack of PackRuningInCancelFalse" (click)="PackDitile(pack.id)">
-                        <div>
-                                <div class="head-pack" (click)="PackDitile(pack)">
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            {{pack.receiverName}}
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        کد مرسوله :  {{pack.id}}
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        97/12/10
-                                        </div>
-                                    </div> 
-                                    <div class="body-pack">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                             <div class="step-pack step-pack1 " [ngClass]=" pack.status=='driverRecived' || pack.status=='originPort' || pack.status=='destinationPort' ? 'done' : '' ">
-                                                <div class="step-i"><img src="/assets/img/9-tahvile-peyk-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-tahvile-peyk-ok.svg" width="70" height="70" class="step-pack-ok"></div>
-                                                <span class="step-span">تحویل به پیک</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                             <div class="step-pack step-pack2"  [ngClass]=" pack.status=='originPort' ||  pack.status=='destinationPort' ? 'done' : '' ">
-                                                <div class="step-i"><img src="/assets/img/9-maghsad-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-maghsad-ok.svg" width="70" height="70" class="step-pack-ok"></div>
-                                                <span class="step-span">پورت مقصد</span></div> 
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <div class="step-pack step-pack3"  [ngClass]="pack.status == 'destinationPort' ? 'done': ''">
-                                                <div class="step-i"><img src="/assets/img/9-mabda-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-mabda-ok.svg" width="70" height="70" class="step-pack-ok"></div>
-                                                <span class="step-span">پورت مبدا</span></div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <div class="step-pack step-pack4"   >
-                                                <div class="step-i"><img src="/assets/img/9-girandeh-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-girandeh-ok.svg" width="70" height="70" class="step-pack-ok"></div>
-                                                <span class="step-span">گیرنده</span></div>
-                                        </div>
-                                    </div>
-                        </div>
-				
-					
-					</div>
-				<div *ngIf="PackRuningInCancelFalse!=null && PackRuningInCancelFalse.length==0" class="null-pack"><div class="img-wait"><img src="/assets/img/11-faalliatha.svg"></div></div>
-				  </div>
-					
-					
-				  <div id="menu2" class="tab-pane fade   " [class.active]="defultMenu==false" [class.in]="defultMenu==false">
- 
-					<div class="box-pack-web-app" *ngFor="let pack of PackRuningInCancelTrue"  >
-                        <div >
-                                <div class="head-pack head-pack1" (click)="PackDitile(pack)">
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            {{pack.receiverName}}
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        کد مرسوله :    {{pack.id}}
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        97/12/10
-                                        </div>
-                                    </div> 
-                                    <div class="hover-Unsuccess">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <a (click)="ReOrder(pack.id)">
-                                                <img src="/assets/img/icon-ok.svg"  class="hover-Unsuccess1" width="20" /><br>
-                                            سفارش مجدد</a>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <a (click)="deletePaks(pack.id)">
-                                                <img src="/assets/img/icon-close-w.svg"  class="hover-Unsuccess2" width="20" /><br>
-                                            حذف سفارش</a>
-                                        </div>
-                                    </div>
-                                    <div class="body-pack body-pack-unsuc">
-                                        
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="step-pack step-pack1 done">
-                                                        <div class="step-i"><img src="/assets/img/9-tahvile-peyk-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-tahvile-peyk-ok.svg" width="70" height="70" class="step-pack-ok"></div>
-                                                        <span class="step-span">تحویل به پیک</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="step-pack step-pack2 done">
-                                                        <div class="step-i"><img src="/assets/img/9-maghsad-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-maghsad-ok.svg" width="70" height="70" class="step-pack-ok"></div>
-                                                        <span class="step-span">پورت مقصد</span></div> 
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="step-pack step-pack3">
-                                                        <div class="step-i"><img src="/assets/img/9-mabda-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-mabda-ok.svg" width="70" height="70" class="step-pack-ok"></div>
-                                                        <span class="step-span">پورت مبدا</span></div>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="step-pack step-pack4">
-                                                        <div class="step-i"><img src="/assets/img/9-girandeh-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-girandeh-ok.svg" width="70" height="70" class="step-pack-ok"></div>
-                                                        <span class="step-span">گیرنده</span></div>
-                                                </div>
-                                    </div>
-                                    
-                        </div>
-                    </div> 
-                    <div *ngIf="PackRuningInCancelTrue!=null && PackRuningInCancelTrue.length==0" class="null-pack"><div class="img-wait"><img src="/assets/img/11-faalliatha-namovaghha.svg"></div></div>
-				  </div>
-				</div>
-				
+    <!-- git -->
+    <section class="main-web-app">
 
-					
-			</div>
-			
-			<div class="btn-web-app">
-				<button type="submit"  [routerLink]="['/']">ارسال بسته جدید</button>
-				</div>
-		</section>
-		
+        <div class="main-web-app-top">
+
+            <div class="web-app-title">
+
+                <div class="title-web-app">فعالیت های یارباکس</div>
+
+            </div>
+
+        </div>
+        <a [routerLink]="['/']" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
+        <div class="main-web-app main-web-app5">
+
+            <ul class="nav nav-tabs nav-active">
+                <li [class.active]="defultMenu==true" (click)="defultMenuEvent(true)"><a data-toggle="tab" href="#menu1">در حال اجرا</a></li>
+                <li [class.active]="defultMenu==false " (click)="defultMenuEvent(false)"><a data-toggle="tab" href="#menu2">ناموفق</a></li>
+
+            </ul>
+
+            <div class="tab-content">
+
+                <div id="menu1" class="tab-pane fade " [class.active]="defultMenu==true" [class.in]="defultMenu==true">
+
+                    <div class="box-pack-web-app" *ngFor="let pack of PackRuningInCancelFalse" (click)="PackDitile(pack.id)">
+                        <div>
+                            <div class="head-pack" (click)="PackDitile(pack)">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    {{pack.receiverName}}
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    کد مرسوله : {{pack.id}}
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    97/12/10
+                                </div>
+                            </div>
+                            <div class="body-pack" (click)="PackDitile(pack)">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <div class="step-pack step-pack1 " [ngClass]=" pack.status=='driverRecived' || pack.status=='originPort' || pack.status=='destinationPort' ? 'done' : '' ">
+                                        <div class="step-i"><img src="/assets/img/9-tahvile-peyk-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-tahvile-peyk-ok.svg" width="70" height="70" class="step-pack-ok"></div>
+                                        <span class="step-span">تحویل به پیک</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <div class="step-pack step-pack2" [ngClass]=" pack.status=='originPort' ||  pack.status=='destinationPort' ? 'done' : '' ">
+                                        <div class="step-i"><img src="/assets/img/9-maghsad-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-maghsad-ok.svg" width="70" height="70" class="step-pack-ok"></div>
+                                        <span class="step-span">پورت مقصد</span></div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <div class="step-pack step-pack3" [ngClass]="pack.status == 'destinationPort' ? 'done': ''">
+                                        <div class="step-i"><img src="/assets/img/9-mabda-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-mabda-ok.svg" width="70" height="70" class="step-pack-ok"></div>
+                                        <span class="step-span">پورت مبدا</span></div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <div class="step-pack step-pack4">
+                                        <div class="step-i"><img src="/assets/img/9-girandeh-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-girandeh-ok.svg" width="70" height="70" class="step-pack-ok"></div>
+                                        <span class="step-span">گیرنده</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div *ngIf="PackRuningInCancelFalse!=null && PackRuningInCancelFalse.length==0" class="null-pack">
+                        <div class="img-wait"><img src="/assets/img/11-faalliatha.svg"></div>
+                    </div>
+                </div>
+
+
+                <div id="menu2" class="tab-pane fade   " [class.active]="defultMenu==false" [class.in]="defultMenu==false">
+
+                    <div class="box-pack-web-app" *ngFor="let pack of PackRuningInCancelTrue">
+                        <div>
+                            <div class="head-pack head-pack1" (click)="PackDitile(pack)">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    {{pack.receiverName}}
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    کد مرسوله : {{pack.id}}
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    97/12/10
+                                </div>
+                            </div>
+                            <div class="hover-Unsuccess">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <a (click)="ReOrder(pack.id)">
+                                        <img src="/assets/img/icon-ok.svg" class="hover-Unsuccess1" width="20" /><br> سفارش مجدد</a>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <a (click)="deletePaks(pack.id)">
+                                        <img src="/assets/img/icon-close-w.svg" class="hover-Unsuccess2" width="20" /><br> حذف سفارش</a>
+                                </div>
+                            </div>
+                            <div class="body-pack body-pack-unsuc">
+
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <div class="step-pack step-pack1 done">
+                                        <div class="step-i"><img src="/assets/img/9-tahvile-peyk-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-tahvile-peyk-ok.svg" width="70" height="70" class="step-pack-ok"></div>
+                                        <span class="step-span">تحویل به پیک</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <div class="step-pack step-pack2 done">
+                                        <div class="step-i"><img src="/assets/img/9-maghsad-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-maghsad-ok.svg" width="70" height="70" class="step-pack-ok"></div>
+                                        <span class="step-span">پورت مقصد</span></div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <div class="step-pack step-pack3">
+                                        <div class="step-i"><img src="/assets/img/9-mabda-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-mabda-ok.svg" width="70" height="70" class="step-pack-ok"></div>
+                                        <span class="step-span">پورت مبدا</span></div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <div class="step-pack step-pack4">
+                                        <div class="step-i"><img src="/assets/img/9-girandeh-no.svg" width="70" height="70" class="step-pack-no"><img src="/assets/img/9-girandeh-ok.svg" width="70" height="70" class="step-pack-ok"></div>
+                                        <span class="step-span">گیرنده</span></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div *ngIf="PackRuningInCancelTrue!=null && PackRuningInCancelTrue.length==0" class="null-pack">
+                        <div class="img-wait"><img src="/assets/img/11-faalliatha-namovaghha.svg"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
 
+        <div class="btn-web-app">
+            <button type="submit" [routerLink]="['/']">ارسال بسته جدید</button>
+        </div>
+    </section>
 
+</div>

@@ -2,20 +2,15 @@
     height: 70vh;
     overflow-y: scroll;
 }
-a.back-web-app {
-   
-    margin-top: -18%;
-}
 
 @media screen and (max-width:414px) {
-	.add-fav {
+    .add-fav {
         padding: 6% !important;
     }
-  
 }
-@media screen and (max-width: 320px){
-  .add-fav {
-      
-      padding: 4% !important;
-  }
+
+@media screen and (max-width: 320px) {
+    .add-fav {
+        padding: 4% !important;
+    }
 }

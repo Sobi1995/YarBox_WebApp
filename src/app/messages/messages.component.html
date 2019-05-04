@@ -1,56 +1,56 @@
 <div class="section-main-web-app">
-    	
-		<section class="main-web-app">
-			
-			<div class="main-web-app-top">
-				
-				<div class="web-app-title">
-					
-					<div class="title-web-app">پیام های شما</div>
-				</div>
-			
-			</div>
-			<a [routerLink]="['/']" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a> 
-			<div class="main-web-app main-web-app-mass">
-				
-				<!-- <div class="img-wait"><img src="/assets/img/16-payam-haye-shoma.png"></div>
+
+    <section class="main-web-app">
+
+        <div class="main-web-app-top">
+
+            <div class="web-app-title">
+
+                <div class="title-web-app">پیام های شما</div>
+            </div>
+
+        </div>
+        <a [routerLink]="['/']" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
+        <div class="main-web-app main-web-app-mass">
+
+            <!-- <div class="img-wait"><img src="/assets/img/16-payam-haye-shoma.png"></div>
 				<p class="p-active">پیامی برای نمایش وجود ندارد .</p> -->
-					<!-- <div class="search-massege">
+            <!-- <div class="search-massege">
 					 <input  autocomplete="off" type="search" placeholder="جستجو در پیام ها"><a href="#"><img src="/assets/img/3-search.svg" width="25" height="25"></a>  
 					</div> -->
-				<br>
-				<br>	
-					<div class="panel-group massege-page" id="accordion">
 
-					  <div class="panel panel-default" *ngFor="let msg of messages; let j = index">
-						<div class="panel-heading">
-						  <h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion"   [attr.href]="'#collapse'+j"   class="massege-part">
-								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<!-- <div class="not-read-message"></div> -->
-								<i class="far fa-envelope"></i>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-								<p>{{msg.title}}</p>
-								</div>
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-								<span>1397/12/12</span>
-								</div>
-							</a>
-						  </h4>
-						</div>
-						<div id="collapse{{j}}" class="panel-collapse collapse ">
-						  <div class="panel-body">
-						  <p>{{msg.message}}</p>
-						  </div>
-						</div>
-					  </div>
- 
-					</div>
-					
-			</div>
-			
-			
-		</section>
-		
-		</div>
+            <div class="panel-group massege-page" id="accordion">
+
+                <div class="panel panel-default" *ngFor="let msg of messages; let j = index">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapse'+j" class="massege-part collapsed">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <!-- <div class="not-read-message"></div> -->
+                                    <i class="far fa-envelope pic-massege-close"></i>
+                                    <i class="far fa-envelope-open pic-massege-open"></i>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <p>{{msg.title}}</p>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <span>1397/12/12</span>
+                                </div>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse{{j}}" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <p>{{msg.message}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+</div>
