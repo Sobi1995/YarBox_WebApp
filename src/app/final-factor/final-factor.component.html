@@ -12,49 +12,53 @@
             </div>
 
         </div>
-        <a  class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
+        <a [routerLink]="['/pack-daltile']"  class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
         <div class="main-web-app main-web-app6">
             <div class="factor-box factor-box-red">
                 <span class="cri-titr"></span>
                 <p>فرستنده</p>
-                <div class="factor-nam">شایان رحیمیان</div>
-                <div class="factor-address">آدرس : تهزان نیاوران -  جنب فروشگاه عظیمی کوچه </div>
+                <div class="factor-nam">{{Profile.firstName}} {{Profile.lastName}}</div>
+                <div class="factor-address"> {{Profile.phoneNumber}} </div>
             </div>
             <div class="factor-box factor-box-green">
                 <span class="cri-titr"></span>
                 <p>گیرنده</p>
-                <div class="factor-nam">شایان رحیمیان</div>
-                <div class="factor-address">آدرس : تهران نیاوران -  جنب فروشگاه عظیمی کوچه </div>
+                <div class="factor-nam">{{PackDitile.destination.receiverName}}</div>
+                <div class="factor-address">{{PackDitile.destination.address}} </div>
             </div>
             <div class="factor-box factor-box-tosi">ارسال شده با : <span>وانت بار</span></div>
             <div class="factor-info">
-                <div class="factor-info-line">
-                    <div class="factor-info-title">تعداد بسته</div>
-                    <div class="factor-info-info">5</div>
-                </div>
-                <div class="factor-info-line">
-                    <div class="factor-info-title">شامل</div>
-                    <div class="factor-info-info"></div>
-                </div>
-                <div class="factor-info-line">
-                    <div class="factor-info-title">وزن</div>
-                    <div class="factor-info-info">22 کیلوگرم</div>
-                </div>
-                <div class="factor-info-line">
-                    <div class="factor-info-title">بسته بندی</div>
-                    <div class="factor-info-info">دارد</div>
-                </div>
-                <div class="factor-info-line">
-                    <div class="factor-info-title">بیمه</div>
-                    <div class="factor-info-info">1000 تومان</div>
-                </div>
-                <div class="factor-info-line">
-                    <div class="factor-info-title">نوع پرداخت</div>
-                    <div class="factor-info-info">پرداخت در مقصد</div>
-                </div>
+                    <div class="factor-info-line">
+                            <div class="factor-info-title">بسته بندی</div>
+                            <div *ngIf="PackDitile.isPacking==true" class="factor-info-info">شود</div>
+                            <div *ngIf="!PackDitile.isPacking==true" class="factor-info-info">نشود</div>
+                        </div>
+
+                        <div class="factor-info-line">
+                                <div  class="factor-info-title">بیمه</div>
+                                <div  *ngIf="PackDitile.isInsurance==true" class="factor-info-info">شود</div>
+                                <div  *ngIf="!PackDitile.isInsurance==true" class="factor-info-info">نشود</div>
+                            </div>
+
+                            <div class="factor-info-line">
+                                    <div class="factor-info-title">مبلغ بیمه</div>
+                                    <div class="factor-info-info">{{PackDitile.insurancePrice | toman}} </div>
+                                </div>
+                                <div class="factor-info-line">
+                                        <div class="factor-info-title">توضیحات</div>
+                                        <div class="factor-info-info">{{PackDitile.content }} </div>
+                                    </div>
+                                    <div class="factor-info-line">
+                                            <div class="factor-info-title">نوع پرداخت</div>
+                                            <div *ngIf="PackDitile.isCashPayment==false && PackDitile.payAtOrigin==false" class="factor-info-info">پرداخت نقدی در مقصد</div>
+                                            <div *ngIf="PackDitile.isCashPayment==true && PackDitile.payAtOrigin==true" class="factor-info-info">پرداخت اعتباری در مبدا</div>
+                                            <div *ngIf="PackDitile.isCashPayment==false && PackDitile.payAtOrigin==true" class="factor-info-info">پرداخت نقدی در مبدا</div>
+                                        </div>
+            
+        
                 <div class="factor-info-line factor-info-btn">
                     <div class="factor-info-title">هزینه ارسال</div>
-                    <div class="factor-info-info">335400<span>تومان</span></div>
+                    <div class="factor-info-info">{{PackDitile.price | toman}}<span></span></div>
                 </div>
 
             </div>

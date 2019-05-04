@@ -10,6 +10,7 @@ import { packsDto } from '../Model/dto/packs-dto';
 import { empty } from 'rxjs';
 import { Profile } from '../Model/dto/Profile';
 import { ProfileDto } from '../Core/DTO/Profile-dto';
+import { AcceptSearchDto } from './accept-search-dto';
 
  
 @Injectable()
@@ -21,6 +22,8 @@ export class PackService{
    private defultMenu=true;
    private PackStatus:any;
    private backStatusFacktore:boolean=false;
+   private StatusPay:AcceptSearchDto;
+   private StatusMnuAddressFavourite:boolean=true;
 constructor(){
   this.MultiplePacks=new MultiplePacksDto();
   this.MultiplePacks.origin=new originDto();
@@ -64,8 +67,7 @@ this.MultiplePacks.origin.latitude=  origin.latitude!=undefined ? origin.latitud
 this.MultiplePacks.origin.province=  origin.province!=undefined ? origin.province  : this.MultiplePacks.origin.province
 this.MultiplePacks.origin.street= origin.street!=undefined ? origin.street  : this.MultiplePacks.origin.street
 this.MultiplePacks.origin.senderPhoneNumber= origin.senderPhoneNumber!=undefined ? origin.senderPhoneNumber  : this.MultiplePacks.origin.senderPhoneNumber
-let phoneNumber=JSON.parse(localStorage.getItem("Profile"))
-this.MultiplePacks.origin.senderPhoneNumber=phoneNumber.phoneNumber;
+ 
  }
    getAddress(){
   //  return this.MultiplePacks.origin.street;
@@ -240,7 +242,7 @@ setOnLocalStorageEmpty(){
 }
 
 get getRetryFlow(){
-  // debugger
+   
   // var a=this.MultiplePacks.
   
   return "";
@@ -262,6 +264,19 @@ get getBackStatusFacktore(){
 }
   setBackStatusFacktore(status:boolean){
   this.backStatusFacktore=status;
+}
+setStatusPay(status:AcceptSearchDto){
+  this.StatusPay=status;
+}
+get getStatusPack(){
+  return this.StatusPay;
+}
+
+get getStatusMnuAddressFavourite(){
+  return this.StatusMnuAddressFavourite;
+}
+  setStatusMnuAddressFavourite(sttaus:boolean){
+    this.StatusMnuAddressFavourite=sttaus;
 }
 } 
  

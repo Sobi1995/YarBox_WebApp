@@ -1,5 +1,5 @@
  
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
 import { PackService } from '../Services/Pack-Service';
 import { AddressOrigin } from '../Model/Address-Origin';
@@ -15,7 +15,10 @@ import { originDto } from '../Model/dto/origin-dto';
   templateUrl: './add-favorite-address.component.html',
   styleUrls: ['./add-favorite-address.component.css']
 })
-export class AddFavoriteAddressComponent implements OnInit {
+export class AddFavoriteAddressComponent implements OnInit ,OnDestroy {
+  ngOnDestroy(): void {
+    this._packService.setStatusMnuAddressFavourite(false);
+  }
 
   @ViewChild(AgmMap) map: any;
   private dragEndSubscription: Subscription;
@@ -157,7 +160,7 @@ centerChange($event){
     
  }
  SaveAddress(address :string,title:string){
-     
+  this._packService.setStatusMnuAddressFavourite(false);
   if(address=="" || title ==""){
     this.errorAddress="لطفا عنوان را وارد کنید"
   return}

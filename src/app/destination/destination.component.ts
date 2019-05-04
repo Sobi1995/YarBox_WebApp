@@ -53,6 +53,7 @@ export class DestinationComponent implements OnInit {
     this._postPackService.setReceiveType("doorToDoor");
     this.destinationModel=this._postPackService.getDestination();
     this.typeCity =+this._postPackService.getTypeCity();
+     
     this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
       this.Cities=res;
     })

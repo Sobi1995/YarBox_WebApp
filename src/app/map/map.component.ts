@@ -52,8 +52,9 @@ export class MapComponent implements OnInit  {
 }
 
  ngOnInit(): void {
+   debugger
   this._packService.setBackStatusFacktore(false);
-this._packService.setOnLocalstoreage();
+this._packService.setOnLocalStorageEmpty();
  
   this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddress"));
   this.dragEndSubscription = (this.map._mapsWrapper as GoogleMapsAPIWrapper) 

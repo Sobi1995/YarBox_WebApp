@@ -18,7 +18,7 @@
                 <img src="/assets/img/11-faalliatha.svg">
             </div>
             <div class="stutus-pack">
-                <p *ngIf="PackDitile.status=='waiting'">در حال یافتن پیک<span class="info-rannade" data-toggle="modal" data-target="#myModal6">مشخصات راننده</span></p>
+                <p *ngIf="PackDitile.status=='waiting'" (click)="getDriver()">در حال یافتن پیک<span class="info-rannade" data-toggle="modal" data-target="#myModal6">مشخصات راننده</span></p>
                 <p *ngIf="PackDitile.status=='driverRecived'">دریافت شده توسط پیک</p>
                 <p *ngIf="PackDitile.status=='originPort'">ترمینال مبدا</p>
                 <p *ngIf="PackDitile.status=='destinationPort'">ترمینال مقصد</p>
@@ -62,7 +62,7 @@
 
         </div>
 
-        <div class="btn-web-app" data-toggle="modal" data-target="#myModal2"><button>مشاهده فاکتور</button></div>
+        <div class="btn-web-app" [routerLink]="['/final-factor']"><button>مشاهده فاکتور</button></div>
     </section>
 
 </div>
@@ -92,8 +92,11 @@
 
 
 
+                <div class="namedriver">نام و نام خانوادگی : <span class="name-driver"><p *ngIf="driver!=null">{{driver.firstName}} {{driver.lastName}}</p></span></div>
+                <div class="pelakdriver">شماره پلاک : <span class="pelak-driver"><p *ngIf="driver!=null">{{driver.plaque}}</p></span></div>
+                <a href="tel:{{driver.mobile}}" class="info-driver1-line2-span"><img src="/assets/img/8-mob.svg" width="40" height="40"></a>
             </div>
-
+            <img src="https://file.yarbox.co/images/driverInfoImage/{{driver.photoName}}" height="50px" width="50px">
         </div>
 
     </div>

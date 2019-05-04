@@ -16,14 +16,14 @@
         <div class="main-web-app main-web-app5">
 
             <ul class="nav nav-tabs nav-active">
-                <li class="active"><a data-toggle="tab" href="#menu1">مبدا</a></li>
-                <li><a data-toggle="tab" href="#menu2">مقصد</a></li>
+                <li  [class.active]="defultMenu==false"><a data-toggle="tab" href="#menu1">مبدا</a></li>
+                <li [class.active]="defultMenu==true"><a data-toggle="tab" href="#menu2">مقصد</a></li>
 
             </ul>
 
             <div class="tab-content">
 
-                <div id="menu1" class="tab-pane in active">
+                <div id="menu1" class="tab-pane in "   [class.active]="defultMenu==false" >
 
                     <div class="box-pack-web-app" *ngFor="let item of FavoriteAddress">
                         <div class="head-pack head-pack2">
@@ -54,7 +54,7 @@
                 </div>
 
 
-                <div id="menu2" class="tab-pane">
+                <div id="menu2" class="tab-pane"  [class.active]="defultMenu==true">
 
                     <div class="box-pack-web-app" *ngFor="let item of FavoriteAddressDistnation">
                         <div class="head-pack head-pack2">

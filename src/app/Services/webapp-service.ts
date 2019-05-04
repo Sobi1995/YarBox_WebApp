@@ -349,4 +349,19 @@ return response
     );
 }
 
+getDriverByPackId(packid:number):Observable<any>{
+    
+  this.setLoding(true);
+let headers = new HttpHeaders();
+headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
+return  this._http.get(this.api+"/driver/getDriverByPostpackId?postid="+packid,{headers:headers}).pipe(
+    map((response:any) => {
+      this.setLoding(false);
+return response
+    } )
+    );
+}
+
 }
