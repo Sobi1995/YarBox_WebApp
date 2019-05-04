@@ -48,7 +48,11 @@
             <h3>راننده شما</h3>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-7 col-xs-7">
-            <span>پرداخت نقدی در مقصد</span>
+            <!-- <span>پرداخت نقدی در مقصد</span> -->
+            <span *ngIf="status.isCashPayment==false && status.payAtOrigin==false">پرداخت نقدی در مقصد</span>
+            <span *ngIf="status.isCashPayment==true && status.payAtOrigin==true">پرداخت اعتباری در مبدا</span>
+            <span *ngIf="status.isCashPayment==false && status.payAtOrigin==true">پرداخت نقدی در مبدا</span>
+
           </div>
         </div>
         <div class="info-driver1-line2">
@@ -72,8 +76,8 @@
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding: 0">
           <span class="img-car">
             <img *ngIf="vehicle==1" src="/assets/img/5-vasileye-naghlie3motor.svg" width="70" height="70">
-            <img *ngIf="vehicle==2" src="/assets/img/5-vasileye-naghlie1pride.svg" width="70" height="70">
-            <img *ngIf="vehicle==3"src="/assets/img/5-vasileye-naghlie2pride-vanet.svg" width="70" height="70">
+            <img *ngIf="vehicle==2"  src="/assets/img/5-vasileye-naghlie1pride.svg" width="70" height="70">
+            <img *ngIf="vehicle==3" src="/assets/img/5-vasileye-naghlie2pride-vanet.svg" width="70" height="70">
           </span>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">

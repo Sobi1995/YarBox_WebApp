@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PackService } from '../Services/Pack-Service';
+import { WebAppService } from '../Services/webapp-service';
 
 @Component({
   selector: 'app-final-factor',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./final-factor.component.css']
 })
 export class FinalFactorComponent implements OnInit {
-
-  constructor() { }
+  Profile:any;
+  PackDitile:any;
+  constructor(private PackService:PackService,
+              ) { }
 
   ngOnInit() {
+    this.PackDitile=this.PackService.getPackStatus;
+    this.Profile = JSON.parse(localStorage.getItem("Profile"));
+     
   }
 
 }

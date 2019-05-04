@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 import { Router } from '@angular/router';
+import { PackService } from '../Services/Pack-Service';
 
 @Component({
   selector: 'app-favorite-address',
@@ -10,7 +11,12 @@ import { Router } from '@angular/router';
 export class FavoriteAddressComponent implements OnInit {
   FavoriteAddress:any;
   FavoriteAddressDistnation:any;
-  constructor( location: PlatformLocation,private router:Router) {
+  defultMenu:boolean;
+  constructor( 
+    location: PlatformLocation,
+    private router:Router,
+    private _packService:PackService
+    ) {
     location.onPopState(() => {
       history.go(1);
       this.router.navigate(["/"])
@@ -18,6 +24,8 @@ export class FavoriteAddressComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.defultMenu=this._packService.getStatusMnuAddressFavourite;
+     
     this.FavoriteAddress=JSON.parse(localStorage.getItem("Favoriteaddress"));
     this.FavoriteAddressDistnation = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
     

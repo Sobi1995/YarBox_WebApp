@@ -17,6 +17,7 @@ export class FactorComponent implements OnInit {
   credit:number=0;
   payment:number=-1;
   Vehicle:number;
+  Profile:any;
    accept=new AcceptSearchDto();
   constructor(
      private activatedRoute: ActivatedRoute,
@@ -24,7 +25,8 @@ export class FactorComponent implements OnInit {
      private PacksService:PackService,
      private router:Router,
      ) { 
-
+      this.Profile = JSON.parse(localStorage.getItem("Profile"));
+       
 this.Factor={
   id: 0,
   price: 0,
@@ -38,7 +40,7 @@ this.Factor={
   sender: {
     name: "",
     address: "",
-    phoneNumber: ""
+    phoneNumber: this.Profile.phoneNumber
   },
   receiver: {
     name:"",
@@ -58,7 +60,7 @@ this.Factor={
      }
 
   ngOnInit() {
- 
+
  this.Vehicle=this.PacksService.getVehicle();
     let factore= this.activatedRoute.snapshot.params["key"];
      console.log(factore)
@@ -85,7 +87,7 @@ this.accept.isCashPayment=chah;
 
   }
   SerchingDriver(){
-    
+     
     if(this.payment==-1)
     {
    
@@ -95,20 +97,24 @@ this.accept.isCashPayment=chah;
     if(this.accept.isCashPayment==true && this.accept.isCashPayment==true)
     {
       this._webapp.getCheck().subscribe(res=>{
-         
-        if(parseInt(this.Factor.price)>parseInt(res.credit)){
           
-         
-
+        if(parseInt(this.Factor.price)>parseInt(res.credit)){
           swal.fire({text: "کیف خود را شارژ کنید"});
         }
-     
+     else{
+      this.accept.id=this.Factor.id;
+      this._webapp.AcceptToSearch(this.accept).subscribe(res=>{
+        this.PacksService.setStatusPay(this.accept);
+        this.router.navigate(['/search-driver/'+this.Factor.id]) 
+      })
+     }
       })
     }
     else{
        
       this.accept.id=this.Factor.id;
       this._webapp.AcceptToSearch(this.accept).subscribe(res=>{
+        this.PacksService.setStatusPay(this.accept);
         this.router.navigate(['/search-driver/'+this.Factor.id]) 
       })
     }

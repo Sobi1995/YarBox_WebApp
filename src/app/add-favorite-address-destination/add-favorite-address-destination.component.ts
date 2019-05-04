@@ -1,5 +1,5 @@
  
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
 import { $ } from "jquery"
  
@@ -12,7 +12,10 @@ import { DestinationDto } from '../Model/dto/destination-dto';
   templateUrl: './add-favorite-address-destination.component.html',
   styleUrls: ['./add-favorite-address-destination.component.css']
 })
-export class AddFavoriteAddressDestinationComponent implements OnInit {
+export class AddFavoriteAddressDestinationComponent implements OnInit,OnDestroy {
+  ngOnDestroy(): void {
+    this._postPackService.setStatusMnuAddressFavourite(true);
+  }
   savedaddress:any[]=[]
   destinationModel:DestinationDto;
   typeCity:number=0;
@@ -108,6 +111,11 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
 
  
     onSubmit(){
+      this._postPackService.setStatusMnuAddressFavourite(true);
+      if(this.destinationModel.city=="شهر" || this.destinationModel.province=="استان" || this.destinationModel.city==undefined || this.destinationModel.province==undefined){
+         
+        return
+      }
       let element: HTMLElement = document.getElementById('OpenModal') as HTMLElement;
       element.click(); 
     }
