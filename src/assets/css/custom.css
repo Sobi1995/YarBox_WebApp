@@ -1204,13 +1204,13 @@ a.rowa .section-style {
         padding: 0 !important;
     }
     .img-support {
-        width: 50% !important;
-        height: 50% !important;
-        margin: 6% auto !important;
+        width: 32% !important;
+        height: 32% !important;
+        margin: 3% auto !important;
     }
     p.about-p,
     a.about-a {
-        font-size: 15px !important;
+        font-size: 13px !important;
         margin: 4% auto !important;
     }
     #selectfavoriteaddresses.modal.in .modal-dialog {
@@ -3269,7 +3269,7 @@ p.p-support img {
 p.about-p {
     color: #37438e;
     font-size: 17px;
-    line-height: 40px;
+    line-height: 30px;
     margin: 40px auto;
     text-align: justify;
 }
@@ -4239,6 +4239,40 @@ select.select-tedad {
     z-index: 10;
     width: 70px;
     padding: 2px 10px;
+}
+
+p.titr-montakhab {
+    font-size: 15px;
+    padding-top: 7px;
+}
+
+span.info-rannade {
+    font-size: 12px;
+    background: #46b86c;
+    font-weight: 600;
+    padding: 7px;
+    color: #fff;
+    margin: 0 4px;
+    border-radius: 10px;
+}
+
+#myModal6 .modal-body {
+    display: inline-block;
+    width: 100%;
+    line-height: 30px;
+}
+
+#myModal6 .info-driver1-line2-span {
+    background: #46b76b;
+    margin: 3% 40%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#myModal6 .info-driver1-line2-span img {
+    padding: 6%;
 }
 
 

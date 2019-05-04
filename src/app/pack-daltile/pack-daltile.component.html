@@ -18,7 +18,7 @@
                 <img src="/assets/img/11-faalliatha.svg">
             </div>
             <div class="stutus-pack">
-                <p *ngIf="PackDitile.status=='waiting'">در حال یافتن پیک</p>
+                <p *ngIf="PackDitile.status=='waiting'">در حال یافتن پیک<span class="info-rannade" data-toggle="modal" data-target="#myModal6">مشخصات راننده</span></p>
                 <p *ngIf="PackDitile.status=='driverRecived'">دریافت شده توسط پیک</p>
                 <p *ngIf="PackDitile.status=='originPort'">ترمینال مبدا</p>
                 <p *ngIf="PackDitile.status=='destinationPort'">ترمینال مقصد</p>
@@ -65,4 +65,26 @@
         <div class="btn-web-app" data-toggle="modal" data-target="#myModal2"><button>مشاهده فاکتور</button></div>
     </section>
 
+</div>
+
+
+<div id="myModal6" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">اطلاعات راننده</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="namedriver">نام و نام خانوادگی : <span class="name-driver">نام و نام خانوادگی</span></div>
+                <div class="pelakdriver">شماره پلاک : <span class="pelak-driver">5555555</span></div>
+                <span class="info-driver1-line2-span"><img src="/assets/img/8-mob.svg" width="40" height="40"></span>
+            </div>
+
+        </div>
+
+    </div>
 </div>
