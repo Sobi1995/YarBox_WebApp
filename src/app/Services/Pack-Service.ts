@@ -26,8 +26,9 @@ constructor(){
   this.MultiplePacks.origin=new originDto();
   this.MultiplePacks.destination=new DestinationDto();
   let isLocalStoragePack=localStorage.getItem("MultiplePacks");
+  debugger
   if(isLocalStoragePack==null)
-  this.setOnLocalStorage();
+  this.setOnLocalStorageEmpty();
   else{
      
     this.MultiplePacks=JSON.parse(isLocalStoragePack);
@@ -44,8 +45,9 @@ constructor(){
 }
 setOnLocalstoreage(){
   let isLocalStoragePack=localStorage.getItem("MultiplePacks");
+  debugger
   if(isLocalStoragePack==null)
-  this.setOnLocalStorage();
+  this.setOnLocalStorageEmpty();
   else{
      
     this.MultiplePacks=JSON.parse(isLocalStoragePack);
@@ -56,6 +58,7 @@ setOnLocalstoreage(){
  }
 
  setOrigin(origin:originDto){
+    
 this.MultiplePacks.origin.city= origin.city!=undefined ? origin.city  : this.MultiplePacks.origin.city
 this.MultiplePacks.origin.latitude=  origin.latitude!=undefined ? origin.latitude  : this.MultiplePacks.origin.latitude
 this.MultiplePacks.origin.province=  origin.province!=undefined ? origin.province  : this.MultiplePacks.origin.province
@@ -69,10 +72,12 @@ this.MultiplePacks.origin.senderPhoneNumber=phoneNumber.phoneNumber;
   return JSON.parse(localStorage.getItem("MultiplePacks")).street;
  }
 setAddress(address:string){
+   
   this.MultiplePacks.origin.street=address;
   this.setOnLocalStorage();
 }
    SetAddress(addressOrigin:AddressOrigin){
+      
    this.getMultiplePacks.origin.street=addressOrigin.address;
    this.getMultiplePacks.origin.latitude=addressOrigin.lat;
    this.getMultiplePacks.origin.llongitude=addressOrigin.lng;
@@ -210,6 +215,7 @@ getTypeCity(){
 return localStorage.getItem("typeCity");
 }
 setLatLong(long:string,lat:string){
+   
 this.MultiplePacks.origin.latitude=lat;
 this.MultiplePacks.origin.llongitude=long;
 }
@@ -221,7 +227,7 @@ get getDefultMenu(){
 }
 
 setOnLocalStorage(){
-  
+   
   localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
 }
 setOnLocalStorageEmpty(){
@@ -229,6 +235,7 @@ setOnLocalStorageEmpty(){
   empty=new MultiplePacksDto();
   empty.origin=new originDto();
   empty.destination=new DestinationDto();
+   
   localStorage.setItem("MultiplePacks",JSON.stringify(empty))
 }
 
