@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
 import { $ } from "jquery"
  
@@ -11,7 +11,8 @@ import { DestinationDto } from '../Model/dto/destination-dto';
   templateUrl: './destination.component.html',
   styleUrls: ['./destination.component.css']
 })
-export class DestinationComponent implements OnInit {
+export class DestinationComponent implements OnInit,OnDestroy {
+
   savedaddress:any[]=[]
   destinationModel:DestinationDto;
   typeCity:number=0;
@@ -21,7 +22,9 @@ export class DestinationComponent implements OnInit {
  portlocation:string="";
  errorAddress:string=null;
  @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
- @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
+ @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef; 
+  @ViewChild('closemyModal4') private closemyModal4: ElementRef; 
+ @ViewChild('closemyModal3') private closemyModal3: ElementRef;
  @ViewChild('ProvinceSelect') private ProvinceSelect: ElementRef;
  @ViewChild('addAddress') button;
  error:boolean=false;
@@ -31,6 +34,12 @@ export class DestinationComponent implements OnInit {
     private router:Router) { 
     this.destinationModel=new DestinationDto("","",0,"","","");
     
+  }
+  ngOnDestroy(): void {
+    this.closeModalSelectAddress.nativeElement.click(); 
+    this.closeModalfavoriteaddresses.nativeElement.click();  
+    this.closemyModal3.nativeElement.click();  
+        this.closemyModal4.nativeElement.click();  
   }
   onSubmit() {
     // alert("")

@@ -15,6 +15,7 @@ import { DestinationDto } from '../Model/dto/destination-dto';
 export class AddFavoriteAddressDestinationComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     this._postPackService.setStatusMnuAddressFavourite(true);
+    this.closeModalfavoriteaddresses.nativeElement.click();  
   }
   savedaddress:any[]=[]
   destinationModel:DestinationDto;
@@ -24,7 +25,7 @@ export class AddFavoriteAddressDestinationComponent implements OnInit,OnDestroy 
   Province:string;
  portlocation:string="";
  errorAddress:string=null;
- @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
+ 
  @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
  
  @ViewChild('addAddress') button;

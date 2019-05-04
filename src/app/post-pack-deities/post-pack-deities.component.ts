@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
 import { MainPacks } from '../Model/dto/Main-Packs-dto';
 import { PackService } from '../Services/Pack-Service';
@@ -13,7 +13,8 @@ import { delayWhen } from 'rxjs/operators';
   templateUrl: './post-pack-deities.component.html',
   styleUrls: ['./post-pack-deities.component.css']
 })
-export class PostPackDeitiesComponent implements OnInit {
+export class PostPackDeitiesComponent implements OnInit,OnDestroy {
+ 
   @ViewChild('closeModal') private closeModal: ElementRef;
 PostPackType:any;
 packs:packsDto[]=[]
@@ -32,7 +33,9 @@ statusInsuranceStatus:boolean=true;
     this.mainPacks.isInsurance=true;
     
   }
-
+  ngOnDestroy(): void {
+    this.closeModal.nativeElement.click();
+  }
   ngOnInit() {
   
     this.type=1;
