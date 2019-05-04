@@ -26,8 +26,8 @@ export class MapComponent implements OnInit  {
  zoom: number = 15;
 //  markers: marker[]=[];
  // initial center position for the map
- lat: number = 35.7556095;
- lng: number =51.4127404;
+ lat: number = null;
+ lng: number =null;
  
    savedaddress:any[]=[]
 
@@ -62,7 +62,7 @@ this._packService.setOnLocalstoreage();
 
   
     this._webappservice.getCedarmapAddress( this.latDragEnd,this.lngDragEnd).subscribe(res=>{
-          
+           
       let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
       this.Origin.street=myAddress;
         this._packService.SetAddress(new AddressOrigin(this.latDragEnd,this.lngDragEnd,myAddress))
@@ -73,7 +73,7 @@ this._packService.setOnLocalstoreage();
   });
   
 
-   
+    
     this.Origin=this._packService.getOrigin();
      this.Origin.street= this.Origin.street;
     if(this.Origin.latitude!= undefined && this.Origin.llongitude!=undefined )
@@ -97,6 +97,7 @@ this._packService.setOnLocalstoreage();
       {
          
       navigator.geolocation.getCurrentPosition( pos => {        
+         
           this.lng = +pos.coords.longitude;
           this.lat = +pos.coords.latitude;
           this.lngDragEnd=pos.coords.longitude.toString();
@@ -109,7 +110,7 @@ this._packService.setOnLocalstoreage();
           //   draggable: true
           // });       
           self._webappservice.getCedarmapAddress(pos.coords.latitude.toString(),pos.coords.longitude.toString()).subscribe(res=>{      
-            
+             
             let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
             this.Origin.street=myAddress;
             this._packService.SetAddress(new AddressOrigin(pos.coords.latitude.toString(),pos.coords.longitude.toString()))
@@ -155,7 +156,7 @@ centerChange($event){
     this.lat = +pos.coords.latitude;
   
       self._webappservice.getCedarmapAddress(pos.coords.latitude.toString(),pos.coords.longitude.toString()).subscribe(res=>{ 
-        
+         
         let myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
         self._packService.SetAddress(new AddressOrigin( pos.coords.latitude.toString(),pos.coords.longitude.toString(),myAddress))
         self.Origin.street=myAddress;
@@ -167,7 +168,7 @@ centerChange($event){
  markerDragEnd(m: marker, $event) {
     
   this._webappservice.getCedarmapAddress( $event.coords.lat,$event.coords.lng).subscribe(res=>{
-         
+          
   let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
     this._packService.SetAddress(new AddressOrigin($event.coords.lat,$event.coords.lng,myAddress))
    console.log( myAddress)
@@ -182,6 +183,7 @@ centerChange($event){
    this.latDragEnd= this.lat.toString();
    this.lngDragEnd= this.lng.toString();
  }
+  
    this._packService.setAddress(val);
    this._packService.setLatLong(this.latDragEnd.toString(),this.lngDragEnd.toString());
    this.closeModal.nativeElement.click();     
