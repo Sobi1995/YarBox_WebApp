@@ -26,7 +26,7 @@ constructor(){
   this.MultiplePacks.origin=new originDto();
   this.MultiplePacks.destination=new DestinationDto();
   let isLocalStoragePack=localStorage.getItem("MultiplePacks");
-  debugger
+   
   if(isLocalStoragePack==null)
   this.setOnLocalStorageEmpty();
   else{
@@ -45,7 +45,7 @@ constructor(){
 }
 setOnLocalstoreage(){
   let isLocalStoragePack=localStorage.getItem("MultiplePacks");
-  debugger
+   
   if(isLocalStoragePack==null)
   this.setOnLocalStorageEmpty();
   else{

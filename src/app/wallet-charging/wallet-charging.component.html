@@ -11,7 +11,7 @@
 
 
             <div class="etebar">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -25,35 +25,35 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
 
-                        <div class="item active"   data-value="20000">
+                        <div class="item active" data-value="20000">
                             <img (click)="vlauePay(20000)" src="../assets/img/18-tasvire-kart.png" width="450" height="215">
                             <div class="carousel-caption">
 
                             </div>
                         </div>
 
-                        <div class="item"  data-value="40000">
+                        <div class="item" data-value="40000">
                             <img (click)="vlauePay(40000)" src="../assets/img/18-tasvire-kart-copy.png" width="450" height="215">
                             <div class="carousel-caption">
 
                             </div>
                         </div>
 
-                        <div class="item"  data-value="60000">
+                        <div class="item" data-value="60000">
                             <img (click)="vlauePay(60000)" src="../assets/img/18-tasvire-kart-copy2.png" width="450" height="215">
                             <div class="carousel-caption">
 
                             </div>
                         </div>
 
-                        <div class="item"  data-value="80000">
+                        <div class="item" data-value="80000">
                             <img (click)="vlauePay(80000)" src="../assets/img/18-tasvire-kart-copy3.png" width="450" height="215">
                             <div class="carousel-caption">
 
                             </div>
                         </div>
 
-                        <div class="item"  data-value="100000">
+                        <div class="item" data-value="100000">
                             <img (click)="vlauePay(100000)" src="../assets/img/18-tasvire-kart-copy4.png" width="450" height="215">
                             <div class="carousel-caption">
 
@@ -104,7 +104,7 @@
 
 <script>
     //root
-    var mc = new Hammer(document.getElementById("carousel-example-generic"));
+    var mc = new Hammer(document.getElementById("myCarousel"));
 
     //mouse pointer state
     var pointerXCoord = 0;
@@ -115,12 +115,12 @@
     //lastmove
     var lastMove = "";
 
-    $("#carousel-example-generic").carousel({
+    $("#myCarousel").carousel({
         //interval: false
     });
 
     function initialize() {
-        $("#carousel-example-generic").carousel("cycle");
+        $("#myCarousel").carousel("cycle");
         carouselWidth = $(".carousel-inner").width();
         imageLeftCord = 0;
         pointerXCoord = 0;
@@ -134,7 +134,7 @@
         });
         $(".item").removeClass("prev");
         $(".item").removeClass("next");
-        $("#carousel-example-generic").carousel("prev");
+        $("#myCarousel").carousel("prev");
         setTimeout(function() {
             initialize();
         }, 600);
@@ -147,7 +147,7 @@
         });
         $(".item").removeClass("prev");
         $(".item").removeClass("next");
-        $("#carousel-example-generic").carousel("next");
+        $("#myCarousel").carousel("next");
         setTimeout(function() {
             initialize();
         }, 600);
@@ -164,7 +164,7 @@
     //CATCH PANNING EVENTS
     mc.on("panstart panend panleft panright", function(ev) {
         //PAUSE THE CAROUSEL
-        $("#carousel-example-generic").carousel("pause");
+        $("#myCarousel").carousel("pause");
 
         //set next and prev with circular searching
         var prev = $(".item.active").prev();
