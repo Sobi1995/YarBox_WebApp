@@ -34,11 +34,17 @@ span.pack-item-number {
         font-size: 15px !important;
         top: 6px !important;
     }
-    .modal.in .modal-dialog {
+    #myModal.modal.in .modal-dialog {
         -webkit-transform: translate(0, 54%) !important;
         -ms-transform: translate(0, 54%) !important;
         -o-transform: translate(0, 54%) !important;
         transform: translate(0, 54%) !important;
+    }
+    #myModal7.modal.in .modal-dialog {
+        -webkit-transform: translate(0, 160%) !important;
+        -ms-transform: translate(0, 160%) !important;
+        -o-transform: translate(0, 160%) !important;
+        transform: translate(0, 160%) !important;
     }
     .btn-web-app button {
         margin-right: -20px !important;
@@ -49,4 +55,8 @@ span.pack-item-number {
     .btn-web-app button {
         margin-right: 0 !important;
     }
+}
+
+#myModal7.modal.in .modal-dialog p {
+    margin: 3% 5% 8%;
 }

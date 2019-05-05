@@ -1204,14 +1204,14 @@ a.rowa .section-style {
         padding: 0 !important;
     }
     .img-support {
-        width: 32% !important;
-        height: 32% !important;
-        margin: 3% auto !important;
+        width: 30% !important;
+        height: 30% !important;
+        margin: 2% auto !important;
     }
     p.about-p,
     a.about-a {
-        font-size: 13px !important;
-        margin: 4% auto !important;
+        font-size: 12px !important;
+        margin: 3% auto !important;
     }
     #selectfavoriteaddresses.modal.in .modal-dialog {
         -webkit-transform: translate(0, 22%) !important;
@@ -1265,6 +1265,7 @@ a.rowa .section-style {
     }
     .stutus-pack {
         margin: 8% auto !important;
+        font-size: 13px;
     }
     .history-head {
         font-size: 12px !important;
@@ -1304,6 +1305,15 @@ a.rowa .section-style {
     }
     .btn-web-app button {
         padding: 3% !important;
+    }
+    span.info-rannade {
+        font-size: 10px !important;
+    }
+    .namedriver {
+        FONT-SIZE: 11px !important;
+    }
+    .pelakdriver {
+        font-size: 12px !important;
     }
 }
 
@@ -3269,7 +3279,7 @@ p.p-support img {
 p.about-p {
     color: #37438e;
     font-size: 17px;
-    line-height: 30px;
+    line-height: 25px;
     margin: 40px auto;
     text-align: justify;
 }
