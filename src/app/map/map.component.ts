@@ -45,14 +45,14 @@ export class MapComponent implements OnInit  {
   private router:Router,
   location: PlatformLocation){
     this.Origin=new originDto();
-     
-    location.onPopState(() => {
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
         history.go(1);
-  });
+    };
 }
 
  ngOnInit(): void {
-   debugger
+    
   this._packService.setBackStatusFacktore(false);
 this._packService.setOnLocalStorageEmpty();
  

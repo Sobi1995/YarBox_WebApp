@@ -16,11 +16,10 @@ constructor(
   location: PlatformLocation,
   private router:Router,
   private _packservice:PackService,) { 
-    location.onPopState(() => {
-      // history.go(1);
-      
-     this.router.navigate(["/"])
-});
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
+        history.go(1);
+    };
   }
 
   ngOnInit() {

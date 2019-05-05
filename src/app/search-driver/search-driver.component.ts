@@ -20,9 +20,10 @@ export class SearchDriverComponent implements OnInit {
     location: PlatformLocation
     
     ) { 
-      location.onPopState(() => {
-        history.go(1);
-  });
+      history.pushState(null, null, null);
+      window.onpopstate = function () {
+          history.go(1);
+      };
     this.startTimer();
   }
 

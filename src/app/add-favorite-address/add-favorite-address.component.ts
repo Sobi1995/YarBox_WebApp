@@ -51,12 +51,10 @@ address:string;
   private router:Router,
   location: PlatformLocation){
  
-     
-    location.onPopState(() => {
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
         history.go(1);
-        this.router.navigate(["/"])
-    
-  });
+    };
 }
 
  ngOnInit(): void {
