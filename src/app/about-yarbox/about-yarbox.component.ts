@@ -10,11 +10,10 @@ import { PlatformLocation } from '@angular/common';
 export class AboutYarboxComponent implements OnInit {
 
   constructor(  private router:Router, location: PlatformLocation) { 
-    location.onPopState(() => {
-      // history.go(1);
-      
-     this.router.navigate(["/"])
-});
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
+        history.go(1);
+    };
 }
 
   ngOnInit() {

@@ -22,10 +22,10 @@ defultMenu:boolean;
     private router: Router,
     private PackService:PackService,
     location: PlatformLocation) { 
-      location.onPopState(() => {
-         
-        history.go(1);
-  });
+      history.pushState(null, null, null);
+      window.onpopstate = function () {
+          history.go(1);
+      };
     }
 
   ngOnInit() {

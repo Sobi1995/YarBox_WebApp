@@ -13,11 +13,11 @@ export class SupportComponent implements OnInit {
   constructor(  private _webappservice:WebAppService,
     location: PlatformLocation,
     private router:Router) { 
-      location.onPopState(() => {
-        // history.go(1);
-        
-       this.router.navigate(["/"])
-  });
+ 
+  history.pushState(null, null, null);
+window.onpopstate = function () {
+    history.go(1);
+};
     }
 
   ngOnInit() {

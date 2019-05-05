@@ -12,10 +12,10 @@ export class MessagesComponent implements OnInit {
   messages:any;
   
   constructor( location: PlatformLocation,private router:Router, private _webappservice:WebAppService) {
-    location.onPopState(() => {
-      history.go(1);
-      this.router.navigate(["/"])
-});
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
+        history.go(1);
+    };
    }
   ngOnInit() {
     this._webappservice.getUserMessages().subscribe(res=>{

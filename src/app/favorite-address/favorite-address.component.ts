@@ -17,10 +17,10 @@ export class FavoriteAddressComponent implements OnInit {
     private router:Router,
     private _packService:PackService
     ) {
-    location.onPopState(() => {
-      history.go(1);
-      this.router.navigate(["/"])
-});
+      history.pushState(null, null, null);
+      window.onpopstate = function () {
+          history.go(1);
+      };
    }
 
   ngOnInit() {
