@@ -16,7 +16,12 @@ export class PackDaltileComponent implements OnInit,OnDestroy {
     driver:any=null;
   constructor(
     private PackService:PackService,
-    private _webApp:WebAppService) { }
+    private _webApp:WebAppService) { 
+      history.pushState(null, null, null);
+      window.onpopstate = function () {
+          history.go(1);
+      };
+    }
 
   ngOnInit() {
     this.PackDitile=this.PackService.getPackStatus;

@@ -33,6 +33,10 @@ export class DestinationComponent implements OnInit,OnDestroy {
     private _postPackService:PackService,
     private router:Router) { 
     this.destinationModel=new DestinationDto("","",0,"","","");
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
+        history.go(1);
+    };
     
   }
   ngOnDestroy(): void {
@@ -58,11 +62,12 @@ export class DestinationComponent implements OnInit,OnDestroy {
   this.router.navigate(["/postPack-deities"])
   }
   ngOnInit() {
+   
     this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
     this._postPackService.setReceiveType("doorToDoor");
     this.destinationModel=this._postPackService.getDestination();
     this.typeCity =+this._postPackService.getTypeCity();
-     
+      if(this.destinationModel.province!=undefined)
     this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
       this.Cities=res;
     })
@@ -71,6 +76,7 @@ export class DestinationComponent implements OnInit,OnDestroy {
        
  //[routerLink]="['/postPack-deities']"
     })
+   
   }
   AcceptDestination(){
       

@@ -12,7 +12,13 @@ error:Boolean=false;
   constructor(
     private _packService:PackService,
     private _webapp:WebAppService,
-    private router:Router) { }
+    private router:Router) { 
+
+      history.pushState(null, null, null);
+      window.onpopstate = function () {
+          history.go(1);
+      };
+    }
     vehicle:number=0;
   ngOnInit() {
      

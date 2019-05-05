@@ -52,7 +52,8 @@ export class MapComponent implements OnInit  {
 }
 
  ngOnInit(): void {
-    
+
+debugger
   this._packService.setBackStatusFacktore(false);
 this._packService.setOnLocalStorageEmpty();
  

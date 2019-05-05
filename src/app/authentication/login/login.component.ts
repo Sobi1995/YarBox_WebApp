@@ -23,7 +23,10 @@ model: any = {};
     private auth:authenticationService,
     private router: Router,
   ) {
-
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
+        history.go(1);
+    };
    
      }
      onSubmit(){
