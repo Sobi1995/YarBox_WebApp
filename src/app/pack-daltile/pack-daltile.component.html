@@ -78,25 +78,17 @@
                 <h4 class="modal-title">اطلاعات راننده</h4>
             </div>
             <div class="modal-body">
-                <div class="div-img-rannade"><img src="/assets/img/8-mob.svg" class="img-rannade"></div>
+                <div class="div-img-rannade"><img src="https://file.yarbox.co/images/driverInfoImage/{{driver.photoName}}" height="50px" width="50px" class="img-rannade"></div>
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                    <div class="namedriver">نام و نام خانوادگی : <span class="name-driver">نام و نام خانوادگی</span></div>
-                    <div class="pelakdriver">شماره پلاک : <span class="pelak-driver">5555555</span></div>
+                    <div class="namedriver">نام و نام خانوادگی : <span class="name-driver"><p *ngIf="driver!=null">{{driver.firstName}} {{driver.lastName}}</p></span></div>
+                    <div class="pelakdriver">شماره پلاک : <span class="pelak-driver"><p *ngIf="driver!=null">{{driver.plaque}}</p></span></div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <span class="info-driver1-line2-span"><img src="/assets/img/8-mob.svg" width="40" height="40"></span>
+                    <a href="tel:{{driver.mobile}}" class="info-driver1-line2-span"><img src="/assets/img/8-mob.svg" width="40" height="40"></a>
                 </div>
 
-
-
-
-
-
-                <div class="namedriver">نام و نام خانوادگی : <span class="name-driver"><p *ngIf="driver!=null">{{driver.firstName}} {{driver.lastName}}</p></span></div>
-                <div class="pelakdriver">شماره پلاک : <span class="pelak-driver"><p *ngIf="driver!=null">{{driver.plaque}}</p></span></div>
-                <a href="tel:{{driver.mobile}}" class="info-driver1-line2-span"><img src="/assets/img/8-mob.svg" width="40" height="40"></a>
             </div>
-            <img src="https://file.yarbox.co/images/driverInfoImage/{{driver.photoName}}" height="50px" width="50px">
+
         </div>
 
     </div>

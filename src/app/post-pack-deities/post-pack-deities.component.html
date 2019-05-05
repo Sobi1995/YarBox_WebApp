@@ -184,7 +184,7 @@
 
                     <div class="radiobtn-pack">
                         <input autocomplete="off" id="radio-1" type="radio" name="Data1" value="agree" [checked]="mainPacks.isPacking==true? true: false" (click)="PackingStatus(true)" />
-                        <label for="radio-1"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+                        <label for="radio-1"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" data-toggle="modal" data-target="#myModal7"/><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
                         <input autocomplete="off" id="radio-2" type="radio" name="Data1" value="disagree" [checked]="mainPacks.isPacking==false? true: false" (click)="PackingStatus(false)" />
                         <label for="radio-2"><img src="/assets/img/icon-close.svg" width="20" class="radiobtn3" /><img src="/assets/img/icon-close-w.svg" width="20" class="radiobtn4" /></label>
                     </div>
@@ -227,4 +227,25 @@
 
     </section>
 
+</div>
+
+
+
+<div id="myModal7" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">بسته بندی</h4>
+            </div>
+            <div class="modal-body">
+                <p>بسته بندی شامل هزینه می باشد</p>
+
+            </div>
+
+        </div>
+
+    </div>
 </div>
