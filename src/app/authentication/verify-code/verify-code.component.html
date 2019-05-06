@@ -9,7 +9,7 @@
 		<div class="verify-code">
 			<img src="./assets/img/ghofl.svg" class="img-web-app" />
 			<p class="code-massege"> کد تایید ارسال شده را وارد نمایید</p>
-			<input autocomplete="off" type="number" placeholder="----   ---   ----" class="login-input" #verifycode />
+			<input autocomplete="off" type="tel" placeholder="----   ---   ----" class="login-input" #verifycode />
 			<p *ngIf="error!=''">{{error}}</p>
 			<a (click)="retrysms()" class="resend">ارسال مجدد</a>
 		</div>

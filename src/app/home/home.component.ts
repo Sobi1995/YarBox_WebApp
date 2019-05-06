@@ -63,6 +63,7 @@ this._webappservice.deletePack(id).subscribe(res=>{
 this._webappservice.reReorder(id).subscribe(res=>{
    this.PackService.setBackStatusFacktore(true);
    this.PackService.setDefultMenu(false);
+   this.PackService.setFactorKey(res.packKey)
   this.router.navigate(["/factor/"+res.packKey]);
 })
   }

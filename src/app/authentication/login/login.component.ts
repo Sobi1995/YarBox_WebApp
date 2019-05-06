@@ -31,9 +31,9 @@ model: any = {};
      }
      onSubmit(){
    
-      this.auth.sendVerifyCode("0"+this.model.mobile).subscribe(
+      this.auth.sendVerifyCode(this.model.mobile).subscribe(
         data => {
-          this.router.navigate(["/verify-vode/"+"0"+this.model.mobile]);
+          this.router.navigate(["/verify-vode/"+this.model.mobile]);
         },
         (error) => {
              
@@ -43,7 +43,7 @@ model: any = {};
  }
  else if(error.error.message!=undefined){
 
-  this.router.navigate(["/register/"+"0"+this.model.mobile])
+  this.router.navigate(["/register/"+this.model.mobile])
 }
  
  

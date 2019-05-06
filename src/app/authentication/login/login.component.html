@@ -10,7 +10,7 @@
 				
 						<!-- #mobile="ngModel" pattern="[0-9]+" required  -->
 						<!-- git test -->
-					<input  autocomplete="off" type="number" placeholder="----   ---   ----" class="login-input"   [(ngModel)]="model.mobile" #mobile="ngModel"  name="mobile"  pattern="^(\+98|0)?9\d{9}$" required />
+					<input  autocomplete="off" type="tel" placeholder="----   ---   ----" class="login-input"   [(ngModel)]="model.mobile" #mobile="ngModel"  name="mobile"  pattern="^(\+98|0)?9\d{9}$" required />
 					<img src="/assets/img/2-mob.svg" width="30" height="30">
 
 					<div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
