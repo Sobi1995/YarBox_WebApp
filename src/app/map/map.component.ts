@@ -134,6 +134,7 @@ centerChange($event){
   this.lngDragEnd=$event.lng;
  this.lat=null;
  this.lng=null;
+ this.googleAddressAutoComplate=null;
  
   
 }
@@ -248,12 +249,12 @@ console.table(res.predictions)
  }
  getByPlaseId(plaseid:string){
    this._webappservice.getPlaseById(plaseid).subscribe(res=>{
-      
+    
     this.lat=res.result.geometry.location.lat;
     this.lng=res.result.geometry.location.lng;
   this._webappservice.getCedarmapAddress(res.result.geometry.location.lat,res.result.geometry.location.lng).subscribe(res=>{
     let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
-     
+  this.googleAddressAutoComplate=null;
    this. Origin.street=myAddress
   })
    })

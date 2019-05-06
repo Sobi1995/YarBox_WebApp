@@ -1135,7 +1135,7 @@ a.rowa .section-style {
         margin: 13% 0 !important;
     }
     .title-web-app1 input {
-        width: 73% !important;
+        width: 69% !important;
         padding: 3% 13% !important;
         margin-top: 2% !important;
     }
@@ -4302,15 +4302,19 @@ span.info-rannade {
 }
 
 .search-mabda-part {
-    width: 67%;
+    width: 65%;
     background: #ffffff;
-    margin-right: 21%;
+    margin-right: 23%;
     color: #26306d;
     box-shadow: 0 0 2px 0px #777;
     border-top: 1px solid #ccc;
     border-radius: 0 0 5px 5px;
     line-height: 26px;
     font-size: 12px;
+}
+
+button.name-user img {
+    margin-right: 12px;
 }
 
 
