@@ -1,85 +1,97 @@
+<div [style.visibility]="getIsLogin() ? 'visible' : 'hidden'">
 
-				
-  <div [style.visibility]="getIsLogin() ? 'visible' : 'hidden'" >	
-		
-			<a id="menu-toggle"   class="btn btn-lg toggle"><img   src="/assets/img/3-meno.svg" width="25" height="25"></a>
-			<div id="sidebar-wrapper"  >
-			  <ul class="sidebar-nav">
-				<a id="menu-close" href="#" class="btn btn-lg pull-right toggle"><img src="/assets/img/icon-close.svg" width="20" /></a>
-				 <li class="sidebar-top">
-					<div>
-						<div class="sidebar-top-info">
-							<div class="profile-info"><button class="name-user"   data-toggle="modal" data-target="#ModalProfile"  #openmodal>{{ getProfile().firstName}}  {{ getProfile().lastName}}<i class="far fa-edit"></i></button></div>
-							
-							<!--div class="profile-info emtiaz"><span  >{{ getProfile().reagentCode}}</span>کد معرف</div-->
-						</div>
-					</div> 
-				</li>
-				<li>
-					
-					<div class="etebar-side-bar">
-					اعتبار شما <span  >{{ getProfile().credit | toman}}</span><a (click)=" hideMnu()" [routerLink]="['/wallet-charging']"><img src="/assets/img/3-mosbat.svg" width="25" height="25"></a>
-					</div>
-				</li>
-				<li>
-				  <a  [routerLink]="['/reports']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-gozareshat.svg" width="35" height="35">گزارشات</a>
-				</li>
-				<li>
-				  <a [routerLink]="['/base']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">فعالیت ها</a>
-				</li>
-				<li>
-						<a [routerLink]="['/wallet-charging']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-sharzhe-kifepool.svg" width="35" height="35">شارژ کیف پول</a>
-					</li>
-				<li>
-				  <a  [routerLink]="['/favorite-address']" (click)=" hideMnu()" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-adreshaye-montakhab.svg" width="35" height="35">آدرس های منتخب</a>
-				</li>
-				  <li>
-				  <a   [routerLink]="['/messages']"  class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-sandoghe-payam.svg" width="35" height="35">صندوق پیام</a>
-				</li>
-				<li>
-				  <a  [routerLink]="['/about-yarbox']"  class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-darbareye-ma.svg" width="35" height="35">درباره ما</a>
-				</li>
-				
-				<li>
-				  <a   [routerLink]="['/Support']"  class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-poshtibani.svg" width="35" height="35">پشتیبانی</a>
-				</li>
-				  <li>
-				  <a (click)="SingOut()" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-khorooj.svg" width="35" height="35">خروج</a>
-				</li>
-				</ul>
-				<div class="sid"></div>
-			</div>
-		
-	</div>
+    <a id="menu-toggle" class="btn btn-lg toggle"><img src="/assets/img/3-meno.svg" width="25" height="25"></a>
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-lg pull-right toggle"><img src="/assets/img/icon-close.svg" width="20" /></a>
+            <li class="sidebar-top">
+                <div>
+                    <div class="sidebar-top-info">
+                        <div class="profile-info"><button class="name-user" data-toggle="modal" data-target="#ModalProfile" #openmodal>{{ getProfile().firstName}}  {{ getProfile().lastName}}<img src="/assets/img/virayesh.svg" width="18"></button></div>
 
+                        <!--div class="profile-info emtiaz"><span  >{{ getProfile().reagentCode}}</span>کد معرف</div-->
+                    </div>
+                </div>
+            </li>
+            <li>
 
-	<main [@fadeAnimation]="getRouterOutletState(o)" (click)="hideMnu()" >
-		
-		<router-outlet #o="outlet" class="bac-loding"  >
-				<!--img id="loding"  [hidden]="!getLodingStatus()" src="/assets/img/loding2.gif" -->
-				<!-- <div class="back-loding"   [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'" ></div><img [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'"  src="/assets/img/loding2.gif" class="loding-img" width="100" height="100"> -->
-				<!-- [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'" -->
-				<div class="back-loding2" [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'">
-				<div class="back-loding"    class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-				</div>
-		</router-outlet>
-	</main>
-	<!-- [hidden]="!getLodingStatus()" -->
+                <div class="etebar-side-bar">
+                    اعتبار شما <span>{{ getProfile().credit | toman}}</span>
+                    <a (click)=" hideMnu()" [routerLink]="['/wallet-charging']"><img src="/assets/img/3-mosbat.svg" width="25" height="25"></a>
+                </div>
+            </li>
+            <li>
+                <a [routerLink]="['/reports']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-gozareshat.svg" width="35" height="35">گزارشات</a>
+            </li>
+            <li>
+                <a [routerLink]="['/base']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-faalliatha.svg" width="35" height="35">فعالیت ها</a>
+            </li>
+            <li>
+                <a [routerLink]="['/wallet-charging']" (click)=" hideMnu()" class="a-sidebar"><img src="/assets/img/3-icon-sharzhe-kifepool.svg" width="35" height="35">شارژ کیف پول</a>
+            </li>
+            <li>
+                <a [routerLink]="['/favorite-address']" (click)=" hideMnu()" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-adreshaye-montakhab.svg" width="35" height="35">آدرس های منتخب</a>
+            </li>
+            <li>
+                <a [routerLink]="['/messages']" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-sandoghe-payam.svg" width="35" height="35">صندوق پیام</a>
+            </li>
+            <li>
+                <a [routerLink]="['/about-yarbox']" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-darbareye-ma.svg" width="35" height="35">درباره ما</a>
+            </li>
+
+            <li>
+                <a [routerLink]="['/Support']" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-poshtibani.svg" width="35" height="35">پشتیبانی</a>
+            </li>
+            <li>
+                <a (click)="SingOut()" class="a-sidebar" (click)=" hideMnu()"><img src="/assets/img/3-icon-khorooj.svg" width="35" height="35">خروج</a>
+            </li>
+        </ul>
+        <div class="sid"></div>
+    </div>
+
+</div>
 
 
- 
+<main [@fadeAnimation]="getRouterOutletState(o)" (click)="hideMnu()">
 
-		<div id="ModalProfile" class="modal fade" role="dialog" #ModalProfile>
-			<div class="modal-dialog">
-				<div class="modal-content modal-content-packs">
-				<div class="modal-body">
-						<h4 class="modal-title">نام و نام خانوادگی خود را ویرایش نمایید</h4>
-						<input  autocomplete="off" type="text" placeholder="نام"  value="{{getProfile().firstName}}"   #lname class="titr-favorite">
-						<input  autocomplete="off" type="text" placeholder="نام خانوادگی" value="{{getProfile().lastName}}"   #fname class="text-favorite">
-						 <div class="btn-circle-download" id="btn-ok-address"  (click)="UpdateProfiele(fname.value,lname.value)">
-								<span class='pulse-button' ><img src="/assets/img/icon-ok.svg" width="20" /></span>
-						 </div>
-				</div>
-				</div>
-			</div>
-			</div>
+    <router-outlet #o="outlet" class="bac-loding">
+        <!--img id="loding"  [hidden]="!getLodingStatus()" src="/assets/img/loding2.gif" -->
+        <!-- <div class="back-loding"   [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'" ></div><img [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'"  src="/assets/img/loding2.gif" class="loding-img" width="100" height="100"> -->
+        <!-- [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'" -->
+        <div class="back-loding2" [style.visibility]=" getLodingStatus() ? 'visible' : 'hidden'">
+            <div class="back-loding" class="lds-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </router-outlet>
+</main>
+<!-- [hidden]="!getLodingStatus()" -->
+
+
+
+
+<div id="ModalProfile" class="modal fade" role="dialog" #ModalProfile>
+    <div class="modal-dialog">
+        <div class="modal-content modal-content-packs">
+            <div class="modal-body">
+                <h4 class="modal-title">نام و نام خانوادگی خود را ویرایش نمایید</h4>
+                <input autocomplete="off" type="text" placeholder="نام" value="{{getProfile().firstName}}" #lname class="titr-favorite">
+                <input autocomplete="off" type="text" placeholder="نام خانوادگی" value="{{getProfile().lastName}}" #fname class="text-favorite">
+                <div class="btn-circle-download" id="btn-ok-address" (click)="UpdateProfiele(fname.value,lname.value)">
+                    <span class='pulse-button'><img src="/assets/img/icon-ok.svg" width="20" /></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
