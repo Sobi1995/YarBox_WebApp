@@ -10,17 +10,21 @@
 
                 <div class="title-web-app1">
                     <p>ثبت مبدا</p>
-                    
-            <div *ngFor="let prediction of googleAddressAutoComplate" (click)="getByPlaseId(prediction.place_id)">
-  
-                <span *ngIf="IsTehran(prediction.description)">{{splitCity(prediction)}}</span>
-            </div>
+
+
                     <button data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><img src="/assets/img/icon-bookmark.svg"  width="20" /></button>
                     <img src="/assets/img/3-mabda.svg" width="25" height="25" class="icon-serch1">
                     <!-- (input)="onSearchChange($event.target.value)" -->
-                    <input autocomplete="off" type="search" value={{Origin.street}}   (click)="EmptyInput()" (input)="onSearchChange($event.target.value)">
+                    <input autocomplete="off" type="search" value={{Origin.street}} (click)="EmptyInput()" (input)="onSearchChange($event.target.value)">
 
                     <img src="/assets/img/3-search.svg" width="25" height="25" class="icon-serch2">
+                    <div class="search-mabda-part">
+                        <div *ngFor="let prediction of googleAddressAutoComplate" (click)="getByPlaseId(prediction.place_id)">
+                            <span *ngIf="IsTehran(prediction.description)">{{splitCity(prediction)}}</span>
+                        </div>
+                    </div>
+
+
                 </div>
 
             </div>
