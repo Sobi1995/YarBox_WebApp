@@ -6,24 +6,21 @@
     height: 70vh;
     overflow-y: scroll;
 }
-@media screen and (max-width: 500px){
+
+@media screen and (max-width: 500px) {
     .btn-web-app button {
         padding: 4% !important;
     }
-    a.back-web-app {
-        margin-top: -18% !important;
-    }
-
 }
+
 @media screen and (max-width:414px) {
-	.btn-web-app button {
+    .btn-web-app button {
         padding: 6% !important;
     }
-  
 }
-@media screen and (max-width: 320px){
-  .btn-web-app button {
-      
-      padding: 4% !important;
-  }
+
+@media screen and (max-width: 320px) {
+    .btn-web-app button {
+        padding: 4% !important;
+    }
 }
