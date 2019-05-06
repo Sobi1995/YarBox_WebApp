@@ -55,13 +55,14 @@ constructor(
   }
  
 Back(){
-   
-  if(this._packservice.getFactorKey!="")
+   debugger
+  if(this._packservice.getFactorKey=="" || this._packservice.getFactorKey==undefined)
   {
-    this.router.navigate(["/factor/"+this._packservice.getFactorKey]);
+    this.router.navigate(["/"])
+  
   }
   else{
-    this.router.navigate(["/"])
+    this.router.navigate(["/factor/"+this._packservice.getFactorKey]);
   }
 }
  
