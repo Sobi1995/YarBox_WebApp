@@ -42,7 +42,9 @@ statusInsuranceStatus:boolean=true;
     this.closeModal.nativeElement.click();
   }
   ngOnInit() {
-  
+    this._webappservice.setLoding(true);
+    setTimeout(() => 
+    {
     this.type=1;
     this.count=1;
      
@@ -60,7 +62,9 @@ statusInsuranceStatus:boolean=true;
    
 console.log(res);
     });
-  
+    this._webappservice.setLoding(false);
+ 
+  },1500);
   }
   // onSearchChange(searchValue : string ) {  
   //   console.log(searchValue);

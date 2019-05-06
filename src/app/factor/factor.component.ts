@@ -65,21 +65,27 @@ this.Factor={
      }
 
   ngOnInit() {
-
- this.Vehicle=this.PacksService.getVehicle();
-    this.factore= this.activatedRoute.snapshot.params["key"];
-     console.log(this.factore)
-      
-   
+    this._webapp.setLoding(true);
+    setTimeout(() => 
+    {
+ 
+this._webapp.setLoding(false);
+this.Vehicle=this.PacksService.getVehicle();
+this.factore= this.activatedRoute.snapshot.params["key"];
+ console.log(this.factore)
   
-    this._webapp.getFactorDatiles(this.factore).subscribe(res=>{
-        
-      this.Factor=res;
-    })
-    this._webapp.getCheck().subscribe(res=>{
-      this.credit=+res.credit;
-      this.PacksService.uodateCredit(res.credit);
-    })
+
+
+this._webapp.getFactorDatiles(this.factore).subscribe(res=>{
+    
+  this.Factor=res;
+})
+this._webapp.getCheck().subscribe(res=>{
+  this.credit=+res.credit;
+  this.PacksService.uodateCredit(res.credit);
+})
+},1500);
+ 
   }
 
   paymentType(pay,chah){
