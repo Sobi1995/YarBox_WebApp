@@ -74,10 +74,7 @@ address:string;
       })
 
   });
-  
 
-  
-    
       let self=this;
       if (navigator)
       {

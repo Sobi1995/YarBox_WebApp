@@ -55,7 +55,7 @@ constructor(
   }
  
 Back(){
-  debugger
+   
   if(this._packservice.getFactorKey!="")
   {
     this.router.navigate(["/factor/"+this._packservice.getFactorKey]);
