@@ -11,7 +11,13 @@ export class FinalFactorComponent implements OnInit {
   Profile:any;
   PackDitile:any;
   constructor(private PackService:PackService,
-              ) { }
+              ) { 
+
+                history.pushState(null, null, null);
+                window.onpopstate = function () {
+                    history.go(1);
+                };
+              }
 
   ngOnInit() {
     this.PackDitile=this.PackService.getPackStatus;

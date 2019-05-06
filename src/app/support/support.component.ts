@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class SupportComponent implements OnInit {
 
   constructor(  private _webappservice:WebAppService,
-    location: PlatformLocation,
+
     private router:Router) { 
  
   history.pushState(null, null, null);

@@ -24,6 +24,10 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
  
     private router: Router) {
        this.VerifyCode=new  VerifyCode();
+       history.pushState(null, null, null);
+       window.onpopstate = function () {
+           history.go(1);
+       };
   
    }
 

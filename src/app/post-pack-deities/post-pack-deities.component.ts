@@ -31,6 +31,11 @@ statusInsuranceStatus:boolean=true;
     this.mainPacks=new MainPacks()
     this.mainPacks.isPacking=true;
     this.mainPacks.isInsurance=true;
+
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
+        history.go(1);
+    };
     
   }
   ngOnDestroy(): void {

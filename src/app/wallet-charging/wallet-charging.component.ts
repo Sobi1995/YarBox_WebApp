@@ -54,6 +54,15 @@ constructor(
    
   }
  
-
+Back(){
+   
+  if(this._packservice.getFactorKey!="")
+  {
+    this.router.navigate(["/factor/"+this._packservice.getFactorKey]);
+  }
+  else{
+    this.router.navigate(["/"])
+  }
+}
  
 }

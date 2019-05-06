@@ -22,7 +22,7 @@ export class MapComponent implements OnInit  {
   @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
  // google maps zoom level
  errorAddress:string=null;
- 
+ googleAddressAutoComplate:any;
  zoom: number = 15;
 //  markers: marker[]=[];
  // initial center position for the map
@@ -52,7 +52,8 @@ export class MapComponent implements OnInit  {
 }
 
  ngOnInit(): void {
-    
+
+ 
   this._packService.setBackStatusFacktore(false);
 this._packService.setOnLocalStorageEmpty();
  
@@ -226,11 +227,43 @@ this._packService.SetAddress(new AddressOrigin( this.lat.toString(), this.lng.to
 this.closeModalSelectAddress.nativeElement.click();
 this.router.navigate(["/destination"])
  }
- onSearchChange(val){
+ EmptyInput(){
+  this.Origin.street=""
+ }
+ onSearchChange(val:string){
+ 
+   if(val.length<3)
+   return
 this._webappservice.getCityOnGoogleApi(val).subscribe(res=>{
-  console.log(val)
+   
+console.table(res.predictions)
+  this.googleAddressAutoComplate=res.predictions;
+   
 })
  }
+   splitCity(val){
+ return  val.structured_formatting.main_text
+ 
+ }
+ getByPlaseId(plaseid:string){
+   this._webappservice.getPlaseById(plaseid).subscribe(res=>{
+      
+    this.lat=res.result.geometry.location.lat;
+    this.lng=res.result.geometry.location.lng;
+  this._webappservice.getCedarmapAddress(res.result.geometry.location.lat,res.result.geometry.location.lng).subscribe(res=>{
+    let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
+     
+   this. Origin.street=myAddress
+  })
+   })
+ }
+IsTehran(description:string){
+  var array = description.split(",");
+ if(array[0]=='Tehran Province')
+ return true
+ else
+ return false
+}
 }
 // just an interface for type safety.
   interface marker {

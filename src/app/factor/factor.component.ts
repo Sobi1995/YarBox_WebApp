@@ -13,6 +13,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./factor.component.css']
 })
 export class FactorComponent implements OnInit,OnDestroy {
+  factore:string;
   @ViewChild('closeModal') private closeModal: ElementRef;
   ngOnDestroy(): void {
     this.closeModal.nativeElement.click();
@@ -66,12 +67,12 @@ this.Factor={
   ngOnInit() {
 
  this.Vehicle=this.PacksService.getVehicle();
-    let factore= this.activatedRoute.snapshot.params["key"];
-     console.log(factore)
+    this.factore= this.activatedRoute.snapshot.params["key"];
+     console.log(this.factore)
       
    
   
-    this._webapp.getFactorDatiles(factore).subscribe(res=>{
+    this._webapp.getFactorDatiles(this.factore).subscribe(res=>{
         
       this.Factor=res;
     })
@@ -109,6 +110,7 @@ this.accept.isCashPayment=chah;
       this.accept.id=this.Factor.id;
       this._webapp.AcceptToSearch(this.accept).subscribe(res=>{
         this.PacksService.setStatusPay(this.accept);
+        this.PacksService.setFactorKey("")
         this.router.navigate(['/search-driver/'+this.Factor.id]) 
       })
      }
@@ -119,11 +121,13 @@ this.accept.isCashPayment=chah;
       this.accept.id=this.Factor.id;
       this._webapp.AcceptToSearch(this.accept).subscribe(res=>{
         this.PacksService.setStatusPay(this.accept);
+        this.PacksService.setFactorKey("")
         this.router.navigate(['/search-driver/'+this.Factor.id]) 
       })
     }
   }
   Back(){
+    this.PacksService.setFactorKey("")
     let back=this.PacksService.getBackStatusFacktore;
     if(back==true)
     {
@@ -132,5 +136,10 @@ this.accept.isCashPayment=chah;
     else{
       this.router.navigate(["/choose-vehicle"])
     }
+  }
+
+  Wallet(){
+    this.PacksService.setFactorKey(this.factore)
+    this.router.navigate(["/wallet-charging"])
   }
 }

@@ -35,7 +35,10 @@ export class AddFavoriteAddressDestinationComponent implements OnInit,OnDestroy 
     private _postPackService:PackService,
     private router:Router) { 
     this.destinationModel=new DestinationDto("","",0,"","","");
-    
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
+        history.go(1);
+    };
   }
   
   ngOnInit() {

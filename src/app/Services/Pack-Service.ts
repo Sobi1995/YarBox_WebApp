@@ -24,6 +24,7 @@ export class PackService{
    private backStatusFacktore:boolean=false;
    private StatusPay:AcceptSearchDto;
    private StatusMnuAddressFavourite:boolean=true;
+   private FactorKey:string
 constructor(){
   this.MultiplePacks=new MultiplePacksDto();
   this.MultiplePacks.origin=new originDto();
@@ -278,5 +279,12 @@ get getStatusMnuAddressFavourite(){
   setStatusMnuAddressFavourite(sttaus:boolean){
     this.StatusMnuAddressFavourite=sttaus;
 }
+ setFactorKey(key:string){
+   this.FactorKey=key
+ }
+ get getFactorKey(){
+   return this.FactorKey;
+ }
+
 } 
  

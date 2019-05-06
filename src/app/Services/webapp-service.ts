@@ -12,8 +12,8 @@ export class WebAppService{
 private packsRuning:any;
  private IsNet:boolean=false;
 constructor(private _http:HttpClient,private _packService:PackService){
-    // this.api="http://localhost:11926/api/vv2/";
-  this.api="https://api.yarbox.co/api/vv2/";
+//  this.api="http://localhost:11926/api/vv2/";
+   this.api="https://api.yarbox.co/api/vv2/";
 }
  
 
@@ -336,18 +336,23 @@ return response
  
 
 getCityOnGoogleApi(val:string):Observable<any>{
-    
-  this.setLoding(true);
-let headers = new HttpHeaders();
-headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
-headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-
-return  this._http.get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+val+"&types=(cities)&language=pt_BR&key=AIzaSyBk6zk8Beu9-gi2EZZZCPxFmlT7hTxDDQ0",{headers:headers}).pipe(
+  let headers = new HttpHeaders();
+  headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+  headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+return  this._http.get(this.api+"/Map/SearchAddress?address="+val,{headers:headers}).pipe(
     map((response:any) => {
 return response
     } )
     );
 }
+
+getPlaseById(plaseid:string):Observable<any>{
+  return  this._http.get(this.api+"/Map/getPlaseId?plaseid="+plaseid).pipe(
+      map((response:any) => {
+  return response
+      } )
+      );
+  }
 
 getDriverByPackId(packid:number):Observable<any>{
     
