@@ -21,8 +21,13 @@ error:Boolean=false;
     }
     vehicle:number=0;
   ngOnInit() {
-     
+    this._webapp.setLoding(true);
+    setTimeout(() => 
+    {
 this.vehicle=this._packService.getVehicle();
+this._webapp.setLoding(false);
+ 
+},1500);
   }
   ChooseVehicle(id:number){
     this.vehicle=id;

@@ -233,7 +233,7 @@ this.router.navigate(["/destination"])
  }
  onSearchChange(val:string){
  
-   if(val.length<3)
+   if(val.length<2)
    return
 this._webappservice.getCityOnGoogleApi(val).subscribe(res=>{
    

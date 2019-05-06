@@ -62,20 +62,25 @@ export class DestinationComponent implements OnInit,OnDestroy {
   this.router.navigate(["/postPack-deities"])
   }
   ngOnInit() {
-   
-    this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
-    this._postPackService.setReceiveType("doorToDoor");
-    this.destinationModel=this._postPackService.getDestination();
-    this.typeCity =+this._postPackService.getTypeCity();
-      if(this.destinationModel.province!=undefined)
-    this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
-      this.Cities=res;
-    })
-    this._webappService.getProvinces().subscribe(res=>{
-      this.Provinces=res;
-       
- //[routerLink]="['/postPack-deities']"
-    })
+    this._webappService.setLoding(true);
+    setTimeout(() => 
+    {
+      this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
+      this._postPackService.setReceiveType("doorToDoor");
+      this.destinationModel=this._postPackService.getDestination();
+      this.typeCity =+this._postPackService.getTypeCity();
+        if(this.destinationModel.province!=undefined)
+      this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
+        this.Cities=res;
+      })
+      this._webappService.getProvinces().subscribe(res=>{
+        this.Provinces=res;
+         
+   //[routerLink]="['/postPack-deities']"
+      })
+      this._webappService.setLoding(false);
+    },1500);
+    
    
   }
   AcceptDestination(){
