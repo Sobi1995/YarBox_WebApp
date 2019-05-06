@@ -14,7 +14,7 @@ export class LoginGuardService {
         if (this.identityService.getIsLogin()) { // determine if the uder is logged in from this method.
             return true;
         }
-        // this.router.navigate(['/login']);
+          this.router.navigate(['/login']);
         return false;
     }
  
