@@ -78,23 +78,16 @@ this._packService.setOnLocalStorageEmpty();
     
     this.Origin=this._packService.getOrigin();
      this.Origin.street= this.Origin.street;
+     
     if(this.Origin.latitude!= undefined && this.Origin.llongitude!=undefined )
     {
       // this.markers=[];
       this.lng=Number(this.Origin.latitude);
       this.lat=Number(this.Origin.llongitude);
-  
-      // this.markers.push({
-      //   lat: this.Origin.latitude,
-      //   lng:   this.Origin.llongitude,
-      //   label: 'A',
-      //   draggable: true
-      // });
-       
-    
     }
     else{
       let self=this;
+      
       if (navigator)
       {
          
@@ -119,7 +112,15 @@ this._packService.setOnLocalStorageEmpty();
           
           })
         });
-      }
+  if(this.lat==null)
+  {
+    this.lng = 51.412316399999995;
+    this.lat = 35.7553324 ;
+    this.lngDragEnd =this.lng.toString();
+    this.latDragEnd=this.lat.toString();
+    this.Origin.street="تهران منطقه ۳ کاووسیه  شانزدهم - گاندی جنوبی"
+  }
+      } 
     }
  
      
