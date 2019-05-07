@@ -241,7 +241,7 @@ setOnLocalStorageEmpty(){
    
   localStorage.setItem("MultiplePacks",JSON.stringify(empty))
 }
-clearLocalStorageEmptyReFlow():Observable<boolean> {
+clearLocalStorageEmptyReFlow() {
   var subject = new Subject<boolean>();
    let origin=this.getOrigin()
   this.MultiplePacks=new MultiplePacksDto();
@@ -252,7 +252,7 @@ clearLocalStorageEmptyReFlow():Observable<boolean> {
   return subject.asObservable();
 }
 get getRetryFlow(){
-   
+   debugger
 let tryflow=this.MultiplePacks;
    var isdestnation=this.isEmptyObject(tryflow.destination);
    var ispack=tryflow.packs;
