@@ -24,17 +24,13 @@ export class MapComponent implements OnInit  {
  errorAddress:string=null;
  googleAddressAutoComplate:any;
  zoom: number = 15;
-//  markers: marker[]=[];
- // initial center position for the map
  lat: number = null;
  lng: number =null;
- 
-   savedaddress:any[]=[]
-
+savedaddress:any[]=[]
  latDragEnd: string ;
  lngDragEnd: string ;
  Origin:originDto;
- 
+ tryFlow:string;
 //  clickedMarker(label: string, index: number) {
 //    console.log(`clicked the marker: ${label || index}`)
 //  }
@@ -53,9 +49,10 @@ export class MapComponent implements OnInit  {
 
  ngOnInit(): void {
 
- 
+ this.tryFlow=this._packService.getRetryFlow
+  
   this._packService.setBackStatusFacktore(false);
-this._packService.setOnLocalStorageEmpty();
+// this._packService.setOnLocalStorageEmpty();
  
   this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddress"));
   this.dragEndSubscription = (this.map._mapsWrapper as GoogleMapsAPIWrapper) 
@@ -191,7 +188,10 @@ centerChange($event){
    this._packService.setAddress(val);
    this._packService.setLatLong(this.latDragEnd.toString(),this.lngDragEnd.toString());
    this.closeModal.nativeElement.click();     
-   this.router.navigate(["/destination"])
+   this._packService.clearLocalStorageEmptyReFlow().subscribe(res=>{
+    this.router.navigate(["/destination"])
+   });
+
 
   //  this.router.navigate(["/destination"])
  }
@@ -265,6 +265,10 @@ IsTehran(description:string){
  return true
  else
  return false
+}
+
+goOnFlow(){
+  this.router.navigate([this.tryFlow])
 }
 }
 // just an interface for type safety.

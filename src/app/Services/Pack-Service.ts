@@ -7,7 +7,7 @@ import { DestinationDto } from '../Model/dto/destination-dto';
 import { AddressOrigin } from '../Model/Address-Origin';
 import { MainPacks } from '../Model/dto/Main-Packs-dto';
 import { packsDto } from '../Model/dto/packs-dto';
-import { empty } from 'rxjs';
+import { empty, Observable, Subject } from 'rxjs';
 import { Profile } from '../Model/dto/Profile';
 import { ProfileDto } from '../Core/DTO/Profile-dto';
 import { AcceptSearchDto } from './accept-search-dto';
@@ -241,12 +241,33 @@ setOnLocalStorageEmpty(){
    
   localStorage.setItem("MultiplePacks",JSON.stringify(empty))
 }
-
+clearLocalStorageEmptyReFlow():Observable<boolean> {
+  var subject = new Subject<boolean>();
+   let origin=this.getOrigin()
+  this.MultiplePacks=new MultiplePacksDto();
+  this.MultiplePacks.origin=new originDto();
+  this.MultiplePacks.destination=new DestinationDto();
+  this.MultiplePacks.origin=origin
+  localStorage.setItem("MultiplePacks",JSON.stringify(empty))
+  return subject.asObservable();
+}
 get getRetryFlow(){
    
-  // var a=this.MultiplePacks.
-  
-  return "";
+let tryflow=this.MultiplePacks;
+   var isdestnation=this.isEmptyObject(tryflow.destination);
+   var ispack=tryflow.packs;
+   var isvehicleId=tryflow.vehicleId;
+   if(!isdestnation && ((ispack!=undefined && ispack.length>=1)   ) && (isvehicleId!=undefined && isvehicleId!=0)){
+     return "/choose-vehicle";
+   }
+   else if(!isdestnation && ((ispack!=undefined && ispack.length>=1)   )){
+     return "/postPack-deities"
+   }
+   else if(!isdestnation ){
+    return "/destination"
+  }
+
+  return null;
 }
 uodateCredit(val){
  
@@ -285,6 +306,8 @@ get getStatusMnuAddressFavourite(){
  get getFactorKey(){
    return this.FactorKey;
  }
-
+private isEmptyObject(obj) {
+  return (obj && (Object.keys(obj).length === 0));
+}
 } 
  

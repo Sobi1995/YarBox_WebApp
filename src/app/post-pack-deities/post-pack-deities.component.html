@@ -214,7 +214,7 @@
                         <div *ngIf="insurancePrice.errors.required" class="arzesh-pack"> ارزش مرسوله خود را وارد کنید (از اعداد انگلیسی استفاده نماید)</div>
                     </div>
 
-                    <input autocomplete="off" type="text" placeholder="توضیحات اقلام داخل بسته" [(ngModel)]="mainPacks.content" name="content" #content class="des-pack">
+                    <input autocomplete="off" type="text" placeholder="توضیحات اقلام داخل بسته" [(ngModel)]="mainPacks.content" name="content" #content class="des-pack" (ngModelChange)="onSelectedChange($event)">
                 </div>
                 <!--button type="submit">send</button-->
                 <div class="btn-web-app">

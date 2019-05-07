@@ -24,7 +24,7 @@ export class AppComponent  implements OnInit{
   @ViewChild('openmodal') private openmodal: ElementRef;
   online$: Observable<boolean>;
   ngOnInit(): void {
-    this.PackService.setOnLocalStorageEmpty();
+    // this.PackService.setOnLocalStorageEmpty();
     // if (window.matchMedia('(display-mode: standalone)').matches) {
     //   alert("Thank you for installing our app!");
     // }

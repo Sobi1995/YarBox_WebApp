@@ -155,6 +155,9 @@ if (index > -1) {
       else
       this.count++;
     }
+    onSelectedChange(value) {
+ 
+    }
     Back(){  
     
       this._packService.clearPaks();

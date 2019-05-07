@@ -194,7 +194,7 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
         this.Cities=res;
       })
     }
-    onSelectedChange(value: number) {
+    onSelectedChange(value) {
   
       this._postPackService.setTypeCity(this.typeCity);
       this._postPackService.setDestination(this.destinationModel);
