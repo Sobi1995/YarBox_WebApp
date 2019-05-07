@@ -4320,3 +4320,21 @@ button.name-user img {
 .price-pay {
     margin: 0 10% 9%;
 }
+
+button.btn-cash {
+    width: 40%;
+    margin: 10% 5% 5%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+button.btn-cash.btn-cash-ok {
+    background: #49b86e;
+}
+
+button.btn-cash.btn-cash-no {
+    background: red;
+}
