@@ -110,6 +110,7 @@ clearOrigin(){
   // return this.MultiplePacks.destination;
   return JSON.parse(localStorage.getItem("MultiplePacks")).destination;
  }
+ //git :()
  clearDestination(){
   this.MultiplePacks.destination=new DestinationDto();
   this.MultiplePacks.destination={} as DestinationDto;
