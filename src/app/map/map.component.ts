@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { WebAppService } from '../Services/webapp-service';
 import { PackService } from '../Services/Pack-Service';
 import { AddressOrigin } from '../Model/Address-Origin';
@@ -14,12 +14,17 @@ import { originDto } from '../Model/dto/origin-dto';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit  {
+export class MapComponent implements OnInit ,OnDestroy {
+  ngOnDestroy(): void {
+    this.tryFlow=null;
+    // this._packService.clearLocalStorageEmptyReFlow();
+  }
   @ViewChild(AgmMap) map: any;
   private dragEndSubscription: Subscription;
   @ViewChild('closeModal') private closeModal: ElementRef;
   @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
   @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
+    @ViewChild('closemyModalcash') private closemyModalcash: ElementRef;
  // google maps zoom level
  errorAddress:string=null;
  googleAddressAutoComplate:any;
@@ -31,6 +36,7 @@ savedaddress:any[]=[]
  lngDragEnd: string ;
  Origin:originDto;
  tryFlow:string;
+ @ViewChild('openmodalflow') private openmodalflow: ElementRef;
 //  clickedMarker(label: string, index: number) {
 //    console.log(`clicked the marker: ${label || index}`)
 //  }
@@ -40,6 +46,7 @@ savedaddress:any[]=[]
   public _packService:PackService,
   private router:Router,
   location: PlatformLocation){
+    
     this.Origin=new originDto();
     history.pushState(null, null, null);
     window.onpopstate = function () {
@@ -48,9 +55,8 @@ savedaddress:any[]=[]
 }
 
  ngOnInit(): void {
+this._packService.setOnLocalStorageEmpty();
 
- this.tryFlow=this._packService.getRetryFlow
-  
   this._packService.setBackStatusFacktore(false);
 // this._packService.setOnLocalStorageEmpty();
  
@@ -87,9 +93,9 @@ savedaddress:any[]=[]
       
       if (navigator)
       {
-         
+          
       navigator.geolocation.getCurrentPosition( pos => {        
-         
+          
           this.lng = +pos.coords.longitude;
           this.lat = +pos.coords.latitude;
           this.lngDragEnd=pos.coords.longitude.toString();
@@ -108,7 +114,7 @@ savedaddress:any[]=[]
             this._packService.SetAddress(new AddressOrigin(pos.coords.latitude.toString(),pos.coords.longitude.toString()))
           
           })
-        });
+        }); 
   if(this.lat==null)
   {
     this.lng = 51.412316399999995;
@@ -119,11 +125,17 @@ savedaddress:any[]=[]
   }
       } 
     }
+    
  
-     
-  //   this.map=new google.maps.Map(document.getElementById("googleMap"));
-  
-  // var b=this.map.getCenter();
+    setTimeout(() => 
+    {
+       
+      this.tryFlow=this._packService.getRetryFlow
+      if (this.tryFlow!=null ){
+        this.openmodalflow.nativeElement.click();  
+      }
+    },
+    1500);
 }
 
 centerChange($event){
@@ -268,7 +280,11 @@ IsTehran(description:string){
 }
 
 goOnFlow(){
+  this.closemyModalcash.nativeElement.click();
   this.router.navigate([this.tryFlow])
+}
+clearFlow(){
+  this._packService.setOnLocalStorageEmpty();
 }
 }
 // just an interface for type safety.

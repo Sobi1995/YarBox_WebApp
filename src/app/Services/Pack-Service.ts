@@ -112,6 +112,7 @@ clearOrigin(){
  }
  clearDestination(){
   this.MultiplePacks.destination=new DestinationDto();
+  this.MultiplePacks.destination={} as DestinationDto;
   this.typeCity=0;
   this.setOnLocalStorage();
   localStorage.setItem("typeCity","0");
@@ -252,7 +253,7 @@ clearLocalStorageEmptyReFlow() {
   return subject.asObservable();
 }
 get getRetryFlow(){
-   debugger
+    debugger
 let tryflow=this.MultiplePacks;
    var isdestnation=this.isEmptyObject(tryflow.destination);
    var ispack=tryflow.packs;
