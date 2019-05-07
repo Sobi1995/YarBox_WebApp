@@ -10,8 +10,8 @@
 
                 <div class="title-web-app1">
                     <p>ثبت مبدا</p>
-
-<button *ngIf="tryFlow!=null" (click)="goOnFlow()"> ادامه فرایند</button>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalcash">cash</button>
+                    <!--button *ngIf="tryFlow!=null" (click)="goOnFlow()"> ادامه فرایند</button-->
                     <button data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><img src="/assets/img/icon-bookmark.svg"  width="20" /></button>
                     <img src="/assets/img/3-mabda.svg" width="25" height="25" class="icon-serch1">
                     <!-- (input)="onSearchChange($event.target.value)" -->
@@ -94,5 +94,29 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="myModalcash" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">ادامه فرآیند</h4>
+                </div>
+                <div class="modal-body">
+                    <p>می خواهید به ادامه فرآیند بروید؟</p>
+
+                    <button class="btn-cash btn-cash-ok" *ngIf="tryFlow!=null" (click)="goOnFlow()">بله</button>
+                    <button class="btn-cash btn-cash-no" data-dismiss="modal">خیر</button>
+                </div>
+
+            </div>
+
         </div>
     </div>
