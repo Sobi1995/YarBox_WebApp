@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
 import { PlatformLocation } from '@angular/common';
 import { originDto } from '../Model/dto/origin-dto';
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -24,7 +25,7 @@ export class MapComponent implements OnInit ,OnDestroy {
   @ViewChild('closeModal') private closeModal: ElementRef;
   @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
   @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
-    @ViewChild('closemyModalcash') private closemyModalcash: ElementRef;
+    // @ViewChild('closemyModalcash') private closemyModalcash: ElementRef;
  // google maps zoom level
  errorAddress:string=null;
  googleAddressAutoComplate:any;
@@ -36,7 +37,7 @@ savedaddress:any[]=[]
  lngDragEnd: string ;
  Origin:originDto;
  tryFlow:string;
- @ViewChild('openmodalflow') private openmodalflow: ElementRef;
+//  @ViewChild('openmodalflow') private openmodalflow: ElementRef;
 //  clickedMarker(label: string, index: number) {
 //    console.log(`clicked the marker: ${label || index}`)
 //  }
@@ -55,6 +56,9 @@ savedaddress:any[]=[]
 }
 
  ngOnInit(): void {
+
+
+
 this._packService.setOnLocalStorageEmpty();
 
   this._packService.setBackStatusFacktore(false);
@@ -126,16 +130,32 @@ this._packService.setOnLocalStorageEmpty();
       } 
     }
     
- 
+ let self=this;
     setTimeout(() => 
     {
        
       this.tryFlow=this._packService.getRetryFlow
       if (this.tryFlow!=null ){
-        this.openmodalflow.nativeElement.click();  
+        swal.fire({
+          // title: 'Are you sure?',
+          text: "فرایند ثبت سفارش",
+          type: 'warning',
+          showCancelButton: true,
+           cancelButtonText:"از ابتدا",
+           confirmButtonText: 'ادامه',
+           allowOutsideClick: false,
+        }) .then(function (result) {
+           
+          if(result.value==true){
+            self.goOnFlow();
+          }
+          else{
+            self.clearFlow();
+          }
+        })
       }
     },
-    1500);
+    1000);
 }
 
 centerChange($event){
@@ -280,7 +300,7 @@ IsTehran(description:string){
 }
 
 goOnFlow(){
-  this.closemyModalcash.nativeElement.click();
+  // this.closemyModalcash.nativeElement.click();
   this.router.navigate([this.tryFlow])
 }
 clearFlow(){
