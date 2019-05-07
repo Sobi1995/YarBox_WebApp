@@ -12,7 +12,7 @@ import { TomanPipe } from './Shared/toman.pipe';
 import { ChooseVehicleComponent } from './choose-vehicle/choose-vehicle.component';
 import { PostPackDeitiesComponent } from './post-pack-deities/post-pack-deities.component';
 import { FactorComponent } from './factor/factor.component';
-import { SliderComponent } from './slider/slider.component';
+ 
 import { AcceptDriverComponent } from './accept-driver/accept-driver.component';
 import { SearchDriverComponent } from './search-driver/search-driver.component';
 import { FormsModule } from '@angular/forms';
@@ -54,7 +54,7 @@ import { ErrorsHandler } from './Services/errors-handler.service';
     ChooseVehicleComponent,
     PostPackDeitiesComponent,
     FactorComponent,
-    SliderComponent,
+ 
     AcceptDriverComponent,
     SearchDriverComponent,
     ErrorComponent,
