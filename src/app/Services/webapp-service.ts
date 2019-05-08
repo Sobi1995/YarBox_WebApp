@@ -12,8 +12,8 @@ export class WebAppService{
 private packsRuning:any;
  private IsNet:boolean=false;
 constructor(private _http:HttpClient,private _packService:PackService){
-//  this.api="http://localhost:11926/api/vv2/";
-   this.api="https://api.yarbox.co/api/vv2/";
+  //  this.api="http://localhost:11926/api/vv2/";
+     this.api="https://api.yarbox.co/api/vv2/";
 }
  
 
@@ -203,7 +203,8 @@ let packs=this._packService.getMultiplePacks;
 return  this._http.get(this.api+"account/sign-out",{headers:headers},).pipe(
       map((response:any) => {
         this.setLoding(false);
-        localStorage.clear();
+        // localStorage.clear();
+        this._packService.localstorageClear();
       return    response
       } ),
       

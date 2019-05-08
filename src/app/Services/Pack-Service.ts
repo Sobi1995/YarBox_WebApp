@@ -11,6 +11,7 @@ import { empty, Observable, Subject } from 'rxjs';
 import { Profile } from '../Model/dto/Profile';
 import { ProfileDto } from '../Core/DTO/Profile-dto';
 import { AcceptSearchDto } from './accept-search-dto';
+import { isEmpty } from 'rxjs/internal/operators/isEmpty';
 
  
 @Injectable()
@@ -27,8 +28,7 @@ export class PackService{
    private FactorKey:string
 constructor(){
   this.MultiplePacks=new MultiplePacksDto();
-  this.MultiplePacks.origin=new originDto();
-  this.MultiplePacks.destination=new DestinationDto();
+
   let isLocalStoragePack=localStorage.getItem("MultiplePacks");
    
   if(isLocalStoragePack==null)
@@ -219,7 +219,7 @@ getTypeCity(){
 //  return this.typeCity 
 return localStorage.getItem("typeCity");
 }
-setLatLong(long:string,lat:string){
+setLatLong(lat:string,long:string){
    
 this.MultiplePacks.origin.latitude=lat;
 this.MultiplePacks.origin.llongitude=long;
@@ -236,27 +236,27 @@ setOnLocalStorage(){
   localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
 }
 setOnLocalStorageEmpty(){
-  let empty=new MultiplePacksDto();
-  empty=new MultiplePacksDto();
-  empty.origin=new originDto();
-  empty.destination=new DestinationDto();
-   
-  localStorage.setItem("MultiplePacks",JSON.stringify(empty))
+  let emptyPack=new MultiplePacksDto();
+  emptyPack.postPacktype=this.MultiplePacks.postPacktype;
+  localStorage.setItem("MultiplePacks",JSON.stringify(emptyPack))
 }
 clearLocalStorageEmptyReFlow() {
-  var subject = new Subject<boolean>();
-   let origin=this.getOrigin()
-  this.MultiplePacks=new MultiplePacksDto();
-  this.MultiplePacks.origin=new originDto();
-  this.MultiplePacks.destination=new DestinationDto();
-  this.MultiplePacks.origin=origin
-  localStorage.setItem("MultiplePacks",JSON.stringify(empty))
-  return subject.asObservable();
+   
+ let typeDivice=this.MultiplePacks.postPacktype;
+this.MultiplePacks=new MultiplePacksDto();
+this.MultiplePacks.postPacktype=typeDivice
+
+  localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
+ 
 }
 get getRetryFlow(){
-     
-let tryflow=this.MultiplePacks;
-   var isdestnation=this.isEmptyObject(tryflow.destination);
+
+// let tryflow=this.MultiplePacks;
+ 
+let tryflow=JSON.parse(localStorage.getItem("MultiplePacks"))
+   var isdestnation=(Object.keys(tryflow.destination).length === 0)
+ 
+  console.log(isdestnation,tryflow.destination)
    var ispack=tryflow.packs;
    var isvehicleId=tryflow.vehicleId;
    if(!isdestnation && ((ispack!=undefined && ispack.length>=1)   ) && (isvehicleId!=undefined && isvehicleId!=0)){
@@ -311,5 +311,32 @@ get getStatusMnuAddressFavourite(){
 private isEmptyObject(obj) {
   return (obj && (Object.keys(obj).length === 0));
 }
+localstorageClear(){
+  
+  let homescreen= JSON.parse(localStorage.getItem("add-homescreen"));
+  localStorage.clear();
+  localStorage.setItem("add-homescreen",homescreen)
+  this.setOnLocalstoreage();  
+}
+setDivice(type:number){
+  this.MultiplePacks.postPacktype=type;
+  this.setOnLocalStorage()
+}
 } 
- 
+enum DiviceType {
+  Android = 0,
+  Ios = 1,
+  Web = 2,
+  WebAppAndrid = 3,
+  WebAppIos = 4,
+}
+// [Display(Name = "اندروید")]
+// Android = 0,
+// [Display(Name = "Ios")]
+// Ios = 1,
+// [Display(Name = "وب")]
+// Web = 2,
+// [Display(Name = "WebAppAndrid")]
+// WebAppAndrid = 2,
+// [Display(Name = "WebAppIos")]
+// WebAppIos = 3

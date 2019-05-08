@@ -10,6 +10,7 @@ import { AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
 import { PlatformLocation } from '@angular/common';
 import { originDto } from '../Model/dto/origin-dto';
 import swal from 'sweetalert2';
+import { authenticationService } from '../authentication/authentication-Service';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -46,8 +47,9 @@ savedaddress:any[]=[]
   private _webappservice:WebAppService,
   public _packService:PackService,
   private router:Router,
-  location: PlatformLocation){
-    
+  location: PlatformLocation,
+  private _auth :authenticationService,){
+    // this._packService.setOnLocalstoreage();
     this.Origin=new originDto();
     history.pushState(null, null, null);
     window.onpopstate = function () {
@@ -59,7 +61,7 @@ savedaddress:any[]=[]
 
 
 
-this._packService.setOnLocalStorageEmpty();
+
 
   this._packService.setBackStatusFacktore(false);
 // this._packService.setOnLocalStorageEmpty();
@@ -70,8 +72,7 @@ this._packService.setOnLocalStorageEmpty();
   .subscribe(() => {
 
   
-    this._webappservice.getCedarmapAddress( this.latDragEnd,this.lngDragEnd).subscribe(res=>{
-           
+    this._webappservice.getCedarmapAddress( this.latDragEnd,this.lngDragEnd).subscribe(res=>{   
       let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
       this.Origin.street=myAddress;
         this._packService.SetAddress(new AddressOrigin(this.latDragEnd,this.lngDragEnd,myAddress))
@@ -82,15 +83,15 @@ this._packService.setOnLocalStorageEmpty();
   });
   
 
-    
+     
     this.Origin=this._packService.getOrigin();
      this.Origin.street= this.Origin.street;
      
     if(this.Origin.latitude!= undefined && this.Origin.llongitude!=undefined )
     {
       // this.markers=[];
-      this.lng=Number(this.Origin.latitude);
-      this.lat=Number(this.Origin.llongitude);
+      this.lng=Number(this.Origin.llongitude);
+      this.lat=Number(this.Origin.latitude);
     }
     else{
       let self=this;
@@ -131,11 +132,11 @@ this._packService.setOnLocalStorageEmpty();
     }
     
  let self=this;
-    setTimeout(() => 
-    {
-       
+  
+        
       this.tryFlow=this._packService.getRetryFlow
-      if (this.tryFlow!=null ){
+      
+      if (this.tryFlow!=null && this._auth.getIsLogin() ){
         swal.fire({
           // title: 'Are you sure?',
           text: "فرایند ثبت سفارش",
@@ -145,17 +146,19 @@ this._packService.setOnLocalStorageEmpty();
            confirmButtonText: 'ادامه',
            allowOutsideClick: false,
         }) .then(function (result) {
-           
+            
           if(result.value==true){
             self.goOnFlow();
           }
           else{
-            self.clearFlow();
+             
+            self._packService.clearLocalStorageEmptyReFlow();
+            self.myLocation();
           }
         })
       }
-    },
-    1000);
+   
+    
 }
 
 centerChange($event){
@@ -169,7 +172,7 @@ centerChange($event){
 }
 
  destnation(){
-  setTimeout(function(){ }, 3000);
+ 
   this.closeModal.nativeElement.click();     
 //this.router.navigate(["/destination"])
  }
@@ -220,7 +223,7 @@ centerChange($event){
    this._packService.setAddress(val);
    this._packService.setLatLong(this.latDragEnd.toString(),this.lngDragEnd.toString());
    this.closeModal.nativeElement.click();     
-   this._packService.clearLocalStorageEmptyReFlow();
+  //  this._packService.clearLocalStorageEmptyReFlow();
     this.router.navigate(["/destination"])
  
 
@@ -257,7 +260,7 @@ centerChange($event){
    this.lat=val.lat;
    this.lng=val.lng;
  
-this._packService.SetAddress(new AddressOrigin( this.lat.toString(), this.lng.toString(),val.address))
+this._packService.SetAddress(new AddressOrigin( this.latDragEnd.toString(), this.lngDragEnd.toString(),val.address))
 this.closeModalSelectAddress.nativeElement.click();
 this.router.navigate(["/destination"])
  }
@@ -305,6 +308,9 @@ goOnFlow(){
 }
 clearFlow(){
   this._packService.setOnLocalStorageEmpty();
+}
+onChangeAddress(val:string){
+this._packService.setAddress(val);
 }
 }
 // just an interface for type safety.

@@ -59,8 +59,10 @@ this.getPlants().subscribe(res=>{
       }
 })
      },(err) => {
+       if(err.status==401){
       this._auth.setIsLogin(false);
       this.router.navigate(["/login"]);
+       }
     })
   }
 })
@@ -77,6 +79,7 @@ this.getPlants().subscribe(res=>{
      private deviceService: DeviceDetectorService,
      private PackService:PackService){
  
+  
        let homescreen=JSON.parse(localStorage.getItem("add-homescreen"))
        if(homescreen==null){
          localStorage.setItem("add-homescreen","false")
@@ -176,7 +179,7 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
  }
     })
   }
-  
+ 
 
   SweetNet(){
     let self=this;
@@ -191,6 +194,14 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
     }) .then(function (result) {
       if(!self._webApp.getIsNet)
       self.SweetNet();
+      else{    
+        if(!self._auth.getIsLogin()){
+              self.PackService.setOnLocalStorageEmpty();
+              self.router.navigate(["/login"])
+        }
+          else
+            self.router.navigate(["/"])
+        }
     })
      
   }
@@ -209,7 +220,13 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
     console.log(isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
     console.log(isTablet);  // returns if the device us a tablet (iPad etc)
     console.log(isDesktopDevice); // returns if the app is running on a Desktop browser.
-   
+      
+    if(this.deviceInfo.os=="Android" || this.deviceInfo.os=="android"){
+      this.PackService.setDivice(3)
+    }
+    else if (this.deviceInfo.os=="mac" || this.deviceInfo.os=="Mac"){
+      this.PackService.setDivice(4)
+    }
     return of({isMobile});
   }
 }

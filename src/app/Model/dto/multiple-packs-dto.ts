@@ -12,5 +12,17 @@ export class  MultiplePacksDto{
     isPacking: boolean;
     isInsurance: boolean;
     insurancePrice: number;
-    content?: string
+    content?: string;
+    postPacktype:number;
+    constructor(){
+        this.destination={} as  DestinationDto
+        this.origin={} as originDto;
+        this.packs=[]
+        this.receiveType="DoorToDoor";
+        this.vehicleId=0;
+        this.isPacking=true;
+        this.isInsurance=true;
+        this.content="هیچ";
+        this.postPacktype=0;
+    }
 }

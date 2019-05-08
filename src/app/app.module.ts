@@ -31,7 +31,7 @@ import { environment } from '../environments/environment';
 import { WalletChargingComponent } from './wallet-charging/wallet-charging.component';
 import { ReportsComponent } from './reports/reports.component';
 import { FavoriteAddressComponent } from './favorite-address/favorite-address.component';
-import { CoreModule } from './Core/core.module';
+// import { CoreModule } from './Core/core.module';
 import { LoginGuardService } from './Services/login-guard.service';
 import { AddFavoriteAddressComponent } from './add-favorite-address/add-favorite-address.component';
 import { AddFavoriteAddressDestinationComponent } from './add-favorite-address-destination/add-favorite-address-destination.component';
@@ -43,6 +43,7 @@ import { PackDaltileComponent } from './pack-daltile/pack-daltile.component';
 import { FinalFactorComponent } from './final-factor/final-factor.component';
 import { PackHistoryComponent } from './pack-history/pack-history.component';
 import { ErrorsHandler } from './Services/errors-handler.service';
+import { Page404Component } from './page404/page404.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,8 @@ import { ErrorsHandler } from './Services/errors-handler.service';
     AndroidHomeScreenComponent,
     PackDaltileComponent,
     FinalFactorComponent,
-    PackHistoryComponent
+    PackHistoryComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,7 @@ import { ErrorsHandler } from './Services/errors-handler.service';
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CoreModule,
+    // CoreModule,
     AgmCoreModule.forRoot({
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en

@@ -58,7 +58,7 @@
             <div class="modal-content modal-content-packs">
                 <div class="modal-body">
                     <h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
-                    <input autocomplete="off" type="text" placeholder="لطفا آدرس فرستنده را همراه با پلاک وارد نمایید" value={{Origin.street}} #senderAddress>
+                    <input autocomplete="off" type="text" placeholder="لطفا آدرس فرستنده را همراه با پلاک وارد نمایید" value={{Origin.street}} #senderAddress (input)="onChangeAddress($event.target.value)">
                     <div class="btn-circle-download" id="btn-ok-address">
                         <span class='pulse-button' (click)="AcceptAddress(senderAddress.value)"><img src="/assets/img/icon-ok.svg" width="20" /></span>
 
