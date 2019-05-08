@@ -43,6 +43,7 @@ import { PackDaltileComponent } from './pack-daltile/pack-daltile.component';
 import { FinalFactorComponent } from './final-factor/final-factor.component';
 import { PackHistoryComponent } from './pack-history/pack-history.component';
 import { ErrorsHandler } from './Services/errors-handler.service';
+import { Page404Component } from './page404/page404.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,8 @@ import { ErrorsHandler } from './Services/errors-handler.service';
     AndroidHomeScreenComponent,
     PackDaltileComponent,
     FinalFactorComponent,
-    PackHistoryComponent
+    PackHistoryComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,

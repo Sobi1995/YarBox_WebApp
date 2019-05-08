@@ -83,7 +83,7 @@ savedaddress:any[]=[]
   });
   
 
-    
+     
     this.Origin=this._packService.getOrigin();
      this.Origin.street= this.Origin.street;
      
@@ -146,15 +146,18 @@ savedaddress:any[]=[]
            confirmButtonText: 'ادامه',
            allowOutsideClick: false,
         }) .then(function (result) {
-           
+            
           if(result.value==true){
             self.goOnFlow();
           }
           else{
-            self.clearFlow();
+             
+            self._packService.clearLocalStorageEmptyReFlow();
+            self.myLocation();
           }
         })
       }
+   
     
 }
 
@@ -169,7 +172,7 @@ centerChange($event){
 }
 
  destnation(){
-  setTimeout(function(){ }, 3000);
+ 
   this.closeModal.nativeElement.click();     
 //this.router.navigate(["/destination"])
  }
@@ -220,7 +223,7 @@ centerChange($event){
    this._packService.setAddress(val);
    this._packService.setLatLong(this.latDragEnd.toString(),this.lngDragEnd.toString());
    this.closeModal.nativeElement.click();     
-   this._packService.clearLocalStorageEmptyReFlow();
+  //  this._packService.clearLocalStorageEmptyReFlow();
     this.router.navigate(["/destination"])
  
 
@@ -257,7 +260,7 @@ centerChange($event){
    this.lat=val.lat;
    this.lng=val.lng;
  
-this._packService.SetAddress(new AddressOrigin( this.lat.toString(), this.lng.toString(),val.address))
+this._packService.SetAddress(new AddressOrigin( this.latDragEnd.toString(), this.lngDragEnd.toString(),val.address))
 this.closeModalSelectAddress.nativeElement.click();
 this.router.navigate(["/destination"])
  }

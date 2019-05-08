@@ -220,7 +220,7 @@ this._webApp.UpdateUser(profile).subscribe(res=>{
     console.log(isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
     console.log(isTablet);  // returns if the device us a tablet (iPad etc)
     console.log(isDesktopDevice); // returns if the app is running on a Desktop browser.
-     
+      
     if(this.deviceInfo.os=="Android" || this.deviceInfo.os=="android"){
       this.PackService.setDivice(3)
     }

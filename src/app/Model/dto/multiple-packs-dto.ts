@@ -14,4 +14,15 @@ export class  MultiplePacksDto{
     insurancePrice: number;
     content?: string;
     postPacktype:number;
+    constructor(){
+        this.destination={} as  DestinationDto
+        this.origin={} as originDto;
+        this.packs=[]
+        this.receiveType="DoorToDoor";
+        this.vehicleId=0;
+        this.isPacking=true;
+        this.isInsurance=true;
+        this.content="هیچ";
+        this.postPacktype=0;
+    }
 }
