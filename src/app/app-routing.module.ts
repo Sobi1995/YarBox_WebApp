@@ -25,6 +25,7 @@ import { AndroidHomeScreenComponent } from './android-home-screen/android-home-s
 import { PackDaltileComponent } from './pack-daltile/pack-daltile.component';
 import { FinalFactorComponent } from './final-factor/final-factor.component';
 import { PackHistoryComponent } from './pack-history/pack-history.component';
+import { Page404Component } from './page404/page404.component';
 
  
 const routes: Routes = [
@@ -51,6 +52,8 @@ const routes: Routes = [
   {path:'WebPlatform',component:WebPlatformComponent},
   {path:'ios-home-screen',component:IosHomeScreenComponent},
   {path:'android-home-screen',component:AndroidHomeScreenComponent},
+  {path: '404', component: Page404Component},
+ {path: '**', redirectTo: '/404'}
   ];
 
 @NgModule({
