@@ -4338,3 +4338,21 @@ button.btn-cash.btn-cash-ok {
 button.btn-cash.btn-cash-no {
     background: red;
 }
+
+img.pic-404 {
+    position: relative;
+    top: 13%;
+    padding: 15%;
+}
+
+.page-404 {
+    text-align: center;
+}
+
+a.a-404 {
+    background: #4dd04c;
+    padding: 4% 11%;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 26px;
+}
