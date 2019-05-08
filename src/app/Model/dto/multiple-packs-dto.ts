@@ -12,5 +12,6 @@ export class  MultiplePacksDto{
     isPacking: boolean;
     isInsurance: boolean;
     insurancePrice: number;
-    content?: string
+    content?: string;
+    postPacktype:number;
 }

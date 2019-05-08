@@ -3,6 +3,7 @@ import { authenticationService } from '../authentication-Service';
 import { Router } from '@angular/router';
 
 import { HttpErrorResponse } from '@angular/common/http';
+import { PackService } from 'src/app/Services/Pack-Service';
 
 @Component({
   selector: 'app-login',
@@ -22,12 +23,13 @@ model: any = {};
   constructor(
     private auth:authenticationService,
     private router: Router,
+    private _packService:PackService
   ) {
     history.pushState(null, null, null);
     window.onpopstate = function () {
         history.go(1);
     };
-   
+   this._packService.setOnLocalStorageEmpty();
      }
      onSubmit(){
    

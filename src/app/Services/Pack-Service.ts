@@ -240,7 +240,7 @@ setOnLocalStorageEmpty(){
   empty=new MultiplePacksDto();
   empty.origin=new originDto();
   empty.destination=new DestinationDto();
-   
+ 
   localStorage.setItem("MultiplePacks",JSON.stringify(empty))
 }
 clearLocalStorageEmptyReFlow() {
@@ -254,7 +254,7 @@ clearLocalStorageEmptyReFlow() {
   return subject.asObservable();
 }
 get getRetryFlow(){
-     
+
 let tryflow=this.MultiplePacks;
    var isdestnation=this.isEmptyObject(tryflow.destination);
    var ispack=tryflow.packs;
@@ -311,5 +311,31 @@ get getStatusMnuAddressFavourite(){
 private isEmptyObject(obj) {
   return (obj && (Object.keys(obj).length === 0));
 }
+localstorageClear(){
+  
+  let homescreen= JSON.parse(localStorage.getItem("add-homescreen"));
+  localStorage.clear();
+  localStorage.setItem("add-homescreen",homescreen)
+  this.setOnLocalstoreage();  
+}
+setDivice(type:number){
+  this.MultiplePacks.postPacktype=type;
+}
 } 
- 
+enum DiviceType {
+  Android = 0,
+  Ios = 1,
+  Web = 2,
+  WebAppAndrid = 3,
+  WebAppIos = 4,
+}
+// [Display(Name = "اندروید")]
+// Android = 0,
+// [Display(Name = "Ios")]
+// Ios = 1,
+// [Display(Name = "وب")]
+// Web = 2,
+// [Display(Name = "WebAppAndrid")]
+// WebAppAndrid = 2,
+// [Display(Name = "WebAppIos")]
+// WebAppIos = 3

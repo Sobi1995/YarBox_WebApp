@@ -25,6 +25,7 @@ export class SearchDriverComponent implements OnInit {
           history.go(1);
       };
     this.startTimer();
+    this.PackService.clearDestination();
   }
 
   ngOnInit() {

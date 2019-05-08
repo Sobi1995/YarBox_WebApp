@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { ProfileDto } from '../Core/DTO/Profile-dto';
 import { Router } from '@angular/router';
 import { WebAppService } from '../Services/webapp-service';
+import { PackService } from '../Services/Pack-Service';
 @Injectable()
 export class authenticationService{
   private  profile:ProfileDto;
@@ -14,7 +15,8 @@ export class authenticationService{
     constructor(
         private _http:HttpClient,
         private router: Router,
-        private _webAppService:WebAppService){
+        private _webAppService:WebAppService,
+        private _packService:PackService){
         this.profile=new ProfileDto();
         this.api="https://api.yarbox.co/api/vv2/";
     }
@@ -51,7 +53,8 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         return  this._http.get( this.api+"account/sign-out",{headers:headers}).pipe(
             map((response) => {
-                localStorage.clear();
+                // localStorage.clear();
+                this._packService.localstorageClear();
                 this._webAppService.setLoding(false);
                 this.router.navigate(["/login"]);
                     
@@ -112,10 +115,13 @@ return this.profile;
   this.profile.score=null ;
     }
     getIsLogin(){
-        return this.IsLogin;
+        // return this.IsLogin;
+        let islogin=JSON.parse(localStorage.getItem("IsLogin"));
+        return islogin;
     }
     setIsLogin(status:boolean){
-this.IsLogin=status;
+// this.IsLogin=status;
+localStorage.setItem("IsLogin",status.toString());
     }
 
 
