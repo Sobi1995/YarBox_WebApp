@@ -13,7 +13,7 @@ private packsRuning:any;
  private IsNet:boolean=false;
 constructor(private _http:HttpClient,private _packService:PackService){
   //  this.api="http://localhost:11926/api/vv2/";
-     this.api="https://api.yarbox.co/api/vv2/";
+    this.api="https://api.yarbox.co/api/vv2/";
 }
  
 

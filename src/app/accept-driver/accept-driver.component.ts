@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WebAppService } from '../Services/webapp-service';
 import { PackService } from '../Services/Pack-Service';
 
@@ -22,7 +22,8 @@ status:any;
   constructor( 
       private activatedRoute: ActivatedRoute,
       private _webapp:WebAppService,
-      private _pack:PackService
+      private _pack:PackService,
+      private router:Router
       ) { }
 
   ngOnInit() {
@@ -61,7 +62,11 @@ markerDragEnd(m: marker, $event: MouseEvent) {
   console.log('dragEnd', m, $event);
 }
 
- 
+ Back(){
+   this._pack.clearLocalStorageEmptyReFlow();
+   this.router.navigate(["/base"]);
+
+ }
 }
 interface marker {
 	lat: number;

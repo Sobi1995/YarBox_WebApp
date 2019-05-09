@@ -9,10 +9,10 @@ import { authenticationService } from '../authentication-Service';
 })
 export class RegisterComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
-    this.closemyModal5.nativeElement.click();  
+ 
   }
 regiserModel:any={};
-@ViewChild('closemyModal5') private closemyModal5: ElementRef;
+ 
   constructor(private activatedRoute: ActivatedRoute,
               private auth:authenticationService,
               private router:Router) { 

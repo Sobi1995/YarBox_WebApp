@@ -51,6 +51,7 @@ if(res!=null){
   }
 
   cancelPack(){
+    this.PackService.setOnLocalStorageEmpty();
     this.pauseTimer();
     this._webapp.cancelPack(this.postpackid).subscribe(res=>{
       this.PackService.setDefultMenu(false);

@@ -22,7 +22,7 @@ export class  MultiplePacksDto{
         this.vehicleId=0;
         this.isPacking=true;
         this.isInsurance=true;
-        this.content="هیچ";
+        this.content="";
         this.postPacktype=0;
     }
 }

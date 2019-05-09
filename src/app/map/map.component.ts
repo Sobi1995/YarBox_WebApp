@@ -223,7 +223,7 @@ centerChange($event){
    this._packService.setAddress(val);
    this._packService.setLatLong(this.latDragEnd.toString(),this.lngDragEnd.toString());
    this.closeModal.nativeElement.click();     
-  //  this._packService.clearLocalStorageEmptyReFlow();
+   this._packService.clearLocalStorageEmptyReFlow();
     this.router.navigate(["/destination"])
  
 
