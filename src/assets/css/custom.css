@@ -1362,7 +1362,8 @@ footer * {
         padding: 9% !important;
     }
     a.back-web-app {
-        margin-top: -11% !important;
+        top: 5% !important;
+        padding: 0 !important;
     }
     .hover-Unsuccess {
         height: 160px !important;
@@ -1370,9 +1371,6 @@ footer * {
     }
     section.main-web-app {
         height: 100vh !important;
-    }
-    .marker-orgin {
-        margin: 0 47% 4% 0 !important;
     }
     .location-my {
         left: 6% !important;
@@ -1396,7 +1394,7 @@ footer * {
         margin: 20px 0 !important;
     }
     button.cancel-btn {
-        margin: 4% 45% !important;
+        margin: 4% 35% !important;
     }
     .etebar ol.carousel-indicators {
         margin-bottom: -7% !important;
@@ -1416,6 +1414,81 @@ footer * {
     .main-web-app.main-web-app6 {
         height: 78vh;
         overflow: scroll;
+    }
+    img.img-web-app {
+        width: 100%;
+    }
+    .verfy-head .title-web-app {
+        padding: 3% !important;
+    }
+    a.back-web-app2 {
+        left: 3% !important;
+    }
+    .verify-code img {
+        width: 200px !important;
+        height: 200px !important;
+        top: -115px !important;
+    }
+    .verify-code {
+        margin: 27% auto 30% !important;
+    }
+    .login-input {
+        margin: 0% 12% 3% !important;
+    }
+    .main-web-app-top {
+        height: 100px !important;
+    }
+    .main-web-app-body,
+    .main-web-app-pack,
+    .main-web-app-vecle,
+    .main-web-app-factor,
+    .main-web-app4,
+    .main-web-app5,
+    .main-web-app-mass,
+    .main-web-app-about,
+    .main-web-app-support,
+    .main-web-app-serch-dri,
+    .main-web-app6,
+    .map-web-app {
+        top: 100px !important;
+    }
+    #selectfavoriteaddresses.modal.in .modal-dialog {
+        width: 55% !important;
+    }
+    .register-form img {
+        right: 9% !important;
+    }
+    #myModal3 .modal-dialog,
+    #myModal4 .modal-dialog {
+        margin: 30% auto;
+    }
+    .main-web-app-top1 {
+        height: 175px !important;
+    }
+    #myModal2.modal.in .modal-dialog {
+        -webkit-transform: translate(0, 70%) !important;
+        -ms-transform: translate(0, 70%) !important;
+        -o-transform: translate(0, 70%) !important;
+        transform: translate(0, 70%) !important;
+    }
+    .map-web-app {
+        height: 90vh !important;
+    }
+    .box-pack-web-app {
+        margin: 3% 10% !important;
+        width: 80% !important;
+    }
+    .map-fav-address img {
+        width: 100%;
+    }
+    .main-web-app-top2 {
+        height: 415px !important;
+    }
+    .main-web-app-18 {
+        top: 50% !important;
+    }
+    .input-pay span {
+        margin-right: -15% !important;
     }
 }
 
@@ -4355,4 +4428,9 @@ a.a-404 {
     font-size: 17px;
     color: #fff;
     border-radius: 26px;
+}
+
+.main-web-app .nav-tabs {
+    position: fixed;
+    width: 100%;
 }
