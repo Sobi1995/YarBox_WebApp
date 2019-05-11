@@ -1452,6 +1452,17 @@ footer * {
     .map-web-app {
         top: 100px !important;
     }
+    .section-main-web-app .tab-content {
+        top: 70px;
+        position: relative;
+    }
+    .section-main-web-app .tab-content.tab-factor {
+        top: 0px !important;
+        position: relative;
+    }
+    ul.nav.nav-tabs.nav-factor {
+        position: relative;
+    }
     #selectfavoriteaddresses.modal.in .modal-dialog {
         width: 55% !important;
     }
