@@ -26,6 +26,7 @@ import { PackDaltileComponent } from './pack-daltile/pack-daltile.component';
 import { FinalFactorComponent } from './final-factor/final-factor.component';
 import { PackHistoryComponent } from './pack-history/pack-history.component';
 import { Page404Component } from './page404/page404.component';
+import { InvitedFirendComponent } from './invited-firend/invited-firend.component';
 
  
 const routes: Routes = [
@@ -49,6 +50,7 @@ const routes: Routes = [
   {path:'pack-daltile',component:PackDaltileComponent, canActivate: [LoginGuardService]}, 
   {path:'final-factor',component:FinalFactorComponent, canActivate: [LoginGuardService]},
   {path:'pack-history',component:PackHistoryComponent, canActivate: [LoginGuardService]},
+  {path:'invited-firend',component:InvitedFirendComponent, canActivate: [LoginGuardService]},
   {path:'WebPlatform',component:WebPlatformComponent},
   {path:'ios-home-screen',component:IosHomeScreenComponent},
   {path:'android-home-screen',component:AndroidHomeScreenComponent},

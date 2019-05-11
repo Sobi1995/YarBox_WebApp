@@ -1081,7 +1081,7 @@ a.rowa .section-style {
         font-size: 14px !important;
     }
     .sidebar-nav li {
-        line-height: 44px !important;
+        line-height: 41px !important;
     }
     .hazine {
         font-size: 15px !important;
@@ -1212,6 +1212,13 @@ a.rowa .section-style {
     a.about-a {
         font-size: 12px !important;
         margin: 3% auto !important;
+    }
+    p.invited-p {
+        font-size: 14px !important;
+    }
+    span.invited-span-before,
+    span.invited-span-after {
+        display: none;
     }
     #selectfavoriteaddresses.modal.in .modal-dialog {
         -webkit-transform: translate(0, 22%) !important;
@@ -1449,7 +1456,8 @@ footer * {
     .main-web-app-support,
     .main-web-app-serch-dri,
     .main-web-app6,
-    .map-web-app {
+    .map-web-app,
+    .main-web-app-invited {
         top: 100px !important;
     }
     .section-main-web-app .tab-content {
@@ -3360,7 +3368,8 @@ p.p-support img {
     position: relative;
 }
 
-p.about-p {
+p.about-p,
+p.invited-p {
     color: #37438e;
     font-size: 17px;
     line-height: 25px;
@@ -3374,7 +3383,8 @@ a.about-a {
     margin: 30px 0;
 }
 
-.about-part {
+.about-part,
+.invited-part {
     width: 80%;
     margin: 10px auto;
 }
@@ -4246,7 +4256,8 @@ div#sidebar-wrapper.active .sid {
 .main-web-app-support,
 .main-web-app-serch-dri,
 .main-web-app6,
-.map-web-app {
+.map-web-app,
+.main-web-app-invited {
     position: relative;
     top: 70px;
 }
@@ -4444,4 +4455,42 @@ a.a-404 {
 .main-web-app .nav-tabs {
     position: fixed;
     width: 100%;
+}
+
+p.invited-p2 {
+    text-align: center;
+    color: #aaa;
+}
+
+span.invited-span-before,
+span.invited-span-after {
+    width: 25%;
+    position: absolute;
+    content: '';
+    background: #aaa;
+    height: 1px;
+}
+
+span.invited-span-after {
+    left: 10%;
+    margin-top: -10px;
+}
+
+span.invited-span-before {
+    margin-top: 10px;
+}
+
+.invited-part a {
+    text-align: center;
+    margin: 10% auto;
+    width: 100%;
+}
+
+.invited-part a img {
+    width: 40px;
+}
+
+.section-main-web-app .tab-content {
+    top: 70px;
+    position: relative;
 }
