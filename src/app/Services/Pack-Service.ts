@@ -63,11 +63,11 @@ setOnLocalstoreage(){
 
  setOrigin(origin:originDto){
     
-this.MultiplePacks.origin.city= origin.city!=undefined ? origin.city  : this.MultiplePacks.origin.city
+this.MultiplePacks.origin.city= "تهران"
 this.MultiplePacks.origin.latitude=  origin.latitude!=undefined ? origin.latitude  : this.MultiplePacks.origin.latitude
-this.MultiplePacks.origin.province=  origin.province!=undefined ? origin.province  : this.MultiplePacks.origin.province
+this.MultiplePacks.origin.province= "تهران"
 this.MultiplePacks.origin.street= origin.street!=undefined ? origin.street  : this.MultiplePacks.origin.street
-this.MultiplePacks.origin.senderPhoneNumber= origin.senderPhoneNumber!=undefined ? origin.senderPhoneNumber  : this.MultiplePacks.origin.senderPhoneNumber
+this.MultiplePacks.origin.senderPhoneNumber= JSON.parse(localStorage.getItem("Profile")).phoneNumber
  
  }
    getAddress(){
@@ -254,6 +254,9 @@ clearLocalStorageEmptyReFlowWithOutOrigin() {
   this.MultiplePacks=new MultiplePacksDto();
   this.MultiplePacks.postPacktype=typeDivice
   this.MultiplePacks.origin=origin;
+  this.MultiplePacks.origin.city="تهران";
+  this.MultiplePacks.origin.province="تهران";
+  this.MultiplePacks.origin.senderPhoneNumber=JSON.parse(localStorage.getItem("Profile")).phoneNumber;
    localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
   }
 get getRetryFlow(){
