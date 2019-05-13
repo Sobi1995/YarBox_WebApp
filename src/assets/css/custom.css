@@ -4174,6 +4174,13 @@ p.page-mob-p5 {
     height: 100px;
 }
 
+.history-info p {
+    color: #333;
+    font-size: 14px;
+    margin: 0;
+    padding: 4px 10px;
+}
+
 .historry-price p {
     display: inline-block;
 }
@@ -4187,14 +4194,20 @@ p.page-mob-p5 {
     display: inline-block;
 }
 
-.historry-price-3 {
-    text-align: left;
+p.historry-price-1 {
+    width: 40%;
 }
 
 .historry-price-2 {
     text-align: center;
     font-size: 18px;
     color: #09cd80;
+    width: 40%;
+}
+
+.historry-price-3 {
+    text-align: left;
+    width: 20%;
 }
 
 .verify-code {

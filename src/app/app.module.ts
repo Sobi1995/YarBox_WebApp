@@ -45,6 +45,7 @@ import { PackHistoryComponent } from './pack-history/pack-history.component';
 import { ErrorsHandler } from './Services/errors-handler.service';
 import { Page404Component } from './page404/page404.component';
 import { InvitedFirendComponent } from './invited-firend/invited-firend.component';
+import { HistoryComponent } from './history/history.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,8 @@ import { InvitedFirendComponent } from './invited-firend/invited-firend.componen
     FinalFactorComponent,
     PackHistoryComponent,
     Page404Component,
-    InvitedFirendComponent
+    InvitedFirendComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
