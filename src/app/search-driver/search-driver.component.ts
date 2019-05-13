@@ -34,15 +34,18 @@ export class SearchDriverComponent implements OnInit {
   startTimer() {
   var  self=this;
     this.interval = setInterval(() => {
-      //self.postpackid)
+
       this._webapp.getSearchDriver(self.postpackid).subscribe(res=>{
 if(res!=null){
-  // alert("راننده پیدا شد")
   this.pauseTimer();
   console.log(res);
   this.router.navigate(["/accept-driver/"+res.mobile])
 }
+else{
+  this.startTimer();
+}
       })
+      this.pauseTimer();
     },10000)
   }
 

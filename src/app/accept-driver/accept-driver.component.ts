@@ -27,7 +27,7 @@ status:any;
       ) { }
 
   ngOnInit() {
- 
+  
      this.status=this._pack.getStatusPack;
     this.vehicle=this._pack.getVehicle();
     
