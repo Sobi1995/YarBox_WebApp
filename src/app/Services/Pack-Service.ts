@@ -242,13 +242,20 @@ setOnLocalStorageEmpty(){
 }
 clearLocalStorageEmptyReFlow() {
    
- let typeDivice=this.MultiplePacks.postPacktype;
+let typeDivice=this.MultiplePacks.postPacktype;
 this.MultiplePacks=new MultiplePacksDto();
 this.MultiplePacks.postPacktype=typeDivice
-
-  localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
- 
+ localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
 }
+clearLocalStorageEmptyReFlowWithOutOrigin() {
+   
+  let typeDivice=this.MultiplePacks.postPacktype;
+  let origin =this.MultiplePacks.origin;
+  this.MultiplePacks=new MultiplePacksDto();
+  this.MultiplePacks.postPacktype=typeDivice
+  this.MultiplePacks.origin=origin;
+   localStorage.setItem("MultiplePacks",JSON.stringify(this.MultiplePacks))
+  }
 get getRetryFlow(){
 
 // let tryflow=this.MultiplePacks;
