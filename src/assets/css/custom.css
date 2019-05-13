@@ -4494,3 +4494,12 @@ span.invited-span-before {
     top: 70px;
     position: relative;
 }
+
+.section-main-web-app .tab-factor.tab-content {
+    top: 0 !important;
+    position: relative;
+}
+
+ul.nav.nav-tabs.nav-factor {
+    position: relative !important;
+}
