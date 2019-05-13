@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WebPlatformComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+   }
 
   ngOnInit() {
   }
