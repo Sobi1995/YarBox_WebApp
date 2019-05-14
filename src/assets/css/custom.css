@@ -4496,7 +4496,11 @@ span.invited-span-before {
 .invited-part a {
     text-align: center;
     margin: 10% auto;
-    width: 100%;
+    width: 25%;
+}
+
+.share-socail {
+    margin: 0 14%;
 }
 
 .invited-part a img {
@@ -4515,4 +4519,18 @@ span.invited-span-before {
 
 ul.nav.nav-tabs.nav-factor {
     position: relative !important;
+}
+
+.code-moaref span {
+    background: #26306d;
+    color: #fff;
+    padding: 4% 7%;
+    border-radius: 0 10px 10px 0;
+}
+
+.code-moaref {
+    border: 2px solid #26306d;
+    width: 70%;
+    margin: 8% 15%;
+    border-radius: 12px;
 }
