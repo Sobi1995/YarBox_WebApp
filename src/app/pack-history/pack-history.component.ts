@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebAppService } from '../Services/webapp-service';
 
 @Component({
   selector: 'app-pack-history',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pack-history.component.css']
 })
 export class PackHistoryComponent implements OnInit {
-
-  constructor() { }
+historys:any;
+  constructor(private _wepApp:WebAppService) { 
+    history.pushState(null, null, null);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+  }
 
   ngOnInit() {
+    this._wepApp.getArrived().subscribe(res=>{
+      this.historys=res.items;
+      console.log(res.items)
+    })
   }
 
 }

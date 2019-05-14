@@ -12,16 +12,16 @@
           </div>
 
       </div>
-      <a class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
+      <a  [routerLink]="['/']" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
       <div class="main-web-app main-web-app6">
           
-          <div class="history-parts">
+          <div class="history-parts" *ngFor="let history of historys">
               <div class="history-head">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 history-head1">
-                      کد مرسوله : <span>44763</span>
+                      کد مرسوله : <span>{{history.id}}</span>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 history-head2">
-                      تاریخ : <span>1398/01/18</span>
+                      تاریخ : <span>{{history.createdOn *1000  | date: 'yyyy-MM-dd' | jalali }}</span>
                   </div>
               </div>
               <div class="history-body">
@@ -29,14 +29,14 @@
                       <span class="cri-titr"></span>
                       <p>فرستنده</p>
                       <div class="history-info">
-                          استان تهران - شهر تهران - شاهد - پلاک
+                     {{history.origin}}
                       </div>
                   </div>
                   <div class="history-part history-green">
                       <span class="cri-titr"></span>
                       <p>گیرنده</p>
                       <div class="history-info">
-                          استان تهران - شهر تهران - شاهد - پلاک
+                    {{history.destination}}
                       </div>
                   </div>
                   <div class="historry-price">
@@ -44,143 +44,14 @@
                           <p>هزینه ارسال</p>
                       </div>
                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-2">
-                          <span>75,900</span>
+                          <span>{{history.price | toman}}</span>
                       </div>
-                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-3">
-                          <p>تومان</p>
-                      </div>
-                      
+                     
                       
                       
                   </div>
               </div>
           </div>
-
-          <div class="history-parts">
-                  <div class="history-head">
-                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 history-head1">
-                          کد مرسوله : <span>44763</span>
-                      </div>
-                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 history-head2">
-                          تاریخ : <span>1398/01/18</span>
-                      </div>
-                  </div>
-                  <div class="history-body">
-                      <div class="history-part history-red">
-                          <span class="cri-titr"></span>
-                          <p>فرستنده</p>
-                          <div class="history-info">
-                              استان تهران - شهر تهران - شاهد - پلاک
-                          </div>
-                      </div>
-                      <div class="history-part history-green">
-                          <span class="cri-titr"></span>
-                          <p>گیرنده</p>
-                          <div class="history-info">
-                              استان تهران - شهر تهران - شاهد - پلاک
-                          </div>
-                      </div>
-                      <div class="historry-price">
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-1">
-                              <p>هزینه ارسال</p>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-2">
-                              <span>75,900</span>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-3">
-                              <p>تومان</p>
-                          </div>
-                          
-                          
-                          
-                      </div>
-                  </div>
-              </div>
-
-              <div class="history-parts">
-                      <div class="history-head">
-                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 history-head1">
-                              کد مرسوله : <span>44763</span>
-                          </div>
-                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 history-head2">
-                              تاریخ : <span>1398/01/18</span>
-                          </div>
-                      </div>
-                      <div class="history-body">
-                          <div class="history-part history-red">
-                              <span class="cri-titr"></span>
-                              <p>فرستنده</p>
-                              <div class="history-info">
-                                  استان تهران - شهر تهران - شاهد - پلاک
-                              </div>
-                          </div>
-                          <div class="history-part history-green">
-                              <span class="cri-titr"></span>
-                              <p>گیرنده</p>
-                              <div class="history-info">
-                                  استان تهران - شهر تهران - شاهد - پلاک
-                              </div>
-                          </div>
-                          <div class="historry-price">
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-1">
-                                  <p>هزینه ارسال</p>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-2">
-                                  <span>75,900</span>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-3">
-                                  <p>تومان</p>
-                              </div>
-                              
-                              
-                              
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="history-parts">
-                          <div class="history-head">
-                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 history-head1">
-                                  کد مرسوله : <span>44763</span>
-                              </div>
-                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 history-head2">
-                                  تاریخ : <span>1398/01/18</span>
-                              </div>
-                          </div>
-                          <div class="history-body">
-                              <div class="history-part history-red">
-                                  <span class="cri-titr"></span>
-                                  <p>فرستنده</p>
-                                  <div class="history-info">
-                                      استان تهران - شهر تهران - شاهد - پلاک
-                                  </div>
-                              </div>
-                              <div class="history-part history-green">
-                                  <span class="cri-titr"></span>
-                                  <p>گیرنده</p>
-                                  <div class="history-info">
-                                      استان تهران - شهر تهران - شاهد - پلاک
-                                  </div>
-                              </div>
-                              <div class="historry-price">
-                                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-1">
-                                      <p>هزینه ارسال</p>
-                                  </div>
-                                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-2">
-                                      <span>75,900</span>
-                                  </div>
-                                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 historry-price-3">
-                                      <p>تومان</p>
-                                  </div>
-                                  
-                                  
-                                  
-                              </div>
-                          </div>
-                      </div>
-
-
-
       </div>
 
 

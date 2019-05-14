@@ -24,6 +24,7 @@ export class ReportsComponent implements OnInit {
   ngOnInit() {
     this._webappservice.getWallet().subscribe(res=>{
       this.wallets=res.items;
+      console.log(res.items)
     })
 
     this._webappservice.getPaid().subscribe(res=>{

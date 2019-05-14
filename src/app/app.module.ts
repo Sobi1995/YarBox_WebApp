@@ -46,6 +46,7 @@ import { ErrorsHandler } from './Services/errors-handler.service';
 import { Page404Component } from './page404/page404.component';
 import { InvitedFirendComponent } from './invited-firend/invited-firend.component';
 import { HistoryComponent } from './history/history.component';
+import { JalaliPipe } from './Services/Jalali-Pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,7 @@ import { HistoryComponent } from './history/history.component';
     ChooseVehicleComponent,
     PostPackDeitiesComponent,
     FactorComponent,
- 
+    JalaliPipe,
     AcceptDriverComponent,
     SearchDriverComponent,
     ErrorComponent,
