@@ -33,7 +33,7 @@
 
 
             <tr *ngFor="let wallet of wallets">
-              <td>97/02/15</td>
+              <td>{{wallet.createdOn *1000  | date: 'yyyy-MM-dd' | jalali }}</td>
               <td>{{wallet.price}}</td>
               <td *ngIf="wallet.type=='debtor'">واریز</td>
               <td *ngIf="wallet.type=='creditor'">برداشت</td>
@@ -56,7 +56,7 @@
               <th><img src="/assets/img/12-code-marsoole.svg" width="20" height="20">کد مرسوله</th>
             </tr>
             <tr *ngFor="let Paid of Paids">
-                <td>97/02/15</td>
+                <td>{{Paid.createdOn *1000  | date: 'yyyy-MM-dd' | jalali }}</td>
                 <td>{{Paid.price}}</td>
                 <td *ngIf="Paid.type=='debtor'">واریز</td>
                 <td *ngIf="Paid.type=='creditor'">برداشت</td>

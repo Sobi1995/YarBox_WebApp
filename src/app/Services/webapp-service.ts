@@ -12,8 +12,8 @@ export class WebAppService{
 private packsRuning:any;
  private IsNet:boolean=false;
 constructor(private _http:HttpClient,private _packService:PackService){
- // this.api="http://localhost:11926/api/vv2/";
-   this.api="https://api.yarbox.co/api/vv2/";
+ this.api="http://localhost:11926/api/vv2/";
+  // this.api="https://api.yarbox.co/api/vv2/";
 }
  
 
@@ -370,4 +370,19 @@ return response
     );
 }
 
+
+getArrived():Observable<any>{
+    
+  this.setLoding(true);
+let headers = new HttpHeaders();
+headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
+headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
+return  this._http.get(this.api+"/packs/arrived",{headers:headers}).pipe(
+    map((response:any) => {
+      this.setLoding(false);
+return response
+    } )
+    );
+}
 }
