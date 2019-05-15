@@ -39,7 +39,7 @@
                 </div>
                 <div class="location-my"><button><img (click)="myLocation()" src="/assets/img/mokhtasat.svg" width="30" height="30"></button></div>
 
-                <agm-map (centerChange)="centerChange($event)" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true" [zoomControl]="false" (dragEnd)="onDragEnd($event)"   >
+                <agm-map id="map" (centerChange)="centerChange($event)" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true" [zoomControl]="false" (dragEnd)="onDragEnd($event)"   >
 
                 </agm-map>
 

@@ -332,6 +332,17 @@ setDivice(type:number){
   this.MultiplePacks.postPacktype=type;
   this.setOnLocalStorage()
 }
+
+ToNumEn(str:string){
+  var p = /^[\u0600-\u06FF\s]+$/;
+  if (!p.test(str)) 
+      return str;   
+      const regex = /[۰-۹]/g
+  return  str.replace(regex, function (w) {
+      return String.fromCharCode(w.charCodeAt(0) - 1728)
+    }
+  )
+}
 } 
 enum DiviceType {
   Android = 0,

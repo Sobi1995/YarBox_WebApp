@@ -37,7 +37,7 @@ constructor(
     this.pay=value;
   }
   Pay(){
-    this._webappservice.walletCharge(this.pay).subscribe(res=>{
+    this._webappservice.walletCharge(this._packservice.ToNumEn(this.pay.toString())).subscribe(res=>{
     
       window.location.href=res.redirectTo;
     })

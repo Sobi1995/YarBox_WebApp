@@ -12,8 +12,8 @@ export class WebAppService{
 private packsRuning:any;
  private IsNet:boolean=false;
 constructor(private _http:HttpClient,private _packService:PackService){
- this.api="http://localhost:11926/api/vv2/";
-  // this.api="https://api.yarbox.co/api/vv2/";
+ //this.api="http://localhost:11926/api/vv2/";
+ this.api="https://api.yarbox.co/api/vv2/";
 }
  
 
@@ -213,13 +213,13 @@ return  this._http.get(this.api+"account/sign-out",{headers:headers},).pipe(
 
 
 
-walletCharge(value:number){
+walletCharge(value:string){
       
   let headers = new HttpHeaders();
   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 //https://api.yarbox.co/api/vv2/payment/charge?price=20 => this.api+"payment/charge?price="+value
- return  this._http.get("https://api.yarbox.co/api/v1/payment/charge?price="+value,{headers:headers}).pipe(
+ return  this._http.get("https://api.yarbox.co/api/v1/payment/charge?price="+ value,{headers:headers}).pipe(
       map((response:any) => {
           
       return    response

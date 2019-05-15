@@ -1,7 +1,7 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import { authenticationService } from '../authentication-Service';
 import { Router } from '@angular/router';
-
+import '../../Shared/extension-methods-ToEnglishNumber';
 import { HttpErrorResponse } from '@angular/common/http';
 import { PackService } from 'src/app/Services/Pack-Service';
 
@@ -12,7 +12,7 @@ import { PackService } from 'src/app/Services/Pack-Service';
   
 })
 export class LoginComponent implements OnInit,OnDestroy {
-error:String="";
+error:String=null;
 model: any = {};
   ngOnDestroy(): void {
   this.model={
@@ -32,8 +32,18 @@ model: any = {};
    this._packService.setOnLocalStorageEmpty();
      }
      onSubmit(){
-   
-      this.auth.sendVerifyCode(this.model.mobile).subscribe(
+        
+ //^(\+98|0)?9\d{9}$
+ 
+ this.model.mobile=this._packService.ToNumEn(this.model.mobile);
+ 
+ 
+  if(! /^(\+98|0)?9\d{9}$/.test(this.model.mobile)){
+    this.error="لطفا فرمت شماره تماس را درست وارد کنید"
+    return
+  }
+ 
+      this.auth.sendVerifyCode(this._packService.ToNumEn(this.model.mobile)).subscribe(
         data => {
           this.router.navigate(["/verify-vode/"+this.model.mobile]);
         },

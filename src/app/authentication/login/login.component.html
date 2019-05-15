@@ -10,18 +10,17 @@
 				
 						<!-- #mobile="ngModel" pattern="[0-9]+" required  -->
 						<!-- git test -->
-					<input  autocomplete="off" type="tel" placeholder="----   ---   ----" class="login-input"   [(ngModel)]="model.mobile" #mobile="ngModel"  name="mobile"  pattern="^(\+98|0)?9\d{9}$" required />
+					<input  autocomplete="off" type="tel" placeholder="----   ---   ----" class="login-input"    [(ngModel)]="model.mobile" #mobile="ngModel"  name="mobile"    required />
 					<img src="/assets/img/2-mob.svg" width="30" height="30">
-
-					<div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
-						<div *ngIf="mobile.errors.required" class="error-webapp error-webapp2">شماره همراه / ثابت را وارد کنید</div>
-						<div [hidden]="!mobile.errors.pattern" class="error-webapp error-webapp2">  فرمت شماره همراه را درست وارد کنید از ارقام انگیسی استفاده کنید</div>
+					<!-- *ngIf="f.submitted && mobile.invalid" -->
+					<div  class="invalid-feedback">
+						<!-- <div *ngIf="mobile.errors.required" class="error-webapp error-webapp2">شماره همراه / ثابت را وارد کنید</div> -->
+						<div class="error-webapp error-webapp2" *ngIf="error!=null">  فرمت شماره همراه را درست وارد کنید </div>
 			     	</div>
 
 		 
 					
-                      <p *ngIf="error!=''">{{error}}</p>
-					<p>برای ورود به سیستم شماره موبایل خود را وارد کنید .</p>
+ 
 
 					<!--a  [routerLink]="['/register/09185688292']" class="regester-btn">ثبت نام</a-->
 				 
