@@ -11,9 +11,10 @@ export class WebAppService{
  private httpLoding:boolean=false;     
 private packsRuning:any;
  private IsNet:boolean=false;
+ private PostPackId:number;
 constructor(private _http:HttpClient,private _packService:PackService){
- this.api="http://localhost:11926/api/vv2/";
- //this.api="https://api.yarbox.co/api/vv2/";
+ //this.api="http://localhost:11926/api/vv2/";
+ this.api="https://api.yarbox.co/api/vv2/";
 }
  
 
@@ -398,5 +399,11 @@ return  this._http.get(this.api+"/packs/arrived",{headers:headers}).pipe(
 return response
     } )
     );
+}
+setPostPackId(id:number){
+this.PostPackId=id;
+}
+get PostpackId(){
+  return this.PostPackId;
 }
 }

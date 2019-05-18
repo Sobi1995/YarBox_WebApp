@@ -30,6 +30,7 @@ export class SearchDriverComponent implements OnInit {
 
   ngOnInit() {
      this.postpackid= this.activatedRoute.snapshot.params["postpackid"];
+     this._webapp.setPostPackId(this.postpackid);
   }
   startTimer() {
   var  self=this;

@@ -19,12 +19,14 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
  
   }
    VerifyCode:VerifyCode;
+   verifyCodengModel:string;
   constructor(
     private activatedRoute: ActivatedRoute,
     private auth:authenticationService,
     private _packService:PackService,
     private router: Router) {
        this.VerifyCode=new  VerifyCode();
+      this.VerifyCode.verifyCode=""
        history.pushState(null, null, null);
        window.onpopstate = function () {
            history.go(1);
@@ -39,9 +41,9 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
    }
    this.VerifyCode.phoneNumber= this.activatedRoute.snapshot.params["phonenumber"];
   }
-  Login(verifycodeinput:string){
-    verifycodeinput=this._packService.ToNumEn(verifycodeinput)
-    this.VerifyCode.verifyCode=verifycodeinput;
+  Login( ){
+  
+    this.VerifyCode.verifyCode
 
     this.auth.checkVerifyCode(this.VerifyCode).subscribe(res=>{ 
       localStorage.setItem('access_token', res.access_token);
@@ -64,8 +66,8 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
       
     })
   }
-  ngModelChangeEvent($event){
-    debugger
+  ngModelChange($event){
+     
     this.VerifyCode.verifyCode= this._packService.ToNumEn(this.VerifyCode.verifyCode)
   }
 }

@@ -9,14 +9,14 @@
 		<div class="verify-code">
 			<img src="./assets/img/ghofl.svg" class="img-web-app" />
 			<p class="code-massege"> کد تایید ارسال شده را وارد نمایید</p>
-			<input autocomplete="off" type="tel" placeholder="----   ---   ----" class="login-input" #verifycode (ngModelChange)="onSelectedChange($event)"/>
+			<input autocomplete="off" type="tel" placeholder="----   ---   ----" class="login-input"  [(ngModel)]="VerifyCode.verifyCode"    name="verifyCode"      (ngModelChange)="ngModelChange($event)" />
 			<p *ngIf="error!=''">{{error}}</p>
 			<a (click)="retrysms()" class="resend">ارسال مجدد</a>
 		</div>
 
 
 
-		<div class="btn-web-app"><button (click)="Login(verifycode.value)" class="btn-verify">وارد شوید</button></div>
+		<div class="btn-web-app"><button (click)="Login()" class="btn-verify">وارد شوید</button></div>
 	</section>
 
 </div>
