@@ -47,6 +47,7 @@ import { Page404Component } from './page404/page404.component';
 import { InvitedFirendComponent } from './invited-firend/invited-firend.component';
 import { HistoryComponent } from './history/history.component';
 import { JalaliPipe } from './Services/Jalali-Pipe';
+import { ToEnglishNumber } from './Shared/ToEnglishNumber-Pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,13 +79,15 @@ import { JalaliPipe } from './Services/Jalali-Pipe';
     PackHistoryComponent,
     Page404Component,
     InvitedFirendComponent,
-    HistoryComponent
+    HistoryComponent,
+    // ToEnglishNumber
   ],
   imports: [
     BrowserModule,
     AuthenticationModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+  
     DeviceDetectorModule.forRoot(),
     FormsModule,
     CommonModule,
@@ -108,6 +111,8 @@ import { JalaliPipe } from './Services/Jalali-Pipe';
       useClass: ErrorsHandler,
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // exports:[ToEnglishNumber]
+ 
 })
 export class AppModule { }

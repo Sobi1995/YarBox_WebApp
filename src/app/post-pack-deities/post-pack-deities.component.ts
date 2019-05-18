@@ -143,6 +143,8 @@ if (index > -1) {
         
          if(this.mainPacks.content=="")
          this.mainPacks.content="ندارد"
+          
+         this.mainPacks.insurancePrice= +this._packService.ToNumEn( this.mainPacks.insurancePrice.toString());
       this._packService.setMainPaks(this.mainPacks);
       this._packService.setPaks(this.packs);
       this.router.navigate(["/choose-vehicle"])
@@ -163,5 +165,7 @@ if (index > -1) {
       this._packService.clearPaks();
       this.router.navigate(['/destination'])
     }
-  
+    ngModelChangeEvent($event){
+     this.mainPacks.insurancePrice= +this._packService.ToNumEn(this.mainPacks.insurancePrice.toString());
+   }
 }

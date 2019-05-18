@@ -88,7 +88,7 @@
         <div class="main-web-app main-web-app-18">
 
             <div class="input-pay">
-                <input autocomplete="off" type="tel" [(ngModel)]="pay"><span>تومان</span>
+                <input autocomplete="off" type="tel" [(ngModel)]="pay"  (ngModelChange)="ngModelChange($event)"><span>تومان</span>
                 <div class="price-pay">{{pay | toman}}</div>
                 <p>مبلغ دلخواه خود را وارد کنید .</p>
             </div>

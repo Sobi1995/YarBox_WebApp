@@ -173,6 +173,20 @@ return  this._http.post(this.api+"packs/accept",acceptsearch,{headers:headers}).
       } )
       );
 }
+
+AcceptDriver(mobile:string,postpackid:number){
+  this.setLoding(true);
+  let headers = new HttpHeaders();
+
+  headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+let packs=this._packService.getMultiplePacks;
+return  this._http.post(this.api+"driver/AcceptDriver?mobile="+mobile+"&postPackId="+postpackid,null,{headers:headers},).pipe(
+      map((response:any) => {
+        this.setLoding(false);
+      return    response
+      } )
+      );
+}
 setLoding(status:boolean){
       this.httpLoding=status;
 }
@@ -213,13 +227,13 @@ return  this._http.get(this.api+"account/sign-out",{headers:headers},).pipe(
 
 
 
-walletCharge(value:number){
+walletCharge(value:string){
       
   let headers = new HttpHeaders();
   headers = headers.set('Authorization', 'bearer ' + localStorage.getItem("access_token"));
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 //https://api.yarbox.co/api/vv2/payment/charge?price=20 => this.api+"payment/charge?price="+value
- return  this._http.get("https://api.yarbox.co/api/v1/payment/charge?price="+value,{headers:headers}).pipe(
+ return  this._http.get("https://api.yarbox.co/api/v1/payment/charge?price="+ value,{headers:headers}).pipe(
       map((response:any) => {
           
       return    response

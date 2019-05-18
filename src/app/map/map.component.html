@@ -31,7 +31,7 @@
             </div>
 
             <div class="main-web-app-map">
-                <div class="marker-orgin" data-toggle="modal" data-target="#myModal2">
+                <div class="marker-orgin"  (click)="Accept()">
                     <a href="#"><img src="/assets/img/locstion.svg"></a>
                 </div>
                 <div class="fav-address-orgin">
@@ -39,15 +39,19 @@
                 </div>
                 <div class="location-my"><button><img (click)="myLocation()" src="/assets/img/mokhtasat.svg" width="30" height="30"></button></div>
 
-                <agm-map (centerChange)="centerChange($event)" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true" [zoomControl]="false" (dragEnd)="onDragEnd($event)"   >
-
+                <agm-map id="map" (centerChange)="centerChange($event)" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true" [zoomControl]="false" (dragEnd)="onDragEnd($event)"   >
+                    <agm-circle *ngIf="city!='تهران'" [latitude]="35.704694878898536" [longitude]="51.377137555263516" 
+                    [radius]="13000"
+                    [fillColor]="'green'">
+                </agm-circle>
                 </agm-map>
 
 
             </div>
 
 
-            <div class="btn-web-app" data-toggle="modal" data-target="#myModal2"><button>تایید و ادامه</button></div>
+            <div   id="OpenModal" data-toggle="modal" data-target="#myModal2"  style="visibility: hidden;"></div>
+            <div class="btn-web-app"  (click)="Accept()" ><button>تایید و ادامه</button></div>
         </section>
 
     </div>

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VerifyCode } from '../Model/VerifyCode';
 import { authenticationService } from '../authentication-Service';
 import swal from 'sweetalert2';
+import { PackService } from 'src/app/Services/Pack-Service';
 
 
 
@@ -21,7 +22,7 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private auth:authenticationService,
- 
+    private _packService:PackService,
     private router: Router) {
        this.VerifyCode=new  VerifyCode();
        history.pushState(null, null, null);
@@ -39,7 +40,7 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
    this.VerifyCode.phoneNumber= this.activatedRoute.snapshot.params["phonenumber"];
   }
   Login(verifycodeinput:string){
-     
+    verifycodeinput=this._packService.ToNumEn(verifycodeinput)
     this.VerifyCode.verifyCode=verifycodeinput;
 
     this.auth.checkVerifyCode(this.VerifyCode).subscribe(res=>{ 
@@ -62,5 +63,9 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
       
       
     })
+  }
+  ngModelChangeEvent($event){
+    debugger
+    this.VerifyCode.verifyCode= this._packService.ToNumEn(this.VerifyCode.verifyCode)
   }
 }

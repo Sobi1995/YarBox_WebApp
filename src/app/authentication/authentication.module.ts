@@ -11,9 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { LoginProfileGuardService } from './login-profile-guard.service';
 import { RegisterComponent } from './register/register.component';
+import { ToEnglishNumber } from '../Shared/ToEnglishNumber-Pipe';
 
 @NgModule({
-  declarations: [LoginComponent, VerifyCodeComponent, RegisterComponent],
+  declarations: [LoginComponent, VerifyCodeComponent, RegisterComponent,ToEnglishNumber],
   imports: [
     CommonModule,
     HttpClientModule ,
