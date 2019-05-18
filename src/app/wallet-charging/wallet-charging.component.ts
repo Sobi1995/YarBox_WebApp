@@ -64,5 +64,7 @@ Back(){
     this.router.navigate(["/factor/"+this._packservice.getFactorKey]);
   }
 }
- 
+ngModelChange($event){
+  this.pay= +this._packservice.ToNumEn(this.pay.toString());
+}
 }

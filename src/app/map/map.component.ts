@@ -25,12 +25,14 @@ export class MapComponent implements OnInit ,OnDestroy {
   private dragEndSubscription: Subscription;
   @ViewChild('closeModal') private closeModal: ElementRef;
   @ViewChild('closeModalfavoriteaddresses') private closeModalfavoriteaddresses: ElementRef;
-  @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef;
+  @ViewChild('closeModalSelectAddress') private closeModalSelectAddress: ElementRef; 
+   @ViewChild('myModal2') private myModal2: ElementRef;
+
     // @ViewChild('closemyModalcash') private closemyModalcash: ElementRef;
  // google maps zoom level
  errorAddress:string=null;
  googleAddressAutoComplate:any;
- zoom: number = 15;
+ zoom: number = 17;
  lat: number = null;
  lng: number =null;
 savedaddress:any[]=[]
@@ -38,6 +40,7 @@ savedaddress:any[]=[]
  lngDragEnd: string ;
  Origin:originDto;
  tryFlow:string;
+ city:string="تهران"
 //  @ViewChild('openmodalflow') private openmodalflow: ElementRef;
 //  clickedMarker(label: string, index: number) {
 //    console.log(`clicked the marker: ${label || index}`)
@@ -73,11 +76,16 @@ savedaddress:any[]=[]
 
   
     this._webappservice.getCedarmapAddress( this.latDragEnd,this.lngDragEnd).subscribe(res=>{   
+      console.log(res.city)
+      this.city=res.city;
+      if(this.city!='تهران'){
+        this.zoom=10;
+      }
       let   myAddress= res.city + " " + res.district + " " + res.locality + " " + res.place + " " + res.address;
       this.Origin.street=myAddress;
         this._packService.SetAddress(new AddressOrigin(this.latDragEnd,this.lngDragEnd,myAddress))
         
-       console.log( myAddress)
+       
       })
 
   });
@@ -312,7 +320,20 @@ clearFlow(){
 onChangeAddress(val:string){
 this._packService.setAddress(val);
 }
-
+ 
+Accept(){
+  if(this.city!="تهران")
+{
+  swal.fire({
+    type: 'error',
+    text: 'محدوده خارج از دسترس',
+    confirmButtonText:"تایید"
+  })
+  return
+}
+  let element: HTMLElement = document.getElementById('OpenModal') as HTMLElement;
+  element.click();
+}
 }
 // just an interface for type safety.
   interface marker {

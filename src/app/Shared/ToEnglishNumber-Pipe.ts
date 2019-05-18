@@ -2,11 +2,12 @@ import { Pipe, PipeTransform} from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 
 @Pipe({
-  name: 'ToEnglishNumber'
+  name: 'ToEnglishNumberPipe'
 })
 export class ToEnglishNumber extends DecimalPipe implements PipeTransform {
 
   transform(value: string, args?: any): any {
+    debugger
       if(!this.contain_persian_char(value))
 return value
     const regex = /[۰-۹]/g

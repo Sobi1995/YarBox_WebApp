@@ -334,14 +334,38 @@ setDivice(type:number){
 }
 
 ToNumEn(str:string){
-  var p = /^[\u0600-\u06FF\s]+$/;
-  if (!p.test(str)) 
-      return str;   
-      const regex = /[۰-۹]/g
-  return  str.replace(regex, function (w) {
-      return String.fromCharCode(w.charCodeAt(0) - 1728)
-    }
-  )
+ 
+//۰۱۲۳۴۵۶۷۸۹
+      var i;
+      var res=""
+      for (i = 0; i < str.length; i++) { 
+        let asciiCOde=str[i].charCodeAt(0);
+        if(asciiCOde==1632)//1632
+        res+="0"
+        else if(asciiCOde==1633)
+        res+="1"
+        else if(asciiCOde==1634)
+        res+="2"
+        else if(asciiCOde==1635)
+        res+="3"
+        else if(asciiCOde==1636)
+        res+="4"
+        else if(asciiCOde==1637)
+        res+="5"
+        else if(asciiCOde==1638)
+        res+="6"
+        else if(asciiCOde==1639)
+        res+="7"
+        else if(asciiCOde==1640)
+        res+="8"
+        else if(asciiCOde==1641)
+        res+="9"
+        else
+        res+=str[i]
+     
+      }
+ return res;
+ 
 }
 } 
 enum DiviceType {

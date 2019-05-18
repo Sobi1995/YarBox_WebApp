@@ -66,5 +66,8 @@ model: any = {};
   ngOnInit() {
   }
 
- 
+  ngModelChange($event){
+    
+this.model.mobile=this._packService.ToNumEn(this.model.mobile);
+  }
 }

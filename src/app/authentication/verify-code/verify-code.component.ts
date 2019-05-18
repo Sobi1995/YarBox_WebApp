@@ -64,4 +64,8 @@ export class VerifyCodeComponent implements OnInit,OnDestroy {
       
     })
   }
+  ngModelChangeEvent($event){
+    debugger
+    this.VerifyCode.verifyCode= this._packService.ToNumEn(this.VerifyCode.verifyCode)
+  }
 }

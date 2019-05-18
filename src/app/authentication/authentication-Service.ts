@@ -40,6 +40,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     }
 
     checkVerifyCode(verifycode:VerifyCode):Observable<JwtFormat> {
+        // alert(verifycode.verifyCode +"  " +verifycode.phoneNumber)
         this._webAppService.setLoding(true);
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');

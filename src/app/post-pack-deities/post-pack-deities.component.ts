@@ -165,5 +165,7 @@ if (index > -1) {
       this._packService.clearPaks();
       this.router.navigate(['/destination'])
     }
-  
+    ngModelChangeEvent($event){
+     this.mainPacks.insurancePrice= +this._packService.ToNumEn(this.mainPacks.insurancePrice.toString());
+   }
 }

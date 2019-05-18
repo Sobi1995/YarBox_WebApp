@@ -80,7 +80,7 @@ import { ToEnglishNumber } from './Shared/ToEnglishNumber-Pipe';
     Page404Component,
     InvitedFirendComponent,
     HistoryComponent,
-    ToEnglishNumber
+    // ToEnglishNumber
   ],
   imports: [
     BrowserModule,
@@ -111,6 +111,8 @@ import { ToEnglishNumber } from './Shared/ToEnglishNumber-Pipe';
       useClass: ErrorsHandler,
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // exports:[ToEnglishNumber]
+ 
 })
 export class AppModule { }

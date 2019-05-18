@@ -12,8 +12,8 @@ export class WebAppService{
 private packsRuning:any;
  private IsNet:boolean=false;
 constructor(private _http:HttpClient,private _packService:PackService){
- //this.api="http://localhost:11926/api/vv2/";
- this.api="https://api.yarbox.co/api/vv2/";
+ this.api="http://localhost:11926/api/vv2/";
+ //this.api="https://api.yarbox.co/api/vv2/";
 }
  
 
@@ -167,6 +167,20 @@ AcceptToSearch(acceptsearch:AcceptSearchDto){
   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
  
 return  this._http.post(this.api+"packs/accept",acceptsearch,{headers:headers}).pipe(
+      map((response:any) => {
+        this.setLoding(false);
+      return    response
+      } )
+      );
+}
+
+AcceptDriver(mobile:string,postpackid:number){
+  this.setLoding(true);
+  let headers = new HttpHeaders();
+
+  headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+let packs=this._packService.getMultiplePacks;
+return  this._http.post(this.api+"driver/AcceptDriver?mobile="+mobile+"&postPackId="+postpackid,null,{headers:headers},).pipe(
       map((response:any) => {
         this.setLoding(false);
       return    response
