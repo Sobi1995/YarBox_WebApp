@@ -2074,6 +2074,7 @@ section.main-web-app {
     font-family: 'IRANSans';
     padding-left: 37px;
     font-size: 12px;
+    border-bottom: 1px solid #ccc;
 }
 
 .title-web-app1 {
@@ -4415,7 +4416,6 @@ span.info-rannade {
     margin-right: 23%;
     color: #26306d;
     box-shadow: 0 0 2px 0px #777;
-    border-top: 1px solid #ccc;
     border-radius: 0 0 5px 5px;
     line-height: 26px;
     font-size: 12px;
