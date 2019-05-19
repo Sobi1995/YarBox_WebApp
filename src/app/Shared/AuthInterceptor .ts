@@ -40,7 +40,7 @@ export class AuthInterceptor implements HttpInterceptor {
       }
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
-   
+ 
         if (err.status === 403 || err.status==401) {
             // localStorage.clear();
             this._packservice.localstorageClear()
@@ -49,7 +49,9 @@ export class AuthInterceptor implements HttpInterceptor {
         }
         else if (err.status==500)
         {
-          console.log("500 error");
+          this._auth.setIsLogin(false);
+          alert("خطا در سرور لطفا مجددا تلاش کنید")
+       
         }
         this._webApp.setLoding(false);
        

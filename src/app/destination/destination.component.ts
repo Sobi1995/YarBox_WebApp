@@ -195,6 +195,8 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
       })
     }
     onSelectedChange(value) {
+       
+      if(this.destinationModel.receiverPhoneNumber!=undefined)
   this.destinationModel.receiverPhoneNumber=this._postPackService.ToNumEn(this.destinationModel.receiverPhoneNumber);
       this._postPackService.setTypeCity(this.typeCity);
       this._postPackService.setDestination(this.destinationModel);
