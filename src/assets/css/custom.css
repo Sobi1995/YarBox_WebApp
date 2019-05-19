@@ -4495,12 +4495,12 @@ span.invited-span-before {
 
 .invited-part a {
     text-align: center;
-    margin: 10% auto;
-    width: 25%;
+    margin: 10% 1%;
+    width: 18%;
 }
 
 .share-socail {
-    margin: 0 14%;
+    margin: 0 9%;
 }
 
 .invited-part a img {
@@ -4528,28 +4528,34 @@ ul.nav.nav-tabs.nav-factor {
     border-radius: 0 10px 10px 0;
 }
 
-.code-moaref {
-    border: 2px solid #26306d;
-    width: 80%;
-    margin: 8% 10%;
-    border-radius: 12px;
-    padding: 1% 3%;
-}
-
 .code-moaref label {
     width: 32%;
+    color: #26306d;
 }
 
-.code-moaref input {
-    width: 50%;
+.code-moaref p {
+    width: 65%;
     border: none;
     font-size: 19px;
-    text-align: center;
+    text-align: left;
+    position: relative;
+    top: 4px;
+    display: inline-block;
 }
 
-.code-moaref button {
-    display: inline-block;
-    width: 18%;
-    border: none;
-    background: no-repeat;
+.code-moaref {
+    width: 80%;
+    margin: 10% 10%;
+    border-radius: 4px;
+    padding: 2% 3%;
+    box-shadow: 0 0 4px -1px #777;
+}
+
+.gm-style .gm-style-iw-t::after,
+.gm-style-iw {
+    display: none;
+}
+
+.main-web-app-map div {
+    cursor: grab !important;
 }
