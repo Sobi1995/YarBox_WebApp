@@ -79,7 +79,9 @@ this.getPlants().subscribe(res=>{
      private deviceService: DeviceDetectorService,
      private PackService:PackService){
  
-  
+      this._webApp.getCheck().subscribe(res=>{
+        this.PackService.uodateCredit(res.credit);
+      })
        let homescreen=JSON.parse(localStorage.getItem("add-homescreen"))
        if(homescreen==null){
          localStorage.setItem("add-homescreen","false")
