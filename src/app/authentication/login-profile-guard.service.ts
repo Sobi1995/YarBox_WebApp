@@ -11,6 +11,7 @@ export class LoginProfileGuardService {
   constructor(private identityService: authenticationService, private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+       
       console.log(!this.identityService.getIsLogin())
         if (this.identityService.getIsLogin()) { // determine if the uder is logged in from this method.
             this.router.navigate(['/']);

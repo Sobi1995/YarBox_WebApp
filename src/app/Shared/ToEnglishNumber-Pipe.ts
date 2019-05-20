@@ -7,7 +7,7 @@ import { DecimalPipe } from '@angular/common';
 export class ToEnglishNumber extends DecimalPipe implements PipeTransform {
 
   transform(value: string, args?: any): any {
-    debugger
+     
       if(!this.contain_persian_char(value))
 return value
     const regex = /[۰-۹]/g

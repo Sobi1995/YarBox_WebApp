@@ -24,6 +24,7 @@ export class PackDaltileComponent implements OnInit,OnDestroy {
     }
 
   ngOnInit() {
+     
     this.PackDitile=this.PackService.getPackStatus;
       
   }

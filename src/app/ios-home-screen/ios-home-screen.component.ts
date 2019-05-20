@@ -15,9 +15,9 @@ export class IosHomeScreenComponent implements OnInit {
   ngOnInit() {
   }
   Ok(){
-     
+    this._auth.setIsLogin(false);
    localStorage.setItem("add-homescreen","true") 
    this.router.navigate(["/login"])
-   this._auth.setIsLogin(false);
+
   }
 }

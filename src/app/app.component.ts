@@ -30,7 +30,6 @@ export class AppComponent  implements OnInit{
     // }
    
 this.getPlants().subscribe(res=>{
-   
  
   let homescreen=JSON.parse(localStorage.getItem("add-homescreen"))
   
@@ -48,6 +47,7 @@ this.getPlants().subscribe(res=>{
 // }
   else{
      this._auth.IsLoginOnServer().subscribe(res=>{
+        
        this._auth.setIsLogin(true);
        this.jsonProfile = JSON.parse(localStorage.getItem("Profile"));
        this._auth.setProfile(this.jsonProfile);
@@ -59,12 +59,14 @@ this.getPlants().subscribe(res=>{
       }
 })
      },(err) => {
+       
        if(err.status==401){
       this._auth.setIsLogin(false);
       this.router.navigate(["/login"]);
        }
     })
   }
+ // this._auth.setIsLogin(false);
 })
 
 
@@ -79,13 +81,15 @@ this.getPlants().subscribe(res=>{
      private deviceService: DeviceDetectorService,
      private PackService:PackService){
  
-      this._webApp.getCheck().subscribe(res=>{
-        this.PackService.uodateCredit(res.credit);
-      })
+
        let homescreen=JSON.parse(localStorage.getItem("add-homescreen"))
        if(homescreen==null){
          localStorage.setItem("add-homescreen","false")
-      
+       }
+       else if(homescreen==true){
+        this._webApp.getCheck().subscribe(res=>{
+          this.PackService.uodateCredit(res.credit);
+        })
        }
  
       this.epicFunction();

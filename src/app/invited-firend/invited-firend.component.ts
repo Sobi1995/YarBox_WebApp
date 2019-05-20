@@ -12,9 +12,9 @@ export class InvitedFirendComponent implements OnInit {
 
   ngOnInit() {
     this.regcode= JSON.parse(localStorage.getItem("Profile")).reagentCode;
-    this.txt=" سلام یارباکس اپلیکیشن سریع، ساده و کم هزینه ایست که"+
-   "من برای ارسال خرده بار هام به شهرهای مختلف ازش استفاده "+
-   "می کنم. به شما هم پیشنهاد می کنم از طریق کافه بازار  یارباکس رو دانلود کنی "+
+    this.txt=" سلام یارباکس اپلیکیشن سریع، ساده و کم هزینه ایست که"+ '\n\n'+
+   "من برای ارسال خرده بار هام به شهرهای مختلف ازش استفاده "+ '\n\n'+
+   "می کنم. به شما هم پیشنهاد می کنم از طریق کافه بازار  یارباکس رو دانلود کنی "+ '\n\n'+
    "کد معرف :   "+ this.regcode + 
    "https://yarbox.co/account/sign-up?ReagentCode="+this.regcode
    

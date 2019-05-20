@@ -34,7 +34,7 @@
                                     کد مرسوله : {{pack.id}}
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                    97/12/10
+                                    {{pack.createdOn *1000  | date: 'yyyy-MM-dd' | jalali }}
                                 </div>
                             </div>
                             <div class="body-pack" (click)="PackDitile(pack)">
@@ -82,7 +82,7 @@
                                     کد مرسوله : {{pack.id}}
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                    97/12/10
+                                    {{pack.createdOn *1000  | date: 'yyyy-MM-dd' | jalali }}
                                 </div>
                             </div>
                             <div class="hover-Unsuccess">

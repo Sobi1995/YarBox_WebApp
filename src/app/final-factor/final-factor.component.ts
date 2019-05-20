@@ -21,6 +21,7 @@ export class FinalFactorComponent implements OnInit {
 
   ngOnInit() {
     this.PackDitile=this.PackService.getPackStatus;
+    console.log( this.PackDitile)
     this.Profile = JSON.parse(localStorage.getItem("Profile"));
      
   }

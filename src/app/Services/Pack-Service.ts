@@ -340,25 +340,26 @@ ToNumEn(str:string){
       var res=""
       for (i = 0; i < str.length; i++) { 
         let asciiCOde=str[i].charCodeAt(0);
-        if(asciiCOde==1632)//1632
+       
+        if(asciiCOde==1632 || asciiCOde==1776 )//1632
         res+="0"
-        else if(asciiCOde==1633)
+        else if(asciiCOde==1633 || asciiCOde==1777)
         res+="1"
-        else if(asciiCOde==1634)
+        else if(asciiCOde==1634 || asciiCOde==1778)
         res+="2"
-        else if(asciiCOde==1635)
+        else if(asciiCOde==1635 || asciiCOde==1779)
         res+="3"
-        else if(asciiCOde==1636)
+        else if(asciiCOde==1636 || asciiCOde==1780)
         res+="4"
-        else if(asciiCOde==1637)
+        else if(asciiCOde==1637 || asciiCOde==1781)
         res+="5"
-        else if(asciiCOde==1638)
+        else if(asciiCOde==1638 || asciiCOde==1782)
         res+="6"
-        else if(asciiCOde==1639)
+        else if(asciiCOde==1639 || asciiCOde==1783)
         res+="7"
-        else if(asciiCOde==1640)
+        else if(asciiCOde==1640 || asciiCOde==1784)
         res+="8"
-        else if(asciiCOde==1641)
+        else if(asciiCOde==1641 || asciiCOde==1785)
         res+="9"
         else
         res+=str[i]

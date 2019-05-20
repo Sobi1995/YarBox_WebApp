@@ -117,6 +117,7 @@ return this.profile;
     }
     getIsLogin(){
         // return this.IsLogin;
+         
         let islogin=JSON.parse(localStorage.getItem("IsLogin"));
         return islogin;
     }

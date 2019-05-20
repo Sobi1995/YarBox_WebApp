@@ -123,5 +123,7 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
       let element: HTMLElement = document.getElementById('OpenModal') as HTMLElement;
       element.click(); 
     }
-  
+    ngModelChange($event){
+      this.destinationModel.receiverPhoneNumber= this._postPackService.ToNumEn(this.destinationModel.receiverPhoneNumber);
+    }
 }
