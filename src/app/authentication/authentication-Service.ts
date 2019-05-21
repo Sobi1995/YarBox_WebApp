@@ -88,7 +88,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
       return  this._http.get( this.api+"account/check",{headers:headers}).pipe(
-            map((response) => {
+            map((response) => { 
                 this._webAppService.setLoding(false);
                 var check= response as ProfileDto;
                 this.profile.credit=check.credit;
@@ -97,8 +97,7 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
             } )
             );
     }
-  public  get getProfile(){
-       
+  public  get getProfile(){  
       let profile=JSON.parse(localStorage.getItem("Profile"));
       if(profile!=null)
       return profile
