@@ -83,7 +83,7 @@ setAddress(address:string){
       
    this.getMultiplePacks.origin.street=addressOrigin.address;
    this.getMultiplePacks.origin.latitude=addressOrigin.lat;
-   this.getMultiplePacks.origin.llongitude=addressOrigin.lng;
+   this.getMultiplePacks.origin.longitude=addressOrigin.lng;
    this.setOnLocalStorage();
  }
  
@@ -222,7 +222,7 @@ return localStorage.getItem("typeCity");
 setLatLong(lat:string,long:string){
    
 this.MultiplePacks.origin.latitude=lat;
-this.MultiplePacks.origin.llongitude=long;
+this.MultiplePacks.origin.longitude=long;
 }
 setDefultMenu(status:boolean){
 this.defultMenu=status

@@ -95,10 +95,10 @@ savedaddress:any[]=[]
     this.Origin=this._packService.getOrigin();
      this.Origin.street= this.Origin.street;
      
-    if(this.Origin.latitude!= undefined && this.Origin.llongitude!=undefined )
+    if(this.Origin.latitude!= undefined && this.Origin.longitude!=undefined )
     {
       // this.markers=[];
-      this.lng=Number(this.Origin.llongitude);
+      this.lng=Number(this.Origin.longitude);
       this.lat=Number(this.Origin.latitude);
     }
     else{

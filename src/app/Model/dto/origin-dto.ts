@@ -4,7 +4,7 @@ export class  originDto{
     city  : string ;
     street  : string ;
     latitude  : string ;
-    llongitude  : string
+    longitude  : string
     senderPhoneNumber? : string 
     constructor(    
         senderPhoneNumber? : string ,
@@ -12,14 +12,14 @@ export class  originDto{
         city?  : string ,
         street?  : string ,
         latitude?  : string ,
-        llongitude?  : string){
+        longitude?  : string){
  
             
             this.province=province;
             this.city=city;
             this.street=street;
             this.latitude=latitude;
-            this.llongitude=llongitude;
+            this.longitude=longitude;
             this.senderPhoneNumber =senderPhoneNumber;
     }
 }
