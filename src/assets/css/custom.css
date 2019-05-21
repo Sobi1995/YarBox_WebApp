@@ -373,7 +373,7 @@ a.rowa .section-style {
         overflow: scroll;
     }
     .main-web-app-body {
-        height: 82vh;
+        height: 76%;
         overflow: scroll;
         width: 100%;
         top: 70px;
@@ -383,7 +383,7 @@ a.rowa .section-style {
     .main-web-app-factor {
         overflow: scroll;
         margin-bottom: 30px;
-        height: 81vh;
+        height: 76%;
         width: 100%;
     }
     .vecltype1 {
@@ -4321,6 +4321,7 @@ p.null-address {
     position: absolute;
     width: 100%;
     background: #fff;
+    z-index: 10;
 }
 
 a.massege-part i {
