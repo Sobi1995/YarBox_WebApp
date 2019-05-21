@@ -98,12 +98,14 @@ headers = headers.set('Content-Type', 'application/json; charset=utf-8');
             );
     }
   public  get getProfile(){
-    let profile=JSON.parse(localStorage.getItem("Profile"))
-return profile;
+       
+      let profile=JSON.parse(localStorage.getItem("Profile"));
+      if(profile!=null)
+      return profile
+        return this.profile;
     }
     setProfile(profile :ProfileDto){
         this.profile=profile;
-       
     }
     clearProfile(){
         this.profile.credit=null ;
