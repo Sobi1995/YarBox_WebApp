@@ -36,6 +36,7 @@ this.getPlants().subscribe(res=>{
   if (res.isMobile==false){
     
     this.router.navigate(["/WebPlatform"])
+    return;
   }
   else if ((this.deviceInfo.browser=="safari" || this.deviceInfo.browser=="Safari") && homescreen==false && window.matchMedia('(display-mode: standalone)').matches==false){
  
@@ -81,7 +82,12 @@ this.getPlants().subscribe(res=>{
      private deviceService: DeviceDetectorService,
      private PackService:PackService){
  
-
+      this.getPlants().subscribe(res=>{
+        if (res.isMobile==false){
+    
+          this.router.navigate(["/WebPlatform"])
+          return;
+        }
        let homescreen=JSON.parse(localStorage.getItem("add-homescreen"))
        if(homescreen==null){
          localStorage.setItem("add-homescreen","false")
@@ -91,7 +97,7 @@ this.getPlants().subscribe(res=>{
           this.PackService.uodateCredit(res.credit);
         })
        }
- 
+      });
       this.epicFunction();
       if(this.swUpdate.isEnabled)
       {
