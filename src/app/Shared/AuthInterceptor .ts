@@ -50,7 +50,7 @@ export class AuthInterceptor implements HttpInterceptor {
         else if (err.status==500)
         {
           this._auth.setIsLogin(false);
-          alert("خطا در سرور لطفا مجددا تلاش کنید")
+          //alert("خطا در سرور لطفا مجددا تلاش کنید")
        
         }
         this._webApp.setLoding(false);

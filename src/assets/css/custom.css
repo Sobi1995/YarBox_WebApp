@@ -176,9 +176,6 @@ a.rowa .section-style {
         top: 25px !important;
     }
     /*web app*/
-    /*.web-app-text {
-    top: 11% !important;
-	}*/
     section.main-web-app {
         width: 100% !important;
         margin: 0 !important;
@@ -228,9 +225,6 @@ a.rowa .section-style {
     .main-web-app-map {
         height: 78% !important;
     }
-    /*a.back-web-app {
-    margin-top: -30% !important;
-	}*/
     .info-rule img {
         margin-right: 2px !important;
     }
@@ -863,9 +857,6 @@ a.rowa .section-style {
         overflow: scroll !important;
         height: 100vh !important;
     }
-    /*.marker-orgin {
-        margin: 0 42% 25% 0 !important;
-    }*/
     .location-my {
         left: 6% !important;
     }
@@ -875,9 +866,6 @@ a.rowa .section-style {
     .main-web-app-map {
         height: 88% !important;
     }
-    /*a.back-web-app {
-    margin-top: -17% !important;
-	}*/
     .info-rule img {
         margin-right: 2px !important;
         width: 26px !important;
@@ -1106,7 +1094,6 @@ a.rowa .section-style {
     form.maghsad select,
     .form-pack input,
     .form-pack select {
-        /*font-size: 13px !important;*/
         margin: 20px 0 -2px !important;
     }
     form.maghsad {
@@ -1302,7 +1289,6 @@ a.rowa .section-style {
         padding: 10px 0 !important;
     }
     a.back-web-app {
-        /*margin-top: -12% !important;*/
         padding: 0 !important;
         top: 2%;
     }
@@ -1966,16 +1952,6 @@ section.main-web-app {
     background: #ddd;
 }
 
-
-/*.web-app-text {
-    font-size: 17px;
-    position: relative;
-    text-align: center;
-    color: #26306d;
-    font-weight: 600;
-	top:0;
-}*/
-
 .web-app-text {
     font-size: 17px;
     position: fixed;
@@ -2113,7 +2089,6 @@ section.main-web-app {
     display: inline-block;
     height: 100% !important;
     width: 100%;
-    /*top: 115px;*/
     position: relative;
 }
 
@@ -2136,8 +2111,6 @@ section.main-web-app {
 }
 
 .marker-orgin {
-    /*bottom: 35%;
-    margin: 4% 15%;*/
     background: no-repeat;
     padding: 0;
     position: fixed;
@@ -4559,4 +4532,21 @@ ul.nav.nav-tabs.nav-factor {
 
 .main-web-app-map div {
     cursor: grab !important;
+}
+
+.mojodikif {
+    background: #09cd7f;
+    margin: 10% auto;
+    width: 75%;
+    padding: 5% 2%;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 0 3px 0px #777;
+}
+
+.mojodikif p {
+    margin: 0;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 400;
 }

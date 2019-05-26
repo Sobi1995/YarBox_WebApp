@@ -1,45 +1,33 @@
+ agm-map {
+     height: 100%;
+     cursor: grab !important;
+ }
  
-agm-map {
-    height: 100%;
+ a {
+     color: darkblue;
+ }
  
-    cursor: grab !important ;
-  }
-  
+ .btn-web-app button {
+     margin-right: 0 !important;
+ }
  
-* {
-  font-family: Lato;
-}
-
-a {
-  color: darkblue;
-}
+ @media screen and (max-width: 500px) {
+     .btn-web-app button {
+         padding: 4% !important;
+     }
+     .btn-web-app button {
+         font-size: 16px !important;
+     }
+ }
  
-
-  .btn-web-app button {
-    margin-right: 0 !important;
-}
-
-@media screen and (max-width: 500px){
-  .btn-web-app button {
-    padding: 4% !important;
-
-}
-.btn-web-app button {
-  font-size: 16px !important;
-}
-}
-
-@media screen and (max-width:414px) {
-	.btn-web-app button {
-        padding: 6% !important;
-    }
-  
-}
-@media screen and (max-width: 320px){
-  .btn-web-app button {
-      
-      padding: 4% !important;
-   
-  }
-
-}
+ @media screen and (max-width:414px) {
+     .btn-web-app button {
+         padding: 6% !important;
+     }
+ }
+ 
+ @media screen and (max-width: 320px) {
+     .btn-web-app button {
+         padding: 4% !important;
+     }
+ }
