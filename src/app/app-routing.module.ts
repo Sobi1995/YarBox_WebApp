@@ -31,6 +31,7 @@ import { HistoryComponent } from './history/history.component';
 
  
 const routes: Routes = [
+  // { path: 'lazymodule', loadChildren: './lazymodule/lazymodule.module#LazyModuleModule' }
   {path:'base',component:HomeComponent, canActivate: [LoginGuardService]},
   {path:'choose-vehicle',component:ChooseVehicleComponent, canActivate: [LoginGuardService]}, 
   {path:'postPack-deities',component:PostPackDeitiesComponent, canActivate: [LoginGuardService]},

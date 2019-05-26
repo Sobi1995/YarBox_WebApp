@@ -48,6 +48,7 @@ import { InvitedFirendComponent } from './invited-firend/invited-firend.componen
 import { HistoryComponent } from './history/history.component';
 import { JalaliPipe } from './Services/Jalali-Pipe';
 import { ToEnglishNumber } from './Shared/ToEnglishNumber-Pipe';
+import { SharedModule } from './Shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +84,7 @@ import { ToEnglishNumber } from './Shared/ToEnglishNumber-Pipe';
     // ToEnglishNumber
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AuthenticationModule,
     BrowserAnimationsModule,
