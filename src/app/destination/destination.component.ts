@@ -88,6 +88,7 @@ export class DestinationComponent implements OnInit,OnDestroy {
 
   }
   PostType(type:number){
+     
  this._postPackService.setTypeCity(type);
   this.Cities=null;
   
@@ -100,6 +101,7 @@ export class DestinationComponent implements OnInit,OnDestroy {
        this.portlocation=""}
        this.destinationModel.city=undefined;
        this.destinationModel.street="";
+       if(this.destinationModel.province!=undefined)
        this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
         this.Cities=res;
       })
