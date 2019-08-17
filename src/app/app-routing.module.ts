@@ -28,6 +28,7 @@ import { PackHistoryComponent } from './pack-history/pack-history.component';
 import { Page404Component } from './page404/page404.component';
 import { InvitedFirendComponent } from './invited-firend/invited-firend.component';
 import { HistoryComponent } from './history/history.component';
+import { RulesiteComponent } from './rulesite/rulesite.component';
 
  
 const routes: Routes = [
@@ -57,6 +58,7 @@ const routes: Routes = [
   {path:'WebPlatform',component:WebPlatformComponent},
   {path:'ios-home-screen',component:IosHomeScreenComponent},
   {path:'android-home-screen',component:AndroidHomeScreenComponent},
+  {path:'rulesite',component:RulesiteComponent, canActivate: [LoginGuardService]},
   {path: '404', component: Page404Component},
  {path: '**', redirectTo: '/404'}
   ];

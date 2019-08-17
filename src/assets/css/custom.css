@@ -3358,9 +3358,29 @@ a.about-a {
 }
 
 .about-part,
-.invited-part {
+.invited-part,
+.rule-part {
     width: 80%;
-    margin: 10px auto;
+    margin: 10%;
+}
+
+.btn-support.btn-support1 a {
+    color: #fff;
+}
+
+.rule-part span {
+    font-weight: 600;
+}
+
+.rule-part h4 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 7% 0;
+}
+
+.rule-part {
+    overflow: scroll;
+    height: 100vh;
 }
 
 p.about-ver {

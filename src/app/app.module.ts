@@ -49,6 +49,7 @@ import { HistoryComponent } from './history/history.component';
 import { JalaliPipe } from './Services/Jalali-Pipe';
 import { ToEnglishNumber } from './Shared/ToEnglishNumber-Pipe';
 import { SharedModule } from './Shared/shared.module';
+import { RulesiteComponent } from './rulesite/rulesite.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +82,7 @@ import { SharedModule } from './Shared/shared.module';
     Page404Component,
     InvitedFirendComponent,
     HistoryComponent,
+    RulesiteComponent,
     // ToEnglishNumber
   ],
   imports: [
