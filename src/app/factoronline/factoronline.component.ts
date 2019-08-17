@@ -62,6 +62,8 @@ export class FactoronlineComponent implements OnInit {
       this.FactoreModel.country=="استان مقصد" ||
       this.FactoreModel.countis==undefined ||
       this.FactoreModel.count<=0 ||
+      this.FactoreModel.count==undefined ||
+      this.FactoreModel.weightId==undefined ||
       this.FactoreModel.country=="شهر مقصد" 
       ){
         swal.fire({text: "لطفا فیلد ها را پر کنید"});
