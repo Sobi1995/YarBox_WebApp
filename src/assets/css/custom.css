@@ -2837,6 +2837,7 @@ form.maghsad select,
 form.maghsad select {
     margin: 20px 0;
     font-weight: 600;
+    background: #fff;
 }
 
 form.maghsad input::placeholder,
