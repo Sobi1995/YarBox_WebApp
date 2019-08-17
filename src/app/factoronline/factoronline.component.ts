@@ -42,7 +42,9 @@ export class FactoronlineComponent implements OnInit {
   }
 
   SelectCitiType($event) {
+   
     this.typeCity = $event;
+    this.Cities=null;
   }
 
   SelectCity($event) {
