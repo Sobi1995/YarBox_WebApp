@@ -50,6 +50,7 @@ import { JalaliPipe } from './Services/Jalali-Pipe';
 import { ToEnglishNumber } from './Shared/ToEnglishNumber-Pipe';
 import { SharedModule } from './Shared/shared.module';
 import { RulesiteComponent } from './rulesite/rulesite.component';
+import { FactoronlineComponent } from './factoronline/factoronline.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +84,7 @@ import { RulesiteComponent } from './rulesite/rulesite.component';
     InvitedFirendComponent,
     HistoryComponent,
     RulesiteComponent,
+    FactoronlineComponent,
     // ToEnglishNumber
   ],
   imports: [

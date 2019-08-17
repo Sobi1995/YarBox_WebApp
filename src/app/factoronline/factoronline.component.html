@@ -1,0 +1,84 @@
+<div class="section-main-web-app">
+
+    <section class="main-web-app">
+
+        <div class="main-web-app-top">
+
+            <div class="web-app-title">
+                <div class="title-web-app">فاکتور برآورد هزینه</div>
+
+            </div>
+
+        </div>
+        <a [routerLink]="['/']" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
+        <div class="main-web-app-body">
+            <div class="main-web-app-form">
+                <form name="form" class="maghsad maghsad2">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <select>
+                      <option >مبدا</option>
+                      <option >تهران </option>
+                    </select>
+                        <!--div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> استان را وارد کنید </div-->
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <select>
+                          <option>محل دریافت</option>
+                          <option >درب به درب</option>
+                          <option >ترمینال</option>
+                        </select>
+                        <!--div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)" class="error-webapp">محل دریافت را وارد کنید</div-->
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <select (change)="SelectProvince($event.target.value)">
+                        <option >استان مقصد</option>
+                        <option *ngFor="let item of Provinces">  {{item}} </option>
+                      </select>
+                        <div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> استان مقصد را وارد کنید </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <select (change)="SelectCity($event.target.value)">
+                          <option>شهر مقصد</option>
+                          <option *ngFor="let city of Cities" value="{{city.name}}">{{city.name}}</option>
+                        </select>
+                        <div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)" class="error-webapp">شهر مقصد را وارد کنید </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input type="number" class="tedad-factor-online" placeholder="تعداد">
+                        <!--div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> تعداد را وارد کنید </div-->
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <select>
+                          <option>وزن</option>
+                          <option >اسناد و اوراق</option>
+                          <option > (بین 0 تا 5 کیلوگرم)</option>
+                          <option > (بین 6 تا 15کیلو گرم)</option>
+                        </select>
+                        <!--div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)" class="error-webapp">وزن را وارد کنید </div-->
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <p class="p-factor-online">تعداد انتخابی شما براساس هر وزن می باشد . (به صورت مثال 5 بسته که هر کدام شامل 0 تا 5 کیلوگرم می باشد )</p>
+                    </div>
+
+
+
+
+
+                    <div class="btn-web-app">
+                        <button type="submit">برآورد قیمت</button>
+                        <button id="OpenModal" data-toggle="modal" data-target="#favoriteaddresses" style="visibility: hidden;"> </button>
+                    </div>
+
+                </form>
+
+                <app-error *ngIf="error==true"></app-error>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
