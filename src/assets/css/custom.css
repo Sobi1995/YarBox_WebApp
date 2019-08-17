@@ -4588,3 +4588,12 @@ form.maghsad input.tedad-factor-online {
 p.p-factor-online {
     text-align: right !important;
 }
+
+p.price-factoronline {
+    width: 50%;
+    font-size: 17px !important;
+    margin: 0 auto;
+    border: 2px solid #d01d58;
+    border-radius: 15px;
+    padding: 2% !important;
+}
