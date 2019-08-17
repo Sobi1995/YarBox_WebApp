@@ -91,8 +91,8 @@
         <div class="modal-dialog">
             <div class="modal-content modal-content-packs">
                 <div class="modal-body">
-                    <h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
                     <p *ngFor="let item of savedaddress" (click)="SelectAddress(item)">{{item.title}} </p>
+                    <h4 class="modal-title"><img src="/assets/img/3-mabda.svg" width="25" height="25">آدرس فرستنده</h4>
                     <div class="btn-circle-download" id="btn-ok-address">
                     </div>
                 </div>
@@ -122,3 +122,19 @@
 
         </div>
     </div> -->
+	        <!-- var httpRequestMessage = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://lockpost.ir/api/v1/pickup/locker/k9GqGKqOVW"),
+                Headers = {
+                { HttpRequestHeader.Authorization.ToString(), "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjlmNGJiM2QxODg5YzE2NjBhM2FjYjk2OTliMGMwNmFmYWM1ZDc3MGQ3YTQxZTk1NDA1MjJjODMzM2RjMjRjMGJkOWIzOGQzMDJlYmMxNWM2In0.eyJhdWQiOiI2IiwianRpIjoiOWY0YmIzZDE4ODljMTY2MGEzYWNiOTY5OWIwYzA2YWZhYzVkNzcwZDdhNDFlOTU0MDUyMmM4MzMzZGMyNGMwYmQ5YjM4ZDMwMmViYzE1YzYiLCJpYXQiOjE1NjUwODYxMDMsIm5iZiI6MTU2NTA4NjEwMywiZXhwIjoxNTY1NjkwOTAzLCJzdWIiOiIiLCJzY29wZXMiOltdfQ.PBxVjRm_Jw1dmW7OjlBN9HYGCiV2gNAb1OHsi4o0MumrzEBxx0kAr7xaFNrr_gYFzGD-fsML8wHmj7Gj5_PxIdVyc026OpbBnCKtCSkwGCEnsPJOme7z7Omb-WYovok407Czx4aYyKUbi22lcqojFSSF2fM0G86LIVfkediFhf7UJouFlyNCISc-Lf8hdTuF7B6wZ9A7JDfmLZaLiJJbIveshDBPc83pWpjsnFzxj1ZVbw56J03vzG3lnZ5mqGdFJaZcDWJS9Or_vwRYKVzhmG37Y2XZWGIbuPOnK-X6S-BckxvTQ8rm27GoTVoPODjqdWF-5z5pKHdv3NaygPqVYPIDtBRjmbM2pp0aOO0u_aMFvpzYO62nHqeyWEwaJqd35FDW_ORDzLWUuBB4jOhUsnRVmApe9vQkCfTltXYF_XzPg8gIFaJpswE9Klqvg1Q0UIF2rMKNPtYMk4wEPr5z7KO23LhSrs1Y4i6H6jeIB-dcPq6g6LBf-AuQm1Jv5WZqsg6b8m5Jz5dugZzBIaJvNENaFkXs02l2xkfHxnQdjGw3NafyRzjOvsmvVQjUeRTsfWFzVVPi9x0hP--c3_7JDrsvnL97ka9Z8cHfPujEdUbILEpJGv6qy_zqaUwbmKzM55u1tMcmZmMFWTjx0L1Nshkwua_bPIXZiInK2Y-mH38" },
+                { HttpRequestHeader.Accept.ToString() , "application/json" },
+                 { HttpRequestHeader.ContentType.ToString() , "application/json" }
+            },
+               
+            };
+            var response = client.SendAsync(httpRequestMessage).Result;
+            var responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+	
+	value={{Origin.street}} #senderAddress (input)="onChangeAddress($event.target.value)" -->

@@ -13,7 +13,7 @@
         <a [routerLink]="['/']" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
         <div class="main-web-app-body">
             <div class="main-web-app-form">
-                <form name="form" class="maghsad maghsad2">
+                <form name="form"  (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad maghsad2">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <select>
                       <option >مبدا</option>
@@ -22,10 +22,10 @@
                         <!--div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> استان را وارد کنید </div-->
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <select>
+                        <select (change)="SelectCitiType($event.target.value)">
                           <option>محل دریافت</option>
-                          <option >درب به درب</option>
-                          <option >ترمینال</option>
+                          <option value="0" >درب به درب</option>
+                          <option value="1" >ترمینال</option>
                         </select>
                         <!--div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)" class="error-webapp">محل دریافت را وارد کنید</div-->
                     </div>
@@ -35,32 +35,32 @@
                         <option >استان مقصد</option>
                         <option *ngFor="let item of Provinces">  {{item}} </option>
                       </select>
-                        <div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> استان مقصد را وارد کنید </div>
+                        <!-- <div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> استان مقصد را وارد کنید </div> -->
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <select (change)="SelectCity($event.target.value)">
                           <option>شهر مقصد</option>
                           <option *ngFor="let city of Cities" value="{{city.name}}">{{city.name}}</option>
                         </select>
-                        <div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)" class="error-webapp">شهر مقصد را وارد کنید </div>
+                        <!-- <div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)" class="error-webapp">شهر مقصد را وارد کنید </div> -->
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <input type="number" class="tedad-factor-online" placeholder="تعداد">
+                        <input type="number" class="tedad-factor-online" [(ngModel)]="FactoreModel.count"  name="count" placeholder="تعداد">
                         <!--div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> تعداد را وارد کنید </div-->
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <select>
-                          <option>وزن</option>
-                          <option >اسناد و اوراق</option>
-                          <option > (بین 0 تا 5 کیلوگرم)</option>
-                          <option > (بین 6 تا 15کیلو گرم)</option>
-                        </select>
+                        <select (change)="SelectTypePack($event.target.value)">
+                                <option    >نوع مرسوله </option>
+                            <option *ngFor="let type of PostPackType" value="{{type.id}}" >{{type.title}} </option>
+                         
+                            </select>
                         <!--div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)" class="error-webapp">وزن را وارد کنید </div-->
                     </div>
 
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <p class="p-factor-online">تعداد انتخابی شما براساس هر وزن می باشد . (به صورت مثال 5 بسته که هر کدام شامل 0 تا 5 کیلوگرم می باشد )</p>
+                        {{res}}
                     </div>
 
 

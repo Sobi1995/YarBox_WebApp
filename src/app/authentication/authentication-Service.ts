@@ -18,7 +18,8 @@ export class authenticationService{
         private _webAppService:WebAppService,
         private _packService:PackService){
         this.profile=new ProfileDto();
-        this.api="https://api.yarbox.co/api/vv2/";
+        // this.api="https://api.yarbox.co/api/vv2/";
+        this.api="http://localhost:11926/api/vv2/";
     }
 
     sendVerifyCode(phonenumber:String ) {
