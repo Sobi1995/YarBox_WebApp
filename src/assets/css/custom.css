@@ -4597,3 +4597,22 @@ p.price-factoronline {
     border-radius: 15px;
     padding: 2% !important;
 }
+
+input.clear-factoronline {
+    background: transparent;
+    border: none;
+    padding: 4% 37%;
+    font-size: 13px !important;
+}
+
+.refresh-icon {
+    width: 20px;
+    height: 20px;
+    background: url(../img/refresh-icon.png);
+    display: inline-block;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    right: 29%;
+    margin-top: 8%;
+}
