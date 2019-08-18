@@ -20,10 +20,11 @@ export class FactoronlineComponent implements OnInit {
   }
 
   ngOnInit() {
-  
-  
- 
-
+    this.typeCity=0;
+    this.FactoreModel.type=0;
+    this.FactoreModel.weightId=1;
+    this.FactoreModel.country="استان مقصد";
+    this.FactoreModel.countis="شهر مقصد";
     this._webappService.getProvinces().subscribe(res => {
       this.Provinces = res;
     });
@@ -45,6 +46,7 @@ export class FactoronlineComponent implements OnInit {
    
     this.typeCity = $event;
     this.Cities=null;
+    this.FactoreModel.type = $event;
   }
 
   SelectCity($event) {
@@ -52,14 +54,15 @@ export class FactoronlineComponent implements OnInit {
   }
   SelectTypePack($event) {
     this.FactoreModel.weightId = $event;
+    this.FactoreModel.weightType = $event;
   }
 
   modelChanged(newObj) {
-    debugger
+     
     this.FactoreModel.weightId = newObj
   }
   onSubmit(){
-    debugger
+     
     if(this.FactoreModel.country==undefined ||
       this.FactoreModel.country=="استان مقصد" ||
       this.FactoreModel.countis==undefined ||
@@ -73,5 +76,15 @@ export class FactoronlineComponent implements OnInit {
     this._webappService.FactoreOnline(this.FactoreModel).subscribe(res=>{
 this.res=res;
     })
+  }
+
+  Clear(){
+    this.FactoreModel.count=undefined;
+    this.FactoreModel.countis="شهر مقصد";
+    this.FactoreModel.country="استان مقصد";
+    this.FactoreModel.price=undefined;
+    this.FactoreModel.type=1;
+   
+    this.FactoreModel.weightType=undefined;
   }
 }
