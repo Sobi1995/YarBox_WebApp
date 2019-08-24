@@ -25,7 +25,7 @@
                             <div class="factor-type-item" style="width: 60%">
                                 <!-- <input type="radio" name="factor-type" id="factor-type1" class="type-factoronline" checked>
                                 <label for="factor-type1">درب به درب</label> -->
-                                <input class="inp-cbx" id="cbx1" type="radio" name="factor-type" style="display: none;">
+                                <input class="inp-cbx" id="cbx1" type="radio" name="factor-type" style="display: none;" [checked]="FactoreModel.type==1" (change)="handleChange(1)" >
                                 <label class="cbx" for="cbx1"><span>
                                 <svg width="12px" height="10px" viewBox="0 0 12 10">
                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
@@ -34,7 +34,7 @@
                             <div class="factor-type-item" style="width: 40%">
                                 <!-- <input type="radio" name="factor-type" id="factor-type2" class="type-factoronline">
                                 <label for="factor-type2">ترمینال</label> -->
-                                <input class="inp-cbx" id="cbx2" type="radio" name="factor-type" style="display: none;">
+                                <input class="inp-cbx" id="cbx2" type="radio" name="factor-type" style="display: none;" [checked]="FactoreModel.type==0" (change)="handleChange(0)">
                                 <label class="cbx" for="cbx2"><span>
                                 <svg width="12px" height="10px" viewBox="0 0 12 10">
                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>

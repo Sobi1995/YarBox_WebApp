@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { WebAppService } from "../Services/webapp-service";
 import { FactoreOnlineDto } from '../Core/DTO/FactoreOnlineDto';
 import swal from 'sweetalert2';
+
 @Component({
   selector: "app-factoronline",
   templateUrl: "./factoronline.component.html",
@@ -21,7 +22,7 @@ export class FactoronlineComponent implements OnInit {
 
   ngOnInit() {
     this.typeCity=0;
-    this.FactoreModel.type=0;
+    this.FactoreModel.type=1;
     this.FactoreModel.weightId=1;
     this.FactoreModel.country="استان مقصد";
     this.FactoreModel.countis="شهر مقصد";
@@ -75,6 +76,7 @@ export class FactoronlineComponent implements OnInit {
       }
     this._webappService.FactoreOnline(this.FactoreModel).subscribe(res=>{
 this.res=res;
+this.Clear();
     })
   }
 
@@ -84,7 +86,11 @@ this.res=res;
     this.FactoreModel.country="استان مقصد";
     this.FactoreModel.price=undefined;
     this.FactoreModel.type=1;
-   
+    this.FactoreModel.weightId=1;
     this.FactoreModel.weightType=undefined;
+  }
+
+  handleChange(val:number){
+   this.FactoreModel.type=val;
   }
 }
