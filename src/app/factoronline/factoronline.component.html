@@ -16,19 +16,40 @@
                 <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad maghsad2">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <select>
-<<<<<<< HEAD
-                     
-=======
->>>>>>> 1e7e1cdb46893b12fc878e4690d17310f8223382
                       <option >تهران </option>
                     </select>
                         <!--div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> استان را وارد کنید </div-->
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <select [ngModel]="FactoreModel.type" (change)="SelectCitiType($event.target.value)" name="type">
+                        <div class="factor-type-part">
+                            <div class="factor-type-item" style="width: 60%">
+                                <!-- <input type="radio" name="factor-type" id="factor-type1" class="type-factoronline" checked>
+                                <label for="factor-type1">درب به درب</label> -->
+                                <input class="inp-cbx" id="cbx1" type="radio" name="factor-type" style="display: none;">
+                                <label class="cbx" for="cbx1"><span>
+                                <svg width="12px" height="10px" viewBox="0 0 12 10">
+                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                </svg></span><span>درب به درب</span></label>
+                            </div>
+                            <div class="factor-type-item" style="width: 40%">
+                                <!-- <input type="radio" name="factor-type" id="factor-type2" class="type-factoronline">
+                                <label for="factor-type2">ترمینال</label> -->
+                                <input class="inp-cbx" id="cbx2" type="radio" name="factor-type" style="display: none;">
+                                <label class="cbx" for="cbx2"><span>
+                                <svg width="12px" height="10px" viewBox="0 0 12 10">
+                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                </svg></span><span>ترمینال</span></label>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <!-- <select [ngModel]="FactoreModel.type" (change)="SelectCitiType($event.target.value)" name="type">
                           <option value="1" >درب به درب</option>
                           <option value="0" >ترمینال</option>
-                        </select>
+                        </select> -->
                         <!--div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)" class="error-webapp">محل دریافت را وارد کنید</div-->
                     </div>
 
@@ -77,7 +98,7 @@
 
                 </form>
 
-                <app-error *ngIf="error==true"></app-error>
+
             </div>
 
         </div>

@@ -1287,6 +1287,9 @@ a.rowa .section-style {
     .btn-web-app button {
         padding: 5% !important;
     }
+    .cbx span:last-child {
+        padding-left: 0 !important;
+    }
 }
 
 @media screen and (max-width:350px) {
@@ -1315,6 +1318,19 @@ a.rowa .section-style {
     }
     .pelakdriver {
         font-size: 12px !important;
+    }
+    .cbx span:last-child {
+        padding-left: 0 !important;
+        font-size: 12px;
+    }
+    .cbx span:first-child svg {
+        top: -1px !important;
+        left: -1px !important;
+    }
+    .cbx span:first-child {
+        width: 11px !important;
+        height: 11px !important;
+        margin-left: 3px;
     }
 }
 
@@ -1391,7 +1407,8 @@ footer * {
         margin: 16px 0 -2px !important;
     }
     form.maghsad2 input,
-    form.maghsad2 select {
+    form.maghsad2 select,
+    .factor-type-part {
         margin: 20px 0 !important;
     }
     button.cancel-btn {
@@ -4615,4 +4632,99 @@ input.clear-factoronline {
     background-repeat: no-repeat;
     right: 29%;
     margin-top: 8%;
+}
+
+.factor-type-item {
+    float: right;
+}
+
+.factor-type-part {
+    margin: 14% 0 4%;
+    width: 100%;
+    display: inline-block;
+}
+
+.type-factoronline {
+    width: 20px !important;
+}
+
+
+/***/
+
+.cbx {
+    margin: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.cbx span {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+}
+
+.cbx span:first-child {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    transform: scale(1);
+    vertical-align: middle;
+    border: 1px solid #9098A9;
+    transition: all 0.2s ease;
+    margin-left: 5px;
+}
+
+.inp-cbx:checked+.cbx span:first-child {
+    background: #11bd1e;
+    border-color: #11bd1e;
+    animation: wave 0.4s ease;
+}
+
+.cbx span:last-child {
+    padding-left: 8px;
+}
+
+.inp-cbx:checked+.cbx span:first-child:before {
+    transform: scale(3.5);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.cbx span:first-child:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #11bd1e;
+    display: block;
+    transform: scale(0);
+    opacity: 1;
+    border-radius: 50%;
+}
+
+.inp-cbx:checked+.cbx span:first-child svg {
+    stroke-dashoffset: 0;
+}
+
+.cbx span:first-child svg {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16px;
+    stroke-dashoffset: 16px;
+    transition: all 0.3s ease;
+    transition-delay: 0.1s;
+    transform: translate3d(0, 0, 0);
+}
+
+@keyframes wave {
+    50% {
+        transform: scale(.9)
+    }
 }
