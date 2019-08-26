@@ -15,7 +15,7 @@
             <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad">
                 <div class="pack-part">
                     <div class="btn-pack" data-toggle="modal" data-target="#myModal">
-                        <img src="/assets/img/3-mosbat.svg" width="20" height="20"><span>اضافه کردن بار</span>
+                        <img src="/assets/img/3-mosbat.svg" width="20" height="20"><span>اضافه کردن بسته</span>
 
                     </div>
 
@@ -169,7 +169,9 @@
                         <div *ngFor="let pack of packs; let i = index" class="pack-item"><span class="pack-item-number"> {{i+1}}</span>{{pack.count}} عدد {{getPostPackType(pack.typeId) }} ثبت شد
                             <a><img src="/assets/img/trash.png" width="20" (click)="deletepack(pack)"></a>
                         </div>
-                        <p *ngIf="packs.length==0" class="nul-pack"><img src="/assets/img/2-ghavanin.svg" width="25" height="35">لطفا مرسوله خود را وارد کنید</p>
+                        <p *ngIf="packs.length==0" class="nul-pack"><img src="/assets/img/2-ghavanin.svg" width="25" height="35">لطفا مرسوله خود را وارد کنید
+                            <br><span class="description-type-pack">لطفا وزن هر بسته ( کارتن ، گونی و ...) و تعداد آن را وارد نمائید.</span>
+                        </p>
                         <span *ngIf="f.submitted && packs.length==0" class="border-pack"></span>
                     </div>
 
