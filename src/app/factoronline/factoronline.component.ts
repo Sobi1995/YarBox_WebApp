@@ -73,6 +73,7 @@ export class FactoronlineComponent implements OnInit {
       this.FactoreModel.country=="شهر مقصد" 
       ){
         swal.fire({text: "لطفا فیلد ها را پر کنید"});
+        return;
       }
     this._webappService.FactoreOnline(this.FactoreModel).subscribe(res=>{
 this.res=res;
