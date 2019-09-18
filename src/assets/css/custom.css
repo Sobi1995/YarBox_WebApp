@@ -3505,6 +3505,7 @@ img.crousel-right {
     height: auto;
     padding-bottom: 60px;
     z-index: 10;
+    position: relative;
 }
 
 .etebar {
