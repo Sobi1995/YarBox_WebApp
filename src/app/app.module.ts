@@ -103,7 +103,7 @@ import { FactoronlineComponent } from './factoronline/factoronline.component';
     AgmCoreModule.forRoot({
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
-      apiKey: 'AIzaSyBk6zk8Beu9-gi2EZZZCPxFmlT7hTxDDQ0'
+      apiKey: 'AIzaSyDm7rI6WLt7S5p2BiMfm6mM0nisf_zSPcA'
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
    
@@ -118,6 +118,7 @@ import { FactoronlineComponent } from './factoronline/factoronline.component';
     }
   ],
   bootstrap: [AppComponent],
+  exports:[TomanPipe]
   // exports:[ToEnglishNumber]
  
 })
