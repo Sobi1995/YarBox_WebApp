@@ -5,7 +5,7 @@
         <div class="main-web-app-top">
 
             <div class="web-app-title">
-                <div class="title-web-app">اطلاعات  مقصد</div>
+                <div class="title-web-app">اطلاعات مقصد</div>
                 <button data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><img src="/assets/img/icon-bookmark.svg" width="20" /></button>
             </div>
 
@@ -62,6 +62,16 @@
                             <div *ngIf="receiverPhoneNumber.errors.required" class="error-webapp">شماره همراه / ثابت را وارد کنید ( از اعداد انگلیسی استفاده کنید )</div>
                             <div [hidden]="!receiverPhoneNumber.errors.pattern" class="error-webapp"> لطفا شماره صحیح را وارد کنید ( از اعداد انگلیسی استفاده کنید )</div>
                         </div>
+
+
+                        <!-- <label for="checkbox-4">
+                        <div class="radiobtn-pack checkbox-pack">
+                            <input autocomplete="off" id="checkbox-4" type="checkbox" name="paking-1" value="agree" />
+                            <label for="checkbox-4"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+                        </div>خارج از شهر
+                        </label> -->
+
+
                     </div>
 
                     <div class="btn-web-app"><button (click)="AcceptDestination()">تایید و ادامه </button></div>
@@ -84,7 +94,7 @@
 </div>
 
 
-<div id="myModal3" class="modal fade" role="dialog" #closemyModal3 >
+<div id="myModal3" class="modal fade" role="dialog" #closemyModal3>
     <div class="modal-dialog">
 
         <div class="modal-content modal-content-packs">

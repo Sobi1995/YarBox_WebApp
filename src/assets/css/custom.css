@@ -1022,6 +1022,10 @@ a.rowa .section-style {
         top: 7px;
         position: relative;
     }
+    .setting-send-part label .radiobtn1 {
+        top: -8px;
+        position: relative;
+    }
     .img-driver {
         margin-left: 0 !important;
         padding-top: 3px !important;
@@ -1174,6 +1178,12 @@ a.rowa .section-style {
         -ms-transform: translate(0, 88%) !important;
         -o-transform: translate(0, 88%) !important;
         transform: translate(0, 88%) !important;
+    }
+    div#myModalcustomerlogin.modal.in .modal-dialog {
+        -webkit-transform: translate(0, 0%) !important;
+        -ms-transform: translate(0, 0%) !important;
+        -o-transform: translate(0, 0%) !important;
+        transform: translate(0, 0%) !important;
     }
     .pulse-button {
         width: 30px !important;
@@ -2290,6 +2300,7 @@ a.info-web-app-a {
 
 .pay-factor input[type=radio],
 .radiobtn-pack input[type=radio],
+.radiobtn-pack input[type=checkbox],
 .vecle-part input[type=radio],
 .vecl-type input[type=radio] {
     visibility: hidden;
@@ -2468,13 +2479,21 @@ p.p-type i {
 }
 
 .radiobtn-pack input#radio-1[type="radio"]:checked+label,
-.radiobtn-pack input#radio-3[type="radio"]:checked+label {
+.radiobtn-pack input#radio-3[type="radio"]:checked+label,
+.radiobtn-pack input#checkbox-1[type="checkbox"]:checked+label,
+.radiobtn-pack input#checkbox-2[type="checkbox"]:checked+label,
+.radiobtn-pack input#checkbox-3[type="checkbox"]:checked+label,
+.radiobtn-pack input#checkbox-4[type="checkbox"]:checked+label {
     background: #0ACD81;
     color: #fff;
 }
 
 .radiobtn-pack input#radio-1[type="radio"]:checked+label .radiobtn1,
-.radiobtn-pack input#radio-3[type="radio"]:checked+label .radiobtn3 {
+.radiobtn-pack input#radio-3[type="radio"]:checked+label .radiobtn3,
+.radiobtn-pack input#checkbox-1[type="checkbox"]:checked+label .radiobtn3,
+.radiobtn-pack input#checkbox-2[type="checkbox"]:checked+label .radiobtn3,
+.radiobtn-pack input#checkbox-3[type="checkbox"]:checked+label .radiobtn3,
+.radiobtn-pack input#checkbox-4[type="checkbox"]:checked+label .radiobtn3 {
     display: inline-block;
 }
 
@@ -2534,7 +2553,11 @@ input.number-pack {
 p.nul-pack {
     font-size: 17px;
     text-align: center;
-    padding-top: 20px;
+}
+
+span.description-type-pack {
+    font-size: 10px;
+    padding-top: 15px;
 }
 
 p.nul-pack img {
@@ -3501,6 +3524,7 @@ img.crousel-right {
     height: auto;
     padding-bottom: 60px;
     z-index: 10;
+    position: relative;
 }
 
 .etebar {
@@ -4297,7 +4321,6 @@ div#sidebar-wrapper.active .sid {
 
 .main-web-app-18 {
     position: relative;
-    top: 40%;
 }
 
 .verfy-head {
@@ -4727,4 +4750,33 @@ input.clear-factoronline {
     50% {
         transform: scale(.9)
     }
+}
+
+.timer-resend {
+    text-align: center;
+    opacity: 0.7;
+}
+
+input.check-rule {
+    position: relative;
+    top: 3px;
+    right: -7px;
+}
+
+a.rule-customer {
+    margin: 0 2px;
+}
+
+div#myModalcustomerlogin.modal.in .modal-dialog h2 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+div#myModalcustomerlogin.modal.in .modal-dialog h3 {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+div#myModalcustomerlogin.modal.in .modal-dialog {
+    line-height: 27px;
 }

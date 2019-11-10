@@ -70,7 +70,7 @@ export class FactoronlineComponent implements OnInit {
       this.FactoreModel.count<=0 ||
       this.FactoreModel.count==undefined ||
       this.FactoreModel.weightId==undefined ||
-      this.FactoreModel.country=="شهر مقصد" 
+      this.FactoreModel.countis=="شهر مقصد" 
       ){
         swal.fire({text: "لطفا فیلد ها را پر کنید"});
         return;

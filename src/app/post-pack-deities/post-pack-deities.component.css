@@ -29,6 +29,97 @@ span.pack-item-number {
     margin-right: -20px;
 }
 
+button.setting-send {
+    background: transparent;
+    border: none;
+    margin: 7% -3% 4%;
+    font-size: 17px;
+}
+
+button.setting-send span.setting-span {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #46b86b;
+    background: #46b86b;
+    border-radius: 50%;
+    position: relative;
+    top: 4px;
+    margin-left: 8px;
+}
+
+button.setting-send.collapsed span.setting-span {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #b7b7b7;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    top: 4px;
+    margin-left: 8px;
+}
+
+button.setting-send span.setting-span1 {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #fff;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    top: -6px;
+    right: 0px;
+}
+
+.setting-send-part {
+    font-size: 12px;
+}
+
+.setting-send-part input {
+    margin: 0 !important;
+    margin-left: 6px !important;
+}
+
+.setting-send-part label {
+    margin: 2% 0;
+    width: 100%;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.data-sending {
+    width: 100%;
+    display: inline-block;
+    top: -11px;
+    position: relative;
+}
+
+.data-sending span {
+    width: 15%;
+    display: inline-block;
+}
+
+.data-sending select {
+    width: 31%;
+    display: inline-block;
+    margin: 0;
+    font-size: 12px !important;
+    padding: 4px 2px;
+}
+
+select.data-min,
+select.data-hour {
+    width: 18% !important;
+    margin: 0 1% !important;
+}
+
+select.data-min {
+    margin-right: 2% !important;
+}
+
+.checkbox-pack {
+    float: right;
+    top: -5px;
+}
+
 @media screen and (max-width:768px) {
     .pack-item a {
         font-size: 15px !important;
@@ -49,11 +140,32 @@ span.pack-item-number {
     .btn-web-app button {
         margin-right: -20px !important;
     }
+    .radiobtn-pack.checkbox-pack label {
+        width: 30px !important;
+        height: 30px !important;
+        padding: 5px;
+        margin-left: 10px;
+        top: 5px;
+        position: relative;
+    }
+    .radiobtn-pack.checkbox-pack label img {
+        top: -4px;
+        position: relative;
+    }
 }
 
 @media screen and (max-width: 500px) {
     .btn-web-app button {
         margin-right: 0 !important;
+    }
+    .radiobtn-pack.checkbox-pack label {
+        width: 20px !important;
+        height: 20px !important;
+        right: -11px;
+    }
+    .radiobtn-pack.checkbox-pack label img {
+        top: -8px;
+        position: relative;
     }
 }
 

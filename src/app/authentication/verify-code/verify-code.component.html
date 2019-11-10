@@ -1,22 +1,23 @@
 <div class="section-main-web-app">
 
-	<section class="main-web-app main-web-app-1">
-		<div class="verfy-head">
-				<div class="title-web-app">کد تایید</div>
-			<a [routerLink]="['/login']" class="back-web-app2"><img src="/assets/img/icon-back.svg" width="20" /></a>
-			<!--img src="./assets/img/img2.jpg" class="img-web-app"/-->
-		</div>
-		<div class="verify-code">
-			<img src="./assets/img/ghofl.svg" class="img-web-app" />
-			<p class="code-massege"> کد تایید ارسال شده را وارد نمایید</p>
-			<input autocomplete="off" type="tel" placeholder="----   ---   ----" class="login-input"  [(ngModel)]="VerifyCode.verifyCode"    name="verifyCode"      (ngModelChange)="ngModelChange($event)" />
-			<p *ngIf="error!=''">{{error}}</p>
-			<a (click)="retrysms()" class="resend">ارسال مجدد</a>
-		</div>
+    <section class="main-web-app main-web-app-1">
+        <div class="verfy-head">
+            <div class="title-web-app">کد تایید</div>
+            <a [routerLink]="['/login']" class="back-web-app2"><img src="/assets/img/icon-back.svg" width="20" /></a>
+            <!--img src="./assets/img/img2.jpg" class="img-web-app"/-->
+        </div>
+        <div class="verify-code">
+            <img src="./assets/img/ghofl.svg" class="img-web-app" />
+            <p class="code-massege"> کد تایید ارسال شده را وارد نمایید</p>
+            <input autocomplete="off" type="tel" placeholder="----   ---   ----" class="login-input" [(ngModel)]="VerifyCode.verifyCode" name="verifyCode" (ngModelChange)="ngModelChange($event)" />
+            <p *ngIf="error!=''">{{error}}</p>
+            <!-- <div class="timer-resend">01:00 تا فعال شدن ارسال مجدد</div> -->
+            <a (click)="retrysms()" class="resend">ارسال مجدد</a>
+        </div>
 
 
 
-		<div class="btn-web-app"><button (click)="Login()" class="btn-verify">وارد شوید</button></div>
-	</section>
+        <div class="btn-web-app"><button (click)="Login()" class="btn-verify">وارد شوید</button></div>
+    </section>
 
 </div>
