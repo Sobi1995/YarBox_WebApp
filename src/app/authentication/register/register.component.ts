@@ -2,12 +2,14 @@ import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/co
 import { ActivatedRoute, Router } from '@angular/router';
 import { authenticationService } from '../authentication-Service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit,OnDestroy {
+  
   ngOnDestroy(): void {
  
   }
@@ -42,5 +44,7 @@ regiserModel:any={};
      
     })
   }
+
+ 
 
 }
