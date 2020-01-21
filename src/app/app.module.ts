@@ -51,6 +51,7 @@ import { ToEnglishNumber } from './Shared/ToEnglishNumber-Pipe';
 import { SharedModule } from './Shared/shared.module';
 import { RulesiteComponent } from './rulesite/rulesite.component';
 import { FactoronlineComponent } from './factoronline/factoronline.component';
+import { PostPackNewComponent } from './post-pack-new/post-pack-new.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +86,7 @@ import { FactoronlineComponent } from './factoronline/factoronline.component';
     HistoryComponent,
     RulesiteComponent,
     FactoronlineComponent,
+    PostPackNewComponent,
     // ToEnglishNumber
   ],
   imports: [

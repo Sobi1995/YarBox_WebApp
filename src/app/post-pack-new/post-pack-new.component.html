@@ -1,0 +1,240 @@
+<div class="section-main-web-app">
+
+    <section class="main-web-app">
+
+        <div class="main-web-app-top">
+
+            <div class="web-app-title">
+
+                <div class="title-web-app">جزییات مرسوله</div>
+            </div>
+
+        </div>
+        <a (click)="Back()" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
+        <div class="main-web-app main-web-app-pack">
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad">
+                <div class="form-pack-2">
+                    <div class="pack-part" style="border: none;">
+                        <img src="/assets/img/6-pocket.svg" width="80" height="80" class="pack-part-i">
+                        <label for="pack-web-app">پاکت</label>
+
+                        <div class="radiobtn-pack">
+                            <input id="radio-5" type="radio" name="Data3" value="agree" />
+                            <label for="radio-5"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1"/><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+                            <input id="radio-6" type="radio" name="Data3" value="disagree" />
+                            <label for="radio-6"><img src="/assets/img/icon-close.svg" width="20" class="radiobtn3" /><img src="/assets/img/icon-close-w.svg" width="20" class="radiobtn4" /></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input type="number" placeholder="تعداد موجود در این وزن" name="count" required><br>
+                        <div class="invalid-feedback">
+                            <div class="error-webapp">تعداد بسته را وارد کنید</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input type="text" placeholder="وزن کل بسته های شما" name="post-type" required><br>
+                        <div class="invalid-feedback">
+                            <div class="error-webapp">وزن بسته خود را وارد کنید</div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div class="pack-part pack-part2">
+                    <img src="/assets/img/6-baste-bandi.svg" width="80" height="80" class="pack-part-i">
+                    <label for="pack-web-app">بسته بندی شود</label>
+
+                    <div class="radiobtn-pack">
+                        <input autocomplete="off" id="radio-1" type="radio" name="Data1" value="agree" [checked]="mainPacks.isPacking==true? true: false" (click)="PackingStatus(true)" />
+                        <label for="radio-1"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" data-toggle="modal" data-target="#myModal7"/><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+                        <input autocomplete="off" id="radio-2" type="radio" name="Data1" value="disagree" [checked]="mainPacks.isPacking==false? true: false" (click)="PackingStatus(false)" />
+                        <label for="radio-2"><img src="/assets/img/icon-close.svg" width="20" class="radiobtn3" /><img src="/assets/img/icon-close-w.svg" width="20" class="radiobtn4" /></label>
+                    </div>
+                </div>
+                <br>
+
+                <div class="pack-part pack-part2">
+                    <img src="/assets/img/6-bime.svg" width="80" height="80" class="pack-part-i">
+                    <label for="bime-web-app">بیمه شود</label>
+                    <div class="radiobtn-pack">
+                        <input autocomplete="off" id="radio-3" type="radio" name="Data2" value="agree" [checked]="mainPacks.isInsurance==true? true: false" (click)="InsuranceStatus(true)" />
+                        <label for="radio-3"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+                        <input autocomplete="off" id="radio-4" type="radio" name="Data2" value="disagree" [checked]="mainPacks.isInsurance==false? true: false" (click)="InsuranceStatus(false)" />
+                        <label for="radio-4"><img src="/assets/img/icon-close.svg" width="20" class="radiobtn3" /><img src="/assets/img/icon-close-w.svg" width="20" class="radiobtn4" /></label>
+                    </div>
+
+                </div>
+                <br>
+
+                <div class="form-pack pack-part2">
+                    <input autocomplete="off" type="tel" placeholder="ارزش مرسوله خود را وارد کنید" [hidden]="!mainPacks.isInsurance==true" required [(ngModel)]="mainPacks.insurancePrice" name="insurancePrice" #insurancePrice="ngModel" (ngModelChange)="ngModelChangeEvent($event)">
+                    <p *ngIf="mainPacks.isInsurance==true && mainPacks.insurancePrice>=1">{{mainPacks.insurancePrice | toman}}</p>
+
+                    <br>
+
+                    <div *ngIf="f.submitted && insurancePrice.invalid && mainPacks.isInsurance==true" class="invalid-feedback">
+                        <div *ngIf="insurancePrice.errors.required" class="arzesh-pack"> ارزش مرسوله خود را وارد کنید (از اعداد انگلیسی استفاده نماید)</div>
+                    </div>
+
+                    <input autocomplete="off" type="text" placeholder="توضیحات اقلام داخل بسته" [(ngModel)]="mainPacks.content" name="content" #content class="des-pack" (ngModelChange)="onSelectedChange($event)">
+
+                    <!-- <button data-toggle="collapse" data-target="#demo" class="setting-send collapsed"><span class="setting-span"><span class="setting-span1"></span></span>تنظیمات ارسال</button>
+
+                  <div id="demo" class="collapse setting-send-part">
+                      <label for="checkbox-1">
+                         
+                          <div class="radiobtn-pack checkbox-pack">
+                              <input autocomplete="off" id="checkbox-1" type="checkbox" name="time" value="agree" />
+                              <label for="checkbox-1"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+                          </div>
+
+                      ارسال زمان بندی شده
+                      </label>
+                  <div class="data-sending"><span>در تاریخ</span>
+                      <select>
+                          <option value="30 شهریور">30 شهریور</option>
+                          <option value="31 شهریور">31 شهریور</option>
+                          <option value="1 مهر">1 مهر</option>
+                      </select>
+                      <select class="data-min">
+                          <option value="00">00</option>
+                          <option value="1">01</option>
+                          <option value="2">02</option>
+                          <option value="3">03</option>
+                          <option value="4">04</option>
+                          <option value="5">05</option>
+                          <option value="6">06</option>
+                          <option value="7">07</option>
+                          <option value="8">08</option>
+                          <option value="9">09</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                          <option value="24">24</option>
+                          <option value="25">25</option>
+                          <option value="26">26</option>
+                          <option value="27">27</option>
+                          <option value="28">28</option>
+                          <option value="29">29</option>
+                          <option value="30">30</option>
+                          <option value="31">31</option>
+                          <option value="32">32</option>
+                          <option value="33">33</option>
+                          <option value="34">34</option>
+                          <option value="35">35</option>
+                          <option value="36">36</option>
+                          <option value="37">37</option>
+                          <option value="38">38</option>
+                          <option value="39">39</option>
+                          <option value="40">40</option>
+                          <option value="41">41</option>
+                          <option value="42">42</option>
+                          <option value="43">43</option>
+                          <option value="44">44</option>
+                          <option value="45">45</option>
+                          <option value="46">46</option>
+                          <option value="47">47</option>
+                          <option value="48">48</option>
+                          <option value="49">49</option>
+                          <option value="50">50</option>
+                          <option value="51">51</option>
+                          <option value="52">52</option>
+                          <option value="53">53</option>
+                          <option value="54">54</option>
+                          <option value="55">55</option>
+                          <option value="56">56</option>
+                          <option value="57">57</option>
+                          <option value="58">58</option>
+                          <option value="59">59</option>
+
+                      </select> :
+                      <select class="data-hour">
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                      </select>
+                  </div>
+
+                  <label for="checkbox-2">
+                      <div class="radiobtn-pack checkbox-pack">
+                          <input autocomplete="off" id="checkbox-2" type="checkbox" name="paking-1" value="agree" />
+                          <label for="checkbox-2"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+                      </div>
+                  بسته شکستنی است
+                  </label>
+
+                  <label for="checkbox-3">     
+                      <div class="radiobtn-pack checkbox-pack">
+                          <input autocomplete="off" id="checkbox-3" type="checkbox" name="paking-22" value="agree" />
+                          <label for="checkbox-3"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+                      </div>
+                  بسته نامتعارف است
+                  </label>
+                  </div> -->
+
+                </div>
+                <!--button type="submit">send</button-->
+                <div class="btn-web-app">
+                    <button type="submit">ثبت درخواست</button>
+                </div>
+            </form>
+        </div>
+        <app-error *ngIf="error==true"></app-error>
+
+
+    </section>
+
+</div>
+
+
+
+<div id="myModal7" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <p>بسته بندی شامل هزینه می باشد</p>
+                <div class="btn-circle-download" id="btn-ok-address" data-dismiss="modal">
+                    <span class='pulse-button' data-dismiss="modal"><img src="/assets/img/icon-ok.svg" width="20" /></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

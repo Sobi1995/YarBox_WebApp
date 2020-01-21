@@ -30,6 +30,7 @@ import { InvitedFirendComponent } from './invited-firend/invited-firend.componen
 import { HistoryComponent } from './history/history.component';
 import { RulesiteComponent } from './rulesite/rulesite.component';
 import { FactoronlineComponent } from './factoronline/factoronline.component';
+import { PostPackNewComponent } from './post-pack-new/post-pack-new.component';
 
  
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:'base',component:HomeComponent, canActivate: [LoginGuardService]},
   {path:'choose-vehicle',component:ChooseVehicleComponent, canActivate: [LoginGuardService]}, 
   {path:'postPack-deities',component:PostPackDeitiesComponent, canActivate: [LoginGuardService]},
+  {path:'postPack',component:PostPackNewComponent, canActivate: [LoginGuardService]},
   {path:'',component:MapComponent, canActivate: [LoginGuardService]},
   {path:'orgin',component:OriginComponent, canActivate: [LoginGuardService]}, 
   {path:'accept-driver/:mobile',component:AcceptDriverComponent, canActivate: [LoginGuardService]},
