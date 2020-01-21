@@ -12,9 +12,11 @@ export class WebAppService{
 private packsRuning:any;
  private IsNet:boolean=false;
  private PostPackId:number;
-constructor(private _http:HttpClient,private _packService:PackService){
-  //this.api="http://localhost:11926/api/vv2/";
-  this.api="https://api.yarbox.co/api/vv2/";
+constructor(
+  private _http:HttpClient,
+  private _packService:PackService){
+  this.api="http://localhost:11926/api/vv2/";
+ //  this.api="https://api.yarbox.co/api/vv2/";
 }
  
 

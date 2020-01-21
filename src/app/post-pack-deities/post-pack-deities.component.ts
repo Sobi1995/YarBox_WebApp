@@ -81,7 +81,7 @@ console.log(res);
       //  }, 3000);
         
     //this.router.navigate(["/destination"])
-     debugger
+      
      if(this.count==null)
      return
       this.packs.push({count:this.count,weightId:this.type,typeId:this.type})
@@ -89,7 +89,7 @@ console.log(res);
       this.closeModal.nativeElement.click();
     }
     getPostPackType(id :number){
-     debugger
+       
     if(this.PostPackType!=undefined)
      return this.PostPackType.find(x=> x.id==id).title
     
