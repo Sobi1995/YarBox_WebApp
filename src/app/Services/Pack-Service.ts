@@ -126,7 +126,8 @@ clearOrigin(){
   this.MultiplePacks.isPacking= mainpacks.isPacking!=undefined ? mainpacks.isPacking  : this.MultiplePacks.isPacking
   // this.MultiplePacks.receiveType= mainpacks.receiveType!=undefined ? mainpacks.receiveType  : this.MultiplePacks.receiveType
   this.MultiplePacks.vehicleId= mainpacks.vehicleId!=undefined ? mainpacks.vehicleId  : this.MultiplePacks.vehicleId
-  
+  this.MultiplePacks.count= mainpacks.count!=undefined ? mainpacks.count  : this.MultiplePacks.count;
+  this.MultiplePacks.PostPackWeight= mainpacks.PostPackWeight!=undefined ? mainpacks.PostPackWeight  : this.MultiplePacks.PostPackWeight;
   this.setOnLocalStorage();
  }
  setPaks(packs:packsDto[])
@@ -161,13 +162,15 @@ clearOrigin(){
 //    mainpack.insurancePrice=this.MultiplePacks.insurancePrice;
 //  return mainpack;
   
-   let mainpack=new MainPacks();
+   let mainpack=new MainPacks(); 
    mainpack.content=JSON.parse(localStorage.getItem("MultiplePacks")).content;
    mainpack.isInsurance=JSON.parse(localStorage.getItem("MultiplePacks")).isInsurance;
    mainpack.isPacking=JSON.parse(localStorage.getItem("MultiplePacks")).isPacking;
    mainpack.receiveType=JSON.parse(localStorage.getItem("MultiplePacks")).receiveType;
    mainpack.vehicleId=JSON.parse(localStorage.getItem("MultiplePacks")).vehicleId;
    mainpack.insurancePrice=JSON.parse(localStorage.getItem("MultiplePacks")).insurancePrice;
+   mainpack.PostPackWeight=JSON.parse(localStorage.getItem("MultiplePacks")).PostPackWeight;
+   mainpack.count=JSON.parse(localStorage.getItem("MultiplePacks")).count;
  return mainpack;
 
  }
@@ -273,7 +276,7 @@ let tryflow=JSON.parse(localStorage.getItem("MultiplePacks"))
      return "/choose-vehicle";
    }
    else if(!isdestnation && ((ispack!=undefined && ispack.length>=1)   )){
-     return "/postPack-deities"
+     return "/postPack"
    }
    else if(!isdestnation ){
     return "/destination"

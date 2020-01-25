@@ -1,0 +1,152 @@
+<div class="section-main-web-app">
+
+    <section class="main-web-app">
+
+        <div class="main-web-app-top">
+
+            <div class="web-app-title">
+
+                <div class="title-web-app">جزییات مرسوله</div>
+               
+            </div>
+
+        </div>
+        <a (click)="Back()" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
+        <div class="main-web-app main-web-app-pack">
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad">
+                <div class="form-pack-2">
+                    <div class="pack-part" style="border: none;">
+                        <img src="/assets/img/6-pocket.svg" width="80" height="80" class="pack-part-i">
+                        <label for="pack-web-app">پاکت</label>
+
+                        <div class="radiobtn-pack">
+                            <input id="radio-5" type="radio" name="Data3" value="agree" value="0"   [(ngModel)]="TypePack"   [checked]="mainPacks.PostPackWeight==0? true: false"     />
+                            <label for="radio-5"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img
+                                    src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+                            <input id="radio-6" type="radio" name="Data3" #disagreeType  value="disagree" value="1" checked [(ngModel)]="TypePack"   [checked]="mainPacks.PostPackWeight>0 ? true: false" />
+                            <label for="radio-6"><img src="/assets/img/icon-close.svg" width="20"
+                                    class="radiobtn3" /><img src="/assets/img/icon-close-w.svg" width="20"
+                                    class="radiobtn4" /></label>
+                        </div>
+                    </div>
+                    <div *ngIf="disagreeType.checked">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <input type="number" placeholder="تعداد موجود در این وزن" name="count" required
+                                [(ngModel)]="mainPacks.count" name="receiverPhoneNumber" #count="ngModel" required><br>
+                            <div class="invalid-feedback">
+                                <div *ngIf="f.submitted && count.invalid" class="invalid-feedback">
+                                    <div *ngIf="count.errors.required" class="error-webapp">تعداد را وارد کنید</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <input type="number" placeholder="وزن کل بسته های شما"
+                                [(ngModel)]="mainPacks.PostPackWeight" name="post-type" required
+                                [(ngModel)]="mainPacks.PostPackWeight" #PostPackWeight="ngModel"><br>
+                            <div class="invalid-feedback">
+
+                                <div class="invalid-feedback">
+                                    <div *ngIf="f.submitted && PostPackWeight.invalid" class="invalid-feedback">
+                                        <div *ngIf="PostPackWeight.errors.required" class="error-webapp">وزن را وارد
+                                            کنید</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div class="pack-part pack-part2">
+                    <img src="/assets/img/6-baste-bandi.svg" width="80" height="80" class="pack-part-i">
+                    <label for="pack-web-app">بسته بندی شود</label>
+
+                    <div class="radiobtn-pack">
+                        <input autocomplete="off" id="radio-1" type="radio" name="Data1" value="agree"
+                            [checked]="mainPacks.isPacking==true? true: false" (click)="PackingStatus(true)" />
+                        <label for="radio-1"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1"
+                                data-toggle="modal" data-target="#myModal7" /><img src="/assets/img/icon-ok-s.svg"
+                                width="40" class="radiobtn2" /></label>
+                        <input autocomplete="off" id="radio-2" type="radio" name="Data1" value="disagree"
+                            [checked]="mainPacks.isPacking==false? true: false" (click)="PackingStatus(false)" />
+                        <label for="radio-2"><img src="/assets/img/icon-close.svg" width="20" class="radiobtn3" /><img
+                                src="/assets/img/icon-close-w.svg" width="20" class="radiobtn4" /></label>
+                    </div>
+                </div>
+                <br>
+
+                <div class="pack-part pack-part2">
+                    <img src="/assets/img/6-bime.svg" width="80" height="80" class="pack-part-i">
+                    <label for="bime-web-app">بیمه شود</label>
+                    <div class="radiobtn-pack">
+                        <input autocomplete="off" id="radio-3" type="radio" name="Data2" value="agree"
+                            [checked]="mainPacks.isInsurance==true? true: false" (click)="InsuranceStatus(true)" />
+                        <label for="radio-3"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img
+                                src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
+                        <input autocomplete="off" id="radio-4" type="radio" name="Data2" value="disagree"
+                            [checked]="mainPacks.isInsurance==false? true: false" (click)="InsuranceStatus(false)" />
+                        <label for="radio-4"><img src="/assets/img/icon-close.svg" width="20" class="radiobtn3" /><img
+                                src="/assets/img/icon-close-w.svg" width="20" class="radiobtn4" /></label>
+                    </div>
+
+                </div>
+                <br>
+
+                <div class="form-pack pack-part2">
+                    <input autocomplete="off" type="tel" placeholder="ارزش مرسوله خود را وارد کنید"
+                        [hidden]="!mainPacks.isInsurance==true" required [(ngModel)]="mainPacks.insurancePrice"
+                        name="insurancePrice" #insurancePrice="ngModel" (ngModelChange)="ngModelChangeEvent($event)">
+                    <p *ngIf="mainPacks.isInsurance==true && mainPacks.insurancePrice>=1">
+                        {{mainPacks.insurancePrice | toman}}</p>
+
+                    <br>
+
+                    <div *ngIf="f.submitted && insurancePrice.invalid && mainPacks.isInsurance==true"
+                        class="invalid-feedback">
+                        <div *ngIf="insurancePrice.errors.required" class="arzesh-pack"> ارزش مرسوله خود را وارد کنید
+                            (از اعداد انگلیسی استفاده نماید)</div>
+                    </div>
+
+                    <input autocomplete="off" type="text" placeholder="توضیحات اقلام داخل بسته"
+                        [(ngModel)]="mainPacks.content" name="content" #content class="des-pack"
+                        (ngModelChange)="onSelectedChange($event)">
+
+                 
+<p *ngFor="let e of Error">{{e}}</p>
+                </div>
+                <!--button type="submit">send</button-->
+                <div class="btn-web-app">
+                    <button type="submit">ثبت درخواست</button>
+                </div>
+            </form>
+        </div>
+        <app-error *ngIf="error==true"></app-error>
+ 
+
+    </section>
+
+</div>
+
+
+
+<div id="myModal7" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <p>بسته بندی شامل هزینه می باشد</p>
+                <div class="btn-circle-download" id="btn-ok-address" data-dismiss="modal">
+                    <span class='pulse-button' data-dismiss="modal"><img src="/assets/img/icon-ok.svg"
+                            width="20" /></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

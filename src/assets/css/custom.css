@@ -1112,6 +1112,9 @@ a.rowa .section-style {
         margin-top: -9px !important;
         font-size: 10px !important;
     }
+    .form-pack-2 .error-webapp {
+        margin-top: 4px !important;
+    }
     .error-webapp2 {
         margin-top: -2px !important;
         margin-bottom: 10px !important;
@@ -2263,7 +2266,8 @@ div#accordion .panel {
 .main-web-app-form input,
 .main-web-app-form select,
 .form-pack input,
-.form-pack select {
+.form-pack select,
+.form-pack-2 input {
     border: none;
     border-bottom: 2px solid #ddd;
     width: 100%;
@@ -2480,6 +2484,7 @@ p.p-type i {
 
 .radiobtn-pack input#radio-1[type="radio"]:checked+label,
 .radiobtn-pack input#radio-3[type="radio"]:checked+label,
+.radiobtn-pack input#radio-5[type="radio"]:checked+label,
 .radiobtn-pack input#checkbox-1[type="checkbox"]:checked+label,
 .radiobtn-pack input#checkbox-2[type="checkbox"]:checked+label,
 .radiobtn-pack input#checkbox-3[type="checkbox"]:checked+label,
@@ -2490,6 +2495,7 @@ p.p-type i {
 
 .radiobtn-pack input#radio-1[type="radio"]:checked+label .radiobtn1,
 .radiobtn-pack input#radio-3[type="radio"]:checked+label .radiobtn3,
+.radiobtn-pack input#radio-5[type="radio"]:checked+label .radiobtn1,
 .radiobtn-pack input#checkbox-1[type="checkbox"]:checked+label .radiobtn3,
 .radiobtn-pack input#checkbox-2[type="checkbox"]:checked+label .radiobtn3,
 .radiobtn-pack input#checkbox-3[type="checkbox"]:checked+label .radiobtn3,
@@ -2498,13 +2504,15 @@ p.p-type i {
 }
 
 .radiobtn-pack input#radio-2[type="radio"]:checked+label,
-.radiobtn-pack input#radio-4[type="radio"]:checked+label {
+.radiobtn-pack input#radio-4[type="radio"]:checked+label,
+.radiobtn-pack input#radio-6[type="radio"]:checked+label {
     background: #d01d57;
     color: #fff;
 }
 
 .radiobtn-pack input#radio-2[type="radio"]:checked .radiobtn2,
-.radiobtn-pack input#radio-4[type="radio"]:checked .radiobtn4 {
+.radiobtn-pack input#radio-4[type="radio"]:checked .radiobtn4,
+.radiobtn-pack input#radio-6[type="radio"]:checked .radiobtn2 {
     display: inline-block;
 }
 

@@ -59,7 +59,7 @@ export class DestinationComponent implements OnInit,OnDestroy {
   // this.destinationModel.city="تهران";
 
   this._postPackService.setDestination(this.destinationModel);
-  this.router.navigate(["/postPack-deities"])
+  this.router.navigate(["/postPack"])
   }
   ngOnInit() {
     this._webappService.setLoding(true);

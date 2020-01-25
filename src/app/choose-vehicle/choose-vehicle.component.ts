@@ -53,6 +53,6 @@ this._webapp.setLoding(false);
   }
   Back(){
     this._packService.clearVehicle();
-    this.router.navigate(['/postPack-deities']);
+    this.router.navigate(['/postPack']);
   }
 }

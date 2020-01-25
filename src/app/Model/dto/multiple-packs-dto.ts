@@ -14,6 +14,8 @@ export class  MultiplePacksDto{
     insurancePrice: number;
     content?: string;
     postPacktype:number;
+    PostPackWeight:number;
+    count:number;
     constructor(){
         this.destination={} as  DestinationDto
         this.origin={} as originDto;
@@ -24,5 +26,7 @@ export class  MultiplePacksDto{
         this.isInsurance=true;
         this.content="";
         this.postPacktype=0;
+        this.PostPackWeight=0;
+        this.count=0;
     }
 }
