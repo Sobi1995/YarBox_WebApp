@@ -7,7 +7,7 @@
             <div class="web-app-title">
 
                 <div class="title-web-app">جزییات مرسوله</div>
-               
+
             </div>
 
         </div>
@@ -20,36 +20,41 @@
                         <label for="pack-web-app">پاکت</label>
 
                         <div class="radiobtn-pack">
-                            <input id="radio-5" type="radio" name="Data3" value="agree" value="0"   [(ngModel)]="TypePack"   [checked]="mainPacks.PostPackWeight==0? true: false"     />
+                            <input id="radio-5" type="radio" name="Data3" value="agree" value="0" [(ngModel)]="TypePack" [checked]="mainPacks.PostPackWeight==0? true: false" />
                             <label for="radio-5"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img
                                     src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
-                            <input id="radio-6" type="radio" name="Data3" #disagreeType  value="disagree" value="1" checked [(ngModel)]="TypePack"   [checked]="mainPacks.PostPackWeight>0 ? true: false" />
+                            <input id="radio-6" type="radio" name="Data3" #disagreeType value="disagree" value="1" checked [(ngModel)]="TypePack" [checked]="mainPacks.PostPackWeight>0 ? true: false" />
                             <label for="radio-6"><img src="/assets/img/icon-close.svg" width="20"
                                     class="radiobtn3" /><img src="/assets/img/icon-close-w.svg" width="20"
                                     class="radiobtn4" /></label>
                         </div>
                     </div>
-                    <div *ngIf="disagreeType.checked">
+                    <div *ngIf="disagreeType.checked" style="display: inline-block;width: 92%;margin: 0 6%;">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <input type="number" placeholder="تعداد موجود در این وزن" name="count" required
-                                [(ngModel)]="mainPacks.count" name="receiverPhoneNumber" #count="ngModel" required><br>
-                            <div class="invalid-feedback">
-                                <div *ngIf="f.submitted && count.invalid" class="invalid-feedback">
-                                    <div *ngIf="count.errors.required" class="error-webapp">تعداد را وارد کنید</div>
 
+
+                            <div class='ctrl'>
+                                <div class='ctrl-button ctrl-button-decrement' (click)="decCount()">-</div>
+                                <div class='ctrl-counter'>
+                                    <input id="Count" class='ctrl-counter-input' value="{{count}}" name="Count" maxlength="10" type="text" style="font-size: 15px;" required>
+                                    <div class='ctrl-counter-num'>{{count}}</div>
                                 </div>
+                                <div class='ctrl-button ctrl-button-increment' (click)="incCount()">+</div>
                             </div>
+                            <span *ngIf="count==null" class="error-null-tedad">تعداد را وارد کنید</span>
+
+
+
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <input type="number" placeholder="وزن کل بسته های شما"
-                                [(ngModel)]="mainPacks.PostPackWeight" name="post-type" required
-                                [(ngModel)]="mainPacks.PostPackWeight" #PostPackWeight="ngModel"><br>
+                            <input type="number" placeholder="وزن کل بسته های شما" [(ngModel)]="mainPacks.PostPackWeight" name="post-type" required [(ngModel)]="mainPacks.PostPackWeight" #PostPackWeight="ngModel" style="padding: 0 10px;"><span class="kilo"
+                                *ngIf="mainPacks.PostPackWeight">کیلوگرم </span><br>
                             <div class="invalid-feedback">
 
                                 <div class="invalid-feedback">
                                     <div *ngIf="f.submitted && PostPackWeight.invalid" class="invalid-feedback">
-                                        <div *ngIf="PostPackWeight.errors.required" class="error-webapp">وزن را وارد
-                                            کنید</div>
+                                        <div *ngIf="PostPackWeight.errors.required" class="error-webapp">وزن را وارد کنید
+                                        </div>
 
                                     </div>
                                 </div>
@@ -64,13 +69,11 @@
                     <label for="pack-web-app">بسته بندی شود</label>
 
                     <div class="radiobtn-pack">
-                        <input autocomplete="off" id="radio-1" type="radio" name="Data1" value="agree"
-                            [checked]="mainPacks.isPacking==true? true: false" (click)="PackingStatus(true)" />
+                        <input autocomplete="off" id="radio-1" type="radio" name="Data1" value="agree" [checked]="mainPacks.isPacking==true? true: false" (click)="PackingStatus(true)" />
                         <label for="radio-1"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1"
                                 data-toggle="modal" data-target="#myModal7" /><img src="/assets/img/icon-ok-s.svg"
                                 width="40" class="radiobtn2" /></label>
-                        <input autocomplete="off" id="radio-2" type="radio" name="Data1" value="disagree"
-                            [checked]="mainPacks.isPacking==false? true: false" (click)="PackingStatus(false)" />
+                        <input autocomplete="off" id="radio-2" type="radio" name="Data1" value="disagree" [checked]="mainPacks.isPacking==false? true: false" (click)="PackingStatus(false)" />
                         <label for="radio-2"><img src="/assets/img/icon-close.svg" width="20" class="radiobtn3" /><img
                                 src="/assets/img/icon-close-w.svg" width="20" class="radiobtn4" /></label>
                     </div>
@@ -81,12 +84,10 @@
                     <img src="/assets/img/6-bime.svg" width="80" height="80" class="pack-part-i">
                     <label for="bime-web-app">بیمه شود</label>
                     <div class="radiobtn-pack">
-                        <input autocomplete="off" id="radio-3" type="radio" name="Data2" value="agree"
-                            [checked]="mainPacks.isInsurance==true? true: false" (click)="InsuranceStatus(true)" />
+                        <input autocomplete="off" id="radio-3" type="radio" name="Data2" value="agree" [checked]="mainPacks.isInsurance==true? true: false" (click)="InsuranceStatus(true)" />
                         <label for="radio-3"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img
                                 src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
-                        <input autocomplete="off" id="radio-4" type="radio" name="Data2" value="disagree"
-                            [checked]="mainPacks.isInsurance==false? true: false" (click)="InsuranceStatus(false)" />
+                        <input autocomplete="off" id="radio-4" type="radio" name="Data2" value="disagree" [checked]="mainPacks.isInsurance==false? true: false" (click)="InsuranceStatus(false)" />
                         <label for="radio-4"><img src="/assets/img/icon-close.svg" width="20" class="radiobtn3" /><img
                                 src="/assets/img/icon-close-w.svg" width="20" class="radiobtn4" /></label>
                     </div>
@@ -95,26 +96,20 @@
                 <br>
 
                 <div class="form-pack pack-part2">
-                    <input autocomplete="off" type="tel" placeholder="ارزش مرسوله خود را وارد کنید"
-                        [hidden]="!mainPacks.isInsurance==true" required [(ngModel)]="mainPacks.insurancePrice"
-                        name="insurancePrice" #insurancePrice="ngModel" (ngModelChange)="ngModelChangeEvent($event)">
+                    <input autocomplete="off" type="tel" placeholder="ارزش مرسوله خود را وارد کنید" [hidden]="!mainPacks.isInsurance==true" required [(ngModel)]="mainPacks.insurancePrice" name="insurancePrice" #insurancePrice="ngModel" (ngModelChange)="ngModelChangeEvent($event)">
                     <p *ngIf="mainPacks.isInsurance==true && mainPacks.insurancePrice>=1">
                         {{mainPacks.insurancePrice | toman}}</p>
 
                     <br>
 
-                    <div *ngIf="f.submitted && insurancePrice.invalid && mainPacks.isInsurance==true"
-                        class="invalid-feedback">
-                        <div *ngIf="insurancePrice.errors.required" class="arzesh-pack"> ارزش مرسوله خود را وارد کنید
-                            (از اعداد انگلیسی استفاده نماید)</div>
+                    <div *ngIf="f.submitted && insurancePrice.invalid && mainPacks.isInsurance==true" class="invalid-feedback">
+                        <div *ngIf="insurancePrice.errors.required" class="arzesh-pack"> ارزش مرسوله خود را وارد کنید (از اعداد انگلیسی استفاده نماید)</div>
                     </div>
 
-                    <input autocomplete="off" type="text" placeholder="توضیحات اقلام داخل بسته"
-                        [(ngModel)]="mainPacks.content" name="content" #content class="des-pack"
-                        (ngModelChange)="onSelectedChange($event)">
+                    <input autocomplete="off" type="text" placeholder="توضیحات اقلام داخل بسته" [(ngModel)]="mainPacks.content" name="content" #content class="des-pack" (ngModelChange)="onSelectedChange($event)">
 
-                 
-<p *ngFor="let e of Error">{{e}}</p>
+
+                    <p *ngFor="let e of Error">{{e}}</p>
                 </div>
                 <!--button type="submit">send</button-->
                 <div class="btn-web-app">
@@ -123,7 +118,7 @@
             </form>
         </div>
         <app-error *ngIf="error==true"></app-error>
- 
+
 
     </section>
 

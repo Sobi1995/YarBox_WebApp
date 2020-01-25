@@ -73,7 +73,7 @@ export class PostPackNewComponent implements OnInit {
       this.mainPacks.insurancePrice == undefined
     )
       return;
- 
+debugger
     if (this.mainPacks.PostPackWeight > 500) {
       this.Error.push("وزن بیشتر از 500 کیلو است");
       return;
@@ -118,5 +118,19 @@ export class PostPackNewComponent implements OnInit {
 
   handleChangeType(evt) {
     debugger;
+  }
+
+
+  incCount(){
+ 
+    this.count++;
+    this.mainPacks.count=this.count;
+  }
+  decCount(){
+   if(this.count>1)
+  {this.count--;
+  
+  }
+  this.mainPacks.count=this.count;
   }
 }
