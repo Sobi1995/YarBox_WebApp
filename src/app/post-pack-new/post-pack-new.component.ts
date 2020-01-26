@@ -67,13 +67,14 @@ export class PostPackNewComponent implements OnInit {
 
   onSubmit() {
     // this.error=this.checkValidation();
+     
     this.Error=[];
     if (
       this.mainPacks.isInsurance == true &&
       this.mainPacks.insurancePrice == undefined
     )
       return;
-debugger
+ 
     if (this.mainPacks.PostPackWeight > 500) {
       this.Error.push("وزن بیشتر از 500 کیلو است");
       return;
@@ -86,15 +87,19 @@ debugger
       this.Error.push("تعداد را وارد کنید");
       return;
     }
-    if (( this.mainPacks.PostPackWeight/this.mainPacks.count)>35) {
+    if (( this.mainPacks.PostPackWeight/this.mainPacks.count)>35 && this.TypePack==1) {
       this.Error.push("حداکثر هر مرسوله  35 کیلوگرم میباشد");
       return;
     }
     if (this.mainPacks.content == "") this.mainPacks.content = "ندارد";
-    if (this.TypePack == "0") this.mainPacks.PostPackWeight = 0;
+    if (this.TypePack == "0" || this.TypePack ==undefined) this.mainPacks.PostPackWeight = 0;
     this.mainPacks.insurancePrice = +this._packService.ToNumEn(
       this.mainPacks.insurancePrice.toString()
     );
+      
+    if(this.TypePack==0){
+      this.mainPacks.count=1;
+    }
     this._packService.setMainPaks(this.mainPacks);
     this._packService.setPaks(this.packs);
     this.router.navigate(["/choose-vehicle"]);
@@ -117,7 +122,7 @@ debugger
   onSelectedChange(value) {}
 
   handleChangeType(evt) {
-    debugger;
+  
   }
 
 

@@ -5,12 +5,13 @@
         <div class="main-web-app-top">
 
             <div class="web-app-title">
-
+               
                 <div class="title-web-app">جزییات مرسوله</div>
 
             </div>
 
         </div>
+        
         <a (click)="Back()" class="back-web-app"><img src="/assets/img/icon-back.svg" width="20" /></a>
         <div class="main-web-app main-web-app-pack">
             <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad">
@@ -18,7 +19,7 @@
                     <div class="pack-part" style="border: none;">
                         <img src="/assets/img/6-pocket.svg" width="80" height="80" class="pack-part-i">
                         <label for="pack-web-app">پاکت</label>
-
+ 
                         <div class="radiobtn-pack">
                             <input id="radio-5" type="radio" name="Data3" value="agree" value="0" [(ngModel)]="TypePack" [checked]="mainPacks.PostPackWeight==0? true: false" />
                             <label for="radio-5"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img
@@ -52,7 +53,7 @@
                             <div class="invalid-feedback">
 
                                 <div class="invalid-feedback">
-                                    <div *ngIf="f.submitted && PostPackWeight.invalid" class="invalid-feedback">
+                                    <div *ngIf="f.submitted && PostPackWeight.invalid && TypePack==1 " class="invalid-feedback">
                                         <div *ngIf="PostPackWeight.errors.required" class="error-webapp">وزن را وارد کنید
                                         </div>
 
