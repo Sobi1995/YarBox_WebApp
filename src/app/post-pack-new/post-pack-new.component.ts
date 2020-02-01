@@ -18,7 +18,7 @@ export class PostPackNewComponent implements OnInit {
   type: number;
   mainPacks: MainPacks;
   error: boolean = false;
-  TypePack: any;
+  TypePack: any="1";
   Error: Array<any>;
   statusInsuranceStatus: boolean = true;
   constructor(
@@ -48,8 +48,14 @@ export class PostPackNewComponent implements OnInit {
       if (this._packService.IsExistpacks() == true) {
         this.packs = this._packService.getPaks();
         this.mainPacks = this._packService.getMainPack();
+        this.count=this.mainPacks.count;
+        if(this.mainPacks.PostPackWeight==0)
+        this.TypePack="0"
+       else
+       this.TypePack="1"
       } else {
         this.mainPacks.insurancePrice = null;
+       
       }
 
       this._webappservice.getPostPackType().subscribe(res => {
@@ -58,6 +64,7 @@ export class PostPackNewComponent implements OnInit {
         console.log(res);
       });
       this._webappservice.setLoding(false);
+
     }, 1500);
   }
   PackingStatus(status: boolean) {
@@ -83,7 +90,11 @@ export class PostPackNewComponent implements OnInit {
       this.Error.push("وزن را وارد کنید");
       return;
     }
-    if (this.TypePack == "1" && this.mainPacks.count == 0) {
+    if(this.mainPacks.PostPackWeight !=null && !this.isInteger(this.mainPacks.PostPackWeight)){
+      this.Error.push("وزن را اعداد صحیح وارد کنید");
+      return;
+    }
+    if (this.TypePack == "1" && this.count == 0) {
       this.Error.push("تعداد را وارد کنید");
       return;
     }
@@ -100,6 +111,7 @@ export class PostPackNewComponent implements OnInit {
     if(this.TypePack==0){
       this.mainPacks.count=1;
     }
+     
     this._packService.setMainPaks(this.mainPacks);
     this._packService.setPaks(this.packs);
     this.router.navigate(["/choose-vehicle"]);
@@ -124,7 +136,13 @@ export class PostPackNewComponent implements OnInit {
   handleChangeType(evt) {
   
   }
-
+checknull(obj){
+   
+  if(obj==null || obj ==undefined)
+  return true
+  else
+  return false
+}
 
   incCount(){
  
@@ -138,4 +156,7 @@ export class PostPackNewComponent implements OnInit {
   }
   this.mainPacks.count=this.count;
   }
+    isInteger(a){
+    return a >= 1e+21 ? true : a === (a|0)
+}
 }

@@ -19,9 +19,9 @@
                     <div class="pack-part" style="border: none;">
                         <img src="/assets/img/6-pocket.svg" width="80" height="80" class="pack-part-i">
                         <label for="pack-web-app">پاکت</label>
- 
+
                         <div class="radiobtn-pack">
-                            <input id="radio-5" type="radio" name="Data3" value="agree" value="0" [(ngModel)]="TypePack" [checked]="mainPacks.PostPackWeight==0? true: false" />
+                            <input id="radio-5" type="radio" name="Data3" value="agree" value="0" [(ngModel)]="TypePack" [checked]="(mainPacks.PostPackWeight==0) ? true: false" />
                             <label for="radio-5"><img src="/assets/img/icon-ok.svg" width="40" class="radiobtn1" /><img
                                     src="/assets/img/icon-ok-s.svg" width="40" class="radiobtn2" /></label>
                             <input id="radio-6" type="radio" name="Data3" #disagreeType value="disagree" value="1" checked [(ngModel)]="TypePack" [checked]="mainPacks.PostPackWeight>0 ? true: false" />
@@ -30,7 +30,7 @@
                                     class="radiobtn4" /></label>
                         </div>
                     </div>
-                    <div *ngIf="disagreeType.checked" style="display: inline-block;width: 92%;margin: 0 6%;">
+                    <div *ngIf="TypePack!='0'" style="display: inline-block;width: 92%;margin: 0 6%;">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
 
