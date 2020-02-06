@@ -7,6 +7,7 @@
 
                 <!-- #mobile="ngModel" pattern="[0-9]+" required  -->
                 <!-- git test -->
+                <p class="p-login">لطفا شماره همراه خود را وارد کنید</p>
                 <input autocomplete="off" type="tel" placeholder="----   ---   ----" class="login-input" [(ngModel)]="model.mobile" #mobile="ngModel" name="mobile" required (ngModelChange)="ngModelChange($event)" />
                 <img src="/assets/img/2-mob.svg" width="30" height="30">
                 <!-- *ngIf="f.submitted && mobile.invalid" -->
