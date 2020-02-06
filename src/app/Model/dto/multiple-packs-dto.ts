@@ -27,6 +27,6 @@ export class  MultiplePacksDto{
         this.content="";
         this.postPacktype=0;
         this.PostPackWeight=0;
-        this.count=0;
+        this.count=1;
     }
 }

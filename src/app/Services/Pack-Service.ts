@@ -149,6 +149,8 @@ clearOrigin(){
   this.MultiplePacks.receiveType=null;
   this.MultiplePacks.vehicleId=null;
   this.MultiplePacks.insurancePrice=null;
+  this.MultiplePacks.count=1;
+  this.MultiplePacks.PostPackWeight=null;
   this.setOnLocalStorage();
  
  }

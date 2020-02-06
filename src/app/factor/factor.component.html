@@ -61,7 +61,12 @@
 						<br>
 						<!-- *ngFor="let paks of Factor.packdetails" -->
 						<div >
-							{{Factor.postPackWeight}}   کیلو گرم کل بار به تعداد    {{Factor.count}} مرسوله
+							<div *ngIf="Factor.postPackWeight!=0">
+								{{Factor.postPackWeight}}   کیلو گرم کل بار به تعداد    {{Factor.count}} مرسوله
+							</div>
+							<div *ngIf="Factor.postPackWeight==0">
+							یک عدد پاکت
+							</div>
 					  </div>
 						  
 					  </div>
