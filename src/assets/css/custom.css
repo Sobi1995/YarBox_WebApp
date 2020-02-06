@@ -4788,3 +4788,9 @@ div#myModalcustomerlogin.modal.in .modal-dialog h3 {
 div#myModalcustomerlogin.modal.in .modal-dialog {
     line-height: 27px;
 }
+
+.form-pack.pack-part2 p {
+    color: red;
+    position: relative;
+    top: 30px;
+}
