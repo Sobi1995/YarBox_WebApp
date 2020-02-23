@@ -6,4 +6,5 @@ export class FactoreOnlineDto{
     price: Number;
     country: String;
     weightType: String
+    PostPackWeight : number;
 }

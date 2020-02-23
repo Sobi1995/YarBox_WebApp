@@ -26,7 +26,7 @@ export class  MultiplePacksDto{
         this.isInsurance=true;
         this.content="";
         this.postPacktype=0;
-        this.PostPackWeight=0;
+        this.PostPackWeight=null;
         this.count=1;
     }
 }
