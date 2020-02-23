@@ -63,8 +63,7 @@ export class FactoronlineComponent implements OnInit {
     this.FactoreModel.weightId = newObj
   }
   onSubmit(){
-     debugger
-     
+      
     if(this.FactoreModel.country==undefined ||
       this.FactoreModel.country=="استان مقصد" ||
       this.FactoreModel.countis==undefined ||
@@ -90,6 +89,7 @@ this.Clear();
     this.FactoreModel.type=1;
     this.FactoreModel.weightId=1;
     this.FactoreModel.weightType=undefined;
+    this.FactoreModel.PostPackWeight=undefined;
   }
 
   handleChange(val:number){
