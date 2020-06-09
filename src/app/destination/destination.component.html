@@ -6,7 +6,8 @@
 
             <div class="web-app-title">
                 <div class="title-web-app">اطلاعات مقصد</div>
-                <button data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><img src="/assets/img/icon-bookmark.svg" width="20" /></button>
+                <button data-toggle="modal" data-target="#selectfavoriteaddresses" class="selectfavorite2"><img
+                        src="/assets/img/icon-bookmark.svg" width="20" /></button>
             </div>
 
         </div>
@@ -17,50 +18,74 @@
                 <p> انتخاب نوع ارسال</p>
                 <div class="vecl-type">
 
-                    <input autocomplete="off" type="radio" id="darb" name="type-web-app" class="radio-type" (click)="PostType(0)" [checked]="typeCity==0? true: false">
+                    <input autocomplete="off" type="radio" id="darb" name="type-web-app" class="radio-type"
+                        (click)="PostType(1)" [checked]="typeCity==1? true: false">
                     <label for="darb" class="vecl-type-label1" data-toggle="modal" data-target="#myModal3"></label>
 
-                    <input autocomplete="off" type="radio" id="terminal" name="type-web-app" class="radio-type" (click)="PostType(1)" [checked]="typeCity==1? true: false">
+                    <input autocomplete="off" type="radio" id="terminal" name="type-web-app" class="radio-type"
+                        (click)="PostType(0)" [checked]="typeCity==0? true: false">
                     <label for="terminal" class="vecl-type-label2" data-toggle="modal" data-target="#myModal4"></label>
                 </div>
-                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad maghsad2" *ngIf="typeCity!=3">
+                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="maghsad maghsad2"
+                    *ngIf="typeCity!=3">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <select (change)="SelectProvince($event.target.value)" #ProvinceSelect>
-						<option >
-							<p *ngIf="destinationModel.province!=undefined"> {{destinationModel.province}}</p>
-							<p *ngIf="destinationModel.province==undefined"> استان</p>
-						</option>
-            <option *ngFor="let item of Provinces" value="{{item}}">  {{item}} </option>
-						</select>
+                            <option *ngIf="destinationModel.province!=undefined">
+                                {{destinationModel.province}}
 
-                        <div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)" class="error-webapp"> استان را وارد کنید </div>
+                            </option>
+                            <option *ngIf="destinationModel.province==undefined">
+                                استان
+
+                            </option>
+                            <option *ngFor="let item of Provinces" value="{{item}}"> {{item}} </option>
+                        </select>
+
+                        <div *ngIf="f.submitted &&  (destinationModel.province=='استان' || destinationModel.province==undefined)"
+                            class="error-webapp"> استان را وارد کنید </div>
                     </div>
+
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <select (change)="SelectCity($event.target.value)">
-						<option>
-								<p *ngIf="destinationModel.city!=undefined"> {{destinationModel.city}}</p>
-								<p *ngIf="destinationModel.city==undefined"> شهر</p>
-						</option>
-            <option *ngFor="let city of Cities" value="{{city.name}}">{{city.name}}</option>
-						</select>
-                        <div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)" class="error-webapp">شهر را وارد کنید </div>
+                            <option *ngIf="destinationModel.city!=undefined">
+                                {{destinationModel.city}}
+
+                            </option>
+                            <option *ngIf="destinationModel.city==undefined">
+                                شهر
+
+                            </option>
+                            <option *ngFor="let city of Cities" value="{{city.name}}">{{city.name}}</option>
+                        </select>
+                        <div *ngIf="f.submitted &&  (destinationModel.city=='شهر' || destinationModel.city==undefined)"
+                            class="error-webapp">شهر را وارد کنید </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="typeCity!=3">
 
-                        <input autocomplete="off" type="text" placeholder="نام و نام خانوادگی گیرنده" [(ngModel)]="destinationModel.receiverName" name="receiverName" #receiverName="ngModel" required (ngModelChange)="onSelectedChange($event)"><br>
+                        <input autocomplete="off" type="text" placeholder="نام و نام خانوادگی گیرنده"
+                            [(ngModel)]="destinationModel.receiverName" name="receiverName" #receiverName="ngModel"
+                            required (ngModelChange)="onSelectedChange($event)"><br>
                         <div *ngIf="f.submitted && receiverName.invalid" class="invalid-feedback">
-                            <div *ngIf="receiverName.errors.required" class="error-webapp">نام و نام خانوادگی گیرنده را وارد کنید</div>
+                            <div *ngIf="receiverName.errors.required" class="error-webapp">نام و نام خانوادگی گیرنده را
+                                وارد کنید</div>
                         </div>
 
-                        <input autocomplete="off" type="text" placeholder="آدرس گیرنده" [(ngModel)]="destinationModel.street" [disabled]="typeCity==1" name="street" #street="ngModel" required (ngModelChange)="onSelectedChange($event)"><br>
+                        <input autocomplete="off" type="text" placeholder="آدرس گیرنده"
+                            [(ngModel)]="destinationModel.street" [disabled]="typeCity==0" name="street"
+                            #street="ngModel" required (ngModelChange)="onSelectedChange($event)"><br>
                         <div *ngIf="f.submitted && street.invalid" class="invalid-feedback">
                             <div *ngIf="street.errors.required" class="error-webapp">آدرس گیرنده را وارد کنید</div>
                         </div>
 
-                        <input autocomplete="off" type="tel" placeholder="شماره همراه / ثابت" [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber" #receiverPhoneNumber="ngModel" pattern="[0-9]+" required (ngModelChange)="onSelectedChange($event)"><br>
+                        <input autocomplete="off" type="tel" placeholder="شماره همراه / ثابت"
+                            [(ngModel)]="destinationModel.receiverPhoneNumber" name="receiverPhoneNumber"
+                            #receiverPhoneNumber="ngModel" pattern="[0-9]+" required
+                            (ngModelChange)="onSelectedChange($event)"><br>
                         <div *ngIf="f.submitted && receiverPhoneNumber.invalid" class="invalid-feedback">
-                            <div *ngIf="receiverPhoneNumber.errors.required" class="error-webapp">شماره همراه / ثابت را وارد کنید ( از اعداد انگلیسی استفاده کنید )</div>
-                            <div [hidden]="!receiverPhoneNumber.errors.pattern" class="error-webapp"> لطفا شماره صحیح را وارد کنید ( از اعداد انگلیسی استفاده کنید )</div>
+                            <div *ngIf="receiverPhoneNumber.errors.required" class="error-webapp">شماره همراه / ثابت را
+                                وارد کنید ( از اعداد انگلیسی استفاده کنید )</div>
+                            <div [hidden]="!receiverPhoneNumber.errors.pattern" class="error-webapp"> لطفا شماره صحیح را
+                                وارد کنید ( از اعداد انگلیسی استفاده کنید )</div>
                         </div>
 
 
@@ -75,7 +100,9 @@
                     </div>
 
                     <div class="btn-web-app"><button (click)="AcceptDestination()">تایید و ادامه </button></div>
-                    <button *ngIf="typeCity==0 && f.form.valid" data-toggle="modal" data-target="#favoriteaddresses" #addAddress type="button" class="add-favorite"><img src="/assets/img/3-setareh.svg" width="22" height="22"><span>افزودن به آدرس منتخب</span></button>
+                    <button *ngIf="typeCity==0 && f.form.valid" data-toggle="modal" data-target="#favoriteaddresses"
+                        #addAddress type="button" class="add-favorite"><img src="/assets/img/3-setareh.svg" width="22"
+                            height="22"><span>افزودن به آدرس منتخب</span></button>
                 </form>
 
                 <app-error *ngIf="error==true"></app-error>
@@ -103,7 +130,8 @@
 
                 <p class="type-modal">با انتخاب گزینه درب منزل ، مرسوله شما به درب آدرس گیرنده تحویل داده می شود </p>
                 <div class="btn-circle-download" id="btn-ok-address" data-dismiss="modal">
-                    <span class='pulse-button' data-dismiss="modal" (click)="AcceptPacks()"><img src="/assets/img/icon-ok.svg" width="20" /></span>
+                    <span class='pulse-button' data-dismiss="modal" (click)="AcceptPacks()"><img
+                            src="/assets/img/icon-ok.svg" width="20" /></span>
                 </div>
             </div>
         </div>
@@ -116,9 +144,11 @@
         <div class="modal-content modal-content-packs">
 
             <div class="modal-body">
-                <p class="type-modal">با انتخاب گزینه درب ترمینال ، مرسوله شما به پایانه اتوبوسرانی شهر مورد نظر تحویل داده می شود .</p>
+                <p class="type-modal">با انتخاب گزینه درب ترمینال ، مرسوله شما به پایانه اتوبوسرانی شهر مورد نظر تحویل
+                    داده می شود .</p>
                 <div class="btn-circle-download" id="btn-ok-address">
-                    <span class='pulse-button' data-dismiss="modal"><img src="/assets/img/icon-ok.svg" width="20" /></span>
+                    <span class='pulse-button' data-dismiss="modal"><img src="/assets/img/icon-ok.svg"
+                            width="20" /></span>
 
                 </div>
             </div>
@@ -133,9 +163,11 @@
 
                 <div class="btn-circle-download" id="btn-ok-address">
 
-                    <input autocomplete="off" type="text" placeholder="عنوان" #favoriteAddressTitle class="titr-favorite2">
+                    <input autocomplete="off" type="text" placeholder="عنوان" #favoriteAddressTitle
+                        class="titr-favorite2">
                     <span *ngIf="errorAddress!=null">{{errorAddress}}</span>
-                    <span class='pulse-button' (click)="SaveAddress(favoriteAddressTitle.value)"><img src="/assets/img/icon-ok.svg" width="20" /></span>
+                    <span class='pulse-button' (click)="SaveAddress(favoriteAddressTitle.value)"><img
+                            src="/assets/img/icon-ok.svg" width="20" /></span>
                 </div>
             </div>
         </div>

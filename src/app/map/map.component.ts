@@ -62,7 +62,7 @@ savedaddress:any[]=[]
 
  ngOnInit(): void {
 
-
+this._packService.setTypeCity(1);
 
 
 

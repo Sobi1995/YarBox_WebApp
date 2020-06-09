@@ -63,11 +63,14 @@ export class DestinationComponent implements OnInit,OnDestroy {
   }
   ngOnInit() {
     this._webappService.setLoding(true);
+    debugger
+    this.destinationModel=this._postPackService.getDestination();
     setTimeout(() => 
     {
+      
       this.savedaddress = JSON.parse(localStorage.getItem("Favoriteaddressdestination"));
       this._postPackService.setReceiveType("doorToDoor");
-      this.destinationModel=this._postPackService.getDestination();
+  
       this.typeCity =+this._postPackService.getTypeCity();
         if(this.destinationModel.province!=undefined)
       this._webappService.getCities(this.destinationModel.province,this.typeCity).subscribe(res=>{
@@ -88,17 +91,18 @@ export class DestinationComponent implements OnInit,OnDestroy {
 
   }
   PostType(type:number){
-     
+     debugger
  this._postPackService.setTypeCity(type);
   this.Cities=null;
   
      this.typeCity=type;
-     if(type==1) 
+     if(type==0) 
        this._postPackService.setReceiveType("port");
        else{
        this._postPackService.setReceiveType("doorToDoor");
        this.destinationModel.street=""
        this.portlocation=""}
+
        this.destinationModel.city=undefined;
        this.destinationModel.street="";
        if(this.destinationModel.province!=undefined)
@@ -126,7 +130,7 @@ this._webappService.getCities(province,this.typeCity).subscribe(res=>{
   }
   SelectCity(city:string){
     
-      if(this.typeCity==1)
+      if(this.typeCity==0)
   {
     this._webappService.getPortLocation(city).subscribe(res=>{
       this.portlocation=res.location;
